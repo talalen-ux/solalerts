@@ -1,336 +1,47 @@
-# Solana token alerts — rule specifications
+# Solana token alert — single best filter
 #
-# Each alert combines:
-#   - safety_floor (shared anti-rug/anti-bundler gate)
-#   - stage gate (lifecycle window)
-#   - growth filters (the actual signal)
+# Goal: catch tokens at the moment a KOL-validated, volume-backed leg starts,
+# with anti-rug/anti-bundler structure intact and headroom above current mcap.
 #
-# Filter expressions reuse the exact parameter names from filter_parameters.xlsx.
-# Implicit AND between list items. Use "OR" inline within a single string.
-#
-# NOTE on scales:
-#   bonding_progress — sheet description says 0-100 but example shows 0.5.
-#                      Confirm scale before deploying; values below assume 0-100.
-#   fresh_holding_pct, launch_bundle_pct, max_launch_bundle_pct — 0-100.
-#   rugcheck_score — lower = safer.
+# Layered as: safety_floor (must-pass) + growth signals (the catalyst).
+# All parameter names match filter_parameters.xlsx. Implicit AND between items.
 
-# ---------------------------------------------------------------------------
-# Reusable safety floor — applied as a base to every alert unless overridden.
-# ---------------------------------------------------------------------------
-safety_floor: &safety_floor
-  - dev_sold IS NOT TRUE
-  - mayhem IS NOT TRUE
-  - blacklist_count = 0
-  - rugcheck_score < 500
-  - uri_count = 1
-  - image_hash_count = 1
-  - launch_bundle_pct < 25
-  - max_launch_bundle_pct < 35
-  - fresh_holding_pct < 60
-  - top_source <= 2
-  - program_ids_max < 20
-  - program_ids_stddev < 5
-  - name IS NOT NULL
+alert:
+  name: alpha_ignition
+  priority: P0
+  thesis: >
+    KOL has validated the token (>=1 buyer, >=1 holder) AND a $5k+ buy-volume
+    burst hit in the last minute, with net buying, real maker breadth, deep
+    enough LP, positive 1h momentum, proven traction (ath_mc > 50k), and no
+    rug/bundler signals. Headroom enforced by mc < ath_mc * 1.1 to avoid
+    blow-off tops.
 
-# Stricter floor for pre-graduation / very early stage
-safety_floor_strict: &safety_floor_strict
-  - dev_sold IS NOT TRUE
-  - mayhem IS NOT TRUE
-  - blacklist_count = 0
-  - rugcheck_score < 300
-  - uri_count = 1
-  - image_hash_count = 1
-  - launch_bundle_pct < 15
-  - max_launch_bundle_pct < 20
-  - fresh_holding_pct < 40
-  - top_source = 1
-  - dev_deploys < 3        # not a serial farmer
-  - owner_age > 86400      # owner wallet > 1 day old
-  - origin_balance > 1
+  filters:
+    # --- Safety floor (anti-rug / anti-bundler / anti-clone) ---
+    - dev_sold IS NOT TRUE
+    - mayhem IS NOT TRUE
+    - blacklist_count = 0
+    - rugcheck_score < 500
+    - uri_count = 1
+    - image_hash_count = 1
+    - launch_bundle_pct < 25
+    - max_launch_bundle_pct < 35
+    - fresh_holding_pct < 60
+    - top_source <= 2
+    - name IS NOT NULL
 
-alerts:
+    # --- Growth catalyst (KOL + volume burst + clean tape) ---
+    - kol_buyers >= 1
+    - kol_holders >= 1
+    - buy_volume_1m > 5000
+    - buy_volume > sell_volume
+    - buyers > sellers
+    - cnt_distinct_makers > 10
+    - lp_sol > 10
 
-  # =========================================================================
-  # 1. SMART BONDING RUNNER
-  # Thesis: token is climbing the pump.fun bonding curve with smart-money
-  # confirmation, clean distribution, and momentum — likely Raydium graduate.
-  # =========================================================================
-  - name: smart_bonding_runner
-    priority: P0
-    stage: pre_graduation
-    thesis: >
-      Late bonding curve with KOL/CA validation and clean distribution —
-      target tokens about to graduate with continuation potential.
-    filters:
-      - *safety_floor_strict
-      - pumpfun = true
-      - bonding_progress > 70
-      - bonding_progress < 99
-      - buy_volume_1m > 1000
-      - buyers > sellers
-      - cnt_distinct_makers > 10
-      - "kol_buyers >= 1 OR ca_score >= 5"
-    cooldown_minutes: 30
+    # --- Momentum + headroom (still going up, not topped out) ---
+    - mc > mc_1h
+    - ath_mc > 50000
+    - mc < ath_mc * 1.1
 
-  # =========================================================================
-  # 2. FRESH GRADUATE MOMENTUM
-  # Thesis: just migrated to Raydium, deep enough LP, real buying pressure.
-  # =========================================================================
-  - name: fresh_graduate_momentum
-    priority: P0
-    stage: just_graduated
-    thesis: >
-      Migrated to Raydium recently with healthy LP and net buying — first
-      leg-up after graduation tends to extend.
-    filters:
-      - *safety_floor
-      - migration_slot IS NOT NULL
-      - dexscreener = true
-      - lp_sol > 30
-      - lp_ratio > 0.05
-      - mc > mc_1h * 1.3
-      - buy_volume > sell_volume * 1.5
-      - buy_volume_1h > 5000
-      - cnt_distinct_makers > 30
-      - buyers > 50
-    cooldown_minutes: 60
-
-  # =========================================================================
-  # 3. SMART MONEY ACCUMULATION
-  # Thesis: tracked wallets buying drawdown — pre-leg-2 setup.
-  # =========================================================================
-  - name: smart_money_accumulation
-    priority: P0
-    stage: post_drawdown
-    thesis: >
-      Token down >50% from ATH but tracked wallets are buying back —
-      classic re-entry setup if the trend turns.
-    filters:
-      - *safety_floor
-      - tracked_count > 0
-      - ath_mc > 100000
-      - mc < ath_mc * 0.5
-      - mc > mc_1h
-      - buy_volume_1h > sell_volume
-    cooldown_minutes: 120
-
-  # =========================================================================
-  # 4. KOL COORDINATED ENTRY
-  # Thesis: multiple KOLs with proven track record entering simultaneously.
-  # =========================================================================
-  - name: kol_coordinated_entry
-    priority: P0
-    stage: any
-    thesis: >
-      Two or more proven KOLs holding/buying with median multiplier > 5 —
-      historically a strong leading indicator.
-    filters:
-      - *safety_floor
-      - kol_holders >= 2
-      - kol_buyers >= 2
-      - avg_kol_median_xs > 5
-      - buy_volume_1m > 2000
-      - buyers > 10
-    cooldown_minutes: 30
-
-  # =========================================================================
-  # 5. EARLY KOL IGNITION
-  # Thesis: a single KOL buyer + KOL holder paired with a sharp 1-minute
-  # volume burst — earlier-stage cousin of kol_coordinated_entry.
-  # =========================================================================
-  - name: early_kol_ignition
-    priority: P0
-    stage: any
-    thesis: >
-      One KOL buying and one already holding while $5k+ of buy volume hits
-      in a single minute — early ignition before broader KOL pile-on.
-    filters:
-      - *safety_floor
-      - kol_buyers >= 1
-      - kol_holders >= 1
-      - buy_volume_1m > 5000
-      - buyers > sellers
-    cooldown_minutes: 20
-
-  # =========================================================================
-  # 6. CLEAN VOLUME BREAKOUT
-  # Thesis: organic volume + maker breadth + clean book on a token with
-  # established traction (ath_mc filter rules out dead launches).
-  # =========================================================================
-  - name: clean_volume_breakout
-    priority: P1
-    stage: established
-    thesis: >
-      1h volume surge with broad maker participation and no bundler/rug
-      signals — pure momentum play with risk filtered out.
-    filters:
-      - *safety_floor
-      - buy_volume_1h > 5000
-      - buy_volume_1m > 500
-      - buy_volume > sell_volume
-      - cnt_distinct_makers > 20
-      - med_makers > 5
-      - lp_sol > 20
-      - ath_mc > 50000
-      - mc > mc_1h * 1.2
-    cooldown_minutes: 45
-
-  # =========================================================================
-  # 7. NARRATIVE PUSH (CTO / DEXSCREENER BOOST)
-  # Thesis: community takeover or paid attention layered over real activity.
-  # =========================================================================
-  - name: narrative_push
-    priority: P1
-    stage: established
-    thesis: >
-      DexScreener CTO or significant boost with backing volume — narrative
-      catalysts compound when liquidity is already there.
-    filters:
-      - *safety_floor
-      - dexscreener = true
-      - "dex_is_cto = true OR dex_boost > 100"
-      - buy_volume_1h > 3000
-      - cnt_distinct_makers > 15
-      - mc > launch_mc * 5
-      - buyers > sellers
-    cooldown_minutes: 60
-
-  # =========================================================================
-  # 8. QUALITY DEPLOYER
-  # Thesis: deployer/origin has prior successful migrations and clean wallet
-  # history — devs with track record meaningfully outperform random launches.
-  # =========================================================================
-  - name: quality_deployer
-    priority: P1
-    stage: early
-    thesis: >
-      Owner wallet aged + funded, origin not a sniper farm, and deployer has
-      previously migrated tokens successfully.
-    filters:
-      - *safety_floor
-      - owner_age > 86400
-      - owner_tx > 100
-      - owner_balance > 1
-      - origin IS NOT NULL
-      - origin_balance > 10
-      - origin_tx > 50
-      - dev_deploys < 5
-      - dev_migrated >= 1
-      - launched_slot IS NOT NULL
-      - buyers > 10
-    cooldown_minutes: 90
-
-  # =========================================================================
-  # 9. CEX OUTFLOW SIGNAL
-  # Thesis: deposits coming OUT of CEX wallets into the token (whales).
-  # =========================================================================
-  - name: cex_outflow_signal
-    priority: P1
-    stage: any
-    thesis: >
-      CEX-funded buyers entering — whales rotating from CEX into the token
-      ahead of breakouts.
-    filters:
-      - *safety_floor
-      - cnt_from_cex > 1
-      - buyers > 5
-      - buy_volume > sell_volume
-      - mc < 5000000
-      - ath_mc > 100000
-    cooldown_minutes: 60
-
-  # =========================================================================
-  # 10. ATH CONTINUATION
-  # Thesis: token is at or near ATH after sufficient development time —
-  # proven survivors making new highs tend to extend.
-  # =========================================================================
-  - name: ath_continuation
-    priority: P1
-    stage: established
-    thesis: >
-      Making/holding new ATH after building for >1000 slots from launch —
-      filters out one-candle wicks; rewards trend persistence.
-    filters:
-      - *safety_floor
-      - mc > ath_mc * 0.95
-      - ath_slot > launched_slot + 1000
-      - buy_volume_1h > 3000
-      - cnt_distinct_makers > 50
-      - buyers > sellers
-      - lp_sol > 50
-    cooldown_minutes: 60
-
-  # =========================================================================
-  # 11. PER-SLOT MOMENTUM IGNITION
-  # Thesis: explosive single-slot price discovery — rare but high-payoff.
-  # =========================================================================
-  - name: slot_momentum_ignition
-    priority: P0
-    stage: any
-    thesis: >
-      Market cap stepping up slot-over-slot with multiple distinct buyers
-      and a meaningful bundle — early ignition phase.
-    filters:
-      - *safety_floor
-      - mc > prev_slot_mc
-      - mc > mc_1h * 1.5
-      - max_bundle_sol > 10
-      - buy_volume_1m > 2000
-      - buyers > 15
-      - cnt_distinct_makers > 8
-    cooldown_minutes: 15
-
-  # =========================================================================
-  # 12. LOW-MCAP STEALTH
-  # Thesis: very low mcap, real holders, no obvious sins — lottery ticket
-  # bucket sized small.
-  # =========================================================================
-  - name: low_mcap_stealth
-    priority: P2
-    stage: early
-    thesis: >
-      Low mcap with organic distribution and KOL/CA signal — speculative
-      but high-payoff bucket for small position sizing.
-    filters:
-      - *safety_floor_strict
-      - launch_mc < 10000
-      - ath_mc < 500000
-      - lp_sol > 5
-      - cnt_distinct_makers > 8
-      - buyers > sellers
-      - "kol_buyers >= 1 OR ca_score >= 3 OR tracked_count > 0"
-    cooldown_minutes: 120
-
-  # =========================================================================
-  # 13. PRIORITY-FEE FRENZY (contrarian / fade candidate)
-  # Thesis: jito tips and priority fees spiking suggests bot war — useful
-  # as either a confirmation OR a fade signal depending on regime.
-  # Default: tag for review, not auto-buy.
-  # =========================================================================
-  - name: priority_fee_frenzy
-    priority: P2
-    stage: any
-    review_only: true
-    thesis: >
-      Jito tip + priority fee spike = bot competition. Review-only because
-      this is often the top of a wick.
-    filters:
-      - *safety_floor
-      - max_tip > 0.1
-      - med_tip > 0.05
-      - max_prio > 1000000
-      - buy_volume_1m > 3000
-    cooldown_minutes: 30
-
-# ---------------------------------------------------------------------------
-# Suggested ranking (when multiple alerts fire on the same token):
-#
-#   smart_money_accumulation > kol_coordinated_entry > early_kol_ignition
-#   > smart_bonding_runner > fresh_graduate_momentum > slot_momentum_ignition
-#   > clean_volume_breakout > ath_continuation > narrative_push
-#   > cex_outflow_signal > quality_deployer > low_mcap_stealth
-#   > priority_fee_frenzy
-#
-# Token deduplication: emit one notification per (token_address, alert_name)
-# per cooldown_minutes window.
-# ---------------------------------------------------------------------------
+  cooldown_minutes: 20
