@@ -134,7 +134,26 @@ alerts:
     cooldown_minutes: 30
 
   # =========================================================================
-  # 5. CLEAN VOLUME BREAKOUT
+  # 5. EARLY KOL IGNITION
+  # Thesis: a single KOL buyer + KOL holder paired with a sharp 1-minute
+  # volume burst — earlier-stage cousin of kol_coordinated_entry.
+  # =========================================================================
+  - name: early_kol_ignition
+    priority: P0
+    stage: any
+    thesis: >
+      One KOL buying and one already holding while $5k+ of buy volume hits
+      in a single minute — early ignition before broader KOL pile-on.
+    filters:
+      - *safety_floor
+      - kol_buyers >= 1
+      - kol_holders >= 1
+      - buy_volume_1m > 5000
+      - buyers > sellers
+    cooldown_minutes: 20
+
+  # =========================================================================
+  # 6. CLEAN VOLUME BREAKOUT
   # Thesis: organic volume + maker breadth + clean book on a token with
   # established traction (ath_mc filter rules out dead launches).
   # =========================================================================
@@ -157,7 +176,7 @@ alerts:
     cooldown_minutes: 45
 
   # =========================================================================
-  # 6. NARRATIVE PUSH (CTO / DEXSCREENER BOOST)
+  # 7. NARRATIVE PUSH (CTO / DEXSCREENER BOOST)
   # Thesis: community takeover or paid attention layered over real activity.
   # =========================================================================
   - name: narrative_push
@@ -177,7 +196,7 @@ alerts:
     cooldown_minutes: 60
 
   # =========================================================================
-  # 7. QUALITY DEPLOYER
+  # 8. QUALITY DEPLOYER
   # Thesis: deployer/origin has prior successful migrations and clean wallet
   # history — devs with track record meaningfully outperform random launches.
   # =========================================================================
@@ -202,7 +221,7 @@ alerts:
     cooldown_minutes: 90
 
   # =========================================================================
-  # 8. CEX OUTFLOW SIGNAL
+  # 9. CEX OUTFLOW SIGNAL
   # Thesis: deposits coming OUT of CEX wallets into the token (whales).
   # =========================================================================
   - name: cex_outflow_signal
@@ -221,7 +240,7 @@ alerts:
     cooldown_minutes: 60
 
   # =========================================================================
-  # 9. ATH CONTINUATION
+  # 10. ATH CONTINUATION
   # Thesis: token is at or near ATH after sufficient development time —
   # proven survivors making new highs tend to extend.
   # =========================================================================
@@ -242,7 +261,7 @@ alerts:
     cooldown_minutes: 60
 
   # =========================================================================
-  # 10. PER-SLOT MOMENTUM IGNITION
+  # 11. PER-SLOT MOMENTUM IGNITION
   # Thesis: explosive single-slot price discovery — rare but high-payoff.
   # =========================================================================
   - name: slot_momentum_ignition
@@ -262,7 +281,7 @@ alerts:
     cooldown_minutes: 15
 
   # =========================================================================
-  # 11. LOW-MCAP STEALTH
+  # 12. LOW-MCAP STEALTH
   # Thesis: very low mcap, real holders, no obvious sins — lottery ticket
   # bucket sized small.
   # =========================================================================
@@ -283,7 +302,7 @@ alerts:
     cooldown_minutes: 120
 
   # =========================================================================
-  # 12. PRIORITY-FEE FRENZY (contrarian / fade candidate)
+  # 13. PRIORITY-FEE FRENZY (contrarian / fade candidate)
   # Thesis: jito tips and priority fees spiking suggests bot war — useful
   # as either a confirmation OR a fade signal depending on regime.
   # Default: tag for review, not auto-buy.
@@ -306,10 +325,11 @@ alerts:
 # ---------------------------------------------------------------------------
 # Suggested ranking (when multiple alerts fire on the same token):
 #
-#   smart_money_accumulation > kol_coordinated_entry > smart_bonding_runner
-#   > fresh_graduate_momentum > slot_momentum_ignition > clean_volume_breakout
-#   > ath_continuation > narrative_push > cex_outflow_signal
-#   > quality_deployer > low_mcap_stealth > priority_fee_frenzy
+#   smart_money_accumulation > kol_coordinated_entry > early_kol_ignition
+#   > smart_bonding_runner > fresh_graduate_momentum > slot_momentum_ignition
+#   > clean_volume_breakout > ath_continuation > narrative_push
+#   > cex_outflow_signal > quality_deployer > low_mcap_stealth
+#   > priority_fee_frenzy
 #
 # Token deduplication: emit one notification per (token_address, alert_name)
 # per cooldown_minutes window.
