@@ -102,11 +102,15 @@ alert2:
     # Optional tightener if the denominator is too noisy: bonding_progress > 80
   cooldown_minutes: 20
 
-# Validation plan for tier B (no quota needed beyond one backtest):
-#   1. Run the tier B expression as a DRBT backtest over 2 weeks.
-#   2. Export ROW-LEVEL results (like backtest_query_1_2weeks_1.xlsx).
-#   3. Analyze honest forward stats offline (breakout-safe subset or
-#      per-token histories); tune lp_sol / rugcheck / mc ceiling from data.
+# Tier B v3 DRBT backtest, 2 weeks (2026-08-18): n=6,979 (~500/day)
+#   100X+ 0.23% (16)   50X+ 0.62% (43)   20X+ 2.01%   10X+ 5.36%
+#   5X+ 12.21%   3X+ 23.41%   2X+ 39.19%   PostATH 12.44% (inflated rows)
+# Verdict: the moonshot tail is real (>1 hundred-bagger candidate/day) but
+# ~500 signals/day is not a tradeable alert stream. Next: row-level export
+# of this run -> measure which legs separate the 59 50x+ winners from the
+# 3,376 sub-2x losers and tighten with data. Blind tightener candidates
+# (all held on every studied winner): bonding_progress > 80, lp_sol > 40,
+# fresh_holding_pct < 5, launch_bundle_pct < 5.
 #
 # Flattened tier A:
 # buy_volume_1m > 1500 AND mc > 15000 AND mc < 8000000 AND lp_sol > 6
