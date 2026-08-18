@@ -1,33 +1,43 @@
-# Solana token alert — validated baseline + refinement candidates (v3)
+# Solana token alert — alpha_ignition v4 (offline-optimized on row-level export)
 #
-# v3 replaces the theory-driven v2 with an EMPIRICALLY VALIDATED core: the
-# condition below was backtested by the user in DRBT and produced, on 1,049
-# matched tokens:
+# Derived from backtest_query_1_2weeks_1.xlsx: 4,524 unique-mint signals over
+# 2 weeks (2026-08-04..08-18) matching the v3 base condition, with outcomes.
 #
-#   100X+:  0.48%   50X+: 0.95%   20X+: 2.38%   10X+: 6.10%
-#   5X+:   14.59%    3X+: 27.07%   2X+: 41.47%
-#   2X-:   45.00%   PostATH: 13.54%
+# CRITICAL MEASUREMENT FINDING
+# ----------------------------
+# DRBT's `xs` outcome = current_ath_mc / entry_mc over the token's WHOLE LIFE,
+# including price action BEFORE the signal. For every post_ath=True row the
+# ATH predates entry, so its xs is inflated (enter at 0.5x of old ATH ->
+# guaranteed "2x" without the price moving). ~13% of rows are affected, and
+# they concentrate exactly where filters select for "established" tokens
+# (dexscreener-paid + multi-KOL dip entries showed a fake 100% 2x rate).
+# Consequence 1: headline DRBT backtest percentages are inflated; honest
+#   forward numbers require entries at/near ATH, where xs is a true forward
+#   multiple. All v4 numbers below use that universe (mc >= ath_mc * 0.95).
+# Consequence 2: dip-buying strategies CANNOT be evaluated with DRBT xs at
+#   all — their true forward return is simply not in the data.
 #
-# vs. the buy_volume_1m > 5000 solo baseline (29% 2x+, 3.6% 10x+) that is
-# ~1.4-1.7x enrichment at every tier with a real 50x tail.
-#
-# Known weakness: 13.5% of alerts fire AFTER the token's ATH (PostATH).
-# The refinement candidates below target that; each is a single added leg so
-# backtest deltas are directly attributable.
+# Honest forward results (breakout universe, n=3,270, ~234 signals/day):
+#   base:                              2x+ 38.9%  10x+ 5.7%  20x+ 2.3%  EVc20 2.97
+#   + med_makers>=1600 & kol>=1:       2x+ 45.4%  10x+ 8.0%  20x+ 4.2%  EVc20 3.55  (~44/day)
+#   + cnt_from_cex>=10 & mm>=1600:     2x+ 44.2%  10x+ 9.4%  20x+ 4.5%  EVc20 3.60  (~24/day)
+# Both are stable week-over-week. Rejected after honest measurement:
+#   dexscreener/kol overlays (kill the 10x tail), slot momentum (no lift),
+#   deep-dip entries (unmeasurable, see above).
 
 alert:
   name: alpha_ignition
-  version: 3
+  version: 4
   priority: P0
   thesis: >
-    A $1.5k+ one-minute buy burst on a token with real LP, buyer breadth,
-    net buying, and a clean safety floor (rugcheck, no dev sell, no mayhem,
-    low fresh-wallet concentration, low launch bundling, funded origin
-    wallet) catches momentum legs early. Validated: 41.5% of signals did
-    2x+, 6.1% did 10x+.
+    Breakout entry: a $1.5k+/min buy burst on a token trading AT its
+    all-time high (no overhead sellers), with deep maker history
+    (med_makers >= 1600), at least one KOL buyer, real LP, buyer breadth,
+    and a clean safety floor. Honest forward stats: 45% of signals did
+    2x+, 8% did 10x+, 4% did 20x+ at ~44 signals/day.
 
-  # --- VALIDATED CORE (backtested 2026-08-18, n=1049) ---
   filters:
+    # --- v3 validated base (unchanged) ---
     - buy_volume_1m > 1500
     - mc > 15000
     - mc < 8000000
@@ -41,30 +51,19 @@ alert:
     - launch_bundle_pct < 25
     - origin_balance > 1
 
+    # --- v4 additions ---
+    - mc >= ath_mc * 0.95     # breakout guard: at ATH, no bagholders above;
+                              # also the only regime where DRBT xs is honest
+    - med_makers >= 1600      # deep maker history: top-quartile lift +12.5pp
+    - kol_buyers >= 1         # KOL validation (with mm: 45.4% 2x+, 4.2% 20x+)
+
   cooldown_minutes: 20
 
-# --- REFINEMENT CANDIDATES (add ONE at a time, backtest, compare) ---
+# Variant B (fewer, fatter signals ~24/day; best 10x/20x tail):
+#   swap `kol_buyers >= 1` for `cnt_from_cex >= 10`
+#   -> 2x+ 44.2%, 10x+ 9.4%, 20x+ 4.5%, EVc20 3.60
 #
-# A. Headroom — kill the 13.5% PostATH entries (highest expected value):
-#      AND mc < ath_mc * 1.1
-#    Success = PostATH -> ~0%, 2x+ -> 45-48%, 10x tail preserved.
-#
-# B. KOL overlay — does KOL validation add edge on top of clean tape?
-#      AND kol_buyers >= 1 AND kol_holders >= 1
-#    Expect far fewer signals; only keep if per-tier rates rise materially.
-#
-# C. Slot momentum — avoid buying a red candle:
-#      AND mc > prev_slot_mc
-#
-# Prior evidence (kept for reference):
-#   - buy_volume_1m is USD; > 5000 solo: 11,805 matches/week, 29% 2x+.
-#   - mc_1h / uri_count / rugcheck_score / fresh_holding_pct are NULL on
-#     young tokens; bare comparisons on them silently drop rows (v1 bug).
-#   - Generic "LP unlocked" rugcheck flag alone scores ~11,000, so
-#     rugcheck_score < 2000 also implicitly rejects unlocked-LP AMM tokens.
-#   - top_source runs 6-40 in the wild (v1's <= 2 matched nothing).
-
-# Flattened DRBT expression (validated core, paste-ready):
+# Flattened DRBT expression (v4, paste-ready):
 #
 # buy_volume_1m > 1500
 # AND mc > 15000
@@ -78,3 +77,6 @@ alert:
 # AND fresh_holding_pct < 30
 # AND launch_bundle_pct < 25
 # AND origin_balance > 1
+# AND mc >= ath_mc * 0.95
+# AND med_makers >= 1600
+# AND kol_buyers >= 1
