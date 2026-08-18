@@ -155,6 +155,16 @@ alert2:
 #   (zero fresh-wallet holding = dead retail interest; nonzero-but-<10 is
 #   the sweet spot. Stable all 4 weeks.)
 #
+# HEAD-TO-HEAD, same 1-month window, live DRBT runs (2026-08-18):
+#   user base query: n=1,052  2x+ 41.7%  10x+ 6.3%  100x+ 5   PostATH 13.3%
+#   tier B v5:       n=2,123  2x+ 42.0%  10x+ 7.0%  100x+ 10  PostATH  8.3%
+# Same per-signal quality on a 2x larger universe -> twice the 10x/50x/100x
+# catch per month (149/22/10 vs 66/11/5), with less PostATH inflation and
+# structurally earlier entries (15-100k mc vs up to 8M). v5 PROMOTED to
+# primary. Offline honest-xs predictions (42.5/7.1/2.80, ~68/day, 10x100)
+# matched the live engine run (42.0/7.0/2.83, ~71/day, 10x100) — offline
+# tuning from row exports is validated.
+#
 # Sniper variant (small-size auto-buy only; week-unstable):
 #   same as v5 but buyers < 20
 #
