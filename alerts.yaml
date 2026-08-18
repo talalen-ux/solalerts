@@ -163,7 +163,7 @@ alert2:
 # AND launch_bundle_pct < 25 AND origin_balance > 1
 # AND mc >= ath_mc * 0.95 AND med_makers >= 1600 AND kol_buyers >= 1
 #
-# Flattened tier B (v9 = PRIMARY candidate, offline; v8 live-confirmed):
+# Flattened tier B (v9 = PRIMARY, LIVE-CONFIRMED):
 # buy_volume_1m > 1000 AND mc > 15000 AND mc < 100000 AND lp_sol > 25
 # AND buyers > 4 AND buyers < 180 AND buys > sells
 # AND (sellers > 4 OR lp_sol > 90)
@@ -208,6 +208,11 @@ alert2:
 #   launch_bundle_pct > 0.03) -> 2x+ 50.7%, EV 3.73.
 #   Prediction for live 1-month run: n~2,900 (~97/d), 2x+ ~48.8%,
 #   50x+ ~34, 100x+ ~16.
+#   LIVE CONFIRMED (2026-08-18): n=3,021 (~101/d), 2x+ 48.20%, 3x+ 31.61%,
+#   10x+ 7.51%, 50x+ 34, 100x+ 16, PostATH 5.69%. Fifth consecutive
+#   offline-prediction match. v9 = VALIDATED PRIMARY.
+#   NEXT: do not squeeze this month a third time — validate the whole
+#   chain on a FRESH time window (out-of-sample) before further tweaks.
 #   Zero-loss loose-net trim (for lighter future exports, keeps all 50x+):
 #   bv1h<230k, buy_vol<700k, sell_vol<690k, owner_age>2, top_source<55,
 #   max_bundle_sol<170 (-17%).
