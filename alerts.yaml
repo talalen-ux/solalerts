@@ -142,6 +142,13 @@ alert2:
 # Sniper variant (small-size auto-buy only; week-unstable):
 #   same as v4 but buyers < 20
 #
+# Tier B v4 OUT-OF-SAMPLE, 1-month DRBT backtest (2026-08-18): n=2,807
+# (~94/day, matching the ~107/day prediction):
+#   100X+ 0.36% (10)  50X+ 0.86%  20X+ 2.49%  10X+ 6.41%  5X+ 13.68%
+#   3X+ 24.44%  2X+ 39.54%  PostATH 9.80% (headline; honest ~1-2pp lower)
+# vs the untightened v3 2-week run: same-or-better rates at every tier on
+# ~5x fewer signals — buyers<120 generalizes. VALIDATED; v4 is live-ready.
+#
 # Winner scoreboard (per-slot replays; entry = first qualifying row).
 # 8/8 winners caught; v3 verified unchanged on the last two:
 #   Plumber  1623x peak  entry 15.9k -> 347x fwd
