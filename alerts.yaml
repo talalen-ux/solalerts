@@ -122,10 +122,15 @@ alert2:
 # AND mayhem IS NOT TRUE AND fresh_holding_pct < 10
 # AND launch_bundle_pct < 10
 #
-# Winner scoreboard (per-slot replays; entry = first qualifying row):
+# Winner scoreboard (per-slot replays; entry = first qualifying row).
+# 8/8 winners caught; v3 verified unchanged on the last two:
 #   Plumber  1623x peak  entry 15.9k -> 347x fwd
 #   FTR       239x peak  entry 17.6k ->  44x fwd
 #   MARIO64   849x peak  entry 15.5k -> 164x fwd
 #   BULLSHIT 1035x peak  entry 18.9k -> 123x fwd
 #   DPG      1897x peak  entry 17.0k -> 264x fwd
 #   Z500     1575x peak  entry 80.0k ->  44x fwd (blasted 2.2k->100k in 45s)
+#   EYE      3105x peak  entry 31.2k -> 224x fwd (only 4 qualifying rows —
+#                                       the alert must act fast)
+#   67coin   1064x peak  entry 15.1k -> 276x fwd (ended at 15% of peak:
+#                                       exits matter as much as entries)
