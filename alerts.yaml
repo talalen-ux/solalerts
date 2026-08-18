@@ -322,3 +322,30 @@ alert2:
 #                                       the alert must act fast)
 #   67coin   1064x peak  entry 15.1k -> 276x fwd (ended at 15% of peak:
 #                                       exits matter as much as entries)
+
+# ---------------------------------------------------------------------------
+# TIER C — MOONNET (wide moonshot trawler; run ALONGSIDE v9, tiny size)
+# Purpose: recall. v9 catches 16/58 zone hundred-baggers; MOONNET catches
+# 49/58 at 557/d (live-confirmed 2026-08-18: n=16,720, 2x+ 43.44%,
+# 20x 338, 50x 111, 100x 49 — 6th consecutive offline-prediction match).
+#
+# MOONNET v2 (quality-aware cut, stable all 4 weeks, offline):
+#   base:  557/d  2x+ 43.4%  20x 338  50x 111  100x 49
+#   v2:    390/d  2x+ 45.7%  20x 258  50x  85  100x 40   (buyers<250,
+#          sellers>8 OR lp>90, bv1m<15000)
+#   conservative alt (keep 96% of 100x): buyers<400, no burst ceiling ->
+#          490/d, 44.5%, 314/102/47.
+# Note: a volume-greedy pass initially picked rug<100 — rejected: it cut
+# rows running 53% 2x+ (better than average). Legs must cut BAD mass.
+#
+# Flattened MOONNET v2:
+# buy_volume_1m > 500 AND buy_volume_1m < 15000
+# AND mc > 15000 AND mc < 100000 AND lp_sol > 10
+# AND buyers > 4 AND buyers < 250 AND buys > sells
+# AND (sellers > 8 OR lp_sol > 90)
+# AND (rugcheck_score IS NULL OR rugcheck_score < 11000)
+# AND mayhem IS NOT TRUE
+# AND fresh_holding_pct < 20 AND launch_bundle_pct < 20
+# AND (max_launch_bundle_pct IS NULL OR max_launch_bundle_pct < 60)
+# AND buy_volume_1h < 230000 AND top_source <= 54
+# AND owner_age > 2 AND max_bundle_sol < 170
