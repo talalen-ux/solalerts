@@ -349,3 +349,36 @@ alert2:
 # AND (max_launch_bundle_pct IS NULL OR max_launch_bundle_pct < 60)
 # AND buy_volume_1h < 230000 AND top_source <= 54
 # AND owner_age > 2 AND max_bundle_sol < 170
+
+# MOONNET v3 (2026-08-18, offline on the live-confirmed MOONNET export):
+# Three NEW parameter families found after exhausting the usual ones:
+#   mc_d1 IS NULL          — token must not have existed yesterday; old
+#                            tokens re-triggering ran 25.4% 2x+, no tail.
+#   buys < buyers * 1.7    — churn cap: buys >> unique buyers = wash
+#                            re-buying; those rows ran 36.9% 2x+.
+#   dev_migrated <= 2      — serial-launcher cap: owners with 3+ migrated
+#                            tokens are factories (39.4% vs 50.4% 2x+).
+# (dist_prio<150 also discriminates but is NOT an official DRBT filter
+# param — and the variant without it kept MORE tail anyway.)
+# Ladder (all stable in all 4 weeks):
+#   v2:              390/d  2x+ 45.7%  20x 258  50x 85  100x 40
+#   + fresh+churn:   345/d  2x+ 47.0%  20x 235  50x 77  100x 37
+#   v3 (+dev cap):   219/d  2x+ 50.7%  20x 157  50x 50  100x 24
+# v3 nominally dominates v9 (2x volume, more tail, higher rate) but is
+# three mining passes into one month — needs a fresh-window test before
+# any such promotion.
+#
+# Flattened MOONNET v3:
+# buy_volume_1m > 500 AND buy_volume_1m < 15000
+# AND mc > 15000 AND mc < 100000 AND lp_sol > 10
+# AND buyers > 4 AND buyers < 250 AND buys > sells
+# AND buys < buyers * 1.7
+# AND (sellers > 8 OR lp_sol > 90)
+# AND (rugcheck_score IS NULL OR rugcheck_score < 11000)
+# AND mayhem IS NOT TRUE
+# AND fresh_holding_pct < 20 AND launch_bundle_pct < 20
+# AND (max_launch_bundle_pct IS NULL OR max_launch_bundle_pct < 60)
+# AND buy_volume_1h < 230000 AND top_source <= 54
+# AND owner_age > 2 AND max_bundle_sol < 170
+# AND mc_d1 IS NULL
+# AND (dev_migrated IS NULL OR dev_migrated <= 2)
