@@ -155,15 +155,19 @@ alert2:
 #   (zero fresh-wallet holding = dead retail interest; nonzero-but-<10 is
 #   the sweet spot. Stable all 4 weeks.)
 #
-# HEAD-TO-HEAD, same 1-month window, live DRBT runs (2026-08-18):
-#   user base query: n=1,052  2x+ 41.7%  10x+ 6.3%  100x+ 5   PostATH 13.3%
-#   tier B v5:       n=2,123  2x+ 42.0%  10x+ 7.0%  100x+ 10  PostATH  8.3%
-# Same per-signal quality on a 2x larger universe -> twice the 10x/50x/100x
-# catch per month (149/22/10 vs 66/11/5), with less PostATH inflation and
-# structurally earlier entries (15-100k mc vs up to 8M). v5 PROMOTED to
-# primary. Offline honest-xs predictions (42.5/7.1/2.80, ~68/day, 10x100)
-# matched the live engine run (42.0/7.0/2.83, ~71/day, 10x100) — offline
-# tuning from row exports is validated.
+# HEAD-TO-HEAD, same 1-month window, live DRBT runs (2026-08-18).
+# (An earlier note here compared a 2-week base run against the month run;
+# corrected below with the user's month-long base rerun.)
+#   base query: n=1,800 (~60/d)  2x+ 39.1%  10x+ 6.28%  20x+ 2.61%
+#               50x+ 1.00%  100x+ 10  PostATH 14.1%
+#   tier B v5:  n=2,123 (~71/d)  2x+ 42.0%  10x+ 7.02%  20x+ 2.83%
+#               50x+ 1.04%  100x+ 10  PostATH  8.3%
+# v5 leads every rate with +18% volume; PostATH-corrected honest 2x+ is
+# ~41% vs ~36.5% (+4.5pp). 100x counts tie at 10, but v5's are entered at
+# 15-100k mc by construction vs anywhere up to 8M. v5 PROMOTED to primary.
+# Offline honest-xs predictions (42.5/7.1/2.80, ~68/day, 10x100) matched
+# the live engine run (42.0/7.0/2.83, ~71/day, 10x100) — offline tuning
+# from row exports is validated.
 #
 # Sniper variant (small-size auto-buy only; week-unstable):
 #   same as v5 but buyers < 20
