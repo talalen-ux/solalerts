@@ -176,6 +176,19 @@ alert2:
 #     PostATH 7.58%. Fourth consecutive offline-prediction match.
 #     vs v7 live: 100x +78%, 50x +55%, 10x count +72%, 2x+ +3.3pp,
 #     sub-2x -2.8pp. v8 is the validated primary.
+#
+# v8 row-export findings (n=3,324, final):
+#   Two 100x ARCHETYPES: (a) crowd migrations — buyers 50-171, burst
+#   2.7-8.8k, lp 46-85, bonding 82-100 (11 of 16); (b) stealth whale
+#   launches — buyers 5-10, burst 1-7k, LP 90-385 SOL, no bonding curve
+#   (5 of 16). v7 was structurally blind to (b); v8's relaxed buyer/burst
+#   floors are what admit it.
+#   TIME TO PEAK scales with size (median): 2-3x 7min | 5-10x 51min |
+#   10-20x 1.5h | 20-50x 3.9h | 50x+ 6.2h (IQR 1.7-22h). Exit design:
+#   quick TP at 2x, moonbag held ~24h captures the 50x+ tail.
+#   Moon-vs-loser medians inside v8 are ~identical on every param —
+#   information limit reached again; next filter touch is a loose-net
+#   bound-drift audit in a few weeks, not new legs.
 #   Zero-loss loose-net trim (for lighter future exports, keeps all 50x+):
 #   bv1h<230k, buy_vol<700k, sell_vol<690k, owner_age>2, top_source<55,
 #   max_bundle_sol<170 (-17%).
