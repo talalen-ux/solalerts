@@ -70,7 +70,7 @@ alert:
 # ---------------------------------------------------------------------------
 alert2:
   name: moonshot_cto
-  version: 5   # v6 experiment reverted — see v6 LIVE RESULT note below
+  version: 7   # v6 experiment reverted; v7 adds the organic-flow OR-gate
   priority: P0
   thesis: >
     Freshly migrated/launched token with a very clean launch (fresh/bundle
@@ -108,6 +108,15 @@ alert2:
     - mayhem IS NOT TRUE
     - fresh_holding_pct < 10      # kept strict/non-NULL: chain-derived,
     - launch_bundle_pct < 10      # populated from row 0 on all 6 winners
+    - "(max_tip IS NULL OR max_tip < 0.005 OR sell_volume < buy_volume * 0.5)"
+                                  # v7 organic-flow gate, derived on the TRUE
+                                  # v5 row export and confirmed live. Cuts
+                                  # rows that are BOTH bot-sniped (max Jito
+                                  # tip >= 0.005 SOL) AND profit-taking-heavy
+                                  # (sell volume >= half of buy volume).
+                                  # Moonshots ride organic flow: moon median
+                                  # max_tip 0.001 vs loser 0.004; moon sell/
+                                  # buy 0.31 vs 0.40. OR-form keeps the tail.
     # v6 experiment (REVERTED after live test — cost 2x-rate and four 50x
     # winners vs v5; raises tail-per-alert concentration only):
     #   AND buy_volume_1h < 20000 AND launch_mc < 6000
@@ -140,13 +149,25 @@ alert2:
 # AND launch_bundle_pct < 25 AND origin_balance > 1
 # AND mc >= ath_mc * 0.95 AND med_makers >= 1600 AND kol_buyers >= 1
 #
-# Flattened tier B (v5 = PRIMARY):
+# Flattened tier B (v7 = PRIMARY, deployed to DRBT filter 1):
 # buy_volume_1m > 2000 AND mc > 15000 AND mc < 100000 AND lp_sol > 25
 # AND buyers > 8 AND buyers < 120 AND buys > sells
 # AND sellers < buyers * 0.45
 # AND (rugcheck_score IS NULL OR rugcheck_score < 100)
 # AND mayhem IS NOT TRUE AND fresh_holding_pct < 10
 # AND launch_bundle_pct < 10
+# AND (max_tip IS NULL OR max_tip < 0.005 OR sell_volume < buy_volume * 0.5)
+#
+# v7 vs v5, LIVE month backtests (2026-08-18):
+#   v5: n=2,122 (71/d)  2x+ 42.04%  10x+ 7.02%  20x+ 2.87%  50x+ 1.08%  100x 10
+#   v7: n=1,734 (58/d)  2x+ 42.45%  10x+ 7.96%  20x+ 3.23%  50x+ 1.27%  100x  9
+# Offline honest-xs prediction matched live to the decimal again. Stable in
+# all 4 weeks incl. the cold one (EV 2.80 -> 3.02). Cost: 11 of 149 tens
+# and 1 of 10 hundreds (Remus — bot-sniped AND sell-heavy at entry).
+# v7 fingerprint lesson (true v5 universe): buy_volume_1h and launch_mc do
+# NOT discriminate here (v6's edge was base-universe-only). What does:
+# organic flow (low Jito tips), quiet sell tape, dev-not-yet-sold, and a
+# moderate (not spiking) 1-minute burst.
 #
 # v6 variant (higher moonshot-per-alert, lower overall EV; for manual
 # review streams only): append AND buy_volume_1h < 20000 AND launch_mc < 6000
