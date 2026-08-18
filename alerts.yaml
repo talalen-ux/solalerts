@@ -70,7 +70,7 @@ alert:
 # ---------------------------------------------------------------------------
 alert2:
   name: moonshot_cto
-  version: 4
+  version: 5
   priority: P0
   thesis: >
     Freshly migrated/launched token with a very clean launch (fresh/bundle
@@ -93,6 +93,11 @@ alert2:
                                   # entry was the single strongest stable
                                   # discriminator (earlier = better).
     - buys > sells
+    - sellers < buyers * 0.45     # v5: seller-scarcity. Stable in all 4
+                                  # weeks of the month export (EV up even in
+                                  # the cold week), lifts every tier, keeps
+                                  # all ten 100x winners. If DRBT rejects a
+                                  # float multiplier use: sellers * 2 < buyers
     - "(rugcheck_score IS NULL OR rugcheck_score < 100)"
                                   # v3: NULL-safe. Rugcheck's scan lags fast
                                   # movers: Z500 (1575x) hit 100k mc in 45s
@@ -132,15 +137,26 @@ alert2:
 # AND launch_bundle_pct < 25 AND origin_balance > 1
 # AND mc >= ath_mc * 0.95 AND med_makers >= 1600 AND kol_buyers >= 1
 #
-# Flattened tier B (v4):
+# Flattened tier B (v5):
 # buy_volume_1m > 2000 AND mc > 15000 AND mc < 100000 AND lp_sol > 25
 # AND buyers > 8 AND buyers < 120 AND buys > sells
+# AND sellers < buyers * 0.45
 # AND (rugcheck_score IS NULL OR rugcheck_score < 100)
 # AND mayhem IS NOT TRUE AND fresh_holding_pct < 10
 # AND launch_bundle_pct < 10
 #
+# v5 month-export results (honest xs, stable in each of the 4 weeks):
+#   ~68/day  2x+ 42.5%  10x+ 7.1%  20x+ 2.80%  50x+ 1.08%  100x kept 10/10
+#   EVc20 3.30 vs 3.11 baseline; cold-week EV 2.85 vs 2.46.
+#
+# PREMIUM overlay (size-up signal, not a replacement — keeps only 2/10
+# 100x'ers): add  AND fresh_holding_pct > 0.5
+#   ~8/day  2x+ 50.6%  10x+ 10.4%  20x+ 5.18%  50x+ 2.39%  EVc20 4.12
+#   (zero fresh-wallet holding = dead retail interest; nonzero-but-<10 is
+#   the sweet spot. Stable all 4 weeks.)
+#
 # Sniper variant (small-size auto-buy only; week-unstable):
-#   same as v4 but buyers < 20
+#   same as v5 but buyers < 20
 #
 # Tier B v4 OUT-OF-SAMPLE, 1-month DRBT backtest (2026-08-18): n=2,807
 # (~94/day, matching the ~107/day prediction):
