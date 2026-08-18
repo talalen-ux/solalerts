@@ -70,7 +70,7 @@ alert:
 # ---------------------------------------------------------------------------
 alert2:
   name: moonshot_cto
-  version: 8   # v8: three bounds relaxed after loose-universe recall audit
+  version: 9   # v9: seller-validation OR whale-LP exemption
   priority: P0
   thesis: >
     Freshly migrated/launched token with a very clean launch (fresh/bundle
@@ -111,6 +111,17 @@ alert2:
     - mayhem IS NOT TRUE
     - fresh_holding_pct < 10      # kept strict/non-NULL: chain-derived,
     - launch_bundle_pct < 10      # populated from row 0 on all 6 winners
+    - "(sellers > 4 OR lp_sol > 90)"
+                                  # v9 archetype gate, from the v8 row export
+                                  # (n=3,324). Sub-2x losers cluster at near-
+                                  # zero sellers (sellers 1-5: 29% 2x+) — no
+                                  # seller flow = no validated two-way market.
+                                  # EXCEPT stealth whale launches (5 of 16
+                                  # hundred-baggers had 5-10 buyers, LP 90-385)
+                                  # which legitimately have no sellers yet —
+                                  # exempted via lp_sol > 90. Stable all 4
+                                  # weeks; keeps ALL 34 fifties + 16 hundreds;
+                                  # thresholds flat (no knife-edge).
     - "(max_tip IS NULL OR max_tip < 0.005 OR sell_volume < buy_volume * 0.5)"
                                   # v7 organic-flow gate, derived on the TRUE
                                   # v5 row export and confirmed live. Cuts
@@ -152,10 +163,10 @@ alert2:
 # AND launch_bundle_pct < 25 AND origin_balance > 1
 # AND mc >= ath_mc * 0.95 AND med_makers >= 1600 AND kol_buyers >= 1
 #
-# Flattened tier B (v8 = PRIMARY, LIVE-CONFIRMED 2026-08-18; deploy to
-# DRBT filter 1 — v7 still occupies the slot until the connector returns):
+# Flattened tier B (v9 = PRIMARY candidate, offline; v8 live-confirmed):
 # buy_volume_1m > 1000 AND mc > 15000 AND mc < 100000 AND lp_sol > 25
 # AND buyers > 4 AND buyers < 180 AND buys > sells
+# AND (sellers > 4 OR lp_sol > 90)
 # AND sellers < buyers * 0.45
 # AND (rugcheck_score IS NULL OR rugcheck_score < 100)
 # AND mayhem IS NOT TRUE AND fresh_holding_pct < 10
@@ -187,8 +198,16 @@ alert2:
 #   10-20x 1.5h | 20-50x 3.9h | 50x+ 6.2h (IQR 1.7-22h). Exit design:
 #   quick TP at 2x, moonbag held ~24h captures the 50x+ tail.
 #   Moon-vs-loser medians inside v8 are ~identical on every param —
-#   information limit reached again; next filter touch is a loose-net
-#   bound-drift audit in a few weeks, not new legs.
+#   but the LOSER-density scan still found one stable pocket -> v9.
+#
+# v9 offline result (v8 row export, stable in all 4 weeks):
+#   v8: 111/d  <2x 54.2%  2x+ 45.8%  10x 238  50x 34  100x 16  EV 3.45
+#   v9:  97/d  <2x 51.2%  2x+ 48.8%  10x 224  50x 34  100x 16  EV 3.61
+#   ZERO tail loss. Optional rate-tightener (skipped in core: interior-
+#   range smell + costs 2 hundreds): AND (launch_bundle_pct < 0.01 OR
+#   launch_bundle_pct > 0.03) -> 2x+ 50.7%, EV 3.73.
+#   Prediction for live 1-month run: n~2,900 (~97/d), 2x+ ~48.8%,
+#   50x+ ~34, 100x+ ~16.
 #   Zero-loss loose-net trim (for lighter future exports, keeps all 50x+):
 #   bv1h<230k, buy_vol<700k, sell_vol<690k, owner_age>2, top_source<55,
 #   max_bundle_sol<170 (-17%).
