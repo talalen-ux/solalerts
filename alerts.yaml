@@ -171,6 +171,17 @@ alert2:
 #   Theme: moonshots are SMALLER, QUIETER, EARLIER; losers are already-
 #     cooked pumps entered late.
 #
+# v6 LIVE RESULT + CORRECTION (2026-08-18): the row export used to derive
+# the v6 legs was the BASE query's month run (n=1,800), not v5's (n=2,123)
+# — its counts match the base histogram exactly. Live v6 month run:
+#   n=1,556  2x+ 39.7%  10x+ 6.75%  20x+ 3.02%  50x 18  100x 10  pATH 8.7%
+# vs live v5: 2x+ 42.0%, 10x+ 7.02%, 50x 22, ~3.18 vs ~3.08 EV/signal.
+# VERDICT: v5 REMAINS PRIMARY. v6's quiet-hour/humble-launch legs raised
+# tail concentration (100x rate 0.64% vs 0.47%) but cost 2x-rate and four
+# 50x winners — use v6 only if optimizing moonshot-per-alert for manual
+# review. A legitimate v7 needs moon-vs-loser fingerprinting ON THE V5
+# ROW EXPORT (n=2,123), not the base universe.
+#
 # v5 month-export results (honest xs, stable in each of the 4 weeks):
 #   ~68/day  2x+ 42.5%  10x+ 7.1%  20x+ 2.80%  50x+ 1.08%  100x kept 10/10
 #   EVc20 3.30 vs 3.11 baseline; cold-week EV 2.85 vs 2.46.
