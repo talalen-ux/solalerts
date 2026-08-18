@@ -70,7 +70,7 @@ alert:
 # ---------------------------------------------------------------------------
 alert2:
   name: moonshot_cto
-  version: 6
+  version: 5   # v6 experiment reverted — see v6 LIVE RESULT note below
   priority: P0
   thesis: >
     Freshly migrated/launched token with a very clean launch (fresh/bundle
@@ -108,14 +108,9 @@ alert2:
     - mayhem IS NOT TRUE
     - fresh_holding_pct < 10      # kept strict/non-NULL: chain-derived,
     - launch_bundle_pct < 10      # populated from row 0 on all 6 winners
-    - buy_volume_1h < 20000       # v6 "quiet hour": moonshots enter BEFORE
-                                  # the crowd (moon median 1h-volume $7.2k vs
-                                  # loser $11.4k). Threshold set to 20k so all
-                                  # 10 100x'ers pass (two sat at 15.7k/17.9k).
-    - launch_mc < 6000            # v6 "humble launch": every 50x+ and 100x+
-                                  # winner launched below 4.2k mc; losers
-                                  # median 4.8k. (lp_sol_launch < 20 is the
-                                  # same signal, corr 0.99 — don't add both.)
+    # v6 experiment (REVERTED after live test — cost 2x-rate and four 50x
+    # winners vs v5; raises tail-per-alert concentration only):
+    #   AND buy_volume_1h < 20000 AND launch_mc < 6000
     # deliberately ABSENT: dev_sold, origin_balance, med_makers, breakout,
     # kol_buyers (0% pass on DPG), migration_slot IS NOT NULL (the field is
     # still NULL at the best entry rows — it backfills a few slots later)
@@ -145,14 +140,16 @@ alert2:
 # AND launch_bundle_pct < 25 AND origin_balance > 1
 # AND mc >= ath_mc * 0.95 AND med_makers >= 1600 AND kol_buyers >= 1
 #
-# Flattened tier B (v6):
+# Flattened tier B (v5 = PRIMARY):
 # buy_volume_1m > 2000 AND mc > 15000 AND mc < 100000 AND lp_sol > 25
 # AND buyers > 8 AND buyers < 120 AND buys > sells
 # AND sellers < buyers * 0.45
 # AND (rugcheck_score IS NULL OR rugcheck_score < 100)
 # AND mayhem IS NOT TRUE AND fresh_holding_pct < 10
 # AND launch_bundle_pct < 10
-# AND buy_volume_1h < 20000 AND launch_mc < 6000
+#
+# v6 variant (higher moonshot-per-alert, lower overall EV; for manual
+# review streams only): append AND buy_volume_1h < 20000 AND launch_mc < 6000
 #
 # v6 vs v5 on the same month row-export (honest xs, stable all 4 weeks):
 #   v5: 60.0/d  <2x 60.9%  2x+ 39.1%  10x+ 6.3%  50x 18  100x 10  EV 3.06
