@@ -58,32 +58,41 @@ alert:
   cooldown_minutes: 20
 
 # ---------------------------------------------------------------------------
-# TIER B — community-takeover moonshot (CANDIDATE — needs row-level backtest)
-# Built from the shared early-entry profile of the three missed 100x tokens.
-# Deliberately dev-agnostic; tighter clean-launch + LP legs compensate.
+# TIER B — fresh-migration moonshot (CANDIDATE — needs row-level backtest)
+# v2 after 4th winner (DPG, 1897x): the play is now identified as a
+# FRESH-MIGRATION SNIPE. All four winners' first tier-B-qualifying rows were
+# minutes after LP migration (median 0.3-7.6 min post migration_slot),
+# bonding_progress 85-88, and the near-identical 51-57 SOL LP.
+# kol_buyers >= 1 was DROPPED: DPG had kol_buyers = 0 for its entire life
+# and that one leg blocked every row of its 15k-100k window (it did 264x
+# forward from the blocked entry). With kol dropped, tier B catches all
+# four winners at 15.5-17.6k mc: 347x / 44x / 164x / 264x forward.
 # ---------------------------------------------------------------------------
 alert2:
   name: moonshot_cto
-  version: 1
+  version: 2
   priority: P0
   thesis: >
-    Dev exited early, community took over: very clean launch (0% fresh /
-    0% bundle, rugcheck ~1), unusually deep LP for its size, a strong
-    buy burst in the 15k-100k mc window, and a KOL arriving. All three
-    studied 100x+ tokens fired here at 16-28k mc (100-346x forward).
+    Freshly migrated token with a very clean launch (fresh/bundle <= 4%,
+    rugcheck ~1), migration-sized LP still intact (~50+ SOL), and a strong
+    buy burst in the 15k-100k mc window. Dev has usually already dumped
+    (community takeover) — deliberately not filtered on.
   filters:
-    - buy_volume_1m > 3000        # all three had 5.7-9.9k at entry
+    - buy_volume_1m > 3000        # winners had 5.3-9.9k at entry
     - mc > 15000
     - mc < 100000                 # early-entry zone; the whole point of tier B
-    - lp_sol > 25                 # deep LP was the standout common trait
+    - lp_sol > 25                 # winners: 51-57; migration LP still intact
     - buyers > 8
     - buys > sells
-    - rugcheck_score < 100        # all three were ~1; strictest clean bar
+    - rugcheck_score < 100        # winners were ~1; strictest clean bar
     - mayhem IS NOT TRUE
     - fresh_holding_pct < 10
     - launch_bundle_pct < 10
-    - kol_buyers >= 1             # delayed Plumber 16k->28k, still 197x fwd
-    # deliberately ABSENT: dev_sold, origin_balance, med_makers, breakout
+    # deliberately ABSENT: dev_sold, origin_balance, med_makers, breakout,
+    # kol_buyers (0% pass on DPG), migration_slot IS NOT NULL (the field is
+    # still NULL at the best entry rows — it backfills a few slots later)
+    # Optional tightener if the denominator is too noisy (held on all 4
+    # winners at entry): bonding_progress > 80
   cooldown_minutes: 20
 
 # Validation plan for tier B (no quota needed beyond one backtest):
@@ -99,8 +108,8 @@ alert2:
 # AND launch_bundle_pct < 25 AND origin_balance > 1
 # AND mc >= ath_mc * 0.95 AND med_makers >= 1600 AND kol_buyers >= 1
 #
-# Flattened tier B:
+# Flattened tier B (v2):
 # buy_volume_1m > 3000 AND mc > 15000 AND mc < 100000 AND lp_sol > 25
 # AND buyers > 8 AND buys > sells AND rugcheck_score < 100
 # AND mayhem IS NOT TRUE AND fresh_holding_pct < 10
-# AND launch_bundle_pct < 10 AND kol_buyers >= 1
+# AND launch_bundle_pct < 10
