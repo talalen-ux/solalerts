@@ -149,6 +149,23 @@ alert2:
 # vs the untightened v3 2-week run: same-or-better rates at every tier on
 # ~5x fewer signals — buyers<120 generalizes. VALIDATED; v4 is live-ready.
 #
+# Row-level month analysis (honest xs), final notes — v4 is FROZEN:
+#   - Regime dominates: cold wk0 2x+ 29.5% / EVc20 2.46 vs hot wk3 44.1% /
+#     3.40, and hot weeks also produce ~2x the signals (72-79/day -> 172/day)
+#     — exposure self-scales with the meta, a convexity worth keeping.
+#   - All ten 100x winners entered with 50-118 buyers, entry mc 14.6k-55k,
+#     lp 33-85, bonding 71-100, kol 0-3, mixed pumpfun/dev_sold: NO further
+#     expressible leg separates them from losers. Filtering is done; the
+#     next edge is execution (latency, sizing, exits) and regime awareness
+#     (scale size with trailing hit rate).
+#   - buyers 9-40 band: best 10x/20x rates but zero 100x'ers and worst cold-
+#     week performance; buyers>=40 floor changes aggregate EV negligibly.
+#     Keeping the 9-120 window.
+#   - Sniper (<20 buyers) is a regime-amplified scalp band (wk0 26.7% 2x+ vs
+#     wk3 55.0%), catches mid-tail (5-20x), never 100x. Small size only.
+#   - 100B-supply meta confirmed transient: 9 rows wk0-2, 56 rows in wk3
+#     (75% 2x+ there). A launchpad wave, not a durable signal.
+#
 # Winner scoreboard (per-slot replays; entry = first qualifying row).
 # 8/8 winners caught; v3 verified unchanged on the last two:
 #   Plumber  1623x peak  entry 15.9k -> 347x fwd
