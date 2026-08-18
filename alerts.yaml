@@ -70,7 +70,7 @@ alert:
 # ---------------------------------------------------------------------------
 alert2:
   name: moonshot_cto
-  version: 3
+  version: 4
   priority: P0
   thesis: >
     Freshly migrated/launched token with a very clean launch (fresh/bundle
@@ -85,6 +85,13 @@ alert2:
     - mc < 100000                 # early-entry zone; the whole point of tier B
     - lp_sol > 25                 # winners: 51-60; migration LP still intact
     - buyers > 8
+    - buyers < 120               # v4: enter EARLY. From the 6,979-row
+                                  # denominator: buyers<120 lifts honest 2x+
+                                  # 39.2->43.1%, 10x+ 5.4->7.5%, 50x+
+                                  # 0.62->1.13%, stable both weeks, and cuts
+                                  # volume ~500->107/day. Buyer count at
+                                  # entry was the single strongest stable
+                                  # discriminator (earlier = better).
     - buys > sells
     - "(rugcheck_score IS NULL OR rugcheck_score < 100)"
                                   # v3: NULL-safe. Rugcheck's scan lags fast
@@ -102,15 +109,21 @@ alert2:
     # Optional tightener if the denominator is too noisy: bonding_progress > 80
   cooldown_minutes: 20
 
-# Tier B v3 DRBT backtest, 2 weeks (2026-08-18): n=6,979 (~500/day)
-#   100X+ 0.23% (16)   50X+ 0.62% (43)   20X+ 2.01%   10X+ 5.36%
-#   5X+ 12.21%   3X+ 23.41%   2X+ 39.19%   PostATH 12.44% (inflated rows)
-# Verdict: the moonshot tail is real (>1 hundred-bagger candidate/day) but
-# ~500 signals/day is not a tradeable alert stream. Next: row-level export
-# of this run -> measure which legs separate the 59 50x+ winners from the
-# 3,376 sub-2x losers and tighten with data. Blind tightener candidates
-# (all held on every studied winner): bonding_progress > 80, lp_sol > 40,
-# fresh_holding_pct < 5, launch_bundle_pct < 5.
+# Tier B v3 denominator (row-level, n=6,979, 2wk, honest xs = ATH-after-entry
+# only): 2x+ 39.2%, 10x+ 5.4%, 20x+ 2.0%, 50x+ 0.62%, ~500/day.
+# Findings from the loser analysis:
+#   - The universe is homogeneous: bonding/lp/fresh/bundle tighteners cut
+#     volume without improving rates (the base legs already select clean).
+#   - buyers-at-entry was the strongest stable discriminator: earlier is
+#     better. buyers<120 -> v4 (107/day, 2x+ 43.1%, 10x+ 7.5%, 50x+ 1.13%).
+#   - Sniper band buyers<20: 12/day, 2x+ 53.8%, 10x+ 14.2%, EVc20 4.8 — but
+#     week-unstable (37% vs 62% 2x+); use only for small-size auto-buy.
+#   - Copycat mints (same symbol as a running winner) pollute the pool;
+#     uri/image clone-count legs tested slightly NEGATIVE — do not add.
+#   - 100B-total-supply launches (n=61, wk2 meta): 72% 2x+, 20% 10x+ — a
+#     transient launchpad fingerprint; monitor, don't hard-code.
+#   - Ladder-exit EV estimate (50% out at 2x, 25% at 5x, rest to ATH cap
+#     20x, losers -50%): broad 1.31x, v4 1.50x, sniper 2.02x per trade.
 #
 # Flattened tier A:
 # buy_volume_1m > 1500 AND mc > 15000 AND mc < 8000000 AND lp_sol > 6
@@ -119,12 +132,15 @@ alert2:
 # AND launch_bundle_pct < 25 AND origin_balance > 1
 # AND mc >= ath_mc * 0.95 AND med_makers >= 1600 AND kol_buyers >= 1
 #
-# Flattened tier B (v3):
+# Flattened tier B (v4):
 # buy_volume_1m > 2000 AND mc > 15000 AND mc < 100000 AND lp_sol > 25
-# AND buyers > 8 AND buys > sells
+# AND buyers > 8 AND buyers < 120 AND buys > sells
 # AND (rugcheck_score IS NULL OR rugcheck_score < 100)
 # AND mayhem IS NOT TRUE AND fresh_holding_pct < 10
 # AND launch_bundle_pct < 10
+#
+# Sniper variant (small-size auto-buy only; week-unstable):
+#   same as v4 but buyers < 20
 #
 # Winner scoreboard (per-slot replays; entry = first qualifying row).
 # 8/8 winners caught; v3 verified unchanged on the last two:
