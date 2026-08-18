@@ -152,8 +152,8 @@ alert2:
 # AND launch_bundle_pct < 25 AND origin_balance > 1
 # AND mc >= ath_mc * 0.95 AND med_makers >= 1600 AND kol_buyers >= 1
 #
-# Flattened tier B (v8 = PRIMARY candidate, pending live confirmation;
-# v7 remains deployed in DRBT filter 1 until then):
+# Flattened tier B (v8 = PRIMARY, LIVE-CONFIRMED 2026-08-18; deploy to
+# DRBT filter 1 — v7 still occupies the slot until the connector returns):
 # buy_volume_1m > 1000 AND mc > 15000 AND mc < 100000 AND lp_sol > 25
 # AND buyers > 4 AND buyers < 180 AND buys > sells
 # AND sellers < buyers * 0.45
@@ -171,6 +171,11 @@ alert2:
 #   v8: 100/d, 2x+ 46.4%, 10x 216, 50x 33, 100x 16, EV 3.47
 #   Both goals improve at once: the tight bounds were cutting winners at a
 #   higher rate than losers. Cold-week EV 2.96 vs v7's 3.10 (only regression).
+#   LIVE CONFIRMATION (1 month, DRBT engine): n=3,324 (~111/d)
+#     2x+ 45.76%  10x+ 238 (7.16%)  20x+ 2.83%  50x+ 34  100x+ 16
+#     PostATH 7.58%. Fourth consecutive offline-prediction match.
+#     vs v7 live: 100x +78%, 50x +55%, 10x count +72%, 2x+ +3.3pp,
+#     sub-2x -2.8pp. v8 is the validated primary.
 #   Zero-loss loose-net trim (for lighter future exports, keeps all 50x+):
 #   bv1h<230k, buy_vol<700k, sell_vol<690k, owner_age>2, top_source<55,
 #   max_bundle_sol<170 (-17%).
