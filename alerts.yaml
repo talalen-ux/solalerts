@@ -1,76 +1,80 @@
-# Solana token alert — single best filter (v2, backtest-informed)
+# Solana token alert — validated baseline + refinement candidates (v3)
 #
-# Goal: catch tokens at the moment a KOL-validated, volume-backed leg starts,
-# with anti-rug/anti-bundler structure intact and headroom above current mcap.
+# v3 replaces the theory-driven v2 with an EMPIRICALLY VALIDATED core: the
+# condition below was backtested by the user in DRBT and produced, on 1,049
+# matched tokens:
 #
-# v2 changes (from DRBT backtest evidence, 1-week window):
-#   - buy_volume_1m is USD. >5000 alone matched 11,805 tokens/week
-#     (baseline: 29% did 2x+, 3.6% did 10x+), so it stays as the burst gate.
-#   - NULL-safety everywhere: mc_1h, uri_count, image_hash_count,
-#     launch_bundle_pct, fresh_holding_pct, rugcheck_score are NULL on
-#     young tokens — bare comparisons silently excluded everything.
-#   - top_source runs 6-40 in the wild; <= 2 was impossible. Relaxed to < 20.
-#   - rugcheck_score: generic "LP unlocked" flag alone scores ~11,000, so
-#     < 500 killed nearly all AMM tokens. < 12000 allows that single generic
-#     flag but still rejects multi-flag tokens (e.g. 21,400).
-#   - uri_count/image_hash_count = 1 replaced with <= 3 OR NULL: clone
-#     relaunches show 4-11 duplicates; 2-3 can be innocent re-uploads.
+#   100X+:  0.48%   50X+: 0.95%   20X+: 2.38%   10X+: 6.10%
+#   5X+:   14.59%    3X+: 27.07%   2X+: 41.47%
+#   2X-:   45.00%   PostATH: 13.54%
 #
-# Flattened DRBT expression is kept in sync at the bottom of this file.
+# vs. the buy_volume_1m > 5000 solo baseline (29% 2x+, 3.6% 10x+) that is
+# ~1.4-1.7x enrichment at every tier with a real 50x tail.
+#
+# Known weakness: 13.5% of alerts fire AFTER the token's ATH (PostATH).
+# The refinement candidates below target that; each is a single added leg so
+# backtest deltas are directly attributable.
 
 alert:
   name: alpha_ignition
-  version: 2
+  version: 3
   priority: P0
   thesis: >
-    KOL has validated the token (>=1 buyer, >=1 holder) AND a $5k+ buy-volume
-    burst hit in the last minute, with net buying, real maker breadth, deep
-    enough LP, momentum (NULL-safe), proven traction, and no rug/bundler
-    signals. Headroom enforced by mc < ath_mc * 1.1 to avoid blow-off tops.
+    A $1.5k+ one-minute buy burst on a token with real LP, buyer breadth,
+    net buying, and a clean safety floor (rugcheck, no dev sell, no mayhem,
+    low fresh-wallet concentration, low launch bundling, funded origin
+    wallet) catches momentum legs early. Validated: 41.5% of signals did
+    2x+, 6.1% did 10x+.
 
+  # --- VALIDATED CORE (backtested 2026-08-18, n=1049) ---
   filters:
-    # --- Safety floor (anti-rug / anti-bundler / anti-clone) ---
-    - dev_sold IS NOT TRUE
+    - buy_volume_1m > 1500
+    - mc > 15000
+    - mc < 8000000
+    - lp_sol > 6
+    - buyers > 8
+    - buys > sells
+    - rugcheck_score < 2000
     - mayhem IS NOT TRUE
-    - blacklist_count = 0
-    - "(rugcheck_score IS NULL OR rugcheck_score < 12000)"
-    - "(uri_count IS NULL OR uri_count <= 3)"
-    - "(image_hash_count IS NULL OR image_hash_count <= 3)"
-    - "(launch_bundle_pct IS NULL OR launch_bundle_pct < 25)"
-    - "(max_launch_bundle_pct IS NULL OR max_launch_bundle_pct < 35)"
-    - "(fresh_holding_pct IS NULL OR fresh_holding_pct < 60)"
-    - top_source < 20
-    - name IS NOT NULL
-
-    # --- Growth catalyst (KOL + volume burst + clean tape) ---
-    - kol_buyers >= 1
-    - kol_holders >= 1
-    - buy_volume_1m > 5000
-    - buy_volume > sell_volume
-    - buyers > sellers
-    - cnt_distinct_makers > 10
-    - lp_sol > 10
-
-    # --- Momentum + headroom (still going up, not topped out) ---
-    - "(mc_1h IS NULL OR mc > mc_1h)"
-    - mc > prev_slot_mc
-    - ath_mc > 50000
-    - mc < ath_mc * 1.1
+    - dev_sold IS NOT TRUE
+    - fresh_holding_pct < 30
+    - launch_bundle_pct < 25
+    - origin_balance > 1
 
   cooldown_minutes: 20
 
-# Flattened single-expression form (DRBT filter syntax):
+# --- REFINEMENT CANDIDATES (add ONE at a time, backtest, compare) ---
 #
-# dev_sold IS NOT TRUE AND mayhem IS NOT TRUE AND blacklist_count = 0
-# AND (rugcheck_score IS NULL OR rugcheck_score < 12000)
-# AND (uri_count IS NULL OR uri_count <= 3)
-# AND (image_hash_count IS NULL OR image_hash_count <= 3)
-# AND (launch_bundle_pct IS NULL OR launch_bundle_pct < 25)
-# AND (max_launch_bundle_pct IS NULL OR max_launch_bundle_pct < 35)
-# AND (fresh_holding_pct IS NULL OR fresh_holding_pct < 60)
-# AND top_source < 20 AND name IS NOT NULL
-# AND kol_buyers >= 1 AND kol_holders >= 1
-# AND buy_volume_1m > 5000 AND buy_volume > sell_volume AND buyers > sellers
-# AND cnt_distinct_makers > 10 AND lp_sol > 10
-# AND (mc_1h IS NULL OR mc > mc_1h) AND mc > prev_slot_mc
-# AND ath_mc > 50000 AND mc < ath_mc * 1.1
+# A. Headroom — kill the 13.5% PostATH entries (highest expected value):
+#      AND mc < ath_mc * 1.1
+#    Success = PostATH -> ~0%, 2x+ -> 45-48%, 10x tail preserved.
+#
+# B. KOL overlay — does KOL validation add edge on top of clean tape?
+#      AND kol_buyers >= 1 AND kol_holders >= 1
+#    Expect far fewer signals; only keep if per-tier rates rise materially.
+#
+# C. Slot momentum — avoid buying a red candle:
+#      AND mc > prev_slot_mc
+#
+# Prior evidence (kept for reference):
+#   - buy_volume_1m is USD; > 5000 solo: 11,805 matches/week, 29% 2x+.
+#   - mc_1h / uri_count / rugcheck_score / fresh_holding_pct are NULL on
+#     young tokens; bare comparisons on them silently drop rows (v1 bug).
+#   - Generic "LP unlocked" rugcheck flag alone scores ~11,000, so
+#     rugcheck_score < 2000 also implicitly rejects unlocked-LP AMM tokens.
+#   - top_source runs 6-40 in the wild (v1's <= 2 matched nothing).
+
+# Flattened DRBT expression (validated core, paste-ready):
+#
+# buy_volume_1m > 1500
+# AND mc > 15000
+# AND mc < 8000000
+# AND lp_sol > 6
+# AND buyers > 8
+# AND buys > sells
+# AND rugcheck_score < 2000
+# AND mayhem IS NOT TRUE
+# AND dev_sold IS NOT TRUE
+# AND fresh_holding_pct < 30
+# AND launch_bundle_pct < 25
+# AND origin_balance > 1
