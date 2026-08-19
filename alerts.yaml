@@ -408,3 +408,18 @@ alert2:
 # AND (lp_sol > 90 OR (buyers < 250 AND sellers > 8
 #      AND buy_volume_1m < 15000 AND buys < buyers * 1.7
 #      AND (mc_d1 IS NULL OR mc > mc_d1)))
+
+# MOONNET v5 (2026-08-18): crowd-branch quality legs (whale branch already
+# 61.4% 2x+ — untouched). med_makers > 88 (crowd of empty wallets = bots)
+# and owner_age > 200 (sub-3-minute owner wallets = burner deploys).
+# Ladder (stable all 4 weeks):
+#   v4:      365/d 47.2%  246/80/38
+#   v5:      313/d 48.4%  218/73/34   <- deployed recommendation
+#   v5-deep: 266/d 50.2%  196/66/29   (adds dust-bundle exclusion:
+#            max_launch_bundle_pct < 0.02 OR >= 0.06 — tiny-nonzero
+#            bundling = bot dust; seen independently in v8-era data too)
+# Flattened v5 = v4 flattened, with the crowd OR-branch extended by:
+#   AND med_makers > 88 AND owner_age > 200
+# NOTE: remaining crowd discriminators are single-digit gaps with real 20x
+# content in every pocket — this month's data is mined out. Next lever is
+# fresh-window validation, not another pass.
