@@ -382,3 +382,29 @@ alert2:
 # AND owner_age > 2 AND max_bundle_sol < 170
 # AND mc_d1 IS NULL
 # AND (dev_migrated IS NULL OR dev_migrated <= 2)
+
+# MOONNET v4 — SEGMENTED COMPOSITE (2026-08-18). v3 retrospective: its
+# dev_migrated <= 2 leg cut 43 of the 61 lost fifties (incl. a 5,116x) —
+# 50x+ winners come from serial deployers as often as first-timers; leg
+# REMOVED. Structural fix instead: different rules per archetype.
+#   whale branch:  lp_sol > 90 — bypasses all crowd legs. This segment
+#                  alone runs 61.4% 2x+ (n=3,166); few buyers/sellers and
+#                  modest bursts are its NATURE, not a defect.
+#   crowd branch:  buyers < 250 AND sellers > 8 AND bv1m < 15000 AND
+#                  buys < buyers*1.7 AND (mc_d1 IS NULL OR mc > mc_d1)
+# Results (offline, stable all 4 weeks):
+#   base: 557/d 43.4%  338/111/49      v3: 219/d 50.7%  157/50/24
+#   v4:   365/d 47.2%  246/80/38   (recovers 14 hundreds, 30 fifties vs v3)
+#   v4-loose (crowd<450, churn 2.1, bv1m<20k): 503/d 44.6% 315/103/48
+#
+# Flattened MOONNET v4:
+# buy_volume_1m > 500 AND mc > 15000 AND mc < 100000 AND lp_sol > 10
+# AND buyers > 4 AND buys > sells
+# AND (rugcheck_score IS NULL OR rugcheck_score < 11000)
+# AND mayhem IS NOT TRUE AND fresh_holding_pct < 20 AND launch_bundle_pct < 20
+# AND (max_launch_bundle_pct IS NULL OR max_launch_bundle_pct < 60)
+# AND buy_volume_1h < 230000 AND top_source <= 54
+# AND owner_age > 2 AND max_bundle_sol < 170
+# AND (lp_sol > 90 OR (buyers < 250 AND sellers > 8
+#      AND buy_volume_1m < 15000 AND buys < buyers * 1.7
+#      AND (mc_d1 IS NULL OR mc > mc_d1)))
