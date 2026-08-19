@@ -475,3 +475,18 @@ alert2:
 #   MOONNET v6: ~323/d  48.1% 2x+  34x100 + 71x50 + 221x20 /mo -> slot 4
 # Per-alert conviction signal inside v6: whale-branch fires (lp_sol > 90)
 # run ~50%+ 2x vs crowd ~42% — usable for tiered sizing.
+
+# MOONNET v6.1 + CONVICTION TIERS (2026-08-19, from v6 live row export):
+#   v6.1: crowd branch gains buy_volume_1m > 1000 — cuts ~320 rows for ONE
+#   lost twenty (220/221, 71/71 fifties, 34/34 hundreds), rate 48.5%,
+#   EV 3.38, stable. The only remaining free cut.
+#   TIERED SIZING (fields observable at alert time; stable):
+#     whale+premium: 66/d  60.7% 2x+  EV 4.13   (size 3x)
+#     whale only:    57/d  55.2%      EV 3.38   (size 2x)
+#     crowd+premium: 43/d  42.3%      EV 3.23   (size 1x)
+#     crowd only:   158/d  42.0%      EV 3.06   (size 0.5-1x)
+#   whale = lp_sol > 90; premium = sellers < buyers*0.45 AND fresh < 10
+#   AND bundle < 10 AND lp_sol > 25 AND buyers < 180 AND tip-gate.
+#   Whale+premium is effectively a discovered elite filter (EV 4.13) —
+#   deployable as its own slot with larger auto-buy size.
+#   Rejected again: sb/tip-gate as hard cuts (would cost 10-13 hundreds).
