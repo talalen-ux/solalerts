@@ -501,3 +501,14 @@ alert2:
 #   MOONNET v6.1: ~313/d 48.5% 2x+ 220x20 / 34x100 per mo (small trawl)
 # Elite is largely a subset of MOONNET — same token often fires both;
 # enable skip_if_owned on the MOONNET slot under auto-buy.
+
+# TIER B v10 (2026-08-19): the 5x-optimized replacement for v9, per the
+# "nothing below 5x, keep everything above, <3000/mo" objective. v10 = the
+# ELITE architecture (whale-LP + premium legs + freshness cap). Live:
+# 2,711/mo, 60.2% 2x+, 24.2% 5x+ (655 fives vs v9's 539 on fewer tokens),
+# PostATH 1.07%. Purity variant: buyers > 7 (instead of > 4) ->
+# ~1,860/mo, 27.4% 5x+, EV 4.29, stable — but the buyers 5-7 pocket holds
+# 7/16 fifties and 3/6 hundreds (incl. a 180x), so only choose it if deep
+# tail is delegated to MOONNET.
+# Rejected for v10: calm-tape crowd slices (wk3 EV collapse — overfit),
+# v9+freshness (v9 already fresh; deficit is structural), mc>20k (neutral).
