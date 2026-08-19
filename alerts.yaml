@@ -465,3 +465,13 @@ alert2:
 # better served by a dedicated relaunch filter if ever wanted.
 # Flattened v6 = v5 flattened + updated_slot < created_slot + 9000, and
 # whale branch becomes (lp_sol > 90 AND buyers < 400).
+
+# MOONNET v6 LIVE CONFIRMATION (1 month, 2026-08-19): n=10,024 (~323/d),
+# 2x+ 48.14%, 10x+ 6.27%, 20x+ 221, 50x+ 71, 100x+ 34, PostATH 6.00%.
+# Prediction was ~9,900 / 48.3% / 219 / 71 / 34 — matched to the digit on
+# the tail; the age cap eliminated the late-entry prediction gap.
+# FINAL SUITE (all live-validated):
+#   tier B v9:  ~104/d  47.6% 2x+  17x100/mo   -> DRBT slot 2 (ACTIVE)
+#   MOONNET v6: ~323/d  48.1% 2x+  34x100 + 71x50 + 221x20 /mo -> slot 4
+# Per-alert conviction signal inside v6: whale-branch fires (lp_sol > 90)
+# run ~50%+ 2x vs crowd ~42% — usable for tiered sizing.
