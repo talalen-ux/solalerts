@@ -435,3 +435,15 @@ alert2:
 # filtering is complete at v5; further sub-5x reduction must come from
 # exits (stop-loss + ladder per the time-to-peak table), sizing, and
 # regime awareness — not from filter legs.
+
+# MOONNET v5 LIVE CONFIRMATION (1 month, 2026-08-18): n=12,527 (~418/d),
+# 2x+ 45.99%, 20x+ 271, 50x+ 87, 100x+ 42, PostATH 8.02%. Tail came in
+# ABOVE prediction (42 vs 34 hundreds): the offline replay judges only
+# each token's first qualifying snapshot, while the live engine admits
+# later-qualifying entries — extra volume, extra tail, slightly diluted
+# rate. Tier B v9 re-run same day: n=3,125, 2x+ 47.62%, 100x 17 — stable.
+# SUITE COMPLETE AND LIVE-CONFIRMED:
+#   v9:  ~104/d  47.6% 2x+  17x100 /mo  (quality stream, larger size)
+#   v5:  ~418/d  46.0% 2x+  42x100 + 87x50 + 271x20 /mo  (trawler, small)
+# Remaining work is execution: slots, max_calls=1, cooldown, sell ladder
+# (50% at 2x, stop -40%, trail moonbag on multi-hour horizon), sizing.
