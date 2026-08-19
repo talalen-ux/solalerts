@@ -423,3 +423,15 @@ alert2:
 # NOTE: remaining crowd discriminators are single-digit gaps with real 20x
 # content in every pocket — this month's data is mined out. Next lever is
 # fresh-window validation, not another pass.
+
+# INFORMATION CEILING MEASUREMENT (2026-08-18, final): a gradient-boosted
+# model (60+ params + engineered ratios, week-held-out CV) separates <5x
+# from >=5x at AUC 0.616 on the MOONNET v5 universe. Best-possible cuts:
+#   bottom 20% of scores: keeps 87.4% of 5x+ but only 25/34 hundreds
+#   bottom 40%: 72.1% / 23 hundreds. ~Every 10% volume costs ~6-7% of 5x+.
+# Top model features include sol_price / sol_price_24h (market REGIME, not
+# token properties). Hundred-baggers score median 62nd pct, min 3rd pct —
+# deep-tail winners look like duds at entry. CONCLUSION: entry-time
+# filtering is complete at v5; further sub-5x reduction must come from
+# exits (stop-loss + ladder per the time-to-peak table), sizing, and
+# regime awareness — not from filter legs.
