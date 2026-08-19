@@ -447,3 +447,21 @@ alert2:
 #   v5:  ~418/d  46.0% 2x+  42x100 + 87x50 + 271x20 /mo  (trawler, small)
 # Remaining work is execution: slots, max_calls=1, cooldown, sell ladder
 # (50% at 2x, stop -40%, trail moonbag on multi-hour horizon), sizing.
+
+# MOONNET v6 (2026-08-19, from the v5 LIVE row export n=12,527): the live
+# engine admits LATE entries offline replays never see. Immediate entries
+# (<=5 slots from debut) ran 48.5% 2x+ with the full tail; the 2,400+
+# delayed entries ran 36-44% with almost none. Leak concentrated in the
+# whale branch: lp_sol crossing 90 happens naturally as ANY token grows,
+# so old pumped tokens entered through the whale gate. Age-at-entry decay:
+# <30min 47.6% | 1-4h 40% | 12-48h 36% | 48h+ 28% 2x+.
+# Fixes: updated_slot < created_slot + 9000 (entry within ~1h of creation
+# — the actual thesis of the play) and whale-branch buyers < 400 (whale 2x+
+# decays 63.5% -> 36% from <50 to >400 buyers).
+#   v5 live: 404/d  46.0%  271/87/42   EV 3.25
+#   v6:      321/d  48.3%  219/71/34   EV 3.36   (stable all 4 weeks)
+#   tighter variant (whale buyers<180): 299/d 48.5% 209/68/33
+# The surrendered tail is mostly 48h+ relaunch pumps — a different play,
+# better served by a dedicated relaunch filter if ever wanted.
+# Flattened v6 = v5 flattened + updated_slot < created_slot + 9000, and
+# whale branch becomes (lp_sol > 90 AND buyers < 400).
