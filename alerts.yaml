@@ -490,3 +490,14 @@ alert2:
 #   Whale+premium is effectively a discovered elite filter (EV 4.13) —
 #   deployable as its own slot with larger auto-buy size.
 #   Rejected again: sb/tip-gate as hard cuts (would cost 10-13 hundreds).
+
+# ELITE FILTER LIVE CONFIRMATION (1 month, 2026-08-19): n=2,711 (~87/d),
+# 2x+ 60.16% (predicted 60.7 — 8th consecutive match), 3x+ 42.2%,
+# 5x+ 24.2%, 10x+ 8.04%, 20x+ 59, 50x+ 17, 100x+ 6, PostATH 1.07% (!).
+# Whale-LP + premium legs + freshness = entries that are almost never
+# late. FINAL THREE-STREAM SYSTEM (all live-validated):
+#   ELITE:      ~87/d  60.2% 2x+   59x20 /  6x100 per mo  (largest size)
+#   tier B v9: ~104/d  47.6% 2x+   93x20 / 17x100 per mo  (medium)
+#   MOONNET v6.1: ~313/d 48.5% 2x+ 220x20 / 34x100 per mo (small trawl)
+# Elite is largely a subset of MOONNET — same token often fires both;
+# enable skip_if_owned on the MOONNET slot under auto-buy.
