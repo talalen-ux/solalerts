@@ -569,3 +569,13 @@ alert2:
 # rate 23% vs base 11%). SUPERSEDES ELITE for the top slot: more 5x rate,
 # more deep tail, fewer alerts. Lineup: PREMIUM-5X (~76/d, size up) /
 # PREMIUM v2 (~140/d) / MOONNET v6.1 (~320/d, small).
+
+# SNIPER (2026-08-24): the <=10/day max-quality stream. PREMIUM-5X
+# architecture with lp_ratio < 0.16 and sellers < buyers * 0.30.
+# Offline (freshest month): 9.8/d, 2x+ 64.3%, 5x+ 33.8%, 10x+ 15.4%,
+# 17x20 3x50 1x100. Weeks 1-4 at 34-38% 5x consistently; wk0 weak on
+# n=28. REJECTED: lpr<0.15 (75% of signals from final 2 weeks — recency
+# trap), fresh>0 (guts tail, cold-collapses), buyers>20 (hurts).
+# CAVEAT: low-lpr population size breathes with regime — expect 5-15/day
+# swings; rates should hold better than volume. Flattened = PREMIUM-5X
+# with sellers*0.30 and lp_ratio<0.16.
