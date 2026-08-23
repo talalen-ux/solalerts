@@ -512,3 +512,15 @@ alert2:
 # tail is delegated to MOONNET.
 # Rejected for v10: calm-tape crowd slices (wk3 EV collapse — overfit),
 # v9+freshness (v9 already fresh; deficit is structural), mc>20k (neutral).
+
+# PREMIUM STREAM LIVE CONFIRMATION (1 month, 2026-08-23): the middle tier
+# (v6 archetype structure + v9 quality legs) run as a standalone query:
+#   n=4,512 (~146/d)  2x+ 50.66%  5x+ 19.33%  10x+ 7.38%  20x+ 111
+#   50x+ 37  100x+ 19  PostATH 4.23% (cleanest wide-stream entries yet).
+# DOMINATES v9 on every axis (rate, tail, PostATH) — expected, since it
+# embeds all post-v9 discoveries. Recommended slot ladder:
+#   slot 1 ELITE (~87/d, 60.2%) | slot 2 PREMIUM (~146/d, 50.7%)
+#   slot 4 MOONNET v6.1 (~320/d, 48.1%) | v9 retired with honors
+#   (its lineage is fully contained in PREMIUM).
+# Live catches to date: TROOPET 91x (v9), EIGENSLUR 92x (v9), HOBBES 30x
+# (v7 slot) — all alerted at <20s token age.
