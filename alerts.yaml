@@ -524,3 +524,17 @@ alert2:
 #   (its lineage is fully contained in PREMIUM).
 # Live catches to date: TROOPET 91x (v9), EIGENSLUR 92x (v9), HOBBES 30x
 # (v7 slot) — all alerted at <20s token age.
+
+# PREMIUM v2 (2026-08-23): two crowd-branch legs, whale branch untouched.
+#   (launch_bundle_pct <= 0.01 OR > 0.02) — dust-bundle micro-range, third
+#   independent appearance across universes (29.2% 2x+ pocket).
+#   program_ids_count >= 7 — monotone; <=6-program tokens run 31% with no
+#   tail. Boundary chosen so TROOPET (10 programs, live 91x) passes; the
+#   data-suggested >10 cut would have blocked it. dev_deploys leg rejected
+#   for the same reason (TROOPET dev: 11,908 deploys).
+# Offline (v6-export universe): 54.6->55.6% 2x+, EV 3.78->3.83, ~4% fewer
+# signals, tail cost 3/1/1. Live expectation ~52% 2x+ at ~140/day.
+# Bolder candidates all rejected: age tightening (no-op — 97% of entries
+# already <5min), dev-history caps, low-bv1h cuts (kills EIGENSLUR-class
+# 18-second entries). A larger jump requires the live PREMIUM row export
+# (late-qualifier cohort + fresh days — un-mined data).
