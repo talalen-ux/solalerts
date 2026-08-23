@@ -559,3 +559,13 @@ alert2:
 # 52-57% weeks — market-wide, both branches equally. No leg changes made
 # or warranted from cold-week data. This is the regime-sizing scenario:
 # throttle size until trailing alert 2x-rate recovers ~45%+.
+
+# PREMIUM-5X LIVE CONFIRMATION (1 month, 2026-08-24): PREMIUM v2 +
+# lp_ratio < 0.22 (price decoupled above its LP anchor = demand-driven).
+#   n=2,358 (~76/d)  2x+ 57.29%  5x+ 25.45%  10x+ 9.37% (best of any
+#   stream)  20x+ 62  50x+ 20  100x+ 8  PostATH 2.16%.
+# Matches offline prediction (incl. exactly 8 hundreds). The lp_ratio leg
+# also nearly removes regime sensitivity for 5x outcomes (cold-week 5x
+# rate 23% vs base 11%). SUPERSEDES ELITE for the top slot: more 5x rate,
+# more deep tail, fewer alerts. Lineup: PREMIUM-5X (~76/d, size up) /
+# PREMIUM v2 (~140/d) / MOONNET v6.1 (~320/d, small).
