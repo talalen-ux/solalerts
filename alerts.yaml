@@ -538,3 +538,16 @@ alert2:
 # already <5min), dev-history caps, low-bv1h cuts (kills EIGENSLUR-class
 # 18-second entries). A larger jump requires the live PREMIUM row export
 # (late-qualifier cohort + fresh days — un-mined data).
+
+# PREMIUM v2 FINAL VALIDATION on the live row export (n=4,512, to Aug 23):
+# v2 legs confirmed out-of-derivation: 50.66 -> 51.62% 2x+, tail kept
+# 107/111 x20, 35/37 x50, 18/19 x100 (~96%+). Further cuts all vetoed:
+#   crowd lp>36: no-op; the bad LP 40-47 band CONTAINS EIGENSLUR's live
+#     92x alert (LP 42.8) — cannot cut.
+#   sellers<20: aggregate looks great but the discarded 35-90 seller band
+#     runs 44.4% with 8/18 hundreds — non-monotone, not a signal.
+# REGIME NOTE: Aug 20-23 ran 35.4% 2x+ across BOTH branches (vs 47-57%
+# prior) — cold snaps hit everything; no leg fixes them. Actionable rule:
+# scale size with the trailing hit rate of one's own alert stream (e.g.
+# halve size when trailing-3d 2x rate < 40%). 15 of 19 hundreds came
+# from hot weeks. PREMIUM v2 declared CONVERGED.
