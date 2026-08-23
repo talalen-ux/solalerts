@@ -551,3 +551,11 @@ alert2:
 # scale size with the trailing hit rate of one's own alert stream (e.g.
 # halve size when trailing-3d 2x rate < 40%). 15 of 19 hundreds came
 # from hot weeks. PREMIUM v2 declared CONVERGED.
+
+# ROLLING REVALIDATION (2026-08-23, freshest Query-4 export n=4,578):
+# Filter to spec (50.2% 2x+, 113/38/19 tail). v2 legs confirmed a THIRD
+# time incl. on never-analyzed post-Aug-23 rows (+~1pp, works in cold).
+# Regime: 4 consecutive cold days (wk 34.6%, fresh slice 33.1%) after
+# 52-57% weeks — market-wide, both branches equally. No leg changes made
+# or warranted from cold-week data. This is the regime-sizing scenario:
+# throttle size until trailing alert 2x-rate recovers ~45%+.
