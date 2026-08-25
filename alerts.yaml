@@ -579,3 +579,18 @@ alert2:
 # CAVEAT: low-lpr population size breathes with regime — expect 5-15/day
 # swings; rates should hold better than volume. Flattened = PREMIUM-5X
 # with sellers*0.30 and lp_ratio<0.16.
+
+# MOON20 (2026-08-25): min-20x-optimized stream, derived by CROSS-UNIVERSE
+# agreement (v9 export n=4,362 AND PREMIUM export n=4,578 independently).
+# Naive all-best-pockets AND gave an EMPTY set with zero 20x'ers kept —
+# the intersection trap; final design uses the 4 strongest agreeing legs:
+#   launch_bundle_pct 3-10  (NEW: real launch skin-in-game is 20x-dense
+#     in BOTH universes 4.28%/4.80%; bot-dust 0.01-0.02% predicts death)
+#   buy_volume_1m 1500-6000 (moderate burst window)
+#   lp_ratio < 0.21         (third independent validation of the law)
+#   buyers < 70             (early crowd)
+# Measured (both universes, nearly identical): ~7/d offline, 2x+ 75.3%,
+# 5x+ ~46%, 10x+ ~22%, 20x+ 8.1-8.4%, 50x 4, 100x 2 each.
+# Prediction live: ~9-11/d, 2x+ ~74%, 20x+ ~8%. CAVEAT: population
+# concentrates in hot weeks; near-silent on cold days (rates hold,
+# volume breathes). Full flattened query in chat / deployable as-is.
