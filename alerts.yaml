@@ -594,3 +594,9 @@ alert2:
 # Prediction live: ~9-11/d, 2x+ ~74%, 20x+ ~8%. CAVEAT: population
 # concentrates in hot weeks; near-silent on cold days (rates hold,
 # volume breathes). Full flattened query in chat / deployable as-is.
+
+# MOON20 LIVE CONFIRMATION (1 month, 2026-08-25): n=240 (~8/d),
+# 2x+ 76.67%, 3x+ 66.25%, 5x+ 47.92%, 10x+ 24.17%, 20x+ 8.75% (21),
+# 50x+ 4, 100x+ 2. Twelfth consecutive prediction match, tightest yet.
+# Best per-alert filter of the project. Recommended as the auto-buy
+# entry stream (supersedes SNIPER-W on every rate at lower churn).
