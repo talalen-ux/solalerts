@@ -704,3 +704,15 @@ alert2:
 # -5pp QUIET) or diffuse. Third confirmation of the entry-time ceiling:
 # residual bad tokens become bad AFTER entry — stop-losses are the filter
 # for post-entry information.
+
+# TOKEN-NAME LINGUISTICS AUDIT (2026-08-26, 35,945 named tokens):
+# Stable (4/5 universes) but NOT expressible in DRBT (no case tests):
+#   all-lowercase names +3.6pp 2x+ / ALL-CAPS names -5.1pp (typography
+#   of hype: shouty = late copycat energy). Use as MANUAL tiebreak.
+# Meta-dependent: 'cat' +4.0pp on n=2,516 (cat season confirmed vs dogs
+# 40.8%) — track, never hardcode.
+# Weak/unstable: 'token' -10.5pp (n=151, near-zero exclusion value),
+# celebrity names -5pp (mixed), 'moon'/long/3+ words -2..-4pp.
+# Tiny-n curiosities: 'baby' +10.9, '.' +6.6 — insufficient evidence.
+# With emoji (neutral) and missing-name (keep in tail streams) audits:
+# name dimension = ~5-9pp of MANUAL signal, ~0pp filter-expressible.
