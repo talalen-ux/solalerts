@@ -651,3 +651,23 @@ alert2:
 # Rate stream, not tail stream (tail is diffuse; kept 3/11 hundreds).
 # Recommended: replace PREMIUM v1 in slot 4 after live confirmation
 # (PREMIUM overlaps slots 1-2; this covers an unwatched archetype).
+
+# GRAND CROSS-ANALYSIS (2026-08-26; 102,094 rows / 36,207 unique mints,
+# all 13 exports pooled, earliest-entry per mint):
+# 1. UNKNOWN NAMES: 3.4% of tokens (metadata never loaded). 2x+ 33.0% vs
+#    41.3% named, but IDENTICAL deep-tail rate (1.87% vs 1.74% 20x+;
+#    incl. 2x100). Verdict: name IS NOT NULL acceptable on rate streams,
+#    DO NOT add to tail streams.
+# 2. All six canonical filters reproduce their profiles on pooled data.
+# 3. PORTFOLIO: HB2T is 100% orthogonal; MOON20 nests in MOONNET; v9
+#    owns 28 unique twenties. Proposed deck {MOON20, v9, MOONNET, HB2T}
+#    captures 292/632 twenties, 89 fifties, 43/74 hundreds vs current
+#    deck 251/83/40. Swaps: slot4 PREMv1->HB2T, slot1 SNIPERW->MOON20.
+# 4. NEW: QUIET-ACCUMULATION archetype (no burst — invisible to every
+#    filter, all of which require bv1m floors): bv1m<1500 AND buyers
+#    20-250 AND lp_sol>50 -> 48.2% 2x+, 60x20/16x50/5x100 per month at
+#    ~108/d on the honest loose denominator, week-stable 43-53%.
+#    Candidate: MOONNET v7 third branch or standalone slot. Requires
+#    backtest + row export before deployment.
+# 5. Frontier: 340 uncovered twenties = mega-crowd 108, aged 61,
+#    fresh/bundle walls 59, low-LP quiet 69, ~60 QUIET-recoverable.
