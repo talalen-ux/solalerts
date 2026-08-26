@@ -600,3 +600,18 @@ alert2:
 # 50x+ 4, 100x+ 2. Twelfth consecutive prediction match, tightest yet.
 # Best per-alert filter of the project. Recommended as the auto-buy
 # entry stream (supersedes SNIPER-W on every rate at lower churn).
+
+# MISSED-RUNNERS AUDIT + HIGHBAND VERDICT (2026-08-26):
+# Audit of the market's top 8 runners (24h): MOONNET v6.1 FIRED on 4 of
+# them in-zone (Pistacio 15.4k->859x, GOON 193x, BATON 130x, George 70x)
+# — but the filter was sitting INACTIVE in slot 4. Not a design miss; a
+# deployment miss. ACTION: activate slot 4 (alerts only).
+# 3 runners (SNIPY/Sky/SpaceCat, the 40k-launch meta) arrive above the
+# 100k ceiling — HIGHBAND draft was built (mc 100-300k, lp>120,
+# lpr<0.15, buyers<50, sellers<5, bv1m>8000, age<10min, NULL-safe).
+# Backtest verdict: FAILS as permanent filter (n=450, 2x+ 22%, thin
+# tail, tightening only reaches 25.6%). BUT week-4 (current days) runs
+# 43% 2x+ / 21% 5x+ — the meta may be emerging NOW. Status: watch-only;
+# re-audit after a week; do not trade on one week of pattern.
+# PUMPFOLIO-class (zone transit <10s, all scans NULL): known edge case,
+# 1 token, no change.
