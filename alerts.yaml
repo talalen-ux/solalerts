@@ -671,3 +671,23 @@ alert2:
 #    backtest + row export before deployment.
 # 5. Frontier: 340 uncovered twenties = mega-crowd 108, aged 61,
 #    fresh/bundle walls 59, low-LP quiet 69, ~60 QUIET-recoverable.
+
+# QUIET v2 LIVE-VALIDATED (2026-08-26): the burst-less archetype confirmed
+# ABOVE prediction. Live: n=5,239 (~169/d), 2x+ 45.77% (honest=headline),
+# 17x100 / 32x50 / 128x20 per month. NOVELTY: 69% of its twenties and 62%
+# of fifties are caught by NO other filter — largest coverage addition of
+# the project. v2 refinement (lpr<0.25 + bv1h<13000, 'quiet on the hour
+# too'): 117/d, 2x+ 50.6%, 5x+ 22.6%, keeps 97/25/14 of the tail,
+# positive all 5 weeks. Note: more cold-sensitive than burst filters
+# (wk4 27-29%).
+# UPDATED PORTFOLIO MATH: distinct-tail ranking MOONNET(223x20) >
+# QUIET(~65 unique) > HB2T(41 unique, orthogonal) > v9(28 unique; 75%
+# subsumed by MOONNET) > rate streams. Max-coverage deck:
+# {MOONNET, QUIET v2, HB2T, MOON20} ~= 57% of catchable twenties;
+# v9 retire-able with honors.
+# Flattened QUIET v2:
+# buy_volume_1m < 1500 AND buy_volume_1h < 13000
+# AND mc > 15000 AND mc < 100000 AND buyers >= 20 AND buyers < 250
+# AND lp_sol > 50 AND lp_ratio < 0.25 AND mayhem IS NOT TRUE
+# AND (rugcheck_score IS NULL OR rugcheck_score < 20000)
+# AND fresh_holding_pct < 35 AND launch_bundle_pct < 35
