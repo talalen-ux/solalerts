@@ -639,3 +639,15 @@ alert2:
 #   NULL-tolerant scans (they don't exist at age 0).
 # STATUS: backtest required before deployment (HIGHBAND1 failed 22% 2x+;
 # HIGHBAND2 starts earlier/faster where the meta is actually catchable).
+
+# HIGHBAND2 ROW-LEVEL ANALYSIS (2026-08-26, n=6,807): headline is honest
+# (PostATH rows carry xs~1 — dead-top buys, no inflation). Meta is
+# STRENGTHENING (2x+ 36.5% -> 49.3% by week). Discriminator inversions
+# unique to the instant-launch archetype: med_makers 1-2 BEST (fresh
+# sniper wallets; reused fleets bad), lp 60-100 bonding-cluster beats
+# deep LP, giant bundles (438+ SOL) are death (1.2%% 5x).
+# HIGHBAND2-T (deployable): + bv1m<15000, med_makers<17, lp 60-100 ->
+#   32/d, 2x+ 59.4%, 5x+ 25.7%, 10x+ 12.6%, 41x20 6x50 3x100 /mo.
+# Rate stream, not tail stream (tail is diffuse; kept 3/11 hundreds).
+# Recommended: replace PREMIUM v1 in slot 4 after live confirmation
+# (PREMIUM overlaps slots 1-2; this covers an unwatched archetype).
