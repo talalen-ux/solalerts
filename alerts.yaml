@@ -615,3 +615,11 @@ alert2:
 # re-audit after a week; do not trade on one week of pattern.
 # PUMPFOLIO-class (zone transit <10s, all scans NULL): known edge case,
 # 1 token, no change.
+
+# DEPLOYMENT (2026-08-26, via connector): MOONNET v6.1 written to DRBT
+# slot 3 (replacing the failed HIGHBAND draft) and ACTIVATED, alerts-only.
+# Live deck: 1=SNIPER-W (active, SL armed, auto-buy awaiting user go),
+# 2=v9 (active), 3=MOONNET v6.1 (active), 4=PREMIUM v1 (active).
+# Second consecutive day the leaderboard was dominated by MOONNET-class
+# curve launchers (happyseb 647x, Frug 408x, sus 260x, fih 102x — all
+# slow zone transits); the filter for them is now finally live.
