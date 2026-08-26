@@ -691,3 +691,16 @@ alert2:
 # AND lp_sol > 50 AND lp_ratio < 0.25 AND mayhem IS NOT TRUE
 # AND (rugcheck_score IS NULL OR rugcheck_score < 20000)
 # AND fresh_holding_pct < 35 AND launch_bundle_pct < 35
+
+# SUB-3X DEEP ANALYSIS (2026-08-26, corpus 37,355 tokens, 7-universe bar):
+# Bad-token fingerprint: crowded (more buyers/sellers/churn), LP-anchored
+# (higher lp_ratio), small launches (launch LP 26 vs 85 SOL), sell-heavy,
+# BROKE DEVS (owner_balance 15 vs 36 SOL median).
+# ONLY universal cut: owner_balance > 5 — positive in ALL SEVEN universes.
+# Per-stream deal quality: ADD to rate streams (PREMIUM family: +4.7pp
+# 2x+ at 22% volume cost, tail intact). DO NOT add to MOONNET (-19/53
+# twenties), QUIET (halves it), HB2T (destroys it — age-0 wallets).
+# Everything else is archetype-inverted (launch-size legs: +13pp MOONNET,
+# -5pp QUIET) or diffuse. Third confirmation of the entry-time ceiling:
+# residual bad tokens become bad AFTER entry — stop-losses are the filter
+# for post-entry information.
