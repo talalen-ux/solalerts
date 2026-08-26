@@ -623,3 +623,19 @@ alert2:
 # Second consecutive day the leaderboard was dominated by MOONNET-class
 # curve launchers (happyseb 647x, Frug 408x, sus 260x, fih 102x — all
 # slow zone transits); the filter for them is now finally live.
+
+# WEEKLY TOP-20 FULL AUDIT (2026-08-26, both history batches):
+# Live deck catches 7/20: Pistacio@15k->1056x, BATON 130x, MADE 129x,
+# Polycat 71x, CRYPTO 65x, sus 53x, happyseb 26x (6 of 7 via MOONNET s3).
+# Miss archetypes: A) instant mega-launch 40k-meta (8/20 incl. BREAKING
+# 609x; age~0s, sellers<=2, scans NULL, lp 85-210 — two at lp=85 missed
+# the lp>90 whale gate by 5 SOL); B) mega-crowd >250 buyers (CVXV666
+# 732x, Doge2, fih); C) slow burner (Morty 1054x, 11h to zone — age-cap
+# casualty); D) high-fresh/bundled (GATO, OTC, fih — anti-rug walls).
+# B/C/D = accepted precision trade-offs (each leg was EV-positive on
+# population data). A = actionable: HIGHBAND2 drafted:
+#   mc 30k-300k, age < 300 slots (~2min), buyers 1-29, sellers < 5,
+#   bv1m > 5000, lp_sol > 60, lp_ratio < 0.25, mayhem guard,
+#   NULL-tolerant scans (they don't exist at age 0).
+# STATUS: backtest required before deployment (HIGHBAND1 failed 22% 2x+;
+# HIGHBAND2 starts earlier/faster where the meta is actually catchable).
