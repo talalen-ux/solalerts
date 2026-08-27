@@ -1,0 +1,234 @@
+<title>Solalerts Command</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root{
+    --ink:#0E1116; --panel:#161B23; --panel2:#1C2330; --line:#2A3342;
+    --text:#E8ECF3; --text2:#9AA6B8; --muted:#5E6A7E;
+    --gold:#E8A33D; --gold-dim:#8A6526; --good:#57B784; --bad:#D96A5B; --info:#6FA8DC;
+    --mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+    --sans:'IBM Plex Sans',system-ui,-apple-system,sans-serif;
+    --disp:'Chakra Petch','IBM Plex Sans',system-ui,sans-serif;
+  }
+  *{box-sizing:border-box}
+  body{background:var(--ink);color:var(--text);font-family:var(--sans);margin:0;padding:0 0 64px;font-size:14.5px;line-height:1.5}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+  header{border-bottom:1px solid var(--line);background:linear-gradient(180deg,#131822 0%,var(--ink) 100%);padding:30px 0 22px;margin-bottom:28px}
+  .brand{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  h1{font-family:var(--disp);font-weight:700;font-size:26px;letter-spacing:.04em;margin:0;text-transform:uppercase}
+  h1 .tick{color:var(--gold)}
+  .sub{color:var(--text2);font-size:13px}
+  .stamp{margin-left:auto;font-family:var(--mono);font-size:12px;color:var(--muted)}
+  h2{font-family:var(--disp);font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--text2);margin:34px 0 14px;display:flex;align-items:center;gap:10px}
+  h2::after{content:"";flex:1;height:1px;background:var(--line)}
+  /* ---- slot cards ---- */
+  .slots{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+  .slot{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:14px 16px 12px;display:flex;flex-direction:column;gap:8px}
+  .slot .top{display:flex;align-items:center;gap:8px}
+  .slot .num{font-family:var(--mono);font-size:11px;color:var(--muted)}
+  .slot .name{font-family:var(--disp);font-weight:600;font-size:16px;letter-spacing:.02em}
+  .pill{font-family:var(--mono);font-size:10.5px;padding:2px 8px;border-radius:999px;letter-spacing:.05em;margin-left:auto}
+  .pill.live{background:rgba(87,183,132,.14);color:var(--good);border:1px solid rgba(87,183,132,.35)}
+  .pill.armed{background:rgba(232,163,61,.12);color:var(--gold);border:1px solid rgba(232,163,61,.35)}
+  .slot .role{color:var(--text2);font-size:12.5px}
+  .kv{display:flex;gap:14px;font-family:var(--mono);font-size:12.5px;flex-wrap:wrap}
+  .kv b{color:var(--gold);font-weight:600}
+  .flag{font-size:11.5px;color:var(--muted)}
+  .flag.on{color:var(--info)}
+  /* ---- matrix ---- */
+  .scroller{overflow-x:auto;border:1px solid var(--line);border-radius:6px;background:var(--panel)}
+  table{border-collapse:collapse;width:100%;min-width:940px;font-variant-numeric:tabular-nums}
+  th{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:right;padding:10px 12px;border-bottom:1px solid var(--line);white-space:nowrap}
+  th:first-child{text-align:left}
+  td{padding:9px 12px;border-bottom:1px solid #1E2530;font-family:var(--mono);font-size:13px;text-align:right;white-space:nowrap}
+  td:first-child{text-align:left;font-family:var(--sans);font-weight:600;font-size:13.5px}
+  tr:last-child td{border-bottom:none}
+  tr:hover td{background:#1A2029}
+  .tag{display:inline-block;font-family:var(--mono);font-size:10px;color:var(--muted);margin-left:8px;letter-spacing:.04em}
+  .tag.conf{color:var(--info)}
+  .bar{position:relative;display:inline-block;width:86px;height:9px;background:#232B38;border-radius:2px;vertical-align:middle;margin-left:8px;overflow:hidden}
+  .bar i{position:absolute;inset:0 auto 0 0;background:var(--gold);border-radius:2px}
+  td .pct{display:inline-block;min-width:46px}
+  .hi{color:var(--gold);font-weight:600}
+  .tail-cells b{color:var(--text)}
+  /* ---- tail chart ---- */
+  .tailchart{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:18px 20px}
+  .trow{display:grid;grid-template-columns:150px 1fr 70px;align-items:center;gap:12px;padding:6px 0}
+  .tname{font-size:13px;font-weight:600}
+  .tbar{height:16px;background:#232B38;border-radius:3px;position:relative;overflow:hidden}
+  .tbar i{position:absolute;top:0;bottom:0;left:0;border-radius:3px 0 0 3px}
+  .t20{background:var(--gold-dim)} .t50{background:var(--gold)} .t100{background:#F5C97A}
+  .tnum{font-family:var(--mono);font-size:12px;color:var(--text2);text-align:right}
+  .legend{display:flex;gap:18px;margin-top:12px;font-family:var(--mono);font-size:11px;color:var(--text2)}
+  .sw{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+  .note{color:var(--muted);font-size:12px;margin-top:10px}
+  /* ---- trophies ---- */
+  .trophies{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+  .trophy{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:4px;padding:12px 14px}
+  .trophy .mult{font-family:var(--disp);font-size:24px;font-weight:700;color:var(--gold)}
+  .trophy .tok{font-weight:600;font-size:13.5px;margin-top:2px}
+  .trophy .via{font-family:var(--mono);font-size:11px;color:var(--muted);margin-top:3px}
+  .trophy.ghost{border-left-color:var(--muted);opacity:.85}
+  .trophy.ghost .mult{color:var(--text2)}
+  /* ---- laws ---- */
+  .laws{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:12px}
+  .law{background:var(--panel);border:1px solid var(--line);border-radius:6px;padding:13px 16px}
+  .law .t{font-family:var(--disp);font-weight:600;font-size:13.5px;letter-spacing:.03em;color:var(--gold)}
+  .law p{margin:5px 0 0;color:var(--text2);font-size:12.5px;line-height:1.55}
+  .law code{font-family:var(--mono);font-size:11.5px;color:var(--text);background:#232B38;padding:1px 5px;border-radius:3px}
+  /* ---- queue ---- */
+  .queue{background:var(--panel);border:1px dashed var(--line);border-radius:6px;padding:14px 18px;color:var(--text2);font-size:13px}
+  .queue b{color:var(--text)}
+  .queue ul{margin:8px 0 0;padding-left:18px}
+  .queue li{margin:4px 0}
+  footer{margin-top:40px;color:var(--muted);font-family:var(--mono);font-size:11px;text-align:center}
+</style>
+
+<header><div class="wrap"><div class="brand">
+  <h1><span class="tick">▮</span> Solalerts Command</h1>
+  <span class="sub">DRBT filter suite &middot; live deck &amp; validated library</span>
+  <span class="stamp">DATA THROUGH 2026-08-27 &middot; ALL FIGURES LIVE-ENGINE VALIDATED</span>
+</div></div></header>
+
+<div class="wrap">
+
+<h2>Live Deck</h2>
+<div class="slots">
+  <div class="slot">
+    <div class="top"><span class="num">SLOT 1</span><span class="name">MOON20 + Ignition</span><span class="pill live">ALERTS LIVE</span></div>
+    <div class="role">Flagship. Entry profile + post-entry ignition gate.</div>
+    <div class="kv"><span>2x+ <b>80.0%</b></span><span>5x+ <b>50.4%</b></span><span>med <b>5.36x</b></span><span>~4/day</span></div>
+    <div class="flag on">confirmation: ON &middot; auto-buy 0.25 SOL staged (OFF) &middot; stop −50% armed</div>
+  </div>
+  <div class="slot">
+    <div class="top"><span class="num">SLOT 2</span><span class="name">v9 + Ignition</span><span class="pill live">ALERTS LIVE</span></div>
+    <div class="role">Moonshot guard — caught TROOPET &amp; EIGENSLUR.</div>
+    <div class="kv"><span>2x+ <b>~47%</b><span class="tag">est. post-gate</span></span><span>100x <b>22/mo</b> pre-gate</span></div>
+    <div class="flag on">confirmation: ON (applied 08-27, backtest pending)</div>
+  </div>
+  <div class="slot">
+    <div class="top"><span class="num">SLOT 3</span><span class="name">MOONNET v6.1</span><span class="pill live">ALERTS LIVE</span></div>
+    <div class="role">The trawler. Widest tail recall — Pistacio class.</div>
+    <div class="kv"><span>2x+ <b>48.1%</b></span><span>100x <b>34/mo</b></span><span>~323/day</span></div>
+    <div class="flag">confirmation: OFF by design — never miss tail</div>
+  </div>
+  <div class="slot">
+    <div class="top"><span class="num">SLOT 4</span><span class="name">PREMIUM + Ignition</span><span class="pill live">ALERTS LIVE</span></div>
+    <div class="role">Balanced core stream.</div>
+    <div class="kv"><span>2x+ <b>~55%</b><span class="tag">est. post-gate</span></span><span>100x <b>19/mo</b> pre-gate</span></div>
+    <div class="flag on">confirmation: ON (applied 08-27, backtest pending)</div>
+  </div>
+</div>
+
+<h2>Filter Matrix — validated library</h2>
+<div class="scroller"><table>
+  <thead><tr>
+    <th>Filter</th><th>Alerts/day</th><th>2x+</th><th>5x+</th><th>10x+</th>
+    <th>20x /mo</th><th>50x /mo</th><th>100x /mo</th><th>EV cap20</th>
+  </tr></thead>
+  <tbody>
+    <tr><td>Q1-SNIPER<span class="tag conf">+GATE</span></td><td>4</td>
+      <td><span class="pct hi">80.0%</span><span class="bar"><i style="width:80%"></i></span></td>
+      <td><span class="pct hi">50.4%</span><span class="bar"><i style="width:50%"></i></span></td>
+      <td><span class="pct">28.0%</span></td>
+      <td class="tail-cells"><b>12</b></td><td class="tail-cells"><b>3</b></td><td class="tail-cells"><b>1</b></td><td class="hi">7.32</td></tr>
+    <tr><td>Q1-WIDE<span class="tag conf">+GATE</span></td><td>33</td>
+      <td><span class="pct">64.9%</span><span class="bar"><i style="width:65%"></i></span></td>
+      <td><span class="pct">27.9%</span><span class="bar"><i style="width:28%"></i></span></td>
+      <td><span class="pct">9.6%</span></td>
+      <td class="tail-cells"><b>32</b></td><td class="tail-cells"><b>13</b></td><td class="tail-cells"><b>6</b></td><td>4.42</td></tr>
+    <tr><td>MOON20<span class="tag">raw</span></td><td>8</td>
+      <td><span class="pct">76.7%</span><span class="bar"><i style="width:77%"></i></span></td>
+      <td><span class="pct">47.9%</span><span class="bar"><i style="width:48%"></i></span></td>
+      <td><span class="pct">24.2%</span></td>
+      <td class="tail-cells"><b>21</b></td><td class="tail-cells"><b>4</b></td><td class="tail-cells"><b>2</b></td><td>—</td></tr>
+    <tr><td>SNIPER-W</td><td>14</td>
+      <td><span class="pct">64.1%</span><span class="bar"><i style="width:64%"></i></span></td>
+      <td><span class="pct">31.4%</span><span class="bar"><i style="width:31%"></i></span></td>
+      <td><span class="pct">13.0%</span></td>
+      <td class="tail-cells"><b>21</b></td><td class="tail-cells"><b>5</b></td><td class="tail-cells"><b>1</b></td><td>—</td></tr>
+    <tr><td>HB2T<span class="tag">instant-launch</span></td><td>32</td>
+      <td><span class="pct">59.4%</span><span class="bar"><i style="width:59%"></i></span></td>
+      <td><span class="pct">25.8%</span><span class="bar"><i style="width:26%"></i></span></td>
+      <td><span class="pct">12.7%</span></td>
+      <td class="tail-cells"><b>41</b></td><td class="tail-cells"><b>6</b></td><td class="tail-cells"><b>3</b></td><td>3.60</td></tr>
+    <tr><td>PREMIUM-5X</td><td>76</td>
+      <td><span class="pct">57.3%</span><span class="bar"><i style="width:57%"></i></span></td>
+      <td><span class="pct">25.5%</span><span class="bar"><i style="width:25%"></i></span></td>
+      <td><span class="pct">9.4%</span></td>
+      <td class="tail-cells"><b>62</b></td><td class="tail-cells"><b>20</b></td><td class="tail-cells"><b>8</b></td><td>—</td></tr>
+    <tr><td>QUIET v2<span class="tag">burst-less</span></td><td>117</td>
+      <td><span class="pct">50.6%</span><span class="bar"><i style="width:51%"></i></span></td>
+      <td><span class="pct">22.6%</span><span class="bar"><i style="width:23%"></i></span></td>
+      <td><span class="pct">8.9%</span></td>
+      <td class="tail-cells"><b>97</b></td><td class="tail-cells"><b>25</b></td><td class="tail-cells"><b>14</b></td><td>—</td></tr>
+    <tr><td>PREMIUM v2</td><td>139</td>
+      <td><span class="pct">51.6%</span><span class="bar"><i style="width:52%"></i></span></td>
+      <td><span class="pct">19.7%</span><span class="bar"><i style="width:20%"></i></span></td>
+      <td><span class="pct">7.4%</span></td>
+      <td class="tail-cells"><b>107</b></td><td class="tail-cells"><b>35</b></td><td class="tail-cells"><b>18</b></td><td>—</td></tr>
+    <tr><td>v9</td><td>141</td>
+      <td><span class="pct">42.8%</span><span class="bar"><i style="width:43%"></i></span></td>
+      <td><span class="pct">15.1%</span><span class="bar"><i style="width:15%"></i></span></td>
+      <td><span class="pct">6.2%</span></td>
+      <td class="tail-cells"><b>114</b></td><td class="tail-cells"><b>42</b></td><td class="tail-cells"><b>22</b></td><td>—</td></tr>
+    <tr><td>MOONNET v6.1</td><td>323</td>
+      <td><span class="pct">48.1%</span><span class="bar"><i style="width:48%"></i></span></td>
+      <td><span class="pct">16.4%</span><span class="bar"><i style="width:16%"></i></span></td>
+      <td><span class="pct">6.3%</span></td>
+      <td class="tail-cells"><b>221</b></td><td class="tail-cells"><b>71</b></td><td class="tail-cells"><b>34</b></td><td>—</td></tr>
+  </tbody>
+</table></div>
+<div class="note">All rates honest (pre-entry-ATH corrected). Zone baseline: 59% of tokens never double. Rates swing ±10pp with market temperature — cold snaps hit every stream together.</div>
+
+<h2>Monthly Tail Capture — 20x+ catches per filter</h2>
+<div class="tailchart">
+  <div class="trow"><span class="tname">MOONNET v6.1</span><div class="tbar"><i class="t20" style="width:100%"></i><i class="t50" style="width:32%"></i><i class="t100" style="width:15.4%"></i></div><span class="tnum">221 / 71 / 34</span></div>
+  <div class="trow"><span class="tname">PREMIUM v2</span><div class="tbar"><i class="t20" style="width:48.4%"></i><i class="t50" style="width:15.8%"></i><i class="t100" style="width:8.1%"></i></div><span class="tnum">107 / 35 / 18</span></div>
+  <div class="trow"><span class="tname">v9</span><div class="tbar"><i class="t20" style="width:51.6%"></i><i class="t50" style="width:19%"></i><i class="t100" style="width:10%"></i></div><span class="tnum">114 / 42 / 22</span></div>
+  <div class="trow"><span class="tname">QUIET v2</span><div class="tbar"><i class="t20" style="width:43.9%"></i><i class="t50" style="width:11.3%"></i><i class="t100" style="width:6.3%"></i></div><span class="tnum">97 / 25 / 14</span></div>
+  <div class="trow"><span class="tname">PREMIUM-5X</span><div class="tbar"><i class="t20" style="width:28.1%"></i><i class="t50" style="width:9%"></i><i class="t100" style="width:3.6%"></i></div><span class="tnum">62 / 20 / 8</span></div>
+  <div class="trow"><span class="tname">HB2T</span><div class="tbar"><i class="t20" style="width:18.6%"></i><i class="t50" style="width:2.7%"></i><i class="t100" style="width:1.4%"></i></div><span class="tnum">41 / 6 / 3</span></div>
+  <div class="trow"><span class="tname">Q1-WIDE</span><div class="tbar"><i class="t20" style="width:14.5%"></i><i class="t50" style="width:5.9%"></i><i class="t100" style="width:2.7%"></i></div><span class="tnum">32 / 13 / 6</span></div>
+  <div class="legend">
+    <span><span class="sw" style="background:var(--gold-dim)"></span>20x+</span>
+    <span><span class="sw" style="background:var(--gold)"></span>50x+ (overlaid)</span>
+    <span><span class="sw" style="background:#F5C97A"></span>100x+ (overlaid)</span>
+  </div>
+  <div class="note">Bars scaled to MOONNET's 221. QUIET's tail is 69% unique — caught by no other filter. Zone total: 632 twenties/mo; proposed max-coverage deck reaches ~57%.</div>
+</div>
+
+<h2>Confirmed Live Catches</h2>
+<div class="trophies">
+  <div class="trophy"><div class="mult">92x</div><div class="tok">EIGENSLUR</div><div class="via">v9 &middot; alert @$15.6k, 18s old</div></div>
+  <div class="trophy"><div class="mult">91x</div><div class="tok">TROOPET</div><div class="via">v9 &middot; alert @$17.8k, 4s old</div></div>
+  <div class="trophy"><div class="mult">30x</div><div class="tok">HOBBES</div><div class="via">slot 1 &middot; alert @$31.3k, 5 KOLs in</div></div>
+  <div class="trophy ghost"><div class="mult">1056x</div><div class="tok">Pistacio</div><div class="via">MOONNET — fired pre-activation</div></div>
+  <div class="trophy ghost"><div class="mult">160x</div><div class="tok">Zoe</div><div class="via">MOONNET — fired pre-activation</div></div>
+</div>
+
+<h2>The Laws — cross-validated signals</h2>
+<div class="laws">
+  <div class="law"><div class="t">LP-Ratio Decoupling</div><p>Winners price above their liquidity anchor: <code>lp_ratio &lt; 0.21–0.25</code>. Validated in 4 independent universes; holds through cold regimes.</p></div>
+  <div class="law"><div class="t">Ignition Gate</div><p>Post-entry confirmation: <code>mc &gt; prev_slot_mc AND mc &ge; ath_mc*0.95</code>. Removes non-igniters — every rate tier improves, PostATH → 0.</p></div>
+  <div class="law"><div class="t">Moderate Burst</div><p>$1.5–6k/min beats mega-bursts everywhere. $37k+ bursts = buying someone's exit (2.8% 5x). 4th-universe confirmation.</p></div>
+  <div class="law"><div class="t">Freshness</div><p>Entry within ~1h of creation (<code>updated_slot &lt; created_slot + 9000</code>). Late whale-gate entries were the biggest silent leak.</p></div>
+  <div class="law"><div class="t">Seller Validation + Whale Exemption</div><p><code>sellers &gt; 8 OR lp_sol &gt; 90</code> — a two-way market or a stealth whale launch; nothing in between.</p></div>
+  <div class="law"><div class="t">Toxic KOLs</div><p><code>NOT kol(22659,8318,82,1788)</code> — 267 tokens touched, zero ever 10x. Zero-cost exclusion for every filter.</p></div>
+  <div class="law"><div class="t">Broke-Dev Signal</div><p><code>owner_balance &gt; 5</code> — the only universal sub-3x cut (7/7 universes). Rate streams only; costs tail elsewhere.</p></div>
+  <div class="law"><div class="t">Two Archetypes</div><p>Crowd migrations (50–170 buyers, bonding 82–100) vs stealth whales (5–10 buyers, LP 90–385). Different rules per branch — never one gate for both.</p></div>
+</div>
+
+<h2>Open Queue</h2>
+<div class="queue">
+  <b>Pending actions, priority order:</b>
+  <ul>
+    <li><b>Auto-buy go/no-go</b> — slot 1 fully staged at 0.25 SOL, one switch from live.</li>
+    <li><b>Exit ladder</b> — every catch retraced 70–85% from peak; time-to-peak: 2–3x in ~7min, 50x+ in ~6h. The biggest unharvested edge.</li>
+    <li><b>Smart-money pipeline</b> — find_apes on 8 confirmed monsters → tracked wallets → <code>tracked_count</code> leg.</li>
+    <li><b>Slot 2/4 gate verification</b> — backtest after 08-27 confirmation rollout.</li>
+    <li><b>Toxic-KOL exclusion</b> — paste into all filters (validated, zero-cost).</li>
+  </ul>
+</div>
+
+<footer>SOLALERTS COMMAND &middot; 13 row-level exports &middot; 37,355 tokens analyzed &middot; 14 consecutive live-verified predictions &middot; repo: solalerts/alerts.yaml</footer>
+</div>
