@@ -743,3 +743,13 @@ alert2:
 # (exhausted, AUC~0.6) but what it DOES next — and it is now deployed
 # as a filter via DRBT's confirmation mechanism. Slot 1 live, alerts
 # on, auto-buy staged (0.25 SOL) awaiting user go.
+
+# Q1-WIDE LIVE-VALIDATED (2026-08-27): sniper legs minus the bundle>3
+# floor, confirmation unchanged. n=1,012 (~33/d), 2x+ 64.9%, 5x+ 27.9%,
+# 10x+ 9.6%, 20x 32, 50x 13, 100x 6, PostATH 1.1%, EV(cap20) 4.42x,
+# median 2.89x. Tail ABOVE prediction (13/6 vs predicted 6-8/2-3).
+# Economics: SNIPER = 7.32x/alert on ~31 SOL/mo deployed (~229 units);
+# WIDE = 4.42x/alert on ~253 SOL/mo (~1,119 units) — 5x total EV.
+# Free hybrid: run WIDE; bundle 3-10 alerts (visible in alert text) are
+# sniper-grade -> manual 2-3x size-up. WIDE breathes more with regime
+# (weekly 69->55%). Slot-1 choice is capital-driven; both validated.
