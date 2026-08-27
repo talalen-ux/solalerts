@@ -753,3 +753,16 @@ alert2:
 # Free hybrid: run WIDE; bundle 3-10 alerts (visible in alert text) are
 # sniper-grade -> manual 2-3x size-up. WIDE breathes more with regime
 # (weekly 69->55%). Slot-1 choice is capital-driven; both validated.
+
+# KOL SYSTEM MINED (2026-08-27, kol_wallets column across corpus):
+# Generic KOL presence is NEUTRAL (39.2% vs 41.1%) but masks dispersion:
+# TOXIC KOLs {22659, 8318, 82, 1788}: 267 tokens, 14.2% 2x+, ZERO 10x
+#   ever -> exclusion leg (validated): NOT kol(22659) AND NOT kol(8318)
+#   AND NOT kol(82) AND NOT kol(1788). Pure win; add to all filters.
+# ELITE KOLs {30240,32843,10233,196,1818,83,69,4912,13399,14071,92}:
+#   ~2x baseline 10x rate (9.5%, 8x100 in 1,044) — use as sizing boost,
+#   not a hard leg (universe variance 2-18%).
+# QUEUED (connector): list_kol_ids to name them; find_apes on the 8
+# confirmed monsters -> add_tracked_wallet -> tracked_count>=1 leg
+# (smart-money pipeline). Unexplored-tool ledger updated: buy_formula
+# (tier sizing), sell_condition/stages (exits), wallet subsets, CA.
