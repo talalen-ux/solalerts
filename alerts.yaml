@@ -766,3 +766,20 @@ alert2:
 # confirmed monsters -> add_tracked_wallet -> tracked_count>=1 leg
 # (smart-money pipeline). Unexplored-tool ledger updated: buy_formula
 # (tier sizing), sell_condition/stages (exits), wallet subsets, CA.
+
+# LIVE CATCH — APEONFONE ~1,428x (2026-08-27): the largest catch in suite
+# history, and the first mega since the confirmation rollout.
+#   Token: apeonfone (fone) CTPoyCwkjMvoJwU4xvZZqoD8tiYk6yDchySiN5gGpump
+#   Alert: Filter #3 (MOONNET v6.1) at 00:03:03 UTC, age 54s, MC $15.36K.
+#   Outcome: ATH $21.93M same day, still AT ATH at 23:59 — forward ~1,428x.
+#   At alert: bv ~$7.6K, LP 39.54, 111 buyers/58 sellers, bundle 16.2%
+#   (max 19.8%), 1 fresh, 14 CEX, rugcheck N/A, dev 0 deploys, 1 KOL (dv).
+# Cross-slot audit (from alert stats):
+#   MOON20 + v9: correctly excluded — launch_bundle_pct 16.2% > their 10%
+#     cap. Precision streams paying their recall cost; slot 3 covered it.
+#   QUIET: wrong archetype (loud launch, LP < 50).
+#   Slot 3 no-confirmation design validated in principle (though token was
+#   at ATH with strong flow at alert time, so the gate would likely pass).
+# Verdict: MOONNET tail-recall role confirmed at the highest magnitude yet.
+# Live trophy board: apeonfone ~1428x, EIGENSLUR 92x, TROOPET 91x,
+# HOBBES 30x (+ ghosts Pistacio 1056x, Zoe 160x, pre-activation).
