@@ -730,3 +730,16 @@ alert2:
 # Measurement: backtest Query 1 vs MOON20 baseline (240 / 76.7% 2x+) —
 # differing histogram = confirmation applies in backtest; identical =
 # live-only, measure via alert stream.
+
+# IGNITION GATE LIVE-CONFIRMED (2026-08-27) — PROJECT CAPSTONE:
+# Backtest engine DOES apply confirmation_condition historically.
+# MOON20 + ignition (mc > prev_slot_mc AND mc >= ath_mc*0.95 AND
+# buy_volume_1m > 500): n=125/mo (~4/d), 2x+ 80.0%, 3x+ 69.6%,
+# 5x+ 50.4%, 10x+ 28.0%, 20x+ 12, PostATH ZERO, MEDIAN ALERT 5.36x,
+# EV(cap20) 7.32 — best per-alert numbers of the project, honest and
+# week-stable (77-84%). The gate halved volume by removing exclusively
+# stalled entries: every tier improved simultaneously.
+# The sub-2x 'real pattern' final answer: not what a token IS at entry
+# (exhausted, AUC~0.6) but what it DOES next — and it is now deployed
+# as a filter via DRBT's confirmation mechanism. Slot 1 live, alerts
+# on, auto-buy staged (0.25 SOL) awaiting user go.
