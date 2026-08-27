@@ -783,3 +783,20 @@ alert2:
 # Verdict: MOONNET tail-recall role confirmed at the highest magnitude yet.
 # Live trophy board: apeonfone ~1428x, EIGENSLUR 92x, TROOPET 91x,
 # HOBBES 30x (+ ghosts Pistacio 1056x, Zoe 160x, pre-activation).
+
+# SEMANTIC / ORIGINALITY LAYER TEST (2026-08-28): user asked for a
+# name/originality/meta overlay on the autobuy filter to cut losses.
+# Tested on Q1-WIDE confirmed export (n=1,012), cross-checked on
+# Q1-SNIPER (125) and MOON20-core (198), honest-xs:
+#   name style (lowercase/CAPS/short/space/symbol==name): all within
+#     noise of base 64.9% 2x+ / EV 1.34. Lowercase edge did NOT replicate.
+#   originality via image_hash_count / uri_count: copycat art (>10 reuses)
+#     showed EV 1.49 vs 1.34 raw, but weekly stability FAILED (sign flips
+#     wk31/wk34) and REVERSED on Q1-SNIPER (46.5 vs 55.6 5x+). Rejected.
+#   socials in metadata, tweet callers: nothing separable.
+# Verdict: no semantic leg meets the real-pattern bar. Matches the
+# name-linguistics study and the AUC ~0.60 information ceiling.
+# INSTALLED instead: toxic-KOL exclusion as BUY CONDITION on filter 1
+# (buy-time check; alerts unchanged): NOT kol(22659/8318/82/1788) —
+# validated zero-cost, compiles to jsonb containment. Also set
+# auto-buy max_mc 120000 on filter 1 (anti-gap guard).
