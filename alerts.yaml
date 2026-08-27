@@ -716,3 +716,17 @@ alert2:
 # Tiny-n curiosities: 'baby' +10.9, '.' +6.6 — insufficient evidence.
 # With emoji (neutral) and missing-name (keep in tail streams) audits:
 # name dimension = ~5-9pp of MANUAL signal, ~0pp filter-expressible.
+
+# IGNITION CONFIRMATION DEPLOYED (2026-08-26, slot 1 via connector):
+# Main = MOON20 (best per-alert stream). Confirmation (secondary check,
+# evaluated AFTER the main match — DRBT confirmation_condition):
+#   mc > prev_slot_mc AND mc >= ath_mc * 0.95 AND buy_volume_1m > 500
+# Rationale: entry-time data is exhausted (AUC ~0.6, 3x measured); the
+# losers' real pattern is post-entry stall. Every confirmed live winner
+# kept rising/at-highs/pulling flow after its qualifying snapshot. This
+# is the system's first post-entry-information filter.
+# Slot 1 state: active, alerts on; auto-buy configured (0.25 SOL, 20%
+# slip, Jito, skip-if-owned, TP 99.99, SL -50%) but OFF pending user go.
+# Measurement: backtest Query 1 vs MOON20 baseline (240 / 76.7% 2x+) —
+# differing histogram = confirmation applies in backtest; identical =
+# live-only, measure via alert stream.
