@@ -827,3 +827,15 @@ alert2:
 #   Loop protocol in SYSTEM.md: export -> search -> backtest -> deploy
 #   -> next export tightens itself. Status: DRBT connector down at time
 #   of analysis; queries paste-ready, install on reconnect.
+
+# Q1-WIDE SHIELD LIVE-ENGINE CONFIRMATION (2026-08-28, export ed0b9f9c):
+#   n=849 (28/d). Prediction vs live engine: 2x+ 70.2% pred -> 70.20%
+#   actual; 10x+ 89 pred -> 89 actual; 50x 13 pred -> 13 actual; 20x 31,
+#   100x 6, PostATH 1.3%. 15th consecutive offline<->live match, the
+#   most precise yet. SHIELD-A VALIDATED.
+# Loop iteration 2 (lab on the new universe): two marginal legs remain
+#   (kol_buyers > 1: -3.2% junk/-0.84% win; cnt_distinct_makers > 50:
+#   -3.7%/-1.02%; combined 70.2 -> 71.3%). HELD for next iteration —
+#   diminishing returns as universe approaches distilled status; both
+#   consistent with prior findings (multi-KOL junk-density, busier-is-
+#   worse fingerprint). Deploy only if they strengthen on next export.
