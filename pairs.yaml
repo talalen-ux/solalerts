@@ -1,0 +1,231 @@
+# Ethena-collateralised leveraged equity pairs on Hyperliquid — v1 (CANDIDATE)
+#
+# Sister book to alerts.yaml. Same discipline, opposite risk shape: the Solana
+# book is a convex long-tail lottery (2x+ rate, 100x tails); this one is a
+# concave carry-and-convergence book that wins small and often and must never
+# be allowed a fat left tail.
+#
+# ---------------------------------------------------------------------------
+# THE THESIS
+# ---------------------------------------------------------------------------
+# A dollar-neutral pair of equity perps earns nothing from direction by
+# construction. Its P&L is exactly five terms:
+#
+#     spread convergence + sUSDe yield − funding − fees − slippage
+#
+# Three of the five are carry. The reason to collateralise in sUSDe rather
+# than plain USDC is that it flips the sign of the idle-margin term: a book
+# that breaks even on spread still earns staking yield on posted margin. The
+# hurdle rate is negative.
+#
+# The catch, and the single most important number in this file:
+#
+#     YIELD ACCRUES ON EQUITY. FUNDING ACCRUES ON NOTIONAL.
+#
+# So carry per unit of notional FALLS as leverage rises. Levering 3x does not
+# triple the yield — it triples the funding drag against a fixed yield base.
+# At a 7% annualised funding differential against the book, measured net carry
+# crosses from positive to negative at roughly 1.6x gross:
+#
+#     gross lev    net carry      breakeven spread move (3d hold)
+#       1.0x       +0.52 bps/d          +26.9 bps
+#       1.5x       +0.04 bps/d          +29.8 bps      <-- crossover
+#       2.0x       −0.44 bps/d          +31.3 bps
+#       4.0x       −2.36 bps/d          +33.5 bps
+#
+#   (`python3 lab/pairs_run.py carry --apy 0.09 --long-funding 11
+#     --short-funding 4 --funding-is-apr` reproduces this table.)
+#
+# This is why gross_leverage is set at 2.0 and capped at 3.0, not at the 5-10x
+# the venue would permit. Above ~2x the strategy stops being a carry book and
+# becomes a leveraged bet on spread convergence alone — the same trade without
+# the reason to prefer it.
+#
+# ---------------------------------------------------------------------------
+# WHY HYPERLIQUID
+# ---------------------------------------------------------------------------
+# HIP-3 builder-deployed perps are where equity markets live on-chain. They
+# give this book three things nothing else does: real leverage on single-name
+# equity exposure, hourly funding (so carry is measurable on the same clock as
+# yield), and both legs settling in one margin account so a neutral pair does
+# not need two venues and a wire transfer between them.
+#
+# The infrastructure gotcha, encoded in lab/hl.py and pinned by the self-test:
+# builder-deployed perps do NOT continue the core perp asset index space. Core
+# perps are 0..n, spot is 10000+, and builder perps start at
+# 110000 + i*10000 where i enumerates perpDexs()[1:]. An order built on the
+# naive assumption points at an entirely different market and still fills.
+#
+# ---------------------------------------------------------------------------
+# STATUS: CANDIDATE. Nothing here is live-validated.
+# ---------------------------------------------------------------------------
+# Every number below is a prior, not a result. The engine, the math and the
+# safety gates are tested (lab/test_pairs.py, 63 checks, synthetic worlds with
+# known answers). The PARAMETERS are not: they have never been backtested on
+# real HIP-3 equity data, because that data was not reachable from the
+# environment this was built in. Promotion to live follows the same ladder the
+# Solana book uses — screen, backtest, paper, then size — and the ladder is
+# written out in STOCKPAIRS.md. Do not skip a rung.
+
+book:
+  name: ethena_equity_pairs
+  version: 1
+  status: candidate          # candidate -> paper -> live
+  venue: hyperliquid
+  collateral: sUSDe/USDe
+  thesis: >
+    Dollar-neutral, beta-weighted pairs of cointegrated equity perps on
+    HIP-3, margined in sUSDe so idle collateral earns Ethena staking yield.
+    Edge = spread convergence + staking carry, net of funding and fees.
+    Leverage is capped where net carry is still positive, not where the
+    venue's maintenance margin allows.
+
+# ---------------------------------------------------------------------------
+# UNIVERSE
+# ---------------------------------------------------------------------------
+# dex: "" is the core perp dex. HIP-3 equity markets live on a builder dex —
+# discover the name with `python3 lab/pairs_run.py markets --dex <name>` and
+# set it here. Left empty because the correct value is deployment-specific and
+# a guessed dex name is worse than no default.
+universe:
+  dex: ""                    # HIP-3 equity perp dex name
+  interval: "1h"
+  lookback_bars: 240         # ~10 days of hourly bars for the trailing fit
+  history_days: 90
+  # Candidate pairs are intentionally NOT hardcoded. Pairs are discovered by
+  # `pairs_run.py scan`, which screens every combination in the loaded dex and
+  # prints what survives. A hardcoded pair list is a stale opinion; the screen
+  # is a live one.
+  pair_selection: scan       # scan | explicit
+  explicit_pairs: []         # e.g. ["AAPL,MSFT", "XOM,CVX"] when pair_selection=explicit
+
+# ---------------------------------------------------------------------------
+# SCREEN — admission bars for a pair
+# ---------------------------------------------------------------------------
+# Ported directly from the SHIELD doctrine in SYSTEM.md: a leg must hold in
+# EVERY sub-window, not on average. `min_stability` is that bar. A pair that
+# only cointegrates over the full window is one regime, not a relationship,
+# and it will break at exactly the moment leverage makes it expensive.
+screen:
+  min_n: 240
+  min_abs_corr: 0.55
+  min_half_life: 2           # below this it is microstructure noise, not signal
+  max_half_life: 72          # bars; longer than this is a directional bet
+  max_adf: -2.2              # simple Dickey-Fuller t-stat; must be this negative
+  min_stability: 0.75        # share of sub-windows that stay mean-reverting
+  min_sigma_bps: 40          # spread vol floor — no room to pay costs below this
+  beta_min: 0.25
+  beta_max: 4.0
+
+# ---------------------------------------------------------------------------
+# SIGNAL
+# ---------------------------------------------------------------------------
+signal:
+  entry_z: 2.0
+  exit_z: 0.4
+  stop_z: 4.0                # beyond this at entry = regime break, NOT opportunity
+  max_hold_bars: 240
+  min_edge_bps: 15           # expected convergence must clear costs by this much
+  # Entry is refused when |z| >= stop_z. A spread that far out is far more
+  # often a corporate action, an index rebalance, or a broken relationship
+  # than a rich spread — the fat left tail this book cannot afford.
+
+# ---------------------------------------------------------------------------
+# SIZING
+# ---------------------------------------------------------------------------
+sizing:
+  gross_leverage: 2.0        # total notional / equity, BOTH legs summed
+  max_pairs: 4
+  max_leg_notional_frac: 0.60
+  vol_target_bps: 0          # 0 disables; scales down wild pairs, never up
+  # Gross is split across max_pairs and then across 2 legs, so a full book
+  # sits AT the configured gross rather than max_pairs times it. That
+  # arithmetic error is what turns "2x" into "8x" and finds the liquidation
+  # price; the self-test pins it.
+
+# ---------------------------------------------------------------------------
+# COLLATERAL
+# ---------------------------------------------------------------------------
+collateral:
+  staked_frac: 0.80          # share of equity in sUSDe vs liquid USDe
+  depeg_haircut: 0.02        # usable collateral discount for peg risk
+  apy_haircut: 0.25          # discount on the QUOTED sUSDe APY
+  fallback_apy: 0.08         # used only when the yield feed is unreachable
+  unstake_cooldown_hours: 168
+  # staked_frac is 0.80, not 1.00, and the reason is liquidity rather than
+  # yield: sUSDe has a 7-day unstake cooldown, and the cooldown bites in
+  # precisely the drawdown where margin top-ups are needed. The 20% liquid
+  # sleeve is the buffer that keeps a bad week from becoming a liquidation.
+  #
+  # apy_haircut exists because sUSDe yield is FLOATING and has printed near
+  # zero. Backtesting at today's APY held constant across history is the
+  # single most common way to manufacture a fake edge in this design.
+
+# ---------------------------------------------------------------------------
+# COSTS
+# ---------------------------------------------------------------------------
+costs:
+  taker_fee_bps: 4.5         # HIP-3 equity perps run wider than core perps
+  slippage_bps: 3.0
+  # Round trip is 4x this per pair (2 legs x enter+exit). At the defaults that
+  # is 30bps the spread must cover before the trade earns anything — which is
+  # why min_sigma_bps exists. A spread whose entire standard deviation is
+  # 40bps cannot pay 30bps of costs and still be worth the margin.
+
+# ---------------------------------------------------------------------------
+# RISK
+# ---------------------------------------------------------------------------
+risk:
+  max_gross_leverage: 3.0    # hard ceiling above the 2.0 target
+  max_margin_ratio: 0.50
+  max_daily_loss_frac: 0.05
+  max_drawdown_frac: 0.15
+  min_equity_usd: 250
+  # A halt blocks NEW risk only. Closing an open pair is always permitted —
+  # a kill switch that also blocks the exit is not a kill switch.
+
+# ---------------------------------------------------------------------------
+# EXECUTION
+# ---------------------------------------------------------------------------
+execution:
+  mode: dry_run              # dry_run | live
+  tif: Ioc
+  batch_legs: true           # both legs in ONE batch — see note
+  live_requires_env: HL_ALLOW_LIVE=1
+  key_env: HL_SECRET_KEY
+  address_env: HL_ACCOUNT_ADDRESS
+  # batch_legs is not an optimisation, it is a correctness requirement.
+  # Legging into a market-neutral spread one order at a time leaves the book
+  # outright directional between fills — which is the one exposure this entire
+  # strategy is constructed to avoid.
+  #
+  # Live execution needs BOTH --live AND HL_ALLOW_LIVE=1. Two independent
+  # switches, because one is too easy to flip by accident.
+  #
+  # Order SIGNING is delegated to the official hyperliquid-python-sdk rather
+  # than reimplemented. L1 action signing is msgpack action-hash plus EIP-712
+  # phantom-agent, and a subtly wrong reimplementation does not fail loudly —
+  # it sends a valid but different order.
+
+# ---------------------------------------------------------------------------
+# OPEN ITEMS — the honest list
+# ---------------------------------------------------------------------------
+open_items:
+  - No real-data backtest. Every parameter above is a prior. The engine is
+    tested; the numbers are not.
+  - Equity perps trade nearly 24/7 but the underlying only prices during the
+    cash session. Overnight bars are stale-underlying and the spread mean-
+    reverts differently across the session boundary. The backtester's
+    bars_per_day and the Sharpe annualiser (6552, not 8760) acknowledge this;
+    a session-aware bar filter is NOT yet implemented and is the largest known
+    modelling gap.
+  - Corporate actions (splits, dividends, index adds) put step changes in the
+    spread that look identical to a rich entry. The stop_z entry refusal is a
+    blunt proxy; a real corporate-actions feed is the fix.
+  - HIP-3 oracle risk is deployer risk. A builder-deployed equity market's
+    mark price depends on a deployer-delegated oracle, and the deployer can
+    halt trading. Position limits per dex are not yet enforced in code.
+  - Funding is modelled as the trailing hourly rate snapped to each bar.
+    Predicted-funding is not used.
+  - sUSDe yield series is constant-in-backtest unless a real curve is
+    supplied. YieldCurve accepts a series; nobody has fed it one yet.
