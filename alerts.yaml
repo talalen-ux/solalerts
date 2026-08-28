@@ -869,3 +869,22 @@ alert2:
 #   0.001, max_mc 120k, skip_if_owned, SL 0.5, TP 99.99, sell stages
 #   40%@2x/30%@5x/20%@15x/10%@50x (slots 1+2). Auto-buy stays OFF
 #   pending explicit user go.
+
+# SLOT 2 DEPLOYED (2026-08-29): Q1-WIDE-SHIELD live on filter 2 (v9
+# retired with honors — lineage contained in Q1/PREMIUM family).
+#   Main = SHIELD-A query (ignition in main); confirmation = ignition;
+#   buy condition = toxic-KOL exclusion; buy 0.25 SOL / 2000bps /
+#   prio 0.002 / jito 0.001 / retries 3 / max_mc 120k / skip_if_owned;
+#   auto-sell ON: stages 40%@2x(raise SL to breakeven)/30%@5x/20%@15x/
+#   10%@50x, SL 0.5, TP 99.99. AUTO-BUY OFF pending explicit go.
+#   Slot 1 also got the same sell-stage ladder.
+# MEGA-CROWD UNIVERSE (user directive: "new universe for those crowded
+# launches; upper hand = entry + settings"): standalone MEGA query
+# staged TEMPORARILY on slot 4 (QUIET text preserved in log above for
+# restore). Live-engine 1-month histogram: n=5,929 (~198/d), 2x+ 38.7%,
+# 10x+ 4.4%, 20x 102, 50x 40, 100x 13/mo, PostATH 4.8%. Junk-heavy but
+# tail-rich — raw material for shield lab distillation. Preview rows
+# show heavy entry competition (dist_prio 150-278, max_prio to 0.66 SOL)
+# -> entry settings for this class will need aggressive priority/jito.
+# NEXT: user exports Query 4 rows via Telegram -> shield lab -> entry-
+# timing + tx-settings optimization -> then restore QUIET to slot 4.
