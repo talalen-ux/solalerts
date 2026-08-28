@@ -800,3 +800,30 @@ alert2:
 # (buy-time check; alerts unchanged): NOT kol(22659/8318/82/1788) —
 # validated zero-cost, compiles to jsonb containment. Also set
 # auto-buy max_mc 120000 on filter 1 (anti-gap guard).
+
+# SHIELD LAB (2026-08-28): user directive — find the key to remove big
+# sub-2x chunks from EVERY universe; create a self-improving system.
+# FINDING 1 (the key insight): there is NO universal sub-2x leg. Full
+#   scan of 46 features x quantile grid x 12 universes: best leg works
+#   in 3/12. Junk shape is filter-specific -> removal is a PER-FILTER
+#   procedure, now codified as lab/shield_search.py + SYSTEM.md.
+# FINDING 2: mature universes (MOONNET v6, v9, tierB v5) are fully
+#   distilled — zero legs pass the bars. Do not force cuts there.
+# FINDING 3 — Q1-WIDE SHIELD (fresh universe, bundle-anchored, user's
+#   bundle hunch validated). Legs, each week-stable, veto-clean:
+#     (max_bundle_sol IS NULL OR max_bundle_sol < 90)   # mega-bundle
+#     AND sells <= 48                                    # churn tell
+#     AND cnt_from_cex >= 1                              # no CEX = junk
+#     [+ lp_sol > 85, buy_volume_1m < 9300 for MAX variant]
+#   SHIELD-A: vol -18%, 2x+ 64.9->70.2%, EV 1.34->1.46, keeps 89/97
+#   tens, 30/32 twenties, 13/13 fifties; improves EVERY week (wk34
+#   58.1->70.0). MAX: 2x+ 72.2%, EV 1.48, keeps 82/97 tens.
+#   Transfer to Q1-SNIPER: harmless (0.8% cut, the cut alert was sub-2x)
+#   -> safe as slot-1 safety legs. NOT transferred to other slots.
+# SYSTEM: lab/shield_search.py re-runs the whole search on any directory
+#   of row exports (bars: junk>=3%, win<=1/3 junk, weekly no-harm, veto,
+#   tail<=5%); smoke-tested on 13 historical exports — found the Q1
+#   shield, declared mature filters distilled, zero false promises.
+#   Loop protocol in SYSTEM.md: export -> search -> backtest -> deploy
+#   -> next export tightens itself. Status: DRBT connector down at time
+#   of analysis; queries paste-ready, install on reconnect.
