@@ -839,3 +839,33 @@ alert2:
 #   diminishing returns as universe approaches distilled status; both
 #   consistent with prior findings (multi-KOL junk-density, busier-is-
 #   worse fingerprint). Deploy only if they strengthen on next export.
+
+# MISS AUTOPSY + MOONNET v6.2 (2026-08-28, upload 13b83d9a): user reported
+# 2 misses: Rentcoin ($8k->$1.58M, ~100x) and PINK COIN ($3.9k->$6.17M,
+# ~400x). Leg replay on full snapshot histories:
+#   Rentcoin: blocked ONLY by archetype branch — instant mega-crowd
+#     (373 buyers at $18k); crowd branch caps at 250, whale needs lp>90
+#     (had 45); by the time lp>90, buyers >400. Gap BETWEEN archetypes.
+#   PINK: passed crowd branch on 5 snaps, killed by rugcheck_score
+#     74,401 (later resolved to 1.0) — then buyers >250 = same gap.
+# Data verdicts (loose universe n=27,889, weekly-checked):
+#   rugcheck 11k-30k band (crowd-conditioned): 49.0% 2x+ vs 41.6%
+#     control, BEATS control every week -> cap relaxed 11000 -> 30000.
+#     Band >=30k EMPTY in all exports (unmeasured) — cannot validate;
+#     not deployed blind.
+#   MEGA-CROWD branch (buyers 250-600, sellers<0.85*buyers, lp>40,
+#     bundle<5, fresh<5, bv1m>1000, med_makers>88, owner_age>200,
+#     mc>mc_d1): n=3001 (~100/d), 41% 2x+ baseline-grade BUT tail
+#     density 1.9%/20x ~ MOONNET's own 2.2% -> recall-mission add,
+#     alert-only slot, zero financial cost.
+# Replay of v6.2 vs the misses: Rentcoin CAUGHT at $18,285 (87x from
+#   alert), PINK CAUGHT at $26,255 (235x from alert). Both via MEGA.
+# DEPLOYED: slot 3 = MOONNET v6.2 (rugcheck 30000 + third MEGA branch),
+#   confirmed by engine. Expected volume ~334 -> ~430/day.
+# SLOT 2 SETUP (Q1-WIDE-SHIELD runbook): connector dropped mid-execution
+#   AFTER slot 3 deploy, BEFORE slot 2 changes. Slot 2 still = v9 +
+#   ignition confirmation. Remaining on reconnect: main->SHIELD query,
+#   buy condition (toxic KOL), buy 0.25 SOL/2000bps/prio 0.002/jito
+#   0.001, max_mc 120k, skip_if_owned, SL 0.5, TP 99.99, sell stages
+#   40%@2x/30%@5x/20%@15x/10%@50x (slots 1+2). Auto-buy stays OFF
+#   pending explicit user go.
