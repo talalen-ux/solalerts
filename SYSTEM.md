@@ -45,3 +45,14 @@ keeps 89/97 tens, 30/32 twenties, 13/13 fifties; improves every week.
 MAX variant: 2x+ 72.2%, EV 1.48, keeps 82/97 tens.
 Transfer to Q1-SNIPER: harmless no-op (0.8% cut) — safe as safety legs.
 MOONNET/v9/PREMIUM: NOTHING passes — confirmed distilled; do not force.
+
+## Data-integrity doctrine: copycat ATH pollution (2026-08-29)
+
+DRBT ATH/xs values can bleed across same-name/image re-deployments
+(discovered via the false "CyberLeek 87x": the matched copycat's own
+history peaked at $1.0M while the aggregate stamped it $4.97M — the
+real CyberLeek launched 5 days earlier and hit $51M).
+Rules: (1) verify any headline catch with image_hash_count > 3 against
+its own mint snapshot history before reporting; (2) every lab result
+claiming tail improvement must include the clean-subset (ih<=3)
+sensitivity; (3) mooners-board multiples for wave members are untrusted.

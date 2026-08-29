@@ -888,3 +888,24 @@ alert2:
 # -> entry settings for this class will need aggressive priority/jito.
 # NEXT: user exports Query 4 rows via Telegram -> shield lab -> entry-
 # timing + tx-settings optimization -> then restore QUIET to slot 4.
+
+# DATA-INTEGRITY FINDING — COPYCAT ATH POLLUTION (2026-08-29, credit:
+# user caught it). The "CyberLeek 87x catch" reported from the 1-day
+# backtest was FALSE: real CyberLeek = ApZuxdpzMrbEYTGEzeY9afh5pj9d6q
+# PRJCTgQYiipbKg, launched 08-24, ATH $51M. The mint filter 2 matched
+# (9Z7t6...zAnh) is one of ~56 same-image copycats deployed 08-29; its
+# own snapshot history peaks at $1.0M (real catch: 17.7x max, ~5.6x
+# now), yet backtest + mooners stamped it with a $4.97M ATH — ATH
+# values bleed across same-name/image deployments in DRBT aggregates.
+# Corrected day report: filter 2 20x+ today ~0; filter 3's 18x20x count
+# has unknown upward bias; mooners board "CyberLeek 95x" also polluted.
+# Sensitivity check on validated universes (clean ih<=3 vs wave ih>3):
+#   Q1-SNIPER: identical (80.5 vs 79.8 2x+) -> flagship edge is REAL.
+#   Q1-WIDE-SHIELD: wave hotter (72.2/34.9 vs 67.7/24.8) — mix of real
+#   meta-riding + possible pollution; worst-case clean floor 67.7% 2x+
+#   still beats pre-shield 64.9% -> shield validation survives; treat
+#   wide-stream 20x/50x tail counts as upward-biased until verified.
+# NEW DOCTRINE (added to SYSTEM.md): any headline catch with
+# image_hash_count > 3 must be verified against ITS OWN mint history
+# before being reported or logged as a trophy; lab analyses must run
+# the clean-subset sensitivity before declaring tail improvements.
