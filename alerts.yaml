@@ -909,3 +909,21 @@ alert2:
 # image_hash_count > 3 must be verified against ITS OWN mint history
 # before being reported or logged as a trophy; lab analyses must run
 # the clean-subset sensitivity before declaring tail improvements.
+
+# T20-NET DEPLOYED + VERIFIED (2026-08-30): user asked for ~2-3 alerts/
+# hour with max 20x odds. Honest frontier stated: 20x density falls with
+# volume (SNIPER 9.6% at 4/d is the per-alert ceiling). T20-NET built on
+# loose universe (ignition + lp_ratio<0.21 + buyers<120 + seller<0.5 +
+# bundle<12 + shield legs), predicted 64/d, 63% 2x+, 44x20/mo.
+# Live-engine 1-month: n=2,393 (80/d, 3.3/hr), 2x+ 60.9%, 5x+ 25.5%,
+# 10x+ 9.7%, 20x 79 (3.3%/alert, ~2.6/day), 50x 25, 100x 12, PostATH
+# 1.3%. Rates matched within 2pp (16th consecutive match); tail ~2x
+# prediction (loose proxy under-sampled). DEPLOYED on slot 4 (QUIET
+# benched, restorable; mega-crowd query re-stageable on demand — user
+# never exported its rows). Wave-pollution caveat applies to tail counts.
+# REVIVAL-WAVE MEASUREMENT (same session): wave-image launches = scalp
+# class: ~50% 2x+ (vs 40.9 base) but tail WORSE than first-deploys
+# (10x+ 5.3 vs 8.5 name-lens); revival-of-winner-name no better (5.1%).
+# Dex-CDN-rehost subclass (CyberLeek profile): n=188, 68.1% 2x+, 36.7%
+# 5x+, 18.6% 10x+, near-zero 20x -> quick-rotation class, never
+# moonshot-sized. No filter changes warranted.
