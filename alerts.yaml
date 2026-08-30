@@ -927,3 +927,17 @@ alert2:
 # Dex-CDN-rehost subclass (CyberLeek profile): n=188, 68.1% 2x+, 36.7%
 # 5x+, 18.6% 10x+, near-zero 20x -> quick-rotation class, never
 # moonshot-sized. No filter changes warranted.
+
+# T20-NET v2 (2026-08-30): user directive — optimize further without
+# touching 10x+. Shield lab on the fresh T20 export (86a7e7e7, n=2,392,
+# Telegram run matched MCP run digit-for-digit).
+# Zero-10x-loss constraint: NO leg qualifies (231 tens spread evenly).
+# At <=2-tens-lost: churn family is the signal — hyperactivity =
+# wash-trade tell. Legs: buys <= buyers*2.2, buys <= 225, sells <= 57
+# (tightened from 60).
+# Offline joint result: n 2392->2243 (74.8/d), 2x+ 60.66->62.64%,
+# 5x+ 25.50->26.57%, 10x+ 9.66->10.21% (229/231 kept; lost 16x + 22x),
+# 20x 79/80, 50x 27/27, 100x 12/12. Weekly: improved/held all 5 weeks
+# (coldest wk35 53.6->60.0). Clean-subset improves (56.0->58.6%).
+# DEPLOYED to slot 4. Backtest verification pending (engine cache may
+# serve v1 blob; expect n≈2,243 when fresh).
