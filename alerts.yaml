@@ -941,3 +941,32 @@ alert2:
 # (coldest wk35 53.6->60.0). Clean-subset improves (56.0->58.6%).
 # DEPLOYED to slot 4. Backtest verification pending (engine cache may
 # serve v1 blob; expect n≈2,243 when fresh).
+
+# MOONNET DEEP STATISTICAL ANALYSIS + v6.3 (2026-09-03): user asked for
+# std-dev/effect-size math to split runners from garbage on filter 3.
+# 1) EFFECT-SIZE TABLE (runners 10x+ n=629 vs garbage <2x n=5198,
+#    Cohen's d + Mann-Whitney AUC, 40 params): best single param AUC
+#    0.59 (buy_volume, inverse). Direction is uniform: RUNNERS ENTER
+#    CALM (fewer sellers/makers, lower svbv, lower buy_volume, lower
+#    prio/tip competition, lower dev_deploys, slightly higher mc, more
+#    CEX-fresh); GARBAGE ENTERS HOT. No single-number separator exists.
+# 2) BRANCHES: whale (lp>90) 58.2% 2x+ vs crowd 42.0%; crowd holds more
+#    absolute tail (148 vs 73 twenties, 25 vs 9 hundreds).
+# 3) MULTIVARIATE (GBM, week-held-out AUC 0.586-0.637): deciles monotone
+#    for RATE (D0 35.9% -> D9 71.7% 2x+) but 20x counts peak MID-SCORE
+#    (D5-D7) and D9 holds fewest -> the score finds survivors, not
+#    moonshots. Tail is structurally unpredictable at entry (final
+#    confirmation of the information ceiling). Top drivers:
+#    network_fees, buy_volume, lp_sol, owner_age, med_makers, dev_deploys.
+# 4) SQL-EXPRESSIBLE HOT-MESS CUT (validated, weekly-stable):
+#    NOT (sell_volume > buy_volume*0.62 AND sellers > buyers*0.45)
+#    -> cuts 22.4% of volume, 2x+ 48.1->50.3%, keeps 176/221 twenties
+#    and 31/34 hundreds (91% of 100x). Favorable at the extreme tail.
+#    HOT-C (dist_prio>140 & svbv>.55) available but costs 2 more
+#    hundreds — held back.
+# 5) SERIAL-DEPLOYER GUARD: (dev_deploys IS NULL OR < 100000) — targets
+#    the 215k-deploy RIPTRUMP-style spam wave flooding the whale branch
+#    this week; near-zero historical cost, veto-safe (TROOPET dev 11.9k).
+# DEPLOYED slot 3 = v6.3. Expected: v6.2's ~664/d -> ~500/d + whatever
+# the dev guard removes of the new wave. Pending: fresh Query 3 month
+# export to validate against the new meta and tune the wave guard.
