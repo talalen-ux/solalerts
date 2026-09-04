@@ -970,3 +970,18 @@ alert2:
 # DEPLOYED slot 3 = v6.3. Expected: v6.2's ~664/d -> ~500/d + whatever
 # the dev guard removes of the new wave. Pending: fresh Query 3 month
 # export to validate against the new meta and tune the wave guard.
+
+# MOONNET v6.4 (2026-09-04): user directive after tomochi miss
+# (6mJoQq..., tracked since Jul 21, ran $136k->$3.44M — structurally
+# invisible: above the 100k mc ceiling AND 6 weeks past the age cap).
+# Changes: (1) fresh zone ceiling 100k -> 150k; (2) new AGED-RISER
+# branch: mc 60-150k, age >= 9000 slots, mc>prev & mc>mc_d1 & (mc_d2
+# NULL or mc_d1>mc_d2), bv1h>5000, bv1m>500, buys>sells, sellers<0.7b,
+# svbv<0.7, lp>50, rugcheck<30k — first-ever coverage of the revival/
+# comeback class; (3) HOT-C garbage cut added (dist_prio>140 &
+# svbv>0.55). Live histogram: 14,688/mo (490/d) vs v6.3 14,331 —
+# coverage bought for ~+12/d net. PostATH 7.3->9.8% (inherent to aged
+# revivals, engine labels below-lifetime-high entries PostATH).
+# CAVEAT: aged branch deployed on design + live histogram only — no
+# historical row validation possible (all exports are fresh-launch).
+# Alert-only risk. Lab treatment pending fresh Query 3 rows.
