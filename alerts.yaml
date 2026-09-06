@@ -1008,3 +1008,18 @@ alert2:
 #   disclosed tradeoff per quality-over-quantity mandate. Veto clean.
 # AGED BRANCH FIX: momentum now (mc > mc_1h*1.1 OR mc > mc_d1) with
 #   NULL-tolerant d2 leg — catches sparsely-tracked tomochi-class.
+
+# MOONNET v6.6 — TAIL-ONLY OPTIMIZATION (2026-09-06): user directive:
+# optimize for 100/50/20/10x only, fewer alerts. Tail-efficiency greedy
+# on the v6.5 universe (score = vol cut vs tens lost, weekly tail >=82%
+# retention, <=6% fifties per leg, veto).
+# ONE near-free leg exists: dist_tip >= 1 (at least one Jito-tip payer
+# = professional money present). Zero-tip launches produce 10x at <1/5
+# the rate. Cuts 21% of volume for 4.4% of tens.
+# DEPLOYED: v6.6 = v6.5 + dist_tip >= 1 (top-level, both branches).
+# Projection: 362 -> 285/d, 10x+ 5.07 -> 6.17%, tail kept 527/551 tens,
+# 231/239 twenties, 78/81 fifties, 33/34 hundreds.
+# FRONTIER PRICED AND REFUSED: 3+ tips = 210/d but only 63% of tens and
+# 65% of hundreds kept (weekly 58-77%, unstable); 5+ tips = 151/d at
+# 46%/56%. Below ~285/d every alert saved costs ~proportional tail.
+# tracked_wallets column empty in exports (live-only) — unusable offline.
