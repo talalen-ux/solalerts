@@ -1023,3 +1023,11 @@ alert2:
 # 65% of hundreds kept (weekly 58-77%, unstable); 5+ tips = 151/d at
 # 46%/56%. Below ~285/d every alert saved costs ~proportional tail.
 # tracked_wallets column empty in exports (live-only) — unusable offline.
+
+# MOONNET v6.6 LIVE-ENGINE CONFIRMATION (2026-09-07, user's Telegram
+# backtest): n=8,717 (291/d). Projection vs live: 100x 0.39% -> 0.39%,
+# 50x 0.91% -> 0.91%, 20x 2.70% -> 2.71%, 10x 6.17% -> 6.08%, volume
+# 285 -> 291/d. Deep tail EXACT to the digit — most precise of the 17
+# consecutive matches. 2x+ 42.96% (4pp ABOVE projection). PostATH 8.7%.
+# Week's overhaul net: 664/d -> 291/d (-56%), 10x density 4.2 -> 6.1%,
+# monthly tail intact (34x100, 79x50, 236x20). v6.6 VALIDATED.
