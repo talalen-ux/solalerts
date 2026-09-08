@@ -1108,3 +1108,30 @@ alert2:
 #   becomes the first filterable leg that RAISES monster density
 #   (the only kind of leg the triple-proof allows: new information).
 # NOT deployed into v6.6 main (AND tracked_count>=1 would gut recall).
+
+# THE LOSERS STUDY (2026-09-08): definitive post-mortem, 45,232 deduped
+# tokens, 27,985 losers, 7 independent universes, universality standard.
+# UNIVERSAL LOSER TRAITS (same direction in ALL 7 universes):
+#   more buyers & makers at entry (busy), FEWER fresh CEX-funded
+#   newcomers (cnt_new low — no NEW money, recycled degen crowd),
+#   LESS metadata reuse (uri_count ~0 — one-off memes vs winners riding
+#   proven metas: repeat-name law echo), lower fresh_holding.
+#   Loser signature: A BUSY CROWD OF RECYCLED WALLETS WITH NO NEW MONEY
+#   AND NO PROVEN META.
+# *** THE U-SHAPE (the study's core discovery) ***: crowd-intensity vs
+# outcome is U-shaped: losers (buyers 114-140, med_makers 714-770) and
+# MONSTERS (buyers 114, med_makers 935, sellers 45, sb 0.394 = highest)
+# sit on the SAME side; calm entries win ordinary 5-20x. Losers and
+# monsters SHARE the crowded fingerprint — mechanically explains why no
+# monster-preserving cut exists: they are the same look at entry. What
+# differs is WHO the crowd is (wallet identity -> tracked apes, the
+# layer just deployed) and what happens post-entry (ignition domain).
+# DEATH TAXONOMY: only 19.7% of losers never printed a price above
+# entry — 80% offered an exit; breakeven-raise ladder mechanics matter
+# more than feared. Instant-deaths (<1.15x) are marked by the LARGEST
+# first-minute bursts (bv1m med $5.9k vs $3.8k for slow-fades) —
+# manufactured pops; moderate-burst law confirmed at death resolution.
+# Residue: no new deployable leg (thresholds sit at identical medians
+# across classes); value = the map + confirmation that identity
+# (smart money) is the only lever that splits busy-losers from
+# busy-monsters.
