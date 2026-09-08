@@ -1088,3 +1088,23 @@ alert2:
 # the price of 78 fifties + 33 hundreds/mo (~85% market recall).
 # Any further reduction must be bought from the priced menu (tip>=3:
 # 210/d at -35% monsters, etc.) — an explicit user trade, not a free cut.
+
+# SMART-MONEY LAYER DEPLOYED (2026-09-08): the answer to "better
+# 100x/50x ratio" — new information, since re-slicing old information
+# is triple-proven closed. find_apes pipeline executed:
+# RECENT TRIO (apeonfone 1428x + Rentcoin 198x + PINK 400x): 30 wallets
+#   first-bought ALL THREE with >=0.1 SOL. Star: 4otMvq... avg 5.0s to
+#   first buy. Several ultra-selective (47-226 lifetime tokens).
+# OLD TRIO (TROOPET + EIGENSLUR + Pistacio): 30 wallets.
+# CROSS-ERA JEWEL: HXnDHtgqKtjPQmCXy8RGAtKEw2D92a4E4zwvsTKnKsCb — early
+#   in ALL SIX monsters across both eras (555 lifetime).
+# TRACKED (15 added, named APE-S1/A1-A9/B1-B5): the cross-era wallet,
+#   the 5-second sniper, 8 selective recent apes, 5 old-era selective.
+# USAGE: (1) DRBT native tracked-wallet buy notifications = a direct
+#   monster-early-warning channel; (2) tracked_count now populates on
+#   live snapshots -> triage rule #0: ANY alert with tracked_count > 0
+#   outranks everything; (3) after 2 weeks of live data, measure
+#   tracked_count>=1 enrichment on alert exports — if it confirms, it
+#   becomes the first filterable leg that RAISES monster density
+#   (the only kind of leg the triple-proof allows: new information).
+# NOT deployed into v6.6 main (AND tracked_count>=1 would gut recall).
