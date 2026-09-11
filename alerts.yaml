@@ -1135,3 +1135,19 @@ alert2:
 # across classes); value = the map + confirmation that identity
 # (smart money) is the only lever that splits busy-losers from
 # busy-monsters.
+
+# ROBINHOOD CHAIN WORKSTREAM — FIRST BACKTEST (2026-09-11): DRBT's new
+# RobinHood-chain bot (Telegram-only, no MCP yet). RH-EXCALIBUR filter
+# ("momentum"): curve_buyable AND bonding 75-97 AND buyers>=25 AND
+# top_maker_pct<8 AND buy_vol_usd > 3*sell_vol_usd — translated laws
+# (graduation window, crowd validation, concentration cap, organic flow).
+# 24h backtest: 41,237 moments, fired 42, scored 41. Median 3.2x
+# entry->peak. 2x+ 65.9%, 5x+ 46.3%, 10x+ 29.3% (12), 20x+ 12.2% (5),
+# 50x+ 4.9% (2: TOPBLAST 80x, ASHIBA 53x). Peaked-before-fire only 1.
+# Entries cluster $35-43k (the graduation-window zone).
+# Context: 10x density = Q1-SNIPER-grade AT 10x THE VOLUME; 2 fifties
+# in ONE DAY vs Solana SNIPER's 3/month. Caveats: n=41, single day,
+# new-chain froth expected to normalize, exit liquidity unknown.
+# Their backtest methodology is honest-xs native (only post-fire peaks
+# counted). Next: longer window if the bot allows, quiet-archetype
+# second probe, small manual sizing only until liquidity understood.
