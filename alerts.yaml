@@ -1151,3 +1151,28 @@ alert2:
 # Their backtest methodology is honest-xs native (only post-fire peaks
 # counted). Next: longer window if the bot allows, quiet-archetype
 # second probe, small manual sizing only until liquidity understood.
+
+# ROBINHOOD DECK DEPLOYED VIA MCP (2026-09-13): drbtrh connector live
+# (claude.ai custom connector; local header-auth entry removed — egress
+# blocked it, connector route bypasses). Schema: 70+ columns incl.
+# deployer track record, exempt_buy_pct (insider share), fresh/dormant
+# maker bands, router breadth, creator_tax_bps, code fingerprints.
+# Chain facts: ~24k curves/day, 2.3% graduate, median survivor
+# graduates 2min after launch. Backtests accept 63d + unsaved
+# conditions (iterate-before-create!).
+# LEG TESTS on 63d (anchor: curve_buyable & bonding>80 & buyers>=20 &
+# buyUSD>4x sellUSD = 402 fires, 54% 2x+, 9x100x, best 451x):
+#   ACCEPTED top_maker_pct<60 & maker_count>=10 (-27 alerts, ZERO tail)
+#   REJECTED sniped_buys>=1 (lost 4/9 hundreds — anti-snipe tax deters
+#     bots; NOT the tip law here)
+#   REJECTED creator_tax_bps<=100 (kills 84% vol, 7/9 hundreds — the
+#     monsters charge taxes; exit math, not a selector)
+# DEPLOYED (all ON, 3/3 free-tier slots):
+#   #152 RH-EXCALIBUR (bonding 80-100 momentum): 6/d, med 2.21x,
+#     10x+ 17.7%, 20x 39, 50x 17, 100x 9 per 63d
+#   #154 RH-NIGHTHAWK (bonding 30-70 early): 61/d, 40% 2x+, tail
+#     31x100x/59x50x/132x20x per 63d, best 3255x (RETIRE)
+#   #155 RH-PHOENIX (graduated continuation): 6.4/d, 51% 2x+,
+#     5x100x/12x50x per 63d, best 1379x (FLYBRAIN)
+# Zone-dependence law confirmed cross-CHAIN: each chain needs its own
+# law mining; two Solana laws already failed transfer here.
