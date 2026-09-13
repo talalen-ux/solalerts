@@ -1176,3 +1176,18 @@ alert2:
 #     5x100x/12x50x per 63d, best 1379x (FLYBRAIN)
 # Zone-dependence law confirmed cross-CHAIN: each chain needs its own
 # law mining; two Solana laws already failed transfer here.
+
+# RH FIRST LIVE FEEDBACK -> NIGHTHAWK v2 (2026-09-13): user scored the
+# first alerts: YOINK good (327x, launch $5.0k, 2,787 buyers, top_maker
+# 1.6%, graduated to $1.1M+), YEELD & VAULTED bad (both collapsed back
+# down the curve to <1% bonded). THE TELL: both duds LAUNCHED EXPENSIVE
+# ($15.5k / $12.8k launch_mc = creator pre-bought the curve — the RH
+# form of Solana's manufactured instant-launch law) with buys~=sells
+# churn; YOINK launched organic at $5k.
+# 63d validation of launch_mc < 10000 on NIGHTHAWK: volume 61 -> 32/d
+# (-48%), 100x density 0.80 -> 1.24%/alert (+55%), 2x+ 40.1 -> 44.0%,
+# keeps 25/31 hundreds (best in set: MOO 3685x, RETIRE 3255x). Cost:
+# 6 hundreds — accepted deliberately for feed quality per user's live
+# feedback. DEPLOYED as filter #154 v2. Manufactured-launch law now
+# validated on SECOND chain — first law to transfer cross-chain (the
+# junk side transfers; the enrichment laws don't).
