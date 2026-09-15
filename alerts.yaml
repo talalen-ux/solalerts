@@ -1191,3 +1191,20 @@ alert2:
 # feedback. DEPLOYED as filter #154 v2. Manufactured-launch law now
 # validated on SECOND chain — first law to transfer cross-chain (the
 # junk side transfers; the enrichment laws don't).
+
+# RH NIGHTHAWK v3 — 50x/100x DENSITY OPTIMIZATION (2026-09-14): user
+# mandate: raise 100x/50x ratio only, Robinhood. Leg-by-leg on 63d
+# backtests (base v2: n=2012, 100x 1.24%, 50x 2.19%):
+#   REJECTED age_s<900 velocity (density DOWN — slow burners are real)
+#   REJECTED dormant_pct>15 (coverage too thin, 0 monsters)
+#   REJECTED exempt_buy_pct<30 (flat/worse)
+#   REJECTED router_count>=20 (breadth arrives AFTER the run — 0.70%)
+#   ACCEPTED sellers < buyers*0.3 (1.40%/2.33%, keeps 24/25 hundreds)
+#   ACCEPTED buyers >= 40 (1.86%/2.60% — monster-crowd U-side confirmed
+#     on RH; buyers>=30 tested strictly worse)
+#   NEUTRAL-KEPT top_maker_pct 60->35 (same tail, trims 13 junk)
+# DEPLOYED #154 v3: n=794/63d (~12.6/d), median 1.95x, 2x+ 49.0%,
+# 10x+ 13.6%, 20x 49 (6.2%), 50x 21 (2.65%), 100x 15 (1.89%).
+# vs v2: volume -60%, 100x density +52%, 50x density +21%, median
+# 1.74->1.95. Absolute hundreds 25->15 — the explicit ratio-mandate
+# trade, on record.
