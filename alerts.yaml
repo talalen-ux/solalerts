@@ -1230,3 +1230,24 @@ alert2:
 # Waiting levers: fresh Telegram month exports (to re-test the two held
 # legs), tracked-wallet enrichment (APE wallets live 7d, no hits in
 # previews yet), subscription renewal due Sep 17.
+
+# RH OPTIMIZATION + SELF-AUDIT ROUND (2026-09-16): user asked to
+# optimize RH AND audit/improve the analysis process itself.
+# PROCESS FIXES (see SYSTEM.md): temporal holdout ported to RH (the
+# missing weekly-stability analog); discovered 63d backtests were
+# snapshot-capped (earlier estimates partial); response curves replace
+# single-point thresholds; backward elimination; defect-first ordering.
+# DEPLOYED:
+#  #154 NIGHTHAWK v4: buyers>=60 (curve peak; 75/90 collapse — cliff
+#    confirms oversized-early-crowd anomaly). 14d: ~35/d, 2x+ 47.8%,
+#    100x 1.42%, 50x 2.02%, median 2.05 (v3 at 40: 115/d, 41.1%,
+#    1.24%/1.98%, 1.76). launch_mc<10k re-validated via backward elim.
+#  #155 PHOENIX v2: + head_block - ath_block < 3000. 14d: late fires
+#    23.8% -> 15.6%, 2x+ 37.9 -> 41.0%, 100x 0.72 -> 0.85%, ~42/d.
+#  #152 EXCALIBUR recent-window check: HOLDS in mature regime — 14d:
+#    ~47/d matched, 2x+ 44.9%, 10x 12.5%, 50x 3.12%, 100x 1.40%,
+#    late fires 4.7%. Volume far above froth-era estimate (chain grew);
+#    condition unchanged.
+# Chain growth note: all three filters' match volumes 5-8x above
+# capped-window estimates — RH activity is exploding; densities
+# compressing as predicted but still far above Solana equivalents.

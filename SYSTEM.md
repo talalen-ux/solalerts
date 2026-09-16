@@ -56,3 +56,18 @@ Rules: (1) verify any headline catch with image_hash_count > 3 against
 its own mint snapshot history before reporting; (2) every lab result
 claiming tail improvement must include the clean-subset (ih<=3)
 sensitivity; (3) mooners-board multiples for wave members are untrusted.
+
+## RH methodology upgrade — self-audit round (2026-09-16)
+
+Four defects found in my own optimization process, each now protocol:
+1. TEMPORAL HOLDOUT (was missing on RH): every leg verdict requires
+   BOTH the full window AND the last-14-days window. Discovered the
+   "63d" backtests were silently SNAPSHOT-CAPPED (capped:true, 200k) —
+   earlier volume/density estimates were partial-window artifacts.
+2. RESPONSE CURVES, not single points: sweep each lever. The buyers
+   curve (40/60/75/90) revealed 60 as a true peak with a CLIFF at 90
+   (an oversized early crowd is itself an anomaly signal).
+3. BACKWARD ELIMINATION: re-challenge every seated leg after new ones
+   join. launch_mc<10k re-earned its seat on the recent window.
+4. FIX KNOWN DEFECTS before hunting new edges: PHOENIX's 21-24% late
+   fires addressed with head_block - ath_block < 3000.
