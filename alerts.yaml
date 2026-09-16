@@ -1251,3 +1251,22 @@ alert2:
 # Chain growth note: all three filters' match volumes 5-8x above
 # capped-window estimates — RH activity is exploding; densities
 # compressing as predicted but still far above Solana equivalents.
+
+# T20-NET v3 — IGNITER BRANCH (2026-09-16): user flagged HYPED (slot 3
+# catch, $16.6k @18s -> $1.67M = 101x, 3 KOLs in by second 18) and asked
+# to fit the class into the tradeable filters w/o raising sub-3x calls
+# (flexible if it adds multiple mooners).
+# WHY OTHERS MISSED IT: at 18s the LP is still glued to the pump curve
+# (lp_ratio ~0.26) — SNIPER/SHIELD/T20 all require lp_ratio<0.21, so
+# the tradeable deck was STRUCTURALLY BLIND to sub-minute on-curve
+# igniters. buyers 104 also breaks SNIPER/SHIELD's 70-cap.
+# CLASS DEFINED (on-curve igniter): age<300 slots, lp_ratio 0.20-0.28,
+# mc 15-60k, buyers 70-160, sellers<0.35b, bundle 3-10, fresh<10,
+# bv1m>2000, ignition, KOL holder present.
+# LIVE-ENGINE MONTH (staged on slot 4): n=181 (6/d), 2x+ 35.4%,
+# 20x 6, 50x 3, 100x 2 (1.10% density — 2x T20's) incl. HYPED 101x and
+# "Paid" $18k->$19.99M = 1108x. KOL>=2 tightening tested: WORSE (31.8%,
+# loses the 1108x) — the class is binary by nature, moon-or-die.
+# DEPLOYED: T20-NET v3 = T20 v2 OR IGNITER(KOL>=1). Cost: +~5 sub-3x
+# calls/day (+6%) — flexibility clause invoked for +2x100x/mo at the
+# system's cheapest entries. Zones disjoint (lp_ratio bands), overlap ~0.
