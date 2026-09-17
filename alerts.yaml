@@ -1301,3 +1301,18 @@ alert2:
 # restorable). TEMPEST sent 29 alerts in its first hour — the v4
 # venue is HOT right now. Second venue-blindness lesson (tomochi,
 # musebook): every launch venue needs explicit coverage review.
+
+# *** AUTO-BUY LIVE (2026-09-17) ***: user gave the go. Slot 1
+# Q1-SNIPER auto-buy ENABLED: 0.25 SOL / slippage 2000bps / prio 0.002
+# / jito 0.001 / retries 3 / max_mc 120k / skip_if_owned / toxic-KOL
+# buy condition. Auto-sell ladder: 40%@2x (SL->breakeven), 30%@5x,
+# 20%@15x, 10%@50x, floor -50%, TP parked 99.99.
+# Pre-flight review (2wk live): n=42 (3/d), 2x+ 59.5%, 3x+ 52.4%,
+# 10x+ 7.1%, 1x20x. Regime soft; ladder EV ~1.1-1.2 post-fees
+# (vs 2.07 golden month). No leg changes (n=42 cold sample, no-tune
+# doctrine). Factory-wallet launches passing SNIPER now PERFORM
+# (3.6-7.3x) — paradox holds.
+# *** SUBSCRIPTION LAPSED TO FREE TIER (same day) ***: max_queries 2,
+# 10 backtests/day. SLOTS 3 (MOONNET v6.7) AND 4 (T20 v3 + igniter)
+# ARE GONE — recall net and 20x feed dead until renewal. Full
+# conditions preserved in this log for redeploy on renewal.
