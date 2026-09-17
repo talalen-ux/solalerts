@@ -1284,3 +1284,20 @@ alert2:
 # Slot 3 RESTORED to v6.7 after bench. Slot 4 = T20 v3 (igniter incl).
 # Current 100x-density leaders: RH NIGHTHAWK v5 1.48%/alert;
 # SOL igniter branch ~1.1%/alert (2x any legacy SOL stream).
+
+# MUSEBOOK MISS -> RH-TEMPEST (2026-09-17): user asked if filters
+# caught 0x91a2dae9...20ba3 (musebook, quoted in tokenized META).
+# ANSWER: NO — STRUCTURAL. It launched on uniswap_v4 (straight to
+# pool, no curve); ALL three RH filters carried launchpad='pons_v2',
+# so the entire v4 venue was invisible by construction. musebook ran
+# $20.3k -> $26.24M ATH (~1,290x, 7,815 buyers) and round-tripped.
+# Tracker snapshotted it only 3x (first 4 seconds) — v4 backtest
+# coverage is sparse; live trade-driven alerts should see more.
+# V4 PROBE (14d): buyers>=15, buyUSD>3x sell, top_maker<50, mc 15-200k:
+# 32/d, median 2.45x (HIGHEST of any stream both chains), 2x+ 55.5%,
+# 10x+ 9.0%, 3x50x incl earlier musebook deploy 54x, JENSEN 54x.
+# DEPLOYED as RH-TEMPEST on #155, REPLACING PHOENIX (weakest RH
+# stream, 0.85% 100x, zone partly redundant; kept in filter_history,
+# restorable). TEMPEST sent 29 alerts in its first hour — the v4
+# venue is HOT right now. Second venue-blindness lesson (tomochi,
+# musebook): every launch venue needs explicit coverage review.
