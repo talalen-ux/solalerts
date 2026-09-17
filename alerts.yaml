@@ -1270,3 +1270,17 @@ alert2:
 # DEPLOYED: T20-NET v3 = T20 v2 OR IGNITER(KOL>=1). Cost: +~5 sub-3x
 # calls/day (+6%) — flexibility clause invoked for +2x100x/mo at the
 # system's cheapest entries. Zones disjoint (lp_ratio bands), overlap ~0.
+
+# 100x-DENSITY PUSH, BOTH CHAINS (2026-09-16/17): user mandate — more
+# hundreds, fewer calls, no excuses.
+# ROBINHOOD — NIGHTHAWK v5 DEPLOYED: bonding band swept (30-70 vs
+# 45-80 vs 55-90): 45-80 is the 100x peak. 14d: 33.8/d (same vol),
+# 100x 1.48% (from 1.42), 50x 2.54% (from 2.02, +26%), 2x+ 47.2%,
+# median 2.02. fresh_pct band retested: still kills monsters, rejected.
+# SOLANA — IGNITER-MAX benched on slot 3 (2mo): igniter + launch_mc<8k
+# + cex>=2: n=221 (3.7/d), 100x 2 (0.90%) incl HYPED 101x + Paid 1108x,
+# 50x 1.36%. The class's full form lives in T20 v3's branch; MAX kept
+# as the concentrate definition (on record for a future slot).
+# Slot 3 RESTORED to v6.7 after bench. Slot 4 = T20 v3 (igniter incl).
+# Current 100x-density leaders: RH NIGHTHAWK v5 1.48%/alert;
+# SOL igniter branch ~1.1%/alert (2x any legacy SOL stream).
