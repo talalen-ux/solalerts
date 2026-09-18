@@ -1356,3 +1356,17 @@ alert2:
 # Next compression candidates (tomorrow's budget): dist_tip split,
 # cnt_from_cex>=2, buyers subrange, owner_tx/origin quality.
 # Budget 10/10 used. Slot 2 = SHIELD verbatim again.
+
+# SUBSCRIPTION RENEWED + LAPSE AUTOPSY (2026-09-18): user asked why
+# buys failed. Root cause: the Sep-17 lapse. DRBT had DEACTIVATED
+# filter 1 (found active:false with auto_buy still configured) —
+# auto-buy execution is gated by tier, so buys around the lapse
+# failed/stopped at the subscription gate, not at execution. Wallet,
+# settings, conditions all intact.
+# RENEWAL: Degen tier to 2026-10-18 (4 slots, 100 backtests/day,
+# auto_renew OFF — same trap re-arms next month).
+# Renewal RESTORED slots 3 (MOONNET v6.7) and 4 (T20 v3 + igniter)
+# with conditions intact but inactive. ACTIONS: re-activated filters
+# 1, 3, 4 (2 was already active). Filter 1 resumes live auto-buy per
+# user's standing go. Slot-4 confirmation string intact; slot 3 never
+# used one. Verified conditions match the transcript verbatim.
