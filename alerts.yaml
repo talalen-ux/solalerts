@@ -1385,3 +1385,19 @@ alert2:
 # Slot 2 = SHIELD verbatim. mcp.defirobot.org still blocked in this
 # session (allowlist applies to NEW sessions only) — row-level study
 # of the 453 pends a fresh session or a Telegram export.
+
+# FILTER 1 PARSER INCIDENT (2026-09-18): DRBT disabled filter 1 —
+# ParserError line 23: the main condition field contained the glued
+# display text "Confirmation: <ignition string>" after the last leg
+# (combined view pasted/restored into the condition field). Engine
+# parsed it live, errored, auto-disabled. FIX: rewrote main condition
+# clean (validated), re-set confirmation separately, re-enabled.
+# NOTE: stored condition now carries buyers < 85 — the Paid-class
+# widening is LIVE on filter 1 (kept; matches the recommended change).
+# lp<0.21 and bundle 3-10 floor unchanged. Slots 2/3/4 checked clean.
+# wCat AUTO-BUY FAIL (same night, separate): "Pool not found after
+# 20 min (6000 retries)" at pump AMM v2/canonical PDA — token's pool
+# never appeared on a supported venue (unsupported launchpad or LP
+# pulled). No SOL spent; buy never executed. Likely the instant-pAMM
+# factory class that passes the whale branch (lp_sol>90, buyers<10).
+# Monitoring; no filter change (factory-through-gate law says keep).
