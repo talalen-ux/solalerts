@@ -1488,3 +1488,29 @@ alert2:
 #     (best median, worst tail — churn stream) -> "Filter 3 - TEMPEST"
 # Note: drbtrh now reports a THIRD venue 'doppler' (Uniswap V4 hook
 # launches) — new venue-coverage review needed (tomochi/musebook law).
+
+# *** RH DECK REBUILD — FULL-CURVE BREAKTHROUGH (2026-09-18) ***
+# User mandate: shatter 100x/50x/20x numbers. Findings (all 336h;
+# NOTE: RH snapshot store currently only reaches ~14d — 1512h run
+# returned identical results; no deeper holdout exists yet):
+# 1. VENUE RECLASS: musebook (1031x) moved from uniswap_v4 to new
+#    'doppler' venue — TEMPEST was blind to its own founding class.
+#    Third venue-blindness incident (tomochi, musebook x2).
+# 2. RECALL CEILING: pons_v2 raw (mc>8k) holds 112x100x / 224x50x /
+#    540x20x per 14d. Old deck captured ~15 hundreds (~13%).
+# 3. 104/112 hundreds first cross mc>8k while bonding<45 — the EARLY
+#    zone both old pons filters started above. Compressed:
+#    bonding<45, mc 8-25k, launch_mc<8k, buyers>=40 (40-50 band holds
+#    9 hundreds; >=60 kills it), vol>4xsell, sellers<0.25b,
+#    top_maker<30, makers>=15 -> n=1295 (92/d), 1.08% 100x, entries
+#    2-3x cheaper than EXCALIBUR (CME 966x vs 423x same token).
+# 4. MERGE: early OR NIGHTHAWK(45-80) OR EXCALIBUR(>80) in ONE slot,
+#    earliest entry wins: n=2125 (152/d), 25x100x (1.18%), 44x50x,
+#    101x20x, 2x+ 42.2%, median 1.79, pATH 6%. 2.3x EXCALIBUR alone.
+# DEPLOYED DECK:
+#  #152 "Filter 1 - AVALANCHE full curve" = merged tri-zone (above)
+#  #155 "Filter 2 - TEMPEST" = unchanged v4 net (best median stream)
+#  #154 "Filter 3 - MUSENET doppler" = doppler, mc 15-200k, buyers>=5
+#    (22/d, keeps musebook 1031x + full venue tail; moon-or-die)
+# Old NIGHTHAWK/EXCALIBUR conditions preserved in filter_history.
+# Deck ceiling/14d: ~27x100x, ~54x50x, ~127x20x vs old ~15/~30/~80.
