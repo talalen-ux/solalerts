@@ -1442,3 +1442,25 @@ alert2:
 #   top-buys under auto-buy; extension class = pAMM instants (wCat
 #   pool-not-found family, some buys will fail harmlessly).
 # Slot 2 = SHIELD verbatim. Awaiting user pick for live filter 1.
+
+# 50x/100x CONCENTRATION+RECALL ROUND ON WIDE+WHALE (2026-09-18):
+# Base B' 2mo: n=735, 59.2%, 6x100x, 12x50x. Tested:
+#   ext + dev_deploys<1000: REJECT — halves PostATH but cuts 2x100x,
+#     3x50x. Manufactured paradox EXTENDS to 100-150k zone: factory
+#     launches produce monsters there too. Identity cuts cost tail.
+#   ext ceiling 200k: REJECT — +46 tokens, 0 monsters, more pATH.
+#     150k confirmed ceiling.
+#   sellers 0.55 + max_bundle 170 + no-cex (triple relax): REJECT —
+#     +42 tokens, 0 monsters. Walls are monster-tight.
+#   BUNDLE FLOOR REMOVED (0-10 full band): n=3909/2mo (65/d), 58.7%,
+#     13x100x, 29x50x. Sub-1% band = 3132 tokens @ 59.4% 2x+ —
+#     SAME RATE as B'; yesterday's "junk band" verdict was a
+#     window artifact. Recent 1mo: n=1672 (56/d), 54.0%, 8x100x,
+#     16x50x. Hit-rate is ~scale-invariant across the bundle axis;
+#     monsters scale WITH volume. Named SNIPER-MAX.
+# CAPITAL MATH (fixed ~3 SOL/d): B' @0.25 = 3x100x/mo | MAX @0.055
+#   = 8x100x/mo at ~same rate. Wide-net small-size dominates for
+#   monster count. LADDER FLAW flagged: current stages sum to 100%
+#   by 50x — a 100x run contributes NOTHING past 50x. Moonbag
+#   restructure (e.g. 40/30/20/5, hold 5% to TP) needed to actually
+#   CAPTURE hundreds. Slot 2 = SHIELD. Awaiting user deploy pick.
