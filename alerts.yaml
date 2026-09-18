@@ -1370,3 +1370,18 @@ alert2:
 # 1, 3, 4 (2 was already active). Filter 1 resumes live auto-buy per
 # user's standing go. Slot-4 confirmation string intact; slot 3 never
 # used one. Verified conditions match the transcript verbatim.
+
+# LP-BAND COMPRESSION ROUND 2 (2026-09-18, post-renewal, 100 bt/day):
+# composite re-verified on shifted window: n=453, 2x+ 45.7%, 21x20x,
+# 7x50x, 2x100x, PostATH 4.2%. Remaining candidate legs tested:
+#   dist_tip >= 1: INERT — only 13/453 are zero-tip, no signal.
+#   cnt_from_cex >= 2: NEGATIVE — the 58 cut run 53% 2x+ (above avg).
+#   buyers >= 40: NEUTRAL — cuts 32, costs 1x20x. Not a lever.
+# VERDICT: SQL compression limit reached. FINAL COMPOSITE (on record):
+#   widened-SNIPER legs + lp_ratio in [0.21,0.27) + kol_holders = 0
+#   + dev_deploys < 500 -> ~15/d, ~46% 2x+, 0.44% 100x/alert.
+# The band's separators are IDENTITY only (stealth: no KOLs;
+# non-factory dev). All flow/momentum/funding splits are flat.
+# Slot 2 = SHIELD verbatim. mcp.defirobot.org still blocked in this
+# session (allowlist applies to NEW sessions only) — row-level study
+# of the 453 pends a fresh session or a Telegram export.
