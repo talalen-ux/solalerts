@@ -1333,3 +1333,26 @@ alert2:
 # reject floor removal + lp 0.27 for the live buyer (position-count
 # blowup, 2x+ collapse to 44.9%). Awaiting user go on live change.
 # Backtest budget used: 4/10 today. Slot 2 = SHIELD verbatim again.
+
+# LP-BAND AUTOPSY (2026-09-18): user asked what separates mooners
+# from junk inside the lp_ratio 0.21-0.27 widening. Band isolated on
+# slot 2 (widened SNIPER + lp in [0.21,0.27)), 1mo: n=1420, 2x+
+# 37.5%, 37x20x, 12x50x, 2x100x, PostATH 7.5%. Splits (1mo each):
+#   + speed/vol (bv1m>2000, upd<created+300): n=1268 (89% of band),
+#     2x+ 35.6% — NO SEPARATION. Whole band is one fast-ignition
+#     class; junk shares the mooners' momentum fingerprint (U-shape).
+#   + kol_holders>=1: n=744, 2x+ 34.5%, 0x100x, 2/12 50x — KOL
+#     presence is ANTI-SIGNAL here. Derived kol-free half: n=676,
+#     2x+ 40.8%, 10/12 50x, BOTH 100x. Stealth inversion again
+#     (mirrors zero-tip law inside SNIPER zone).
+#   + kol=0 AND launch_mc<8000: n=587, loses 1/2 100x + 2 50x in the
+#     89 cut — launch_mc leg REJECTED in this band.
+#   + kol=0 AND dev_deploys<500: n=449 (15/d), 2x+ 45.9%, 10x+ 9.1%,
+#     21x20x, 7x50x, BOTH 100x kept, PostATH halved to 4.2%.
+#     100x density 0.45%/alert = 3.2x the raw band. WINNER so far.
+# LAWS: in the on-curve band the separators are IDENTITY (no KOLs,
+# non-factory dev) not momentum. Composite on record:
+#   lp_ratio 0.21-0.27 + kol_holders = 0 AND dev_deploys < 500.
+# Next compression candidates (tomorrow's budget): dist_tip split,
+# cnt_from_cex>=2, buyers subrange, owner_tx/origin quality.
+# Budget 10/10 used. Slot 2 = SHIELD verbatim again.
