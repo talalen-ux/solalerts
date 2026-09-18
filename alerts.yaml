@@ -1477,3 +1477,14 @@ alert2:
 # and ~16x50x per month entering the book.
 # LADDER STILL OLD (40/30/20/10 -> flat by 50x): moonbag restructure
 # offered, NOT yet approved — hundreds cap at 50x P&L until changed.
+
+# RH FILTERS RENAMED BY 20x+ RANK (2026-09-18, user request): fresh
+# 14d (336h) backtests, identical window, ranked by 20x+ ratio:
+#   #152 EXCALIBUR: 6.81% 20x+ (50/734), 1.50% 100x, median 1.84,
+#     2x+ 44.1% -> renamed "Filter 1 - EXCALIBUR"
+#   #154 NIGHTHAWK: 5.49% 20x+ (32/583), 1.37% 100x (RETIRE 2242x
+#     in-window), median 2.02 -> renamed "Filter 2 - NIGHTHAWK"
+#   #155 TEMPEST:   2.46% 20x+ (22/893), 0.11% 100x, median 2.36
+#     (best median, worst tail — churn stream) -> "Filter 3 - TEMPEST"
+# Note: drbtrh now reports a THIRD venue 'doppler' (Uniswap V4 hook
+# launches) — new venue-coverage review needed (tomochi/musebook law).
