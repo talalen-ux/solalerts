@@ -1401,3 +1401,23 @@ alert2:
 # pulled). No SOL spent; buy never executed. Likely the instant-pAMM
 # factory class that passes the whale branch (lp_sol>90, buyers<10).
 # Monitoring; no filter change (factory-through-gate law says keep).
+
+# SNIPER RECALL EXPANSION — WALL SWEEP (2026-09-18): user mandate —
+# more volume, same ratio. Every SNIPER wall swept one-leg-at-a-time
+# on slot 2 vs synced baseline (n=104, 60.58% 2x+, 1/2/6/14):
+#   sells<=70:        INERT (0 adds — sellers-ratio already binds)
+#   fresh<20:         INERT (+1 dud)
+#   dist-of-mc 150k:  DILUTES (+251 @ 47.8%, +2x100x but PostATH 16%)
+#   buyers<110:       +6 @ 17% BUT contains a 50x (binary zone) — KEEP
+#   rugcheck<30000:   +16 @ 81% 2x+ (!) — Z500 law confirmed: 11k-30k
+#                     scores are transient fast-mover flags on WINNERS
+#   bundle floor 3->1: +124 @ 66% 2x+ — VOLUME DOUBLER that RAISES the
+#                     rate; sub-3% junk lives BELOW 1%, not in 1-3
+# SNIPER-WIDE COMBO (bundle>1, rugcheck<30k, buyers<110), 1mo:
+#   n=268 (~9/d, 2.6x volume) | 2x+ 64.18% (UP from 60.58)
+#   10x 22 (+8) | 20x 11 (+5) | 50x 3 (+1) | 100x 1 (=) | pATH 0.4%
+# STABILITY: 2wk n=74 59.5% 2x+ (soft regime, tracks); 2mo n=445
+#   66.1% 2x+, 4x100x (0.90%), 8x50x, 25x20x; older month 68.9%.
+# VERDICT: first expansion found that raises volume 2.6x AND the 2x
+# rate simultaneously. AWAITING USER GO to deploy to live filter 1
+# (capital: ~9 buys/d at 0.25 SOL = ~2.2 SOL/d). Slot 2 = SHIELD.
