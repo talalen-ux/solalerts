@@ -1464,3 +1464,16 @@ alert2:
 #   by 50x — a 100x run contributes NOTHING past 50x. Moonbag
 #   restructure (e.g. 40/30/20/5, hold 5% to TP) needed to actually
 #   CAPTURE hundreds. Slot 2 = SHIELD. Awaiting user deploy pick.
+
+# *** SNIPER-MAX DEPLOYED TO LIVE FILTER 1 (2026-09-18, user pick) ***
+# Main condition = WIDE core (buyers<110, rugcheck<30k, NO bundle
+# floor, bundle<10) + whale-instant extension (mc<150k via lp>90 AND
+# age<600 slots AND strict rugcheck). Verified live via get_filter.
+# Auto-buy: amount 0.25 -> 0.05 SOL (wide-net small-size, ~same
+# daily capital at 56/d), max_mc 120k -> 155k (extension executes).
+# Unchanged: slippage 2000, prio 0.002, jito 0.001, retries 3,
+# skip_if_owned, toxic-KOL buy condition, confirmation string.
+# Expected (recent-regime backtest): ~56 buys/d, 2x+ ~54%, ~8x100x
+# and ~16x50x per month entering the book.
+# LADDER STILL OLD (40/30/20/10 -> flat by 50x): moonbag restructure
+# offered, NOT yet approved — hundreds cap at 50x P&L until changed.
