@@ -1421,3 +1421,24 @@ alert2:
 # VERDICT: first expansion found that raises volume 2.6x AND the 2x
 # rate simultaneously. AWAITING USER GO to deploy to live filter 1
 # (capital: ~9 buys/d at 0.25 SOL = ~2.2 SOL/d). Slot 2 = SHIELD.
+
+# 100x HUNT — BRANCH TESTS ON SNIPER-WIDE (2026-09-18): user mandate
+# more 100x. Two 100x-dense zones bolted on as gated branches, 2mo
+# windows (WIDE base: n=445, 66.1%, 4x100x, 8x50x):
+#   +IGNITER(KOL) branch (T20 v3 verbatim): n=687, 55.3%, 5x100x,
+#     10x50x — adds 242 @35.5%, +1 100x. Inferior per-add. On record.
+#   +WHALE-INSTANT 100-150k raw (lp>90, age<600 slots): n=827, 54.4%,
+#     7x100x (+3!), 13x50x — but PostATH 10.9%, FhVo dross @ rugcheck
+#     13000 (high-mc-per-holder + low-liq combo flag).
+#   +WHALE-INSTANT STRICT (extension requires rugcheck NULL or <11k):
+#     n=735, 59.2%, 6x100x, 12x50x, PostATH 8.4% — cuts 92 worst adds,
+#     keeps 6/7 hundreds. WINNER. UiPath-class (fresh instant, deep
+#     LP, rugcheck clean at fire) is the 100x carrier.
+#   Recent 1mo of STRICT: n=519 (17/d!) 56.3%, 3x100x, 6x50x —
+#     extension zone EXPLODING this month (FhVo ramp); older month ran
+#     66.2%. Volume regime-sensitive.
+# LADDER: WIDE = 9/d, 64%, ~2x100x/mo | WIDE+STRICT-150k = 17/d, 56%,
+#   ~3x100x/mo. CAVEATS on record: PostATH ~10% of extension fires =
+#   top-buys under auto-buy; extension class = pAMM instants (wCat
+#   pool-not-found family, some buys will fail harmlessly).
+# Slot 2 = SHIELD verbatim. Awaiting user pick for live filter 1.
