@@ -1316,3 +1316,20 @@ alert2:
 # 10 backtests/day. SLOTS 3 (MOONNET v6.7) AND 4 (T20 v3 + igniter)
 # ARE GONE — recall net and 20x feed dead until renewal. Full
 # conditions preserved in this log for redeploy on renewal.
+
+# WIDENING BENCH (2026-09-18): user proposal for LIVE filter 1 —
+# buyers<85, bundle band 0-10% (floor removed), lp_ratio<0.27.
+# Benched on slot 2 (auto-buy OFF), SHIELD restored after. 1mo runs:
+#   BASELINE (live SNIPER):   n=84   65.5% 2x+ | 5x20x  1x50x  0x100x
+#   A  buyers<85 only:        n=98   61.2% 2x+ | 6x20x  2x50x  1x100x
+#   C  A + floor removed:     n=859  55.8% 2x+ | 29x20x 12x50x 6x100x
+#   FULL A+C+lp<0.27:         n=2183 44.9% 2x+ | 63x20x 23x50x 7x100x
+# READ: buyers<85 is nearly FREE — +14 tokens/mo buys the Paid-class
+# tail (+1 100x incl Paid, +1 50x, +1 20x) for ~4pp of 2x rate.
+# Floor removal alone = 10x volume (29/d, ~7 SOL/d at 0.25); lp<0.27
+# opens the pinned on-curve universe = 73/d, untradeable live and the
+# added 1,324 tokens carry only +1 100x — worst marginal quality.
+# VERDICT: recommend applying ONLY buyers<85 to live filter 1;
+# reject floor removal + lp 0.27 for the live buyer (position-count
+# blowup, 2x+ collapse to 44.9%). Awaiting user go on live change.
+# Backtest budget used: 4/10 today. Slot 2 = SHIELD verbatim again.
