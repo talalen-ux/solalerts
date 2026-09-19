@@ -1533,3 +1533,24 @@ alert2:
 # 2x+ 46.3%, median 1.96, 24x100x (1.55%), 43x50x (2.77%), 86x20x
 # (5.55%), pATH 5.9%. ~80% of removed calls were sub-3x. Cost of the
 # purge: 1x100x, 1x50x, 15x20x. All NULL-safe legs.
+
+# SNIPER-MAX LIVE DAY 1 — EXECUTION AUTOPSY (2026-09-19):
+# 5x pool-not-found + 1 SL blowthrough pasted by user.
+# ROOT CAUSE of pool-not-found IDENTIFIED: all 6 failing mints
+# (wCat, DGrid AI x2, DGAI x2, Pigeon) are NON-pump.fun mints (no
+# 'pump' suffix) — other launchpads (Bonk/Bags/Moonshot class).
+# DRBT's buy engine only derives pump AMM v2/canonical PDAs, so
+# every non-pump venue buy fails after 20min retries. The one fill
+# that worked (CASH, ...pump mint) confirms the split.
+# COST/BENEFIT of the failing class: DGrid/DGAI cluster = factory
+# junk that died (xs 0 — failures SAVED ~0.15 SOL of buys), BUT
+# Pigeon ran $57k->$933k ATH (16x MISSED). Class is mixed; alerts
+# stay valuable; no SOL is ever lost on a failed buy.
+# CASH RUG: entry $57k -> LP pulled -> SL filled at $2.7k = -95%
+# realized (-0.0505 SOL) vs -50% floor. SL cannot outrun LP pulls;
+# this is exactly why MAX runs 0.05 size. Damage cap ~0.048/rug.
+# ACTIONS: no filter change (alerts valid). RECOMMEND user ask DRBT
+# to support non-pump launchpad buying — unlocks Pigeon-class fills.
+# 'pumpfun' column semantics unreliable (false on pAMM/pump mints);
+# no clean SQL gate for the executable-venue split exists today.
+# Balance after day-1 morning: 2.9084 SOL.
