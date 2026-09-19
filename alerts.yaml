@@ -1573,3 +1573,22 @@ alert2:
 # removed alert is a filter-1 alert WITH auto-buy). Slot-3-local
 # stats: n=7340/mo, 39.2% 2x+, 32x100x, 70x50x, 174x20x (the removed
 # 2x100x/7x50x/41x20x live on filter 1). Slot 2 = SHIELD verbatim.
+
+# TIPPED MISS AUTOPSY (2026-09-19): tipp4C4...5BS ran $18.3k ->
+# $2.53M ATH (138x, 4.5h) with ZERO deck alerts. Vanity 'tipp' mint,
+# non-pump.fun venue. Prime blocker: MOONNET's dist_tip >= 1 —
+# non-pump launchpads route around Jito so tips are structurally
+# absent. VENUE-BLINDNESS LAW NOW CONFIRMED ON SOLANA (4th incident:
+# tomochi, musebook x2, TIPPED).
+# TIP-ABSENT ZONE PROBED (1mo, quality-gated): n=2408, 15.0% 2x+,
+# 73.8% sub-2x, 2x100x (0.08%). The dist_tip>=1 law is RIGHT in
+# aggregate — dropping it floods MOONNET with the worst universe
+# measured on Solana. TIPPED is the 3% tail of a 97%-correct law.
+# Note: even with an alert, the buy would fail (non-pump venue =
+# pool-not-found class). VERDICT: no filter change; loss accepted
+# as the tip-law premium. STRUCTURAL FIX to request from DRBT:
+# (1) launchpad/venue column on Solana (RH already has one) so
+# non-pump venues get their own calibrated net; (2) non-pump buy
+# support. Same ticket as the Pigeon miss. Slot 2 = SHIELD verbatim.
+# Also on record: FLEX + Tokens Tokens = 2 good MOONNET calls today
+# (fresh-branch, 4s-11m age) — the recall net is earning its slot.
