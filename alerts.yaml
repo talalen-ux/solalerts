@@ -1514,3 +1514,22 @@ alert2:
 #    (22/d, keeps musebook 1031x + full venue tail; moon-or-die)
 # Old NIGHTHAWK/EXCALIBUR conditions preserved in filter_history.
 # Deck ceiling/14d: ~27x100x, ~54x50x, ~127x20x vs old ~15/~30/~80.
+
+# AVALANCHE v2 — SUB-3x PURGE (2026-09-19): user mandate to cut bad
+# calls. Provenance-column sweep on merged condition (336h, base
+# n=2125, 3x+ 28.2%, 25/44/101 monsters):
+#   symbol_reuse<=3:   HARD REJECT — kills 16/25 hundreds. RH monsters
+#     ride recycled tickers (copycat law transfers from Solana).
+#   socials_count>=2:  REJECT — loses 11 hundreds, rate drops.
+#   creator_tax<=200:  REJECT — costs 4x50x, rate down.
+#   dev-farm cut:      NEUTRAL — 164 cut, ~flat. Skipped.
+#   branch3 tighten:   REJECT — 2x100x lost for 29 calls (flash-
+#     bonder gate must stay loose; WORLDIE class).
+#   exempt_buy_pct<40: ACCEPT — -374 calls @ 17.6% 3x+ (junk-dense),
+#     keeps 24/25 hundreds. SELF-BOUGHT LAUNCHES = RH JUNK SIGNATURE.
+#   deployer_launches<=3: ACCEPT — -210, all 100x/50x kept.
+#   top_router_pct<85: ACCEPT — free.
+# DEPLOYED #152 AVALANCHE v2: n=1550 (~111/d, -27%), 3x+ 31.4%,
+# 2x+ 46.3%, median 1.96, 24x100x (1.55%), 43x50x (2.77%), 86x20x
+# (5.55%), pATH 5.9%. ~80% of removed calls were sub-3x. Cost of the
+# purge: 1x100x, 1x50x, 15x20x. All NULL-safe legs.
