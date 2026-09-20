@@ -1592,3 +1592,23 @@ alert2:
 # support. Same ticket as the Pigeon miss. Slot 2 = SHIELD verbatim.
 # Also on record: FLEX + Tokens Tokens = 2 good MOONNET calls today
 # (fresh-branch, 4s-11m age) — the recall net is earning its slot.
+
+# TOP-10 MOONER AUDIT, 24h (2026-09-20): SI 534x, JEANPHIL(2) 275x,
+# WILLIE 248x, JEV 235x, UIU 226x, TREATS 192x, JEV(2) 191x, ETFS
+# 190x, FOMOEGG 189x, honse 189x. Class split:
+#  - 8 CROWD RUNS (944-5485 buyers, launch $2.0-8.1k): all crossed
+#    15-69k ON-CURVE (lp_ratio ~0.26) — MAX structurally blind there
+#    (lp<0.21 law); coverage owner = MOONNET + T20 igniter; MAX only
+#    eligible post-migration 70-150k.
+#  - 2 STEALTH-INSIDER (TREATS 38 buyers, ETFS 58, both $4.5k->870k
+#    in 7.5h, both round-tripped to 1.0x): no crowd = no exit
+#    liquidity = untradeable even if caught. NOT chased.
+#  - 7/10 round-tripped to ~1x. Only SI/JEV/FOMOEGG held. Capture
+#    is a LADDER problem as much as a catch problem.
+#  - REPEAT-NAME LAW LIVE: paste's JEANPHIL ($732k peak, dead) is
+#    deploy #2; the original (GTBx...pump) did $8.1k->$5.37M ATH and
+#    holds $3.45M. Name-reuse triage signal confirmed again.
+#  - TIPPED: yesterday's autopsy (non-pump venue, tip law boundary).
+# FLAG: list_positions EMPTY on filter 1 after ~1.5d of MAX — either
+# all fills SL'd out (soft regime) or wallet dry (was 2.91 SOL).
+# User to verify fills/balance in Telegram.
