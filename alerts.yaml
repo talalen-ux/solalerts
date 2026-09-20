@@ -1612,3 +1612,31 @@ alert2:
 # FLAG: list_positions EMPTY on filter 1 after ~1.5d of MAX — either
 # all fills SL'd out (soft regime) or wallet dry (was 2.91 SOL).
 # User to verify fills/balance in Telegram.
+
+# RH DEEP DECK REVIEW (2026-09-20, all 168h/7d — RH store now too
+# large for 336h inside the 60s MCP timeout; 7d is the new standard
+# window until infra catches up):
+# #152 AVALANCHE v2: n=879 (126/d bt; live 126/24h EXACT MATCH),
+#   2x+ 42.7%, 5x100x (0.57%), 14x50x, 29x20x, pATH 5.9%. ASKR now
+#   529x from the $13.2k early-branch entry (ran to $7M). 100x
+#   density down vs build week (1.55%->0.57%) — last week's
+#   RETIRE/CME cluster aged out; regime, not structure.
+# #155 TEMPEST: n=1850 (264/d bt; live 519/24h = ~2x bt, venue still
+#   exploding), 2x+ 51.4%, median 2.16, 4x100x, 12x50x, pATH 5%.
+#   Healthy at scale.
+# #154 MUSENET v1: BROKEN AS DEPLOYED — 146/d, 11.5% 2x+, 51.7%
+#   POST-ATH (doppler deploy-wick decays crossing 15k). Fix hunt:
+#   late-fire block gate 34% pATH but -1x100x; ath-proximity WORSE
+#   (45% — wick is AT ath); aged-riser port LOSES musebook. WINNER:
+#   age_s < 600 (young-only): n=553 (79/d), 18.1% 2x+, pATH 27.1%,
+#   keeps ALL monsters (musebook 1031x, AGRIPPA 54x, 1/3/5).
+#   DEPLOYED as MUSENET v2. Doppler junk = old wick-remnants; the
+#   monsters enter young. New doppler law.
+# VENUE EXPLOSION: RH now names 7 hook launchpads (doppler, cashcat,
+#   pair, launchhook, cook, klik, clanker). Six probed together:
+#   48 tokens/7d over 10k mc, 0x5x+, best 4.99x — embryonic, WATCH
+#   LIST only, no slot. Recheck weekly (musebook law).
+# PLAN NOTE: free tier now 50 bt/day shared + ALERTS 15s DELAYED —
+#   material on 100-second curve sprints (ASKR bonded in 100s);
+#   paid RH plan removes the delay = direct edge on AVALANCHE early
+#   branch. Worth the upgrade when RH sizing gets serious.
