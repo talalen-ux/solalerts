@@ -71,3 +71,24 @@ Four defects found in my own optimization process, each now protocol:
    join. launch_mc<10k re-earned its seat on the recent window.
 4. FIX KNOWN DEFECTS before hunting new edges: PHOENIX's 21-24% late
    fires addressed with head_block - ath_block < 3000.
+
+## DAILY-OPS PROTOCOL (2026-09-21)
+Runs once per day (scheduled Routine fires it into the session; user
+can also trigger with "daily brief"). Steps, in order:
+1. FILL SCORECARD — filter 1 fills/fails vs backtest expectation
+   (volume, 2x rate, rug count, balance). Flag drift >30%.
+2. MOONER AUDIT — top-10 (1day) both chains: caught/missed/why,
+   venue split, wall attribution. Every miss gets a one-line autopsy;
+   recurring wall = experiment candidate.
+3. REPEAT-NAME WATCHLIST — from the day's mooners, list names to
+   watch for deploy #2 (manual play; Tilcayo #2 did 691x, JEANPHIL
+   #1 did 3443x after #2 died — the law pays both directions).
+4. ONE EXPERIMENT — exactly one filter improvement tested from the
+   backlog (budget: ≤15 Solana runs, ≤15 RH runs), deployed only if
+   it clears the validation bars. Backlog lives in alerts.yaml.
+5. LEDGER — findings appended to alerts.yaml, pushed. Every 7th day:
+   law review (which laws held/broke this week) + weekly stability
+   check on all live filters.
+Self-improvement loop: each day's misses feed the next day's
+experiment; each week's law review prunes dead laws. No-tune
+doctrine still applies to live-money legs (n>=100 before touching).
