@@ -1665,3 +1665,33 @@ alert2:
 # ping to DRBT, [b] moonbag ladder approval, [c] AVALANCHE branch
 # decomposition, [d] new-RH-venue weekly probe, [e] tracked-wallet
 # enrichment recheck.
+
+# ===== DAILY-OPS BRIEF #1 (2026-09-21, scheduled run) =====
+# 1. FILLS: SNIPER-MAX FIRST MONSTER — GitHub (jG28...pump) entered
+#    $70.1k @05:10, peaked 17.83x ($1.28M). Ladder banked 0.245 SOL
+#    on 0.053 entry (4.6x realized), 90% sold, 10% moonbag riding
+#    for 50x, SL at breakeven. Caught a TOP-4 DAILY MOONER with
+#    real money. MAX validated live.
+# 2. MOONERS: SOL 1d internal query n=4: GitHub CAUGHT+FILLED;
+#    FatHomie (pump, likely covered); ZEBRA + INU = non-pump class
+#    (miss; venue gap, count now 7 known non-pump monsters).
+#    RH 1d: 6/10 "mooners" = wash-wick farm cluster (~$4.6k launches,
+#    51-156 buyers, all back to 1.0x, fake single-wick ATHs) —
+#    correctly ignored by AVALANCHE gates. Real 3: PUNKS (22.9x
+#    live), SOD (64x live), DEED — all pons graduates in AVALANCHE
+#    zones. NEW RH JUNK SPECIES on record: wick-farm cluster
+#    (fingerprint: ~$4.6k launch, <200 buyers, ungraduated, 100x+
+#    "ath" wick, same-hour batch deploys).
+# 3. REPEAT-NAME WATCH: GitHub (46x, alive) — watch deploy #2;
+#    FatHomie; PUNKS/SOD on RH.
+# 4. EXPERIMENT [c] AVALANCHE branch decomposition (3 RH runs,
+#    168h, standalone with v2 gates):
+#      EARLY <45:  671 (96/d), 42.0% 2x+, 4x100x (0.60%), ASKR 529x
+#      MID 45-80:  263 (38/d), 40.3% 2x+, 3x100x (1.14%)
+#      LATE >80:   174 (25/d), 49.4% 2x+, 3x100x (1.72%), med 2.09
+#    All three branches carry monsters; LATE is densest, EARLY is
+#    volume+absolute king. VERDICT: merge structurally sound, no
+#    change. Backlog item [c] closed.
+# 5. Still pending user: moonbag ladder approval; DRBT support
+#    ticket (non-pump venue, now 7 monsters of evidence); wallet
+#    top-up check. Budgets used: SOL 0, RH 5.
