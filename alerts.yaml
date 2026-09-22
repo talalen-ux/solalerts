@@ -1723,3 +1723,20 @@ alert2:
 #  C. Keep MAX + moonbag ladder + accept drip variance.
 # Moonbag ladder pending approval FOURTH DAY — under any option the
 # 50x cap costs every future GitHub its tail.
+
+# RUG-PATTERN HUNT ROUND 1 (2026-09-22): tested the sharpest SQL
+# hypothesis — rugcheck 6000-8000 band ("Creator history of rugged
+# tokens", passes the <30000 gate; SNAKECAT example live this week).
+# Result on the live-week zone (n=398 -> 322): cut 76 tokens at
+# 48.7% 2x+ — IDENTICAL to baseline rate. The serial-rugger flag
+# does NOT predict ATH-multiple outcomes in-zone (surprise,
+# falsified on rate). It DID cut PostATH 7.0->4.0%. HELD, not
+# deployed: rate-neutral.
+# METHOD LIMIT REACHED AND NAMED: backtest histograms measure ATH
+# multiples, NOT drawdown depth. "Rug" = how far below -50% the SL
+# fills — invisible to every histogram split. Proper rug
+# fingerprinting requires the REALIZED SL outcomes: the Telegram
+# Auto-Sell STOP-LOSS messages (mint + realized %). With 20-40 of
+# those, split deep-rugs (<-70%) vs normal stops (-45/-60%), pull
+# entry histories per mint, fingerprint the difference. DATA
+# REQUEST TO USER on record. Slot 2 = SHIELD verbatim.
