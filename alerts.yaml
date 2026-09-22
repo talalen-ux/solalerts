@@ -1788,3 +1788,30 @@ alert2:
 # DEX — mint-suffix is NOT a perfect venue proxy; some non-pump
 # mints are pump-tradeable (vanity mints on pump.fun).
 # Analysis bar remains n>=20.
+
+# ===== DAILY-OPS BRIEF #2 (2026-09-22, scheduled run) =====
+# 1. FILLS: KITTY at 5.16x = FIRST MOONSHOT-LADDER FILL working
+#    (25% banked at 3x, SL breakeven, 75% riding to 10x stage).
+#    lil bub 1.42x (old ladder). GitHub position CLOSED overnight —
+#    either 50x stage or breakeven-SL on the moonbag; user's
+#    Telegram has the exit message. Wallet ~2.1 SOL — TOP-UP still
+#    the #1 operational item.
+# 2. MOONERS SOL (1d, n=9): 8/9 NON-PUMP MINTS — the venue shift is
+#    accelerating (yesterday 5/10, today 8/9). The meta has moved
+#    off pump.fun; our whole Solana deck hunts pump.fun. Non-pump
+#    monster count now ~15 on record. DRBT venue-support ticket is
+#    now the single highest-EV action in the operation.
+#    Doubles IN-DAY: CLIPBACK x2 (404x + 176x), Bybit x2 (both
+#    ~125x, both AT ATH = still running).
+# 3. REPEAT-NAME WATCH: CLIPBACK #3, Bybit #3 (same-name only, no
+#    derivatives per refined law), KITTY #2, FAMILY #2.
+# 4. EXPERIMENT — flash-age split on filter 1 zone (2 SOL runs):
+#    age<240 slots at entry = 338/398 alerts (85%); rates identical
+#    both sides (48.8 vs 50.0% 2x+). FINDING: filter 1 IS a
+#    sub-2-minute filter by construction; age gate CANNOT separate
+#    flash-rugs from flash-monsters (TANK entered at 12s, 11.4x).
+#    Anti-rug AGE LEG: FALSIFIED. Rug defense must move to the
+#    SELL ENGINE: quick_sell / early-phase protective exit —
+#    added to backlog as [f]. ATH-histogram inflation by flash
+#    wicks noted as measurement caveat on all zone stats.
+# 5. Budgets: SOL 3 runs, RH 0. Slot 2 = SHIELD verbatim.
