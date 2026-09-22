@@ -1755,3 +1755,16 @@ alert2:
 # — accepted explicitly by user ("not looking for the 2x").
 # Applies to NEW positions; GitHub/lil bub keep their old orders.
 # Filter 1 config now end-to-end moonshot: MAX zone + moon ladder.
+
+# RUG LEDGER OPENED (2026-09-22): lab/rug_ledger.csv — accumulates
+# realized SL outcomes (mint, %, entry fingerprint from backtest
+# previews). First 4 rows: SNAKECAT -55 (rugcheck 7201 serial-rugger
+# flag -> rug-side evidence #1 for the 6-8k cut), GROKBOT -75 (DEEP:
+# whale-instant, med_makers 11, max_bundle 55 SOL, entered post-ath),
+# Pin +104 (SAME instant class, med_makers 2, bundle 75 — WON;
+# class is binary), GAMA -46 (instant, ext zone). Early hypotheses:
+# H1 whale-instant (med_makers<20 + max_bundle>50) = binary moon-or-
+# deep-rug class — depth risk concentrated here, not separable yet.
+# H2 rugcheck 6-8k = rug-side, rate-neutral (1 confirmation).
+# Analysis triggers at n>=20 rows. WALLET AT 2.12 SOL (~35 buys) —
+# top-up needed or the net goes slack mid-day.

@@ -1,0 +1,5 @@
+date,mint,symbol,realized_pct,entry_mc,exit_mc,class,rugcheck,med_makers,distinct_makers,buyers_entry,max_bundle_sol,launch_mc,dev_deploys,origin_type,notes
+2026-09-22,FrsJeRvuv26diZospkTG7wsxacqp5sXEjyjnofNxpump,SNAKECAT,-55,48000,23920,normal_stop,7201,495,60,64,14.81,7344,4,hub_222k,serial-rugger flag; curve entry
+2026-09-22,GztGJsD6o5ExYaK6wcLSCdi3WcoMoeJxgVbHFdZMpump,GROKBOT,-75,53600,14350,deep_rug,1,11,30,48,55.18,26491,3,burner_tx2_bal0,instant launch; entered post_ath=true; whale-instant class
+2026-09-22,HvZwEQxTvAkgwCUji97VY5APgM7deAMM8W3WKB46pump,Pin,+104,78890,76550,winner_overall,1,2,10,30,75.39,3512,0,burner_tx2_bal0,same instant class as GROKBOT but WON; binary class
+2026-09-22,CykiirgNQB48Vvozh7KnkuKYAGd2BVGjyrhRznDUpump,GAMA,-46,122770,71910,normal_stop,1,7,11,30,66.65,34370,16,burner_tx2_bal0,extension-zone entry 122k
