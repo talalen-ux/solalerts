@@ -1695,3 +1695,31 @@ alert2:
 # 5. Still pending user: moonbag ladder approval; DRBT support
 #    ticket (non-pump venue, now 7 monsters of evidence); wallet
 #    top-up check. Budgets used: SOL 0, RH 5.
+
+# FILTER 1 LIVE-WEEK P&L AUTOPSY (2026-09-22, user: "filter 1 has
+# been bad to me"). Week distribution of MAX zone (n=398, ~57/d):
+# 2x+ 49.0% (vs 54-56% at deploy — regime cooled ~5pp), 3x+ 33.2%,
+# 10x+ 8.8%, 20x 7, 50x 2, 100x 1, pATH 7%.
+# LADDER-ECONOMICS MODEL AT 0.05 SOL (honest, incl fees ~0.004/buy
+# and rug tail pulling loss leg to ~-55/-60%):
+#   losers ~29/d x -0.028 = -5.6 to -6.1 SOL/wk
+#   winners all tiers      = +7.3 SOL/wk gross
+#   fees ~398 x 0.004      = -1.6 to -2.0 SOL/wk
+#   NET ~= BREAKEVEN TO -1 SOL/wk. The drip is real.
+# ROOT CAUSES RANKED: (1) fee drag 8-10% of every 0.05 position —
+# small-size wide-net pays the fee toll 57x/day; (2) rug tail: SL
+# fills below -50% (CASH -95%); (3) LADDER CAP: 100% sold by 50x,
+# so the 100x tail MAX exists for pays max 10.3x gross — the lottery
+# tickets can't pay lottery prizes; (4) regime -5pp on 2x rate.
+# MEANWHILE the ladder DID work where rate was high: GitHub now
+# 24.9x (banked 0.245 + 10% riding), lil bub 1.46x (banked 0.038,
+# SL breakeven). Wide-net thesis validated on CATCH, falsified on
+# NET P&L at 0.05 under current ladder+fees+regime.
+# RECOMMENDATION (awaiting user pick):
+#  A. Revert to B'-strict (bundle>1 + whale ext): 12/d, 59.2% 2x+,
+#     at 0.20 SOL — fee drag ->2%, loss share down, EV/trade clearly
+#     positive; keeps 6x100x/2mo zone. RECOMMENDED.
+#  B. Full SNIPER-WIDE only (9/d, 64% 2x+) at 0.25 — max quality.
+#  C. Keep MAX + moonbag ladder + accept drip variance.
+# Moonbag ladder pending approval FOURTH DAY — under any option the
+# 50x cap costs every future GitHub its tail.
