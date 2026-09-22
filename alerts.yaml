@@ -1740,3 +1740,18 @@ alert2:
 # those, split deep-rugs (<-70%) vs normal stops (-45/-60%), pull
 # entry histories per mint, fingerprint the difference. DATA
 # REQUEST TO USER on record. Slot 2 = SHIELD verbatim.
+
+# *** MOONSHOT LADDER DEPLOYED, FILTER 1 (2026-09-22, user go) ***
+# User clarified filter 1's mission: 100x hunter, NOT 2x grinder.
+# Old ladder (40@2/30@5/20@15/10@50, flat by 50x) REPLACED with:
+#   25% @ 3x  (raise SL to breakeven)
+#   25% @ 10x
+#   25% @ 30x
+#   25% rides to TP 99.99
+# SL 0.5 unchanged; TP 99.99 unchanged. Verified via orders list.
+# Per-0.05 economics: 100x now pays 1.79 SOL (was 0.515, 3.5x);
+# 1000x pays ~13 SOL (was 0.515, 25x). Known cost: 2-3x peakers
+# (~16% of alerts) flip from small win to -50% stop (~-0.6 SOL/wk)
+# — accepted explicitly by user ("not looking for the 2x").
+# Applies to NEW positions; GitHub/lil bub keep their old orders.
+# Filter 1 config now end-to-end moonshot: MAX zone + moon ladder.
