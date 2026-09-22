@@ -3,3 +3,9 @@ date,mint,symbol,realized_pct,entry_mc,exit_mc,class,rugcheck,med_makers,distinc
 2026-09-22,GztGJsD6o5ExYaK6wcLSCdi3WcoMoeJxgVbHFdZMpump,GROKBOT,-75,53600,14350,deep_rug,1,11,30,48,55.18,26491,3,burner_tx2_bal0,instant launch; entered post_ath=true; whale-instant class
 2026-09-22,HvZwEQxTvAkgwCUji97VY5APgM7deAMM8W3WKB46pump,Pin,+104,78890,76550,winner_overall,1,2,10,30,75.39,3512,0,burner_tx2_bal0,same instant class as GROKBOT but WON; binary class
 2026-09-22,CykiirgNQB48Vvozh7KnkuKYAGd2BVGjyrhRznDUpump,GAMA,-46,122770,71910,normal_stop,1,7,11,30,66.65,34370,16,burner_tx2_bal0,extension-zone entry 122k
+2026-09-19,GTtp5eNWVaDPnBqY8xiKr3qbQyYhEtC6VKPtnqiDJ39z,SALVINON,-60,33840,14960,normal_stop,,,,,,,,,FLASH: entire token life 3 MINUTES (00:41-00:44); peaked 59k dead; non-pump mint but bought fine on PumpFun DEX
+2026-09-19,2bLJXWuo2PKjPCpBHsKEwSmAASR1tNJdsrstuALcpump,USDUL,+3,42280,40100,winner_overall,,,,,,,,,Tilcayo-meta DERIVATIVE name (Unstable Leopardus); banked 2x stage then -29% on rest; dead at 2.4k
+2026-09-19,FPtSRkLbSSmKgDF1YLVakHi2FaRay8ZRrsop3jCpump,OpenAI,-96,50540,2110,deep_rug,,,,,,,,,brand-name token; drained to floor 2.2k; GitHub same class WON 25x - brand names binary
+2026-09-19,HrvpfMqg1sEpYi949uJrBGdkVgk2PzZ6D9FPwkUSpump,Tilcayonks,-60,57210,24550,normal_stop,,,,,,,,,Tilcayo-meta DERIVATIVE (Tilcayo Stonks); peaked 79k dead at 2.4k
+2026-09-19,kMwqvJz62idonvKvkvMact686ZYBLnpJx2yqXkhpump,404,-94,39470,2230,deep_rug,,,,,,,,,FLASH: token life 7 MINUTES; drained to floor
+2026-09-19,6odwAE1Utb2jhxVGsFkTTvCys8ZeNNSiPMDrdi4Apump,CASH,-95,57190,2660,deep_rug,,,,,,,,,day-1 rug; drained to floor 2.7k

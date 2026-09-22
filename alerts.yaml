@@ -1768,3 +1768,23 @@ alert2:
 # H2 rugcheck 6-8k = rug-side, rate-neutral (1 confirmation).
 # Analysis triggers at n>=20 rows. WALLET AT 2.12 SOL (~35 buys) —
 # top-up needed or the net goes slack mid-day.
+
+# RUG LEDGER +6 (2026-09-22): n=11 (4 deep rugs, 5 normal stops,
+# 2 winners). TWO PATTERNS CRYSTALLIZING:
+# P1 DRAIN-TO-FLOOR SIGNATURE: every deep rug (CASH -95, GROKBOT
+#   -75, OpenAI -96, 404 -94) exits at $2.1-2.7k = TOTAL supply
+#   drain to curve floor. Normal stops exit $15-72k (retrace,
+#   token lives). Two classes confirmed distinct.
+# P2 FLASH-LIFESPAN: SALVINON's ENTIRE life = 3 minutes; 404 = 7
+#   minutes. The flash pump-and-dump enters our zone at age <2-3
+#   min and is dead within 10. Candidate entry-time predictor:
+#   token age at alert (updated_slot - created_slot small) x
+#   instant velocity. GitHub-class winners entered on longer arcs.
+# P3 (nuance to repeat-name law): Tilcayo DERIVATIVES (Tilcayonks
+#   -60, Unstable Leopardus -29) both died. Deploy-#2 of the SAME
+#   name pays (Tilcayo #2 691x); DERIVATIVE-named spinoffs are rug
+#   fodder. Law refined: same-name redeploys only.
+# Also: SALVINON = non-pump mint bought successfully on PumpFun
+# DEX — mint-suffix is NOT a perfect venue proxy; some non-pump
+# mints are pump-tradeable (vanity mints on pump.fun).
+# Analysis bar remains n>=20.
