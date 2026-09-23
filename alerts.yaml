@@ -1898,3 +1898,15 @@ alert2:
 # TICKET SIZE: awaiting user's number (proposal on record: 0.10 SOL
 # = 2x current; PRIME's 53.8%/1.3%pATH profile supports it; jump to
 # 0.25 only after a green PRIME week).
+
+# MISS AUTOPSY: familiars.family (2PEN...pump) 2026-09-23 23:22 UTC
+# Caught by filter 3 (MOONNET) at $15.47k, ran to $971k ATH = ~63x.
+# Filter 1 (T20-PRIME) blocker: lp_ratio. Token was ON-CURVE at
+# alert (bonding 73.61%), lp_sol 35.8 vs mc $15.47k -> lp_ratio
+# ~0.45-0.48, pinned by the curve. T20-PRIME requires lp_ratio<0.21
+# (the decoupling gate) which BY DESIGN excludes all bonding-curve
+# tokens; it only fires on migrated/decoupled pools. Every other
+# T20-PRIME leg passed (bundle 0%, max_launch 54<60, rugcheck 1,
+# cex>=1, buyer/seller ratios fine). Not a tuning miss — a coverage
+# boundary: curve-phase monsters belong to MOONNET (alert-only).
+# TICKET: filter 1 buy amount raised 0.05 -> 0.10 SOL per user.
