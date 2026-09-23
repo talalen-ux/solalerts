@@ -1863,3 +1863,17 @@ alert2:
 #   whale-instant 100-150k ext — whose LIVE record is net-negative
 #   (GROKBOT -75, GAMA -46 vs Pin +104; plus pool-not-found waste).
 # DEPLOY-READY for filter 1 on user word. Slot 2 = SHIELD verbatim.
+
+# *** T20-PRIME DEPLOYED TO LIVE FILTER 1 (user go) ***
+# Condition = T20 v2 core verbatim (lp_ratio<0.21, mc 15-100k,
+# buyers<120, bundle<12 no floor, sellers<0.5b, churn caps
+# buys<=2.2xbuyers/<=225, sells<=57, rugcheck<30k, cex>=1,
+# ignition, max_bundle<90, max_launch_bundle<60, fresh<10).
+# Whale-instant 100-150k extension REMOVED (live record net-neg).
+# Verified live: active, auto-buy 0.05, moonshot ladder 25@3(SL->1)
+# /25@10/25@30 + 25% rides TP99.99, SL 0.5, max_mc 155k (harmless
+# superset of the 100k zone). Confirmation string intact.
+# Month-window expectation: ~60/d, 53.8% 2x+, 7x100x, 15x50x,
+# 50x20x, pATH 1.3%. Filter 4 stays as full T20 (igniter incl) on
+# the alert side — filters 1 and 4 now share the core by design;
+# slot 4's marginal value = igniter re-awakening detector.
