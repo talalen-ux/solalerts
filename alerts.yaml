@@ -1877,3 +1877,24 @@ alert2:
 # 50x20x, pATH 1.3%. Filter 4 stays as full T20 (igniter incl) on
 # the alert side — filters 1 and 4 now share the core by design;
 # slot 4's marginal value = igniter re-awakening detector.
+
+# SEPARABLE-LOSER HUNT IN T20-PRIME + 2H REVIEW LOOP (2026-09-24):
+# User: increase ticket size (amount TBD), 2h alert reviews, find
+# worst alerts sharing nothing with best. TWO SLICES TESTED:
+#   launch_mc > 40000 (manufactured): n=1045 (60% of zone!), 55.6%
+#     2x+ — ABOVE filter avg, holds LUCIA 45x. Manufactured-launch
+#     law INVERTS inside the gate (4th confirmation of the paradox).
+#     NOT the junk pocket.
+#   sellers <= 2 (no-flow instants): n=606, 52.6% — flat, holds
+#     3/7 hundreds incl LUCIA. NOT the junk pocket.
+# LAW (now formal): inside a fully-gated zone, NO entry-time axis
+# separates worst from best — the separable junk is exactly what
+# the gates already removed. Remaining separation lives ONLY in
+# REALIZED outcomes (drain-to-floor, flash lifespan, execution
+# fails) -> the rug ledger + 2h loop is the correct instrument.
+# DEPLOYED: "Filter 1 Two-Hour Alert Review" Routine (every 2h,
+# self-bind): positions check, scam-class tagging, ledger append,
+# no live changes without user word. Slot 2 = SHIELD verbatim.
+# TICKET SIZE: awaiting user's number (proposal on record: 0.10 SOL
+# = 2x current; PRIME's 53.8%/1.3%pATH profile supports it; jump to
+# 0.25 only after a green PRIME week).
