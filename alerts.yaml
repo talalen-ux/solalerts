@@ -1842,3 +1842,24 @@ alert2:
 #    a filter signal; wallets stay as manual context only.
 # 5. Budgets: SOL 2, RH 0. Slot 2 = SHIELD verbatim. Backlog adds:
 #    [g] mega-LP instant coverage (TRUMPTV class, lp_ratio wall).
+
+# SOLANA DECK PROFITABILITY REVIEW + T20-PRIME (2026-09-24 run,
+# all 1month same-window): user mandate — more 50/100x, flat volume.
+# RANKING (n/day | 2x+ | 100x | 50x | 20x | pATH):
+#   F4 T20 full:   65/d | 52.7% | 8 | 17 | 55 | 1.7%  <- BEST
+#   F2 SHIELD:     24/d | 57.5% | 3 |  6 | 23 | 1.8%  (best rate)
+#   F1 MAX (live): 58/d | 51.8% | 6 | 13 | 45 | 5.4%
+#   F3 MOONNET v7: 245/d| 39.2% | 32| 70 | 174 (2d-old window)
+# FINDING: the alert-only T20 has beaten the live-money MAX on every
+# axis this month. Transplant tests on slot 2:
+#   MAX + churn caps (buys<=2.2xbuyers, buys<=225): -52 alerts, all
+#     monsters kept, rate +1.05pp. Valid but small.
+#   MAX + churn + rugcheck6-8k-cut + igniter graft: FAILED (5/12/40,
+#     igniter zone dry this month, 6-8k band held a 100x). Rejected.
+#   T20 CORE (no igniter): n=1810 (60/d), 53.8% 2x+, 7x100x, 15x50x,
+#     50x20x, PostATH 1.33% (4x cleaner than MAX). WINNER.
+# T20-PRIME (= T20 v2 core) vs live MAX at ~flat volume (+3%):
+#   +1x100x, +2x50x, +5x20x, +2pp rate, pATH 5.4->1.3%. Drops the
+#   whale-instant 100-150k ext — whose LIVE record is net-negative
+#   (GROKBOT -75, GAMA -46 vs Pin +104; plus pool-not-found waste).
+# DEPLOY-READY for filter 1 on user word. Slot 2 = SHIELD verbatim.
