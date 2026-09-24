@@ -1916,3 +1916,27 @@ alert2:
 # now 3.93x. Stage 1 fired (25% @ 3x, 0.0707 SOL back, SL->1x
 # breakeven). Ladder + sizing working as designed. No rug-class
 # signatures, no new SL messages, ledger n=11 unchanged.
+
+# CURVE-RIDER ENGINEERED (2026-09-24): user asked to CATCH familiars
+# and its class (curve-phase monsters, currently MOONNET alert-only).
+# Benched on slot 2, SHIELD restored after. Fingerprint = organic
+# curve momentum: cheap-to-mid launch, real sellers already present,
+# ~1:1 buys:buyers, near-zero launch bundle, tip presence, CEX-funded
+# dev with 0 deploys, pristine rugcheck.
+# V1 (tight, familiars-exact):   1mo n=46,  2x+ 52.2%, 10x+ 10.9%, pATH 4.3%
+# V2 (CANDIDATE):                1mo n=94,  2x+ 56.4%, 10x+ 10.6%, pATH 3.2%
+#                                2mo n=136, 2x+ 54.4%, 10x+ 8.1%,  pATH 3.7%
+#   -> catches familiars (155x), zpad 5.7x, Ocula Pad 15.9x, Xclusive.
+# V3 (wide): 1mo n=325, 2x+ 48.9% — zone edge found, rejected.
+# CURVE-RIDER v1 (V2) condition:
+#   bonding_progress > 30 AND bonding_progress < 98 AND mc > 10000
+#   AND mc < 50000 AND buyers > 25 AND buyers < 150 AND sellers > 4
+#   AND sellers < buyers * 0.40 AND buys < buyers * 1.5
+#   AND launch_bundle_pct < 8
+#   AND (rugcheck_score IS NULL OR rugcheck_score < 100)
+#   AND cnt_from_cex >= 1 AND dev_sold IS NOT TRUE AND dev_deploys = 0
+#   AND med_tip >= 0.01 AND buy_volume_1m > 2000
+# NOTE: rugcheck < 100 (essentially rugcheck=1) is load-bearing here.
+# Deployment blocked on user slot decision (all 4 slots occupied).
+# Ecosystem echo found: "Trader" (E2rT...) launched off familiars.family
+# site hours later, 6.9x — repeat-name/derivative watch applies.
