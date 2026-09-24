@@ -2018,3 +2018,25 @@ alert2:
 # either it's trading fine and fast, or buys aren't firing -
 # USER'S TELEGRAM IS THE ORACLE. Asked user to confirm. familiars
 # now 238x from alert snapshot. Ledger n=12 unchanged.
+
+# ROW-LEVEL PRIME AUDIT (2026-09-24, user uploaded 1mo xlsx export,
+# n=1823 - first offline row data since egress block):
+# METHOD VALIDATED: P(xs>=1.3) = 80.6% row-level vs 80.7% via the
+# current_ath_mc leakage bench - exact match.
+# Precision ladder: 1.2x 84.7% | 1.3x 80.6% | 1.5x 71.4% | 2x 53.3%.
+# DEAD COHORT (xs<1.1, 9.6%) fingerprint = BOT-WAR FLASH PUMP:
+#   network_fees med 0.038 vs winners 0.0025 (15x), sell_volume
+#   372 vs 9, buy_volume_1m 8k vs 3k (hot), launch_mc 13k vs 44k,
+#   dev_deploys 42 vs 20 (monsters: 1), program_ids 6 vs 4.
+# CUT TESTS (vs 50 monsters / 8 100x in base):
+#   network_fees<0.02: n=1104, TP1.3 86.0%, 2x+ 57.4%, dead 6.4%,
+#     keeps 38/50 mon + 6/8 100x -> DENSITY UP every tier
+#     (20x/1000: 27.4 -> 34.4; 100x/1000: 4.4 -> 5.4). WINNER.
+#   sell_volume<200, launch_mc>20k, combos: TP up to 86.8% but
+#     monster retention 19-27/50 - U-shape tax too high. Rejected.
+# NEW LAW (candidate): network_fees at entry is the cleanest
+# bot-war detector - the one axis where dead and monsters DON'T
+# overlap much. Leg validated, parses clean.
+# PROPOSED (needs user word): add network_fees < 0.02 to live
+# filter 1 - fewer, better buys; wallet is the binding constraint
+# so density > coverage.
