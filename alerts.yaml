@@ -2008,3 +2008,13 @@ alert2:
 # CURVE-SCALP day 1: 0 fills in ~14h vs ~3/day bench. If still 0
 #   at 24h, check live crossing rate vs zone (med_tip>=0.01 leg is
 #   prime suspect for live-vs-backtest gap).
+
+# 2H REVIEW 2026-09-24 18:32 UTC: book flat on f1. CURVE-SCALP
+# VISIBILITY GAP FOUND: 24h backtest of filter 4's own condition
+# shows 4 crossings SINCE deploy (PANDEO 1.61x, slopless 6.11x,
+# COOK 1.44x, earnpad post-ATH) - 3/4 would fill TP 1.3 (matches
+# 77% bench). But list_positions only shows OPEN positions; a
+# scalp that TPs in minutes is invisible between 2h checks. So
+# either it's trading fine and fast, or buys aren't firing -
+# USER'S TELEGRAM IS THE ORACLE. Asked user to confirm. familiars
+# now 238x from alert snapshot. Ledger n=12 unchanged.
