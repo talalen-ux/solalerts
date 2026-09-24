@@ -1958,3 +1958,18 @@ alert2:
 # (no race with filter 1 - zones are disjoint by lp_ratio/bonding):
 # sell 70% @ 1.3x + SL->breakeven, 30% moonbag rides. Pure scalp
 # = same but 100% @ 1.3x. Awaiting user pick. SHIELD restored.
+
+# CURVE-SCALP DEPLOYED (2026-09-24, user picked Option B pure scalp):
+# Filter 4 REPLACED (was T20 full + igniter alert net; old condition
+# preserved above in T20 entries). Now: CURVE-RIDER v1 condition
+# (verbatim, see CURVE-RIDER entry), ACTIVE, AUTO-BUY ON:
+#   0.05 SOL, slippage 2000bps, priority 2000000, jito 0.001,
+#   use_jito, max_mc 60000, skip_if_owned ON, max_calls 1.
+# Confirmation kept: mc > prev_slot_mc AND mc >= ath_mc * 0.95
+#   AND buy_volume_1m > 500 (momentum recheck at buy time).
+# AUTO-SELL ON, pure scalp: TP 1.3x (100%), SL 0.7, no stages.
+# Expected: ~3 fills/day, 77.2% measured reach to 1.3x (upper
+# bound on TP-first), EV ~ +10%/trade, ~0.15 SOL/day at full flow.
+# Watch in 2h reviews: TP-first fill rate vs 77.2% benchmark, and
+# dip-then-run stopouts (the measured-vs-realized gap). Zones
+# disjoint from filter 1 (bonding curve vs lp_ratio<0.21) - no race.
