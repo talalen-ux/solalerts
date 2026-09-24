@@ -1910,3 +1910,9 @@ alert2:
 # cex>=1, buyer/seller ratios fine). Not a tuning miss — a coverage
 # boundary: curve-phase monsters belong to MOONNET (alert-only).
 # TICKET: filter 1 buy amount raised 0.05 -> 0.10 SOL per user.
+
+# 2H REVIEW 2026-09-24 00:32 UTC: first fill at NEW 0.10 ticket —
+# poo pepe (Hc7z...pump) entry $46k @ 00:15, ATH $384k (8.35x),
+# now 3.93x. Stage 1 fired (25% @ 3x, 0.0707 SOL back, SL->1x
+# breakeven). Ladder + sizing working as designed. No rug-class
+# signatures, no new SL messages, ledger n=11 unchanged.
