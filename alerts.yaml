@@ -1940,3 +1940,21 @@ alert2:
 # Deployment blocked on user slot decision (all 4 slots occupied).
 # Ecosystem echo found: "Trader" (E2rT...) launched off familiars.family
 # site hours later, 6.9x — repeat-name/derivative watch applies.
+
+# SCALP FEASIBILITY STUDY (2026-09-24): user asked for a safe,
+# consistent +20% TP strategy on healthy volume. NEW MEASUREMENT
+# METHOD: current_ath_mc (eventual ATH, leakage col, valid in
+# backtest conditions) vs entry mc gives exact P(TP fill). With
+# mc >= ath_mc*0.95 in base, reach is necessarily post-entry.
+# P(touch >= 1.3x entry), 'reach rate':
+#   T20-PRIME zone:  1mo base n=1817, reach n=1467 -> 80.7%
+#   CURVE-RIDER v1:  2mo base n=136,  reach n=105  -> 77.2%
+# Breakeven for TP1.3/SL0.7 at ~6-8% round-trip fees: ~70-72%.
+# Both zones clear it. EV(pure scalp, PRIME zone) ~ +10%/trade.
+# CAVEAT: reach rate is an UPPER bound on TP-first fills (a token
+# that dips -30% then runs counts as reach but stops out live);
+# momentum-at-ATH entries mitigate. Rug blowthrough tail ~1-4%.
+# RECOMMENDED SHAPE: hybrid scalp on CURVE-RIDER zone in slot 4
+# (no race with filter 1 - zones are disjoint by lp_ratio/bonding):
+# sell 70% @ 1.3x + SL->breakeven, 30% moonbag rides. Pure scalp
+# = same but 100% @ 1.3x. Awaiting user pick. SHIELD restored.
