@@ -2040,3 +2040,18 @@ alert2:
 # PROPOSED (needs user word): add network_fees < 0.02 to live
 # filter 1 - fewer, better buys; wallet is the binding constraint
 # so density > coverage.
+
+# NETWORK-FEES LAW VALIDATED (2026-09-24, user challenged "random
+# variable" - it is not):
+#   Dose-response monotonic across quintiles: TP1.3 88.8/88.2/81.1/
+#     73.4/71.8%; dead 4.4->15.3%.
+#   Split-half lift +5.4 / +4.1 pts; weekly lift positive 5/5 weeks
+#     (+6.8,+2.7,+4.8,+5.9,+2.2).
+#   Bootstrap 95% CI on TP lift: [+3.7,+6.9] - excludes zero.
+#   Mechanism: total prio+tip burn per tx = sniper-bot queue war.
+#   Caveats booked: composite with heat/cheapness (rank-corr +0.69
+#     bv1m, -0.69 launch_mc); threshold 0.02 SOL-denominated ->
+#     re-check monthly; expected live lift +4-5pts not +5.4.
+# STATUS: law confirmed, deploy still awaiting user word.
+# 2H REVIEW 20:32 UTC: new f1 fill launchdap $46k @ 20:32, now
+# 0.91x, no stages, nothing alarming. Ledger n=12.
