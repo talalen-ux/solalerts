@@ -10,3 +10,4 @@ date,mint,symbol,realized_pct,entry_mc,exit_mc,class,rugcheck,med_makers,distinc
 2026-09-19,kMwqvJz62idonvKvkvMact686ZYBLnpJx2yqXkhpump,404,-94,39470,2230,deep_rug,,,,,,,,,FLASH: token life 7 MINUTES; drained to floor
 2026-09-19,6odwAE1Utb2jhxVGsFkTTvCys8ZeNNSiPMDrdi4Apump,CASH,-95,57190,2660,deep_rug,,,,,,,,,day-1 rug; drained to floor 2.7k
 2026-09-24,39DjBM64Je9nXx3eZsBc4vc5v82bKkddbNNQWi4npump,Asset,-50,82410,41000,normal_stop_flush,,,,,,,,,"entered 82k top of band; +34% peak then flush to 10.7k, recovered 71k after exit; LP intact, not drain-to-floor"
+2026-09-24,12gJMyG1AhanNN7VqxJy75AzAiw37v85V2DvjVcSpump,dap,-50,46086,~23000,drain_to_floor,,,,,,,,,"launchdap: entry 46k @20:32UTC pre-v2-gate, peaked +6%, drained to 2.8k floor in ~10min; flash-lifespan+drain classes both; SL0.5 may have blown through - confirm realized vs TG"

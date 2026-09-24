@@ -2063,3 +2063,10 @@ alert2:
 # fills, TP-reach 80.6->86%, 2x+ 53.3->57.4%, 20x density +26%.
 # Threshold 0.02 is SOL-denominated - RE-CHECK MONTHLY (backlog).
 # Scorecard versus these numbers starts with tonight's fills.
+
+# 2H REVIEW 2026-09-24 22:32 UTC: launchdap STOPPED - textbook
+# DRAIN-TO-FLOOR: entry $46k (20:32, pre-v2-gate fill), peak +6%,
+# drained to $2.8k curve floor within ~10 min (flash-lifespan).
+# Ledger n=13 (deep rug #5 of the needed 20). Realized booked -50
+# nominal; SL may have blown through - user's TG message will say.
+# Book flat. First v2-gated fills still pending.
