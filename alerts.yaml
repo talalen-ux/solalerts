@@ -1973,3 +1973,9 @@ alert2:
 # Watch in 2h reviews: TP-first fill rate vs 77.2% benchmark, and
 # dip-then-run stopouts (the measured-vs-realized gap). Zones
 # disjoint from filter 1 (bonding curve vs lp_ratio<0.21) - no race.
+
+# 2H REVIEW 2026-09-24 02:32 UTC: poo pepe CLOSED - first completed
+# round-trip at 0.10 ticket. Stage 1 banked 0.0707 @ 3x, never hit
+# 10x (ATH 8.35x), remainder out at breakeven SL. Net ~ +0.04 SOL
+# (~+40%) on a token that retraced fully - ladder did its job.
+# No open positions. No CURVE-SCALP fills yet (live ~30 min).
