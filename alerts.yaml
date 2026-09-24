@@ -2055,3 +2055,11 @@ alert2:
 # STATUS: law confirmed, deploy still awaiting user word.
 # 2H REVIEW 20:32 UTC: new f1 fill launchdap $46k @ 20:32, now
 # 0.91x, no stages, nothing alarming. Ledger n=12.
+
+# T20-PRIME v2 DEPLOYED (2026-09-24 ~20:50 UTC, user's word):
+# Added network_fees < 0.02 to live filter 1 main condition.
+# Everything else verbatim: ticket 0.10, moonshot ladder, SL 0.5,
+# KOL exclusions, confirmation unchanged. Expected: ~40% fewer
+# fills, TP-reach 80.6->86%, 2x+ 53.3->57.4%, 20x density +26%.
+# Threshold 0.02 is SOL-denominated - RE-CHECK MONTHLY (backlog).
+# Scorecard versus these numbers starts with tonight's fills.
