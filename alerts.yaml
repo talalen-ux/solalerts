@@ -1979,3 +1979,32 @@ alert2:
 # 10x (ATH 8.35x), remainder out at breakeven SL. Net ~ +0.04 SOL
 # (~+40%) on a token that retraced fully - ladder did its job.
 # No open positions. No CURVE-SCALP fills yet (live ~30 min).
+
+# DAILY-OPS BRIEF 2026-09-24 (delivered late - MCP churn all morning):
+# SCORECARD (first day at 0.10 + ladder): 2 fills.
+#   poopepe +0.043 SOL (+40%, stage1 3x banked, rest breakeven SL)
+#   Asset   -0.052 SOL (-50%, entered 82k top-of-band, +34% peak,
+#           flushed to 10.7k, recovered 71k after exit; ledger n=12,
+#           class normal_stop_flush, NOT drain-to-floor)
+#   Day net ~ -0.01 SOL. NOTE: a scalp exit at 1.3x would have won
+#   BOTH trades (+34% peak on Asset) - live evidence for the scalp
+#   thesis, n=2 only.
+# MOONER AUDIT 24h SOL: familiars 261x (CAUGHT MOONNET/missed f1 by
+#   design - now CURVE-SCALP covered), ARCHIBROWN 230x, JEANCOIN
+#   36.9x, familiars 2ND DEPLOY (CF94..non-pump) 23x.
+#   REPEAT-NAME LAW PRINTED 3x IN 24h: familiars->Trader 6.9x,
+#   familiars->familiars#2 23x, JeanPhil->JEANCOIN 36.9x. Echo
+#   plays are the highest-conviction manual signal we have.
+# RH 24h: GAMEBOY 847x, QUANTA 304x, BLISS 210x, UNREAL 153x,
+#   BUNDOG 139x, CDS 117x (pons curve class = AVALANCHE zone);
+#   YG 568x/STAKD 264x/ORB 106x all <30 buyers = wick-farm species,
+#   correctly not chased. BAG 150x = mega-launch pons ($30k launch,
+#   153 buyers) = backlog [g] class, seen live again.
+# EXPERIMENT [g] (mega-launch pons): condition validated OK
+#   (launchpad='pons_v2' AND launch_mc>20000 AND mc>launch_mc*1.5
+#   AND mc<200000 AND buyers>=25 AND buyers<400 AND age_s<3600);
+#   168h backtest STALLED twice on tool-approval timeouts, 0 runs
+#   spent. CARRIED to tomorrow as the day's experiment.
+# CURVE-SCALP day 1: 0 fills in ~14h vs ~3/day bench. If still 0
+#   at 24h, check live crossing rate vs zone (med_tip>=0.01 leg is
+#   prime suspect for live-vs-backtest gap).
