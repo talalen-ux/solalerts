@@ -2070,3 +2070,25 @@ alert2:
 # Ledger n=13 (deep rug #5 of the needed 20). Realized booked -50
 # nominal; SL may have blown through - user's TG message will say.
 # Book flat. First v2-gated fills still pending.
+
+# DAILY-OPS BRIEF 2026-09-25:
+# SCORECARD (day 1 of v2 gate): 0 fills overnight, then 07:13
+#   Manifestation $51.8k -> live 1.32x (peak 1.44x). v2 zone had
+#   22 crossings/24h (pre-v2 ~60/day) - gate cutting ~63%, deeper
+#   than the 40% bench estimate; monitor, may be quiet-day noise.
+# CURVE-SCALP MYSTERY SOLVED: filter 4 auto_buy found DISABLED
+#   (was verified ON at deploy) - DRBT silently switched it off:
+#   suspect tier gate on 2nd auto-buy filter OR auto-disable after
+#   failed buy. RE-ENABLED 07:2x UTC. If it flips off again ->
+#   DRBT support ticket + ask user re tier limits. Cost of outage:
+#   curve zone printed 7 crossings/24h, 6/7 (85.7%) touched 1.3x
+#   incl PILLS 10.6x - live flow MATCHES the 77% bench. ~+0.07 SOL
+#   missed.
+# MOONERS 24h SOL: TrendTrader Pro 513x (launch $3.8k), IMU 113x.
+#   RH audit skipped - drbtrh server down (502) all morning.
+# REPEAT-NAME: Jean family echo #4 - Wojak Jean 7x overnight.
+#   Factory dev FhVo... (242k deploys) shipped GoCollect 8.7x +
+#   Doppler XDP 2.7x same night - mega-factory watch.
+# EXPERIMENT: carried RH mega-launch pons AGAIN (server down).
+#   Substituted: curve live-flow audit (above) - bench validated.
+# Ledger n=13. Backtests used: 3 SOL, 0 RH.
