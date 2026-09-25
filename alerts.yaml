@@ -2092,3 +2092,13 @@ alert2:
 # EXPERIMENT: carried RH mega-launch pons AGAIN (server down).
 #   Substituted: curve live-flow audit (above) - bench validated.
 # Ledger n=13. Backtests used: 3 SOL, 0 RH.
+
+# 2H REVIEW 2026-09-25 08:32 UTC: Manifestation position CLOSED
+# but NOT by stop or ladder as far as data shows: token peaked
+# $104k (2.0x from $51.8k entry) at 07:30 UTC, never hit 3x stage,
+# never hit SL 0.5 - yet book is flat by 08:32. Likely a MANUAL
+# sell from Telegram (user) around 1.3-2x, or a DRBT tracking
+# quirk. If manual: nice exit. Asked user to confirm from TG.
+# Filter 4 auto-buy STILL ON after re-enable (tier-gate hypothesis
+# weakens; earlier disable likely one-shot after failed buy).
+# No curve fills yet this cycle. Ledger n=13.
