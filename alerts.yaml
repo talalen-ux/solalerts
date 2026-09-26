@@ -2119,3 +2119,16 @@ alert2:
 # breakeven-floor the rest, lose nothing to the drain.
 # Day P&L (Sep 25 so far): APE ~+0.25, Manifestation closed ~2x
 # (mechanism unconfirmed), no losses. Book flat. Ledger n=13.
+
+# MISS AUTOPSY: E/ACC (AQJ7...pump) 2026-09-25 21:15 UTC alert at
+# $15.3k (MOONNET) -> ATH $289k = 19x, now $90k. CURVE-SCALP
+# correctly-by-design REJECTED on 4 legs: launch_bundle 12.6>8,
+# dev_sold TRUE (at 14s!), dev_deploys 384 (serial factory),
+# med_tip 0.0001 (no-tip). Also min_mc $4.7k post-alert = -69%
+# flush somewhere in the path - a scalp may have stopped out
+# anyway depending on dip order. NOT relaxing gates off n=1:
+# dev_sold + serial-deploy are load-bearing vs the rug ledger.
+# But this is the 2nd whale-factory runner (LUCIA dev 12 deploys,
+# now E/ACC dev 384 deploys + 341 SOL balance + KOL hold).
+# BACKLOG: bench "whale-factory exception" - curve zone variant
+# allowing dev_deploys>0 ONLY when owner_balance>100 AND kol>=1.
