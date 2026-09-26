@@ -2287,3 +2287,22 @@ alert2:
 #   Caveat: free-tier 15s alert delay + forward latency = live
 #   entries worse than backtest snapshots; run $10 tickets 3-4
 #   days and compare realized vs backtest before sizing up.
+
+# AVALANCHE v3 DEPLOYED (2026-09-26, user: "more 100x on avalanche"):
+# METHOD: RH census probe found ath_x is a RUNNING multiple on RH
+#   (not final leakage like Solana's current_ath_mc) - so the win
+#   came from EARLIER ENTRIES instead: widened the early-curve
+#   branch mc floor 8k->5k, buyers 40->28, maker_count 15->12.
+# 7d BEFORE: n=851 (~122/d), 100x 2, 50x 7, 20x 21, 2x+ 41.1%,
+#   median 1.75, pATH 5.2%.
+# 7d AFTER (v3, deployed to #152): n=1,378 (~197/d), 100x 3
+#   (SNOW 103x new; NOSH entry 279->345x, HYDX 227->325x deeper
+#   entries), 50x 11 (+57%), 20x 36 (+71%), 2x+ 39.2%, median
+#   1.68, pATH 5.7%. 20x DENSITY UP: 2.47 -> 2.61%.
+# Deeper probe (mc>4k, buyers>=22): n=1,918, no new 100x, 2x+
+#   36.3% - past the edge, rejected. Mid/late branches unchanged.
+# GMGN note: at ~197 fills/day, $10 tickets => ~$2k/day cycling;
+#   same TP ladder recommendation stands (TP1 +80% 50%, TP2 +300%
+#   30%, SL -35%). Fast-100x class (100x within 30min, ~30/wk on
+#   pons: DEBT/BIDEN/AGE) noted as a distinct phenomenon - the
+#   earlier entries are how v3 taps it.
