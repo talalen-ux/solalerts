@@ -2192,3 +2192,29 @@ alert2:
 # EXPERIMENT: RH mega-launch pons [g] carried AGAIN (3rd) - RH
 #   server flapping through the window. Runs used: 2 SOL, 0 RH.
 # Ledger n=13. Both books flat.
+
+# MONSTERNET v1 DEPLOYED TO FILTER 3 (2026-09-26, user mandate:
+# "include the majority of the 668"). Alert-only, no money moved.
+# ENGINEERED AGAINST THE CENSUS, iterated v1->v2 on slot 2:
+#   MOONNET v7 baseline: n=8991/mo (~300/d), 2x+ 40.1%, pATH 9.4%,
+#     census coverage 372/668 = 55.7% (correction: my "8%" figure
+#     was AUTO-BUY zones only; the alert radar already had 56%).
+#   MONSTERNET v1 (loose corridor): cov 461 (69.0%) but n=15,608 -
+#     rejected, too dilute.
+#   MONSTERNET v2 (DEPLOYED): cov 448/668 = 67.1%, n=14,427/mo
+#     (~481/d), 2x+ 37.4%, pATH 6.41% (dead calls cut by 1/3).
+# STRUCTURE: MOONNET young-branch + mature-branch (kept, junk-
+#   trimmed) + NEW curve-corridor branch (bonding 30-99, mc 10-60k,
+#   buyers 22-250, sellers>4 <50%, buys<=1.6x, bundle<8, rugcheck
+#   <2000, cex>=1, bv1m>2500) + GLOBAL: mc>=ath_mc*0.9 momentum,
+#   mayhem off, dev_deploys<100k, PRIME-dedup NOT-clause kept.
+# NEW CATCHES vs MOONNET: KARDASHEV 289x, p(doom) 102x, DEBT 44x,
+#   urmom 25x, MYCS 12.5x class - +76 monsters/mo for +180
+#   alerts/day; marginal flow is 1.4% eventual-50x (dilute vs
+#   MOONNET's 4.1% avg but per user's explicit coverage mandate).
+# HONEST TRADE: 2x+ 40.1->37.4%; alerts/day 300->481. Rollback =
+#   restore MOONNET v7 condition (verbatim in this file, and in
+#   git history at get_filter(3) snapshot 2026-09-26).
+# MOONNET v7 CONDITION PRESERVED FOR ROLLBACK - see entry
+#   "MOONNET v7" earlier in this file; also stored in commit
+#   history of this deploy.
