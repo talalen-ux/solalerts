@@ -2266,3 +2266,24 @@ alert2:
 #   weeks, 2x+ up 4/5. r_lp (LP-growth-since-launch, mon med 9.4x
 #   vs dead 3.4x) logged as backlog leg - needs lp_sol_launch>0
 #   guard semantics confirmed before use.
+
+# RH GMGN AUTO-BUY ASSESSMENT (2026-09-26, user: DRBT->GMGN TG
+# forward, GMGN supports RH chain; "are filters good enough?"):
+# Fresh 7d backtests (n / 2x+ / median xs / pATH):
+#   AVALANCHE #152: 851 (~122/d) / 41.1% / 1.75x / 5.2% - two
+#     100x this week (NOSH 279x, HYDX 227x). BUY-GRADE.
+#     Early branch (bonding<45) = 715 of 851 incl both 100x.
+#   TEMPEST #155: 3,459 (~494/d) / 55.3% / 2.28x / 3.1% - LOOKS
+#     best but is the WICK-FARM VENUE: multiples inflated by
+#     unsellable single-wick ATHs + volume unbuyable. ALERT-ONLY.
+#   MUSENET #154: 1,015 / 12.1% / 1.20x / 29.3% pATH - NOT buy
+#     grade; weakest of deck, replacement candidate.
+# STRIKE-TIER TEST (tightened early branch buyers>=70 etc):
+#   n=41, 2x+ 41.5% SAME, zero 20x+ - U-shape holds on RH;
+#   tightening kills tails without lifting ratio. REJECTED.
+# VERDICT: forward ONLY AVALANCHE #152 to GMGN. Suggested GMGN
+#   settings: ticket $10-20 to start (fits ~120 fills/day),
+#   TP1 +80% sell 50%, TP2 +300% sell 30%, SL -35%, 20% moonbag.
+#   Caveat: free-tier 15s alert delay + forward latency = live
+#   entries worse than backtest snapshots; run $10 tickets 3-4
+#   days and compare realized vs backtest before sizing up.
