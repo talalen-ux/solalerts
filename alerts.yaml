@@ -2145,3 +2145,30 @@ alert2:
 # buying 80 factory spams/day. E/ACC-class stays MOONNET-manual.
 # LAW REINFORCED: 3 cherry-picked winners never beat one bench.
 # SHIELD restored on slot 2. Experiment budget Sep26: 1 run used.
+
+# 50X CENSUS (2026-09-26): first full census of the monster
+# universe via current_ath_mc/50 > launch_mc + birth anchor
+# (updated_slot < created_slot+150, buyers>=5). 11 runs.
+# FACTS:
+#   668 tokens/month do 50x+ from launch (~22/day).
+#   Base rate P(50x | any launch w/ early buyers) = 0.30%.
+#   Birth-time axes carry ~no signal. Tweet-attached: 35% of
+#     50x cohort vs 30.3% of ALL launches -> lift 1.16x. DEAD
+#     (usepaid factories attach tweets to everything).
+#   DECK COVERAGE OF THE 668: PRIME v2 = 51 (7.6%), CURVE-RIDER
+#     = 5 (0.7%). ~92% of monsters never enter a tradeable zone.
+#   RELAXED CURVE CORRIDOR (drop tip/dev legs, buyers>=15):
+#     coverage 257/668 (38.5%, incl e/acc @ 738x-remaining) BUT
+#     zone quality n=10,965/mo, 2x+ 36.9%, pATH 6.7%; reach-to-
+#     1.3x ~64-70% < 72% scalp bar. FAILS both exit styles.
+# THE COVERAGE-QUALITY FRONTIER LAW (new, load-bearing):
+#   2x+ quality falls monotonically with coverage: PRIME 57% ->
+#   CURVE 56% -> corridor 37% -> whale-factory 34% -> all 20%.
+#   Every corridor between our zones and the junk floor is
+#   saturated by fee-farm flow that is entry-time IDENTICAL to
+#   monsters. Coverage expansion has ~zero marginal alpha.
+# CONSEQUENCE (proven, not vibes): the alpha hierarchy is
+#   (1) exit engineering, (2) density gates, (3) manual echo/
+#   meta plays off MOONNET, (4) coverage expansion = dead end.
+#   The deck sits at the efficient frontier. SHIELD restored.
+# Runs used Sep26: 12 of 15 SOL. No filter changes.
