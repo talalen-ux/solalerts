@@ -2218,3 +2218,25 @@ alert2:
 # MOONNET v7 CONDITION PRESERVED FOR ROLLBACK - see entry
 #   "MOONNET v7" earlier in this file; also stored in commit
 #   history of this deploy.
+
+# MONSTERNET v2 DEPLOYED (2026-09-26, row-level optimization on
+# user's filter-3 export, n=16,116 rows):
+# NEW LAW - DEV_MIGRATED (the graduation-factory detector):
+#   dose-response monotonic: dev_migrated 0 -> 40.1% 2x+ / 3.73%
+#   monster density; 11-90 -> 33.9%/2.14%; 91+ -> 31.7%/1.33%.
+#   Split-half stable (retention 94%/96%, lift both halves).
+#   Distinct from dev_deploys: deploy-count cuts KILL monsters
+#   (monster p85 = 2,284 deploys - E/ACC class lives there) but
+#   MIGRATION-count factories are pure junk mills.
+# CHANGE: global leg (dev_migrated IS NULL OR dev_migrated <= 90).
+#   v1 -> v2: n 16,116 -> 14,381 (-11%), monsters 473 -> 450
+#   (95.1% kept), 2x+ 37.25 -> 37.93%, pATH 8.52 -> 8.25%.
+# SWEEP FINDINGS (32 axes x 6 thresholds, 95% retention bar):
+#   dev_migrated was the ONLY single leg clearing it. At a 90%
+#   bar, available add-ons (user's call, each costs ~5% coverage):
+#   entry_mc>=10.4k (junk -24%), lp_sol>=25 (-23.5%),
+#   owner_age>=114 (-23%), launch_mc<=9.6k (-21%). NOT applied.
+#   dev_deploys cuts REJECTED: -32% monsters for +2.6pt quality.
+# Branch table (v1 rows): mature n=362/42.5%/mon 51;
+#   A-only n=2,916/39.3%/mon 152; C-only n=10,646/35.7%/mon 191;
+#   A&C n=2,192/41.2%/mon 79. Corridor pays its way in coverage.
