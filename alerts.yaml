@@ -2240,3 +2240,29 @@ alert2:
 # Branch table (v1 rows): mature n=362/42.5%/mon 51;
 #   A-only n=2,916/39.3%/mon 152; C-only n=10,646/35.7%/mon 191;
 #   A&C n=2,192/41.2%/mon 79. Corridor pays its way in coverage.
+
+# MONSTERNET v3 DEPLOYED (2026-09-26, deep row mining per user:
+# "reduce post ATH and sub-2x, strong rules"):
+# NEW LEGS (global): mc > launch_mc * 1.9 (junk fires pre-double,
+#   monsters alert at median 3.8x from launch), lp_sol >= 20,
+#   at-ATH tightened 0.90 -> 0.95.
+# v2 -> v3 (measured on the 14,381 v2 rows):
+#   n 14,381 -> 9,194 (-36%), sub-2x calls -36.4%, pATH 8.25 ->
+#   6.81%, monsters kept 372/450 (83%), 5x+ 12.6 -> 13.0%.
+#   NOTE: v3 coverage (372) == old MOONNET's exact coverage but
+#   with 27% fewer dead calls at same volume + corridor class in.
+# CEILING ESTABLISHED (major negative result): 2D junk-pocket scan
+#   across 190 axis pairs found ZERO pockets with junk>=72% and
+#   monsters<=2 at n>=400 - sub-2x flow is uniformly interleaved
+#   with winners on every projection. Ratio improvements beyond
+#   ~38-40% 2x+ are NOT available at entry time in this zone;
+#   volume reduction at ~90% retention is the true dial.
+# DIAL (user can pick any time):
+#   COVERAGE MAX (v2): 450 mon, 480/day, pATH 8.3
+#   BALANCED (v3, live): 372 mon, ~306/day, pATH 6.8
+#   AGGRESSIVE (+mc>prev_slot_mc): 353 mon, ~277/day, pATH 6.2,
+#     junk -43% - one word to apply.
+# Weekly validation (aggressive superset): pATH improved 5/5
+#   weeks, 2x+ up 4/5. r_lp (LP-growth-since-launch, mon med 9.4x
+#   vs dead 3.4x) logged as backlog leg - needs lp_sol_launch>0
+#   guard semantics confirmed before use.
