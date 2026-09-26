@@ -2172,3 +2172,23 @@ alert2:
 #   meta plays off MOONNET, (4) coverage expansion = dead end.
 #   The deck sits at the efficient frontier. SHIELD restored.
 # Runs used Sep26: 12 of 15 SOL. No filter changes.
+
+# DAILY-OPS BRIEF 2026-09-26 (+ 08:32 review):
+# CRITICAL - BUY PATH OUTAGE, BOTH FILTERS: f1 zero fills in ~19h
+#   while its zone printed 19 crossings/24h at 78.9% 2x+ incl
+#   Cream (xs 105 FROM ZONE ENTRY, 02:18) - biggest missed FILL
+#   since deployment. f1 auto-buy shows ENABLED, config intact.
+#   f4 auto-buy silently DISABLED a 2nd time (re-enabled 07:1x,
+#   3rd enable). Subscription OK (Degen to Oct 18). Solana RPC
+#   egress blocked - wallet balance UNVERIFIABLE from here.
+#   UNIFIED HYPOTHESIS: wallet balance too low to fund buys ->
+#   silent buy failures -> f4 auto-disable loop, f1 fails quietly.
+#   ORACLE = user: wallet balance + TG failed-buy messages.
+# MOONERS 24h: e/acc $29.2M ATH (5305x from launch, STILL RUNNING,
+#   now 2585 SOL LP), YAP 543x, Bagwork 509x, Cream 277x, DDOS
+#   233x, SWARM 147x. Cream was IN-ZONE and unbought (outage cost
+#   ~= a 10x+ ladder trade). Census note: e/acc validates the
+#   manual-echo channel again.
+# EXPERIMENT: RH mega-launch pons [g] carried AGAIN (3rd) - RH
+#   server flapping through the window. Runs used: 2 SOL, 0 RH.
+# Ledger n=13. Both books flat.
