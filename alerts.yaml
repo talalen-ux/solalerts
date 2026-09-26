@@ -2132,3 +2132,16 @@ alert2:
 # now E/ACC dev 384 deploys + 341 SOL balance + KOL hold).
 # BACKLOG: bench "whale-factory exception" - curve zone variant
 # allowing dev_deploys>0 ONLY when owner_balance>100 AND kol>=1.
+
+# WHALE-FACTORY EXCEPTION FALSIFIED (2026-09-26, same night it was
+# proposed): E/ACC twin #2 (Cbcy...KoU) ran 379x to $8.35M and
+# HOLDS $8M - biggest miss on record. But the bench of the class
+# {curve 30-98, mc 10-50k, dev_deploys>0, owner_balance>100,
+# kol_holders>=1}: n=2393/1mo (~80/day), 2x+ 33.6%, sub-2x 60.9%,
+# pATH 5.56%, 100x 0.17%. WORST zone ever benched - it's the
+# usepaid fee-farm factory floor (dev_deploys up to 121k, "Fees
+# to @X via UsePaid"). LUCIA + E/ACC x2 were survivorship bias.
+# VERDICT: gates stay; the 379x was the acceptable cost of not
+# buying 80 factory spams/day. E/ACC-class stays MOONNET-manual.
+# LAW REINFORCED: 3 cherry-picked winners never beat one bench.
+# SHIELD restored on slot 2. Experiment budget Sep26: 1 run used.
