@@ -2314,3 +2314,25 @@ alert2:
 # (now 4.1x). PRIME v2 keeps printing ladder winners when it can
 # actually buy. Outage cause still unconfirmed (wallet top-up
 # suspected). Ledger n=13.
+
+# DAILY-OPS BRIEF 2026-09-27 (delivered 10:32 after MCP churn):
+# SCORECARD since buy-path restore (05:45 UTC):
+#   jazz: entry $49.5k, peak $709k (14.3x), stages 1+2 banked
+#     0.322 SOL, rest out ~breakeven -> net ~+0.27 SOL.
+#   KOKO: entry $53.1k 06:58, peak 1.74x (no stage), closed by
+#     10:32 -> est SL -50%, ~-0.05 SOL (class: flush, est).
+#   Day net ~ +0.22 SOL. PRIME v2 record since deploy: 3 wins
+#   (APE +0.25, jazz +0.27, poopepe +0.04), 2 losses (Asset,
+#   launchdap ~-0.05 each at their tickets) -> ladder economics
+#   holding exactly as designed.
+# MOONERS 24h SOL - HOT REGIME (5x 100+ in one day): JACK 1843x
+#   (launch $3.7k), cake.xmr 860x, KARDASHEV 787x, MUNKIE AI
+#   520x, GENO 110x, PaidBot 28x.
+#   ECHO CHANNEL VALIDATED IN PROD: KARDASHEV was flagged in
+#   this session Sep 26 09:19 as the beffjezos echo BEFORE its
+#   full run -> finished 787x from launch. The manual-strike
+#   playbook had its proof-of-concept without capital on it.
+# EXPERIMENT [g] RH mega-launch pons: FINALLY RAN - FALSIFIED.
+#   n=15/wk, zero 10x+... best 7.3x, 2x+ 26.7%, pATH 20%.
+#   TRUMPTV/BAG-class not worth a slot. CLOSED after 3 carries.
+# AVALANCHE v3 live-fire day 1 under way. Ledger n=13.
