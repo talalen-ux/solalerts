@@ -2361,3 +2361,18 @@ alert2:
 #   BABYCALI also = slow-grower/mature-reawakening class (22x
 #   yesterday -> 101x today), MONSTERNET branch-B territory.
 # Ledger n=13. Books flat both chains at review time.
+
+# 2H REVIEW 2026-09-28 12:33 UTC - FILL-GAP DIAGNOSTIC:
+# Filter 1: ~30h no fills. Zone crossings last 24h: 11 (Monday
+# flow thin), of which ~6 are ONE serial factory (dev FhVo...,
+# 245k deploys, pAMM direct listings at $60-85k entry, med_makers
+# 32000 = wash tell - Jumper/Doppler/RAMP/Finra/insta.fan family;
+# NB filter 1 has NO dev_deploys gate, MONSTERNET does).
+# Organic crossings unbought: GACHA (23:02, went 6.7x), Solter,
+# iRobot, TITCOIN. 0 fills on 4 organic crossings is P~6% if
+# confirmation fill-rate ~50% - suspicious but not conclusive.
+# Engine shows enabled + config intact. ASK USER: any failed-buy
+# notices in TG since Sun morning? If yes -> wallet again.
+# BACKLOG: consider dev_deploys<100000 + med_makers sanity leg
+# for filter 1 (the FhVo factory class passes the network_fees
+# gate with tiny fees - a NEW evasion profile worth watching).
