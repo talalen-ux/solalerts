@@ -2401,3 +2401,20 @@ alert2:
 # amputated. Needs a sellability check (did anyone exit at the
 # top?) before any filter-1 leg change. Candidate leg stays in
 # backlog, explicitly NOT recommended yet.
+
+# MISS AUTOPSY 2026-09-28 (RH, user pasted CA only):
+# ERRAND 0xeb2ecf641a1f04b8df37c24eabca8f5a47cfaacb, pons_v2.
+# Launch mc $9.2k (Sep 27 ~10:50 UTC), curve run 31k -> 95k in ~8 min
+# (buyers 124 -> 188), graduated 11:00, then peaked ~$960k at 16:39
+# Sep 27 = ~104x from launch / ~10x post-grad. Now $314k (34x), 604
+# buyers, lp_usd only $10.7k (3.4% of mc = thin exit at the top).
+# Why AVALANCHE #152 (v3) could not have alerted: deployer_launches
+# = 106 (gate is <=3), 1 graduation out of 106 launches - ERRAND is the
+# lone hit of a serial deployer. Other legs would have passed on the
+# curve (bonding 56% / 129 buyers / $45k fits branch 2 shape).
+# Caveat: deployer_launches is the CURRENT value; not verified what it
+# read at alert time (csv export link not fetched).
+# VERDICT: gate working as designed (1/106 serial deployer); n=1, do NOT
+# loosen. Echo check: name "errand" - no prior family seen in logs.
+# Backlog idea (needs n>=5 before any change): bench deployer_launches
+# <= 3 OR deployer_graduations >= 1 as an alert-only variant.
