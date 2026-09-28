@@ -2376,3 +2376,28 @@ alert2:
 # BACKLOG: consider dev_deploys<100000 + med_makers sanity leg
 # for filter 1 (the FhVo factory class passes the network_fees
 # gate with tiny fees - a NEW evasion profile worth watching).
+
+# 2H REVIEW 2026-09-28 20:32 UTC - DRY SPELL NOW ~38H + FhVo TWIST:
+# Book flat all reviews since 12:33. Fresh 1-day backtest of the
+# filter-1 zone: 14 crossings/24h, 2x+ 64% (9/14), and we bought
+# ZERO. Organic (non-factory) crossings unbought: GACHA 6.7x,
+# e/dec 4.5x, PSYCHO 2.7x, r/acc 2.2x, Solter, IROBOT. That is
+# 6 organic zone entries with 0 fills since Sunday - execution
+# outage all but confirmed (engine shows enabled, config intact).
+# Blocked on user TG check: failed-buy notices since Sunday?
+# ECHO LAW AGAIN: "e/dec" (Effective Decelerationism) crossed at
+# 17:23 and ran 4.5x to $221k - direct antonym-echo of e/acc
+# (5306x, Sep 27). Echo family keeps paying. (dev_sold=true on
+# this one - would have needed care.)
+# FhVo FACTORY TWIST - do NOT rush the dev_deploys gate: today
+# the factory's 8 crossings show BIG post-zone multiples: INSTA
+# 13.6x ($1.16M ATH), NOK 9.3x, Joe 5.5x, XDP 5.0x, SICAT 3.7x.
+# Caveats before trusting: pAMM direct listings, LP unlocked
+# (rugcheck 11-21k), med_makers up to 32000 wash tell, ~17-38
+# distinct makers - these ATHs may be thin/unsellable wick paint
+# (fake_ath=false per DRBT, but venue liquidity is the question).
+# VERDICT: FhVo class is either a new junk-mill DRESSED as
+# mooners, or a real mooner factory our proposed gate would have
+# amputated. Needs a sellability check (did anyone exit at the
+# top?) before any filter-1 leg change. Candidate leg stays in
+# backlog, explicitly NOT recommended yet.
