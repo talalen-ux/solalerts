@@ -2345,3 +2345,19 @@ alert2:
 # PRIME v2 unbought). Fix ranking: 1) venue gap (DRBT ticket or
 # GMGN-solana executor for alert filters) 2) outage-proofing
 # 3) capital on the echo playbook.
+
+# DAILY-OPS BRIEF 2026-09-28:
+# SCORECARD: no fills in ~24h on filter 1 (0 today; v2 avg ~2/d).
+#   Week-to-date since v2: 3W/2L, ~+0.44 SOL net at 0.10 ticket.
+# EXPERIMENT (today's): MONSTERNET v3 LIVE-FIRE CHECK, 24h:
+#   n=704/day (2.3x the ~306/d projection - market running hot,
+#   not a filter fault), 2x+ 39.8% at 24h horizon, pATH 6.96%
+#   (bench 6.8% - ON TARGET), 1x100x + 13x20x in a day. Quality
+#   exactly on bench; volume tracks market heat. If 700/d too
+#   loud, the AGGRESSIVE dial (+mc>prev_slot_mc) is pre-benched.
+# MOONERS 24h: MARTIANS 567x, moin 238x, VAULT 146x, BABYCALI
+#   101x, SOLFROG 34x, INSTA 34x. ECHO AGAIN: Baby Cali (101x)
+#   echoes CALI (55x, Sep 23) - echo law scores another.
+#   BABYCALI also = slow-grower/mature-reawakening class (22x
+#   yesterday -> 101x today), MONSTERNET branch-B territory.
+# Ledger n=13. Books flat both chains at review time.
