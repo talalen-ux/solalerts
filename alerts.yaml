@@ -2430,3 +2430,52 @@ alert2:
 # READING: buy pipeline + wallet work again, so the outage is over
 # (cause still unconfirmed - user never answered the TG check).
 # No stops, no scam events, ledger n=13. No settings touched.
+
+# DAILY-OPS BRIEF 2026-09-29 (07:17 UTC run, finished 12:40; 12:32 six-hour review folded in):
+# 1) FILL SCORECARD (filter 1): 1 fill in ~50h - UVcu7k...pump (23:05 UTC
+#   Sep 28, 0.103 SOL, entry $103k, now $114k = 1.11x, stage 0). 1-week
+#   backtest of the zone: 134 crossings, 2x+ 57.5%, 10x+ 14.2% (19), 20x+ 6,
+#   one 100x, post-ATH 1.5%. Expected fills at normal fill rate are many
+#   times the 1 we got -> DRIFT FAR ABOVE 30%, cause open.
+#   UNBOUGHT organic crossings: FOMOWATERMELON (22:35 UTC, went 11.65x to
+#   $617k - the only clean 10x+ organic miss today), then AFTER the fill:
+#   DWIF 2.05x, ketnipz 1.82x, pwh 3.88x. Pattern "1 fill then silence"
+#   fits either (a) wallet drained to ~one ticket again, or (b) max_calls=1
+#   on filter 1 (get_filter shows max_calls 1 on filters 1 and 2 - meaning
+#   unverified: per-token or total?). USER CHECK: wallet balance + what
+#   DRBT's max_calls setting means; TG failed-buy notices still unanswered.
+#   POSITION NOTE: UVcu7k current_mc 114,364 unchanged at 06:32, 07:17 and
+#   12:32 - last snapshot 23:56 UTC Sep 28 (9 snapshots in 11 days). Token
+#   is dormant (old Sep-18 coin reawakened, MONSTERNET branch-B type);
+#   no trades = no price update, so the 0.5 SL cannot fire until trading
+#   resumes. Small (0.1 SOL), just be aware.
+# 2) MOONER AUDIT
+#   Solana 24h: FROINK 619x, PARASITE 573x, swordcat 283x (launch $3.6-6.9k
+#   curve coins), INUINK 43x, HOOKEDCAT 43x (launch ~$49k, pAMM-style).
+#   Auto-buy caught none. (MONSTERNET alert coverage not re-verified this run.)
+#   RH 24h top-10: CHAPRI 506x, SHCAT 216x, APPSHARE 179x, KOOL 159x, MODUS
+#   127x, ZC 127x, HIVE 125x, TICKER 93x, SOURCCEY 89x, HANDO 84x.
+#   AVALANCHE #152 24h: 213 matched, 2x+ 35.2%, 10x+ 1.9% (4), 20x+ 2, no 50x,
+#   post-ATH 5.2%. Caught 1 of top-10: SOURCCEY (32.7x from $11.6k entry).
+#   WALL: 7 of the top 10 (APPSHARE, KOOL, MODUS, HIVE, TICKER, HANDO,
+#   SOURCCEY) are graduated pons launches with launch_mc $4.3-4.8k and
+#   470-1,400 buyers - one homogeneous wave; #152 requires mc>5000 on the
+#   curve leg so it mostly enters after the cheap ride. Per-token autopsy
+#   NOT done (only 1 of 15 RH runs used, cheap to do next).
+#   UNTRADEABLE by pattern: CHAPRI (20 buyers, 20 makers, mc = ATH $494k,
+#   no lp_usd: wick/illiquid), SHCAT (ATH $8.3M -> now $168, 4,976 buyers:
+#   drained), ZC (127x -> 0.89x, drained). Do not count these as misses.
+# 3) REPEAT-NAME WATCHLIST: ECHOES ALREADY LANDED IN OUR ZONE: "parasitewifhat"
+#   (pwh) echoing PARASITE 573x -> 3.88x; "Dog wif Sword" (DWIF) echoing
+#   swordcat 283x -> 2.05x. Watch deploy #2/#3 of Froink, Parasite, "wif
+#   sword/hat" families; RH: watch KOOL/HIVE/TICKER-type name echoes.
+# 4) EXPERIMENT: FhVo factory gate (dev_deploys >= 100000 subset of filter 1)
+#   benched on slot 2, 1-week: factory = 51 of 134 crossings (38%), 2x+
+#   58.8% (rest 56.6%), 10x+ 17.6% (rest 12.0%), and it holds the week's
+#   ONLY 50x+/100x+ token. The gate would cut 38% of volume AND the tail.
+#   VERDICT: dev_deploys<100000 leg is DEAD for filter 1; retire it from
+#   backlog. Unanswered: sellability at the tops (LP unlocked, wash-tell
+#   med_makers) - the backtest measures ATH, not exits. Slot 2 restored to
+#   SHIELD verbatim (returned condition matches the get_filter copy).
+# 5) Ledger n=13, books: filter 1 one dormant rider, filter 4 flat.
+#   Runs: Solana 3 backtests + 2 slot-2 writes; RH 1 backtest.
