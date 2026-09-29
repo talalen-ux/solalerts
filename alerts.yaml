@@ -2418,3 +2418,15 @@ alert2:
 # loosen. Echo check: name "errand" - no prior family seen in logs.
 # Backlog idea (needs n>=5 before any change): bench deployer_launches
 # <= 3 OR deployer_graduations >= 1 as an alert-only variant.
+
+# 6H REVIEW 2026-09-29 00:32 UTC - FIRST FILL AFTER ~40H DRY:
+# Filter 1 BOUGHT UVcu7kbV...pump at 23:05 UTC Sep 28, entry mc
+# $103,084 (0.1029 SOL; entry above the 100k zone cap = drift
+# between alert and confirmation fill, inside max_mc 155k). Now
+# $116.6k = 1.13x, ATH 116.8k, stage 0 of 3 (first sell at 3x).
+# current_stop_loss shows null on the position record; the filter's
+# 0.5 SL is a filter-level setting - verify it triggers on first
+# drawdown rather than assuming.
+# READING: buy pipeline + wallet work again, so the outage is over
+# (cause still unconfirmed - user never answered the TG check).
+# No stops, no scam events, ledger n=13. No settings touched.
