@@ -2479,3 +2479,12 @@ alert2:
 #   SHIELD verbatim (returned condition matches the get_filter copy).
 # 5) Ledger n=13, books: filter 1 one dormant rider, filter 4 flat.
 #   Runs: Solana 3 backtests + 2 slot-2 writes; RH 1 backtest.
+
+# 6H REVIEW 2026-09-29 18:32 UTC: book = same single rider UVcu7k (1.09x,
+# mc $112.2k, stage 0). No new fills in ~19.5h since it (still 1 fill in
+# ~60h on filter 1), no stops, ledger n=13, filter 4 flat.
+# CORRECTION to the 12:40 brief: I called UVcu7k "dormant" because its
+# price read the same across three checks; mc moved 114,364 -> 112,230
+# this check, so it IS trading and the 0.5 SL can fire. Dormant claim
+# withdrawn. Fill-gap question (wallet balance / max_calls meaning / TG
+# failed-buy notices) still open on the user.
