@@ -2607,3 +2607,20 @@ alert2:
 #     more than the junk removed" test -> NOT deployed. Kept as a
 #     RISK-PROFILE OPTION (smoother, fewer trades) for the user to choose.
 # Slot 2 restored to SHIELD verbatim. Filter 1 unchanged. Runs: 2 benches.
+
+# 6H REVIEW + IMPROVE 2026-09-30 18:32 UTC:
+# FILL GAP BROKEN: filter 1 bought "Arthur" (CJS2EN7z...pump) at 15:47 UTC
+# Sep 30, entry mc $53.8k, 0.1029 SOL. Ran to $251k ATH (4.67x), stage 1
+# (25% @ 3x) sold = 0.0701 SOL, stop-loss moved to 1.0 (breakeven) per
+# config; now $108.5k = 2.02x on the remaining 75%. Rough mark: banked 0.070
+# + remainder ~0.156 = ~0.226 SOL on 0.103 in (+120%). First buy since
+# UVcu7k (23:05 UTC Sep 28) = ~40.7h gap; cause STILL unconfirmed (user
+# never answered wallet / max_calls / TG failed-buy questions; a top-up or
+# DRBT-side recovery are both consistent). Other rider UVcu7k 1.05x, stage 0.
+# Note: position record shows triggered_stages=2 but current_stage=0 and
+# total_sold_pct=25 - field semantics unclear, do not over-read.
+# No stops, no scam events, ledger n=13.
+# PART B: no deployment. Today's engine-tested candidates all failed the
+# bars (buyers>=20, lp_ratio<0.20, top_source>=10 = tradeoff). No new
+# untested candidate with mechanism; frontier law again. Slot 2 untouched
+# this run (SHIELD verified restored at 17:xx). Solana runs: 0.
