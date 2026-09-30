@@ -2591,3 +2591,19 @@ alert2:
 # - Slot 2 restored to SHIELD verbatim (engine echoed the string back).
 # - Runs: Solana 2 backtests (1-month base + bench) + 2 slot-2 writes.
 # - NOTHING deployed; filter 1 unchanged.
+
+# USER REQUEST 2026-09-30 "change it and backtest": two more filter-1 legs
+# benched on slot 2, engine 1-MONTH backtests (base n=955: 2x+ 56.65%,
+# 10x+ 103, 20x+ 29, 50x+ 8, 100x+ 5, post-ATH 0.73%):
+#  A) lp_ratio < 0.21 -> < 0.20:  n=842, 2x+ 56.53%, 10x+ 89, 20x+ 22,
+#     50x+ 7, 100x+ 4  => WORSE on everything. Rejected.
+#  B) + (top_source IS NULL OR top_source >= 10): n=610 (-36% volume),
+#     2x+ 63.11% (+6.5pp), 10x+ 79 (12.95% per trade vs 10.79%), 20x+ 17
+#     (2.79% vs 3.04%), 50x+ 4 (0.66% vs 0.84%), 100x+ 1 (0.16% vs 0.52%),
+#     post-ATH 1.15%. TRADE-OFF, not a clean win: higher hit rate and 10x+
+#     density, but absolute tail loses 24/103 10x+, 12/29 20x+, 4/8 50x+,
+#     4/5 100x+ and the extreme tail rate per trade falls. Fails the lab
+#     tail bar (<=5% of 10x+ removed) and the mandate's "tail not cut by
+#     more than the junk removed" test -> NOT deployed. Kept as a
+#     RISK-PROFILE OPTION (smoother, fewer trades) for the user to choose.
+# Slot 2 restored to SHIELD verbatim. Filter 1 unchanged. Runs: 2 benches.
