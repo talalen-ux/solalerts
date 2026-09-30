@@ -2534,3 +2534,28 @@ alert2:
 #   increment again beats the base 2x+ rate. (#152 is alert-only.)
 # 5) Ledger n=13; filter 4 flat. Runs: Solana 1 backtest; RH 3 backtests.
 #   Slot 2 untouched (no bench needed today).
+
+# MISS AUTOPSY 2026-09-30 (RH, user asked): VRAX#2 "Commander Vrax"
+# 0x94641b97010608c3827fb058074889f19868ff33. Launched 23:29:21 UTC Sep 29
+# at $6.9k; ran the ENTIRE curve in ~3 seconds (blocks 76051465-76051489:
+# bonding 19.7% -> 92% -> graduated at $40k, 25 buyers), $66k at 23:29:25,
+# $2.6M five minutes later, ATH $11.36M (~1640x from launch).
+# Isolation (14h unsaved-condition backtests, branch-3 core =
+# pons_v2 AND bonding>80 AND buyers>=20): core alone matched VRAX at
+# block 76051486 (bonding 80.7%, mc $34.7k) = 326.9x from that entry;
+# + curve_buyable still matched (113 tokens); + exempt_buy_pct<40 DROPPED
+# it (113 -> 82, VRAX gone). deployer_launches (=1) and top_router_pct not
+# the blocker. ROOT CAUSE: exempt_buy_pct >= 40 at the 80.7% snapshot.
+# PRICE OF THE GATE, 168h #152 with vs without exempt_buy_pct<40:
+#   with:    n=1157, 2x+ 37.94%, 10x+ 66, 20x+ 28, 50x+ 10, 100x+ 5
+#   without: n=1413, 2x+ 34.32%, 10x+ 75, 20x+ 31, 50x+ 12, 100x+ 6
+#   the 256 removed tokens: 2x+ 46 (18.0% vs 37.9% base), 10x+ 9 (3.5%
+#   vs 5.7%), 50x+ 2, 100x+ 1 (= VRAX). 100x+ rate same either way
+#   (0.42%). VERDICT: gate is doing real junk removal (removed set 2x+
+#   rate half the base); VRAX is the price of it. KEEP. Even had it
+#   matched, entry ~$35k at 80.7% bonding and graduation <0.3s later:
+#   a human/free-tier alert (15s delay) could not have acted; only an
+#   auto-buy reacting inside the same second could. Class = sub-second
+#   curve sprint (same as VRAX#1, 3 snapshots ever).
+# Runs: RH 7 of 15 today (3 brief + 4 autopsy; a parallel call was
+# refused - drbtrh allows one backtest at a time).
