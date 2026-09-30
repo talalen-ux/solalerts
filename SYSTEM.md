@@ -92,3 +92,22 @@ can also trigger with "daily brief"). Steps, in order:
 Self-improvement loop: each day's misses feed the next day's
 experiment; each week's law review prunes dead laws. No-tune
 doctrine still applies to live-money legs (n>=100 before touching).
+
+## AUTONOMOUS IMPROVEMENT MANDATE (2026-09-30, user: "improve the filter
+## autonomously while doing the 6 hour checks")
+Scope: the MAIN CONDITION of filter 1 (T20-PRIME) only. Each 6h review may
+run one improvement step. Deploy only if ALL hold:
+1. Leg comes from the backlog or a same-day miss/junk autopsy, is
+   NULL-guarded, and was benched on slot 2 (then SHIELD restored verbatim).
+2. Matching 1-week AND 1-month backtest; 2x+ rate does not fall, 10x+ tail
+   (and the 50x+/100x+ tokens) not cut by more than the junk it removes;
+   added/removed slice n >= 100 tokens (no-tune doctrine); measured, not
+   assumed (incremental slice rates, not just totals).
+3. At most ONE deployment per 24h. Log: old condition verbatim (rollback),
+   new condition, prediction, evidence -> alerts.yaml, commit, push.
+4. Next review verifies live behavior vs prediction; roll back on drift.
+HARD LIMITS (never autonomous): ticket size, auto-sell/stop-loss/stages,
+auto-buy enable/disable, wallets, max_calls, KOL exclusions, any other
+filter's live settings, deleting filters. Unverified cause of the fill gap
+(wallet / max_calls / failed buys) is a USER matter - do not "fix" it by
+loosening the condition. If evidence is ambiguous, log and do not deploy.
