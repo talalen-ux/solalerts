@@ -2559,3 +2559,35 @@ alert2:
 #   curve sprint (same as VRAX#1, 3 snapshots ever).
 # Runs: RH 7 of 15 today (3 brief + 4 autopsy; a parallel call was
 # refused - drbtrh allows one backtest at a time).
+
+# EXPORT ANALYSIS 2026-09-30 (user upload backtest_query_1_2weeks.xlsx:
+# filter 1 (current v2 condition), 372 rows Sep 16-30, 2x+ 57.0%, 10x+ 45,
+# 20x+ 14, best CLIP 112x):
+# - Dose-response is NON-monotone on every feature (network_fees, lp_ratio,
+#   buyers, mc, med_makers, owner_age ...): no clean gradient to cut on.
+# - Scan of 234 single-feature cuts (quantile thresholds, both directions):
+#   ZERO pass the lab bars (split-half both +>1pp, winner cost <= 1/3 of
+#   junk cut, <=5% of 10x+ removed). Frontier law holds again.
+# - Factory split again: dev_deploys>=100k n=154 2x+ 66.2%, 10x+ 21
+#   vs non-factory n=215 2x+ 51.2%, 10x+ 24 (third independent confirmation
+#   that the factory class is the BETTER subset; do not gate it).
+# - Best-looking candidate, buyers >= 20 (floor was buyers > 4): on the
+#   ROW export it looked strong - 2x+ 57.0 -> 61.5%, bootstrap CI
+#   [+1.9,+7.3]pp, EVcap10 +0.29 CI [+0.15,+0.43], positive in both weeks
+#   and in factory AND non-factory strata. Cost: 4 of 45 10x+ incl. CLIP
+#   112x (tail 8.9% > 5% bar).
+#   LIVE 1-MONTH BENCH ON SLOT 2 (the real test) REJECTED IT:
+#     base   n=955 2x+ 56.65% 10x+ 103 20x+ 29 50x+ 8 100x+ 5
+#     buyers>=20 n=880 2x+ 57.27% 10x+ 99  20x+ 26 50x+ 7 100x+ 4
+#   only +0.6pp 2x+ but loses 4 of 103 10x+, 3 of 29 20x+, 1 of 8 50x+ and
+#   1 of 5 100x+. NOT DEPLOYED.
+#   LESSON (new method rule): cutting ROWS of a backtest export OVERSTATES a
+#   leg's value because the live filter RE-ENTERS the same token later when
+#   the leg turns true (BZJK: entry row moved from buyers 13 to buyers 21;
+#   only 75 of 955 tokens vanished vs 76 of 372 rows cut). Always validate
+#   with the engine backtest of the modified condition before believing a
+#   row-level cut. (The row-level bootstrap/split-half passed and was still
+#   wrong - those test sampling noise, not re-entry.)
+# - Slot 2 restored to SHIELD verbatim (engine echoed the string back).
+# - Runs: Solana 2 backtests (1-month base + bench) + 2 slot-2 writes.
+# - NOTHING deployed; filter 1 unchanged.
