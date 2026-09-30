@@ -2488,3 +2488,49 @@ alert2:
 # this check, so it IS trading and the 0.5 SL can fire. Dormant claim
 # withdrawn. Fill-gap question (wallet balance / max_calls meaning / TG
 # failed-buy notices) still open on the user.
+
+# DAILY-OPS BRIEF 2026-09-30 (07:11 UTC run; 06:32 review folded in):
+# 1) FILL SCORECARD (filter 1): ZERO new fills since UVcu7k (23:05 UTC Sep 28).
+#   1-day zone backtest: 19 crossings, 2x+ 57.9% (11), best AMERICA 8.78x,
+#   Jumper 8.16x, sapline 4.4x, FUMONKEY 3.07x; none bought. ~23 unbought
+#   crossings since the last fill -> fill gap CONFIRMED as systematic, not
+#   luck. UVcu7k rider: mc 111,610 = 1.08x (price identical to the 00:32
+#   check again - watch whether it is trading).
+#   Factory split today: 9 of 19 crossings are dev_deploys>=100k (JUMP x3,
+#   AMERICA x3, TRENCH, MetaMask, PACKS): 2x+ 6/9 (67%) vs 5/10 (50%) for
+#   the rest - same direction as the 1-week bench (factory = better subset).
+#   Name clusters inside the zone: AMERICA x3 (16:02-16:15, 2.6/2.5/8.8x),
+#   Jumper x3, STEVE/STEVECOIN/"Steve coin" x3 within 3 min (1.8/2.3/1.1x).
+# 2) MOONER AUDIT
+#   Solana 1d (query mc>100k, ath>1M, buyers>500): only 3 - Super
+#   Intelligence (SI) 238x from $8.1k launch, Super Stonk 39.5x, Nintendo
+#   26x. None in filter-1 zone list; no auto-buy catch.
+#   RH 24h top-10: VRAX 2212x, VRAX#2 (Commander Vrax) 779x, Suited 628x,
+#   OFY 502x, PLAYR 333x, DOTS 289x, TAP 289x, ROBINHOOD 228x, SI 210x,
+#   BOTBOOK 208x. AVALANCHE #152 (24h: 206 matched, 2x+ 29.6%, 100x+ 3,
+#   50x+ 4, post-ATH 6.3%) CAUGHT 4 of the top 10: Suited 191.8x, OFY
+#   185.8x, DOTS 129.7x, BOTBOOK 78.2x (best day for the filter; yesterday
+#   1 of 10). MISSES: VRAX#1 - only 3 snapshots ever (launch $1.8k 01:32:52
+#   -> $5.1k 01:33:30 with 18 buyers, bonding_progress null), i.e. the
+#   sub-minute fast-100x class, unreachable by a condition; VRAX#2 -
+#   deployer_launches 1, launch_mc $6.9k, graduated, 4,527 buyers: passes
+#   the deployer + launch_mc gates, exact miss reason NOT diagnosed (needs
+#   snapshot-level history); PLAYR (333x, only 28 buyers at mc $2.8M) and
+#   TAP (289x -> now 1.8x) look like thin/wick venue, discount as misses.
+# 3) REPEAT-NAME WATCHLIST: "VRAX" TWICE ON RH, BOTH MOONED (2212x + 779x)
+#   - echo law pays both directions again. "SI" is on both chains: Solana
+#   Super Intelligence 238x and RH "SI" 210x (+ two more RH SI deploys
+#   5-12x) -> expect further SI deploys on either chain. OFY x2 on RH
+#   (502x and a 6.5x sibling). Solana: Super Stonk 39x.
+# 4) EXPERIMENT (RH, unsaved-condition backtest, no slot bench needed):
+#   #152 deployer gate widened to (deployer_launches <= 3 OR
+#   deployer_graduations >= 1), 168h. BASE n=1157, 2x+ 37.94%, 10x+ 66,
+#   20x+ 28, 50x+ 10, 100x+ 5, post-ATH 5.01%. VARIANT n=1186 (+29),
+#   2x+ 38.20%, 10x+ 68 (+2), 20x+ 29 (+1), 50x+ 11 (+1), 100x+ 5,
+#   post-ATH 4.97%. The 29 added tokens: 14 reached 2x+ (48%), 2 reached
+#   10x+, 1 reached 50x+ - better than the base rate, no quality dilution.
+#   VERDICT: directionally positive but n=29 << the n>=100 bar; do NOT
+#   deploy. Re-run on the next fresh week as holdout; deploy only if the
+#   increment again beats the base 2x+ rate. (#152 is alert-only.)
+# 5) Ledger n=13; filter 4 flat. Runs: Solana 1 backtest; RH 3 backtests.
+#   Slot 2 untouched (no bench needed today).
