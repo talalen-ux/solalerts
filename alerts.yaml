@@ -2624,3 +2624,17 @@ alert2:
 # bars (buyers>=20, lp_ratio<0.20, top_source>=10 = tradeoff). No new
 # untested candidate with mechanism; frontier law again. Slot 2 untouched
 # this run (SHIELD verified restored at 17:xx). Solana runs: 0.
+
+# 6H REVIEW + IMPROVE 2026-10-01 00:32 UTC:
+# Arthur (CJS2EN7z...pump) position is GONE from list_positions (was 2.02x
+# at 18:32 with 25% sold at 3x and SL moved to 1.0). Token history says it
+# is still ~$158.8k at 02:00 CEST (~2.95x the $53.8k entry; ATH $251k), so
+# the 1.0x stop-loss was NOT hit by price. Exit cause UNKNOWN: most
+# consistent with a manual sell by the user in Telegram, or a position
+# record cleanup; not determinable via MCP (no fills/trade-history tool,
+# wallet RPC blocked). Realized P&L unknown beyond the 0.070 SOL stage-1
+# sale. ASK USER whether Arthur was sold manually and for how much.
+# Remaining rider: UVcu7k 1.08x ($111k, ATH 154k), stage 0. No stops, no
+# scam events, ledger n=13, buys still working (Arthur fill 15:47 UTC).
+# PART B: no candidate beyond the three benched/rejected on Sep 30; no
+# deployment, slot 2 untouched, Solana runs 0.
