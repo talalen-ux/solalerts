@@ -2638,3 +2638,54 @@ alert2:
 # scam events, ledger n=13, buys still working (Arthur fill 15:47 UTC).
 # PART B: no candidate beyond the three benched/rejected on Sep 30; no
 # deployment, slot 2 untouched, Solana runs 0.
+
+# DAILY-OPS BRIEF 2026-10-01 (07:13 UTC run, finished ~10:00):
+# 1) FILL SCORECARD (filter 1): 1 fill in last 24h = Arthur (CJS2EN7z..,
+#   15:47 UTC Sep 30, entry $53.8k; peak 4.67x; position since gone from the
+#   book, cause unknown, price still ~2.9x entry). 1-day zone backtest = 8
+#   crossings (UDR x2 1.55/1.28x, HALL 1.08, .small inu 3.36x, Accredited
+#   Inu 1.38, ZOROGUN 4.68x, GovOS 6.86x, Arthur 5.16x): 4/8 reached 2x+.
+#   BOUGHT 1 of 8. UNBOUGHT after Arthur: GovOS 6.86x (crossed 2 min after
+#   Arthur!), ZOROGUN 4.68x, .small inu 3.36x + 4 smaller = 7 crossings.
+#   FILL-RATE PATTERN: 2 fills (UVcu7k Sep 28 23:05, Arthur Sep 30 15:47)
+#   out of ~31 crossings since Sep 28 night, each fill followed by a long
+#   drought (40.7h, now 15h+). Same signature twice => a recurring throttle
+#   (wallet funding only enough for ~1 ticket at a time; or an engine-side
+#   cap tied to max_calls=1) fits better than chance. Still needs user:
+#   wallet balance + max_calls meaning + TG failed-buy notices. UVcu7k rider
+#   1.04x ($107k), ATH 154k.
+# 2) MOONER AUDIT
+#   Solana 1d: BANDIT 406x (launch $5.0k), Meridian 297x ($4.5k), Degen
+#   Otter 171x ($6.8k), Ajax 166x ($6.7k), Super Intelligence Inu 28x
+#   ($48k launch). None in the filter-1 zone; all four 100x+ are tiny-launch
+#   pump.fun curve rockets = filter 4 (CURVE-SCALP) territory; filter 4 flat.
+#   Filter 3 MONSTERNET 1d: n=750, 2x+ 34.1%, 10x+ 27 (3.6%), 20x+ 10,
+#   50x+ 5, 100x+ 2, post-ATH 8.1% (up from 7.0%); per-mooner coverage not
+#   checkable (no row access).
+#   RH 24h: WINSTREAK 251x, AI 154x, STMINT 151x, RBPERP 140x, TANK 135x,
+#   CBOE 120x, PLGR 119x, MEOWDOTS 111x, CHANCE 98x, MINTFOLIO 97x.
+#   #152 24h: n=200, 2x+ 37%, 10x+ 7, 20x+ 2, 50x+ 0, post-ATH 3.5%. Caught
+#   1 of 10: WINSTREAK (29.3x from $32.5k, late bonding>80 branch). MISSES:
+#   TANK/CHANCE/MINTFOLIO = graduated $3.6-7.8k launches (same wave as
+#   Sep 29); AI/STMINT/RBPERP/PLGR not caught. UNTRADEABLE by pattern:
+#   STMINT 151x->1.06x, RBPERP 140x->4.5x, PLGR 119x->3.2x (drained);
+#   CBOE (26 buyers @ $679k mc), MEOWDOTS (24 buyers @ $863k) - few-buyer
+#   high-mc wick class, now 4 cases in 2 days (CHAPRI 20, PLAYR 28, CBOE 26,
+#   MEOWDOTS 24 buyers; all non-graduated). Never count as misses.
+# 3) REPEAT-NAME WATCHLIST: "Super Intelligence" family on Solana is now 3
+#   deep and paying each time (SI 238x Sep 29, Super Stonk 39x, SII 28x).
+#   "inu" family from one launchblitz.ai deployer (origin iGdFcQo...):
+#   .small inu 3.36x, Accredited Inu 1.38x, ZOROGUN ("break the loop") 4.68x
+#   all entered the filter-1 zone; RH has an "AI" 154x. UNITED DIVIDEND
+#   RESERVE (UDR) deployed twice 46 min apart (1.28x then 1.55x). Watch for
+#   deploy #3 of UDR/SI/inu families.
+# 4) EXPERIMENT (RH, #152 branch-1 buyers floor 28 -> 20, 168h, same window):
+#   BASE n=1144, 2x+ 36.28%, 10x+ 66, 20x+ 27, 50x+ 8, 100x+ 5, post-ATH
+#   5.07%. VARIANT n=1595 (+451, +39% volume), 2x+ 33.42%, 10x+ 83, 20x+ 37,
+#   50x+ 9, 100x+ 5, post-ATH 6.02%. Added 451 tokens: 2x+ 26.2% (118),
+#   10x+ 3.8% (17), 20x+ +10, 50x+ +1, 100x+ +0, post-ATH 8.4%. Dilutes the
+#   filter (-2.9pp 2x+, +1pp post-ATH). Side effect: cheaper entries on some
+#   winners (HYDX 325x -> 404x, OFY 186x -> 264x). VERDICT: NOT deployed;
+#   incremental slice worse than base, tail gain is entry price not new
+#   catches. RH alert-only filter unchanged.
+# 5) Ledger n=13. Slot 2 untouched. Runs: Solana 2 (f1 1d, f3 1d), RH 4.
