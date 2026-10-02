@@ -2689,3 +2689,18 @@ alert2:
 #   incremental slice worse than base, tail gain is entry price not new
 #   catches. RH alert-only filter unchanged.
 # 5) Ledger n=13. Slot 2 untouched. Runs: Solana 2 (f1 1d, f3 1d), RH 4.
+
+# 6H REVIEW + IMPROVE 2026-10-02 00:32 UTC:
+# NEW FILL: Winston Lee (WLEE, 4bAdGJBA...pump) bought 00:02 UTC Oct 2,
+# entry mc $66.2k, 0.1029 SOL. Peak $283k (4.28x); stage 1 (25% @ 3x) sold
+# = 0.0779 SOL, stop-loss moved to 1.0 (breakeven); now $93.4k = 1.41x on
+# the remaining 75%. Rough mark: 0.0779 banked + ~0.109 remaining = ~0.187
+# SOL on 0.103 in (~+82%). Third fill since Sep 28; gaps between fills:
+# 40.7h (UVcu7k -> Arthur) and ~32.3h (Arthur -> WLEE). Fill cadence is
+# ~1 per 1.5 days against 5-10 zone crossings/day - throttle pattern holds
+# (still unexplained; needs user: wallet balance, max_calls meaning, TG
+# failed-buy notices). Both recent fills hit stage 1 at 3x within hours:
+# 2 of 3 fills have been 4x+ winners, 1 is flat.
+# Other rider UVcu7k 1.08x ($111k), stage 0. No stops, no scam events,
+# ledger n=13. PART B: no deployment (no untested candidate with a
+# mechanism; Sep 30 benches all failed bars), slot 2 untouched, runs 0.
