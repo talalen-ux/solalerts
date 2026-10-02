@@ -2704,3 +2704,22 @@ alert2:
 # Other rider UVcu7k 1.08x ($111k), stage 0. No stops, no scam events,
 # ledger n=13. PART B: no deployment (no untested candidate with a
 # mechanism; Sep 30 benches all failed bars), slot 2 untouched, runs 0.
+
+# 6H REVIEW + IMPROVE 2026-10-02 06:32 UTC:
+# WLEE (4bAdGJBA...pump) position is GONE from list_positions (was 1.41x at
+# 00:32 with 25% sold at 3x and SL at 1.0x = breakeven $66.2k).
+# Token history is not conclusive: only 20 snapshots, the LAST at 00:17 UTC
+# (02:17 CEST) at $93.9k, nothing since - so no tracked price exists for the
+# exit. Possible endings: (a) breakeven stop-loss fired after a drop below
+# ~$66k (remaining 75% sold ~at entry => total ~0.155 SOL on 0.103, ~+50%),
+# (b) manual sell by the user, (c) drain/rug that stopped snapshots (would
+# be a ledger case; the SL would still have tried to fire at breakeven, so
+# loss likely small if it exited), (d) record cleanup. Cannot distinguish
+# via MCP (no fills/trade-history tool). NOT added to rug_ledger: no
+# evidence of a stop-loss message or a drain. ASK USER: Telegram sell
+# message for WLEE (reason + SOL received) - same question as Arthur
+# (Sep 30, also vanished with no SL hit by price).
+# Pattern: 2 of the last 2 closed positions disappeared from the book with no
+# visible exit trade. Remaining rider: UVcu7k 1.08x ($111.6k), stage 0.
+# No new fills since WLEE, no new scam events, ledger n=13. PART B: no
+# deployment, slot 2 untouched, runs 0.
