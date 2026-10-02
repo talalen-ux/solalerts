@@ -2723,3 +2723,52 @@ alert2:
 # visible exit trade. Remaining rider: UVcu7k 1.08x ($111.6k), stage 0.
 # No new fills since WLEE, no new scam events, ledger n=13. PART B: no
 # deployment, slot 2 untouched, runs 0.
+
+# DAILY-OPS BRIEF 2026-10-02 (07:15 UTC run):
+# 1) FILL SCORECARD (filter 1): fills since last brief: WLEE (00:02 UTC,
+#   4.28x peak, 25% sold at 3x) = 1 fill; WLEE position then vanished from
+#   the book by 06:32 with no visible exit (see 06:32 entry); Arthur did the
+#   same on Sep 30. 1-day zone backtest: 21 crossings, 2x+ 61.9% (13),
+#   10x+ 2, post-ATH 1. Bought 1 of 21. Unbought: DRAINED 5.08x (05:xx),
+#   memeyang 2.85x, ANATWOLY 2.15x, FOLDBUD 1.46, fric 1.09 + 16 more.
+#   Fill rate = ~5% of crossings; backtest implies ~21/day. DRIFT >> 30%.
+#   Open position: UVcu7k 1.08x. Wallet balance / max_calls meaning / TG
+#   failed-buy notices / Arthur+WLEE exit messages still unanswered.
+# 2) MOONER AUDIT
+#   Solana 1d (7): Jane 511x ($4.2k launch), Agency 403x, BlackHoles 335x,
+#   Ansemmas 313x, www 280x ($20k launch, mc now $5.2M), CatGPT 154x,
+#   ELON ACCELERATIONISM (e/acc) 24x ($48.6k launch). All 100x+ are
+#   sub-$6k-launch curve rockets (filter 4 territory, flat); www ($20k
+#   launch, 1,086 SOL liquidity) is the exceptional one - bigger organic
+#   launch, not in filter-1 zone list preview.
+#   ECHO LAW: "Elon Accelerationism" (e/acc ticker) is a re-deploy of the
+#   5306x e/acc from Sep 27 -> 24x peak, 14.9x now (echo pays, smaller).
+#   RH 24h (10): VEIL 575x, SGT 437x, STARSHIP 393x, PPORT 205x, MWOOF 166x
+#   (-> 0.01x), IPRV 153x, WCRMB 117x (-> 0.39x), 14219 89x, XRAY 89x,
+#   Mev 67x. #152 24h: n=169, 2x+ 29.6%, 10x+ 7, 20x+ 1, 50x+ 1, 100x+ 1,
+#   post-ATH 4.7%. CAUGHT 1 of 10: SGT (129x from $19.7k, mid-curve branch).
+#   MISSES: VEIL, STARSHIP, XRAY = graduated $4.5-4.7k-launch wave again (3rd
+#   day in a row of the same miss class); PPORT/IPRV/Mev launched $27-38k
+#   non-graduated (entry-level fails launch_mc<8000/10000 gates); drained:
+#   MWOOF 166x->0.01x, WCRMB 117x->0.39x, PPORT 205x->27x.
+#   WALL ATTRIBUTION: for 3 days running the dominant RH miss class is
+#   graduated tokens launched at $3.6-7.8k with 500-1,400 buyers; they cross
+#   the curve so fast (seconds) that branch 1/2 (mc>5000, buyers>=28 / >=60)
+#   never see a stable snapshot - cf. VRAX autopsy Sep 30.
+# 3) REPEAT-NAME WATCHLIST: e/acc (Solana, re-deployed Sep 27 and Oct 2).
+#   Super Intelligence family on Solana (SI/SII) and RH "SI". "Mev" has two
+#   RH deploys on the board (66x and an 8x/7x pair). "VEIL"/"SGT" new RH
+#   names to watch for deploy #2.
+# 4) EXPERIMENT (RH #152 deployer-graduation gate, repeat of Sep 30 test on
+#   the fresh 168h window; windows overlap ~6/7 days so this is NOT an
+#   independent holdout): BASE n=1157, 2x+ 35.18%, 10x+ 59, 20x+ 19, 50x+ 6,
+#   100x+ 4, post-ATH 5.01%. VARIANT (deployer_launches<=3 OR
+#   deployer_graduations>=1) n=1188 (+31), 2x+ 35.69% (+17 of 31 = 55%),
+#   10x+ 62 (+3), 20x+ 21 (+2), 50x+ 8 (+2), 100x+ 4, post-ATH 4.97%.
+#   Same direction as Sep 30 (+29, 48% 2x+): added slice 55% 2x+ vs base
+#   35%, 50x+ +2 of 31 (6.5%). Still n~30 << 100 bar and the sample is
+#   mostly the same tokens, so statistical weight ~1 test, not 2. NOT
+#   deployed (RH #152 is alert-only and outside the autonomy mandate, which
+#   covers Solana filter 1 only). Keep re-testing weekly; consider
+#   proposing to user when added slice reaches ~100 tokens (~3 weeks).
+# 5) Ledger n=13. Slot 2 untouched. Runs: Solana 1, RH 3.
