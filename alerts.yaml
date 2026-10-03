@@ -2772,3 +2772,52 @@ alert2:
 #   covers Solana filter 1 only). Keep re-testing weekly; consider
 #   proposing to user when added slice reaches ~100 tokens (~3 weeks).
 # 5) Ledger n=13. Slot 2 untouched. Runs: Solana 1, RH 3.
+
+# DAILY-OPS BRIEF 2026-10-03 (07:10 UTC run; 06:32 review folded in):
+# 1) FILL SCORECARD (filter 1): no fill since WLEE (00:02 UTC Oct 2, ~31h).
+#   1-day zone backtest: 24 crossings, 2x+ 58.3% (14), 5x+ 4 (16.7%), no
+#   10x+. Bought 0 of 24. Unbought: NUMANCAT 1.57x (09:00 CEST), GENIUS 1.94x,
+#   FhVo factory returned: "Artificial Influencer" 3.38x + "ket" 3.39x
+#   (dev_deploys ~248.9k, pAMM direct), shiba/acc 1.19x + 19 more.
+#   Fill rate 0% today vs ~24/day backtest. UVcu7k rider 1.06x, only open
+#   position. Cadence since Sep 28: fills at Sep 28 23:05, Sep 30 15:47,
+#   Oct 2 00:02 (gaps 40.7h, 32.3h) => next expected ~Oct 3 08-12 UTC if the
+#   ~1.5-day cadence holds (check at next review: that would be a 4th
+#   data point for the throttle). User still not answered: wallet balance,
+#   max_calls meaning, TG failed-buy notices, Arthur+WLEE exit messages.
+# 2) MOONER AUDIT
+#   Solana 1d (4 under the board query): SOCKET 285x ($3.5k launch), TOKEN2049
+#   34.8x ($50k launch), UNITED DIVIDEND RESERVE 33.8x ($49k launch, 3rd deploy
+#   of the name in 3 days), World Oil Trust Fund 29.8x ($50k launch). The
+#   three $50k-launch winners (TOKEN2049/UDR/WOTF) are the filter-1/3 launch
+#   band; none was bought (0 fills).
+#   RH 24h: ZERO 508x, ANYPAY 182x (->0.92x drained), CHIPINU 149x, ORE 128x,
+#   ARENA 127x (->0.76x), CCLAW 122x (->0.93x), PKROO 118x (->5x), FABLE 111x,
+#   SI 106x ($1.5k launch, 216 buyers), CRADLE 106x. #152 24h: n=163, 2x+
+#   22.1%, 10x+ 3, 20x+ 1, post-ATH 4.9%, CAUGHT 0 of 10 (best catches
+#   OGATE 22x, SQUASH 17x, WHATS 11x - none in the top-10). MISSES: ZERO,
+#   ORE, FABLE, CRADLE = graduated $4.5-5.8k-launch wave (4th day running);
+#   CHIPINU/PKROO/CCLAW ($26-41k launch, non-graduated) fail launch_mc
+#   gates; ANYPAY/ARENA/CCLAW drained to ~1x (not misses).
+# 3) REPEAT-NAME WATCHLIST: UDR name now 3 deploys in 3 days and the 3rd paid
+#   33.8x - echo law confirms for a name that first paid nothing (deploys
+#   1-2 were 1.3-1.6x zone entries). "Shiba Accelerationism" (shiba/acc)
+#   is another e/acc echo (1.19x). SI on both chains again (RH SI 106x).
+#   Watch: TOKEN2049-class event-name launches, WOTF, UDR deploy #4.
+# 4) EXPERIMENT (RH #152 exempt_buy gate bypass for graduated cheap launches;
+#   mechanism from the VRAX autopsy: exempt_buy_pct>=40 blocked a 1640x):
+#   change: exempt_buy_pct < 40 -> (exempt_buy_pct IS NULL OR < 40 OR
+#   (bonding_progress > 80 AND launch_mc < 8000)). 168h, same window:
+#   BASE n=1188, 2x+ 33.67% (400), 10x+ 56, 20x+ 18, 50x+ 6, 100x+ 5,
+#   post-ATH 5.22%. VARIANT n=1217 (+29), 2x+ 34.02% (+14 = 48% of the
+#   added), 10x+ 60 (+4), 20x+ 21 (+3), 50x+ 8 (+2), 100x+ 6 (+1 = VRAX),
+#   post-ATH 5.18%. Added slice beats the base rate (48% vs 34% 2x+, 14%
+#   10x+ vs 4.7%) and holds the VRAX tail, but n=29 << 100 bar; entry for
+#   VRAX was $34.7k with graduation <1 s later, so on a 15 s-delayed free
+#   alert it is not actionable anyway; and #152 is alert-only/outside the
+#   autonomy mandate. NOT deployed. Candidate stacked with the Sep 30
+#   deployer-graduation leg (+31) as a future "cheap graduate" bundle once
+#   the combined added slice nears 100.
+# 5) Weekly law review NOT due today (protocol day 13; day 14 = Oct 4).
+#   Ledger n=13. Slot 2 untouched. Runs: Solana 1, RH 3 (+1 refused:
+#   drbtrh allows one backtest at a time).
