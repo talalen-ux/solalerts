@@ -2898,3 +2898,12 @@ alert2:
 #   Ledger n=13. Slot 2 untouched. Runs: Solana 4 (f1 1w, f4 1w, f3 1w,
 #   plus list/mooners), RH 5 (24h top-10 backtest, 168h base, 168h bundle,
 #   mooners; one earlier refused).
+
+# 6H REVIEW + IMPROVE 2026-10-04 18:32 UTC:
+# UVcu7k rider moved $110,118 -> $136,429 (1.07x -> 1.32x, ATH 154k): the
+# token is trading. CORRECTION: the 12:32 note ("probably stopped trading
+# entirely", frozen >12h) was wrong - quiet stretches of this token are
+# just long gaps between price updates; the 0.5 SL was never disabled. Lesson:
+# identical consecutive readings only mean no snapshot, not no trading.
+# No new fills (filter 1 last bought WLEE 00:02 UTC Oct 2 = ~66h, longest gap),
+# no stops, no scam events, ledger n=13. PART B: no deployment, slot 2 untouched.
