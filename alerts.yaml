@@ -2907,3 +2907,52 @@ alert2:
 # identical consecutive readings only mean no snapshot, not no trading.
 # No new fills (filter 1 last bought WLEE 00:02 UTC Oct 2 = ~66h, longest gap),
 # no stops, no scam events, ledger n=13. PART B: no deployment, slot 2 untouched.
+
+# DAILY-OPS BRIEF 2026-10-05 (07:21 UTC run; 06:32 review folded in):
+# 1) FILL SCORECARD (filter 1): no fill since WLEE (00:02 UTC Oct 2, ~79h,
+#   longest gap). 1-day zone backtest: n=9 (a slow day vs ~16-24), 2x+ 33.3%
+#   (3), 5x+ 3, 10x+ 1. Bought 0 of 9. Biggest unbought: GIZMO #2 (created
+#   06:37 CEST Oct 5, entry $53.4k, now ATH $701k = 13.1x; 'Gizmo' deploy
+#   #1 46 min earlier (06:11) did only 1.22x - echo law, 2nd deploy pays);
+#   FhVo factory continues: "Ash Ketchum" 5.93x and "Anti SI Owl" 6.63x
+#   (dev_deploys ~250k) - NB "Ash Ketchum" is also a 259x Solana winner of
+#   the day (echo of a different deployer). UVcu7k rider 1.32x, only open
+#   position. Same unanswered user items (wallet, max_calls, TG notices,
+#   Arthur/WLEE exits).
+# 2) MOONER AUDIT
+#   Solana 1d (8): HIGGSPAD 1660x ($3.6k launch), Team Human 696x ($9.1k),
+#   EGO 535x ($4.0k), Ash Ketchum 259x ($7.7k), JETPACK 258x, Super Model
+#   184x, Meme Agency 47x ($49.9k launch), Baton Rogue 31x ($49.9k launch).
+#   The two $49.9k-launch winners sit in the filter-1/3 launch band; no
+#   fills. All 100x+ again sub-$10k curve rockets (filter 4 domain).
+#   RH 24h (10): BCMEOW 162x, MINDS 107x, GRAPHITEBOOM 101x, MONDO 89x,
+#   MEOWFI 79x, PRLYR 73x (->0.8x), SHIBPNL 72x, CACHC 71x, SHOOKS 65x,
+#   PANDAKEY 60x (->0.8x). #152 24h: n=92, 2x+ 29.3%, 10x+ 3, 20x+ 2,
+#   post-ATH 3.3%. CAUGHT 2 of 10: MINDS (42.6x from $11.4k) and MONDO
+#   (30.4x from $13.9k) - the cheap-graduate wave finally caught, both are
+#   graduated $4.5-4.8k-launch tokens (branch-3 style fire). MISSES:
+#   GRAPHITEBOOM, SHOOKS (same wave, not caught today), BCMEOW/MEOWFI/
+#   SHIBPNL/CACHC (non-graduated $28-48k launch, fail launch_mc gates),
+#   PRLYR/PANDAKEY (drained to <1x: not misses).
+# 3) REPEAT-NAME WATCHLIST: Gizmo x2 (13.1x on #2), Ash Ketchum (Solana 259x
+#   + FhVo 5.9x), SI/Owl family (Anti SI Owl 6.6x, Superintelligence Owl
+#   1.4x), Meme Agency/Agency family 47x. Echo law again confirmed on a
+#   second deploy within an hour (Gizmo).
+# 4) EXPERIMENT (RH, re-test of 'mega-launch' idea: launch_mc $25-50k):
+#   Today RH top-10 had 4 non-graduated $28-48k-launch names (BCMEOW 162x,
+#   MEOWFI 79x, SHIBPNL 72x, CACHC 71x), so I re-tested whether a
+#   launch_mc 25-50k leg is a tradeable edge. Universe (7d): launch_mc
+#   25-50k AND mc<150k AND buyers>=20 AND buy_vol>3x sell_vol: n=289,
+#   2x+ 62.6%, 5x+ 31.8%, 10x+ 47 (16.3%), 20x+ 9, 50x+ 0 - strong-looking.
+#   BUT adding launchpad='pons_v2' => 0 matches, and launchpad<>'uniswap_v4'
+#   => n=28 (21% 2x+, 0 at 10x+). So 261 of the 289 are uniswap_v4-venue
+#   tokens. Earlier finding (wick-farm venue: uniswap_v4 ATH multiples are
+#   inflated by single-wick, unsellable prints; #155 TEMPEST alert-only for
+#   this reason) predicts exactly this; I did NOT re-verify wick causation
+#   today (no price-path tool), so treat the venue conclusion as consistent
+#   with, not newly proven by, this test. VERDICT: no deployable edge; the
+#   mega-launch ('non-graduating $28-48k launch') class stays 'wick venue /
+#   not auto-tradeable'. Idea closed again.
+# 5) Weekly review not due (next Oct 11). Ledger n=13. Slot 2 untouched.
+#   Runs: Solana 1 (f1 1d), RH 6 (24h #152, 4 experiment queries, plus
+#   one 0-match query counted).
