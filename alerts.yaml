@@ -2983,3 +2983,17 @@ alert2:
 # disable time by re-reading get_filter every review from now on.
 # Position check: UVcu7k 1.32x ($135.9k), only position; no stops, no scam events,
 # ledger n=13. PART B: no deployment, slot 2 untouched. Runs: 0 backtests.
+
+# 6H REVIEW + IMPROVE 2026-10-06 06:32 UTC:
+# list_positions is now EMPTY: UVcu7k (1.32x at 00:32, $135.9k, stage 0,
+# SL 0.5) is gone. Token history has no data after Sep 30 20:36 CEST (12
+# snapshots), so no price path exists for the exit; ATH-so-far $154k. Third
+# position in a row (Arthur Sep 30, WLEE Oct 2, UVcu7k Oct 6) to disappear
+# from the book with no visible stop or stage sale in the data I can read.
+# NEW HYPOTHESIS to weigh alongside the DRBT-auto-disable idea: the USER is
+# closing positions and may have switched auto-buy off on purpose (manual sells
+# in Telegram would also explain 3-of-3 silent exits and why 'auto-buy
+# off' appeared after a fill). Cannot distinguish via MCP.
+# get_filter 1 re-read at 06:32: auto_buy.enabled STILL false (config otherwise
+# intact). Not toggled (mandate). Book is flat. Ledger n=13. No scam events.
+# PART B: no deployment, slot 2 untouched, runs 0.
