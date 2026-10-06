@@ -2956,3 +2956,30 @@ alert2:
 # 5) Weekly review not due (next Oct 11). Ledger n=13. Slot 2 untouched.
 #   Runs: Solana 1 (f1 1d), RH 6 (24h #152, 4 experiment queries, plus
 #   one 0-match query counted).
+
+# 6H REVIEW + IMPROVE 2026-10-06 00:32 UTC - ROOT-CAUSE CANDIDATE FOR THE FILL GAP:
+# Read-only get_filter on filters 1 and 4 (done because filter 1 had gone ~96h
+# without a buy): AUTO-BUY IS DISABLED on BOTH.
+#   filter 1: active=true, auto_buy.enabled=FALSE (config otherwise intact:
+#     0.1 SOL, max_mc 155k, jito, KOL exclusions, auto_sell enabled, SL 0.5,
+#     ladder 25%@3x/10x/30x). Condition string identical to the deployed
+#     T20-PRIME v2 (no drift).
+#   filter 4: active=true, auto_buy.enabled=FALSE (0.05 SOL, TP 1.3/SL 0.7).
+# History: filter 1 get_filter on Sep 30 showed enabled=true, and it filled on
+# Oct 2 00:02 UTC (WLEE), so it was switched OFF after that fill (not
+# before); filter 4 was already seen silently auto-disabled earlier (Sep:
+# disabled twice, re-enabled 3x). Together with the fill cadence (fills in
+# bursts followed by 32-96h silence) this strongly suggests DRBT disables
+# auto-buy on its own after some event - candidates (UNVERIFIED): a failed buy
+# (insufficient wallet balance), hitting an engine cap tied to max_calls=1, or
+# a tier/limit rule. WHEN it flipped and WHY cannot be read via MCP (no audit
+# log tool).
+# NOT TOUCHED: the autonomy mandate (SYSTEM.md) forbids me touching auto-buy
+# toggles and wallets; re-enabling spends the user's money, so surfaced to the
+# user instead. If the user says "enable auto-buy on filter 1", flip with
+# toggle_auto_buy(1), verify with get_filter, then check again at the next
+# review (if it flips off again after one fill -> max_calls / failed-buy
+# hypothesis; ask user for TG notices). Also consider logging the exact
+# disable time by re-reading get_filter every review from now on.
+# Position check: UVcu7k 1.32x ($135.9k), only position; no stops, no scam events,
+# ledger n=13. PART B: no deployment, slot 2 untouched. Runs: 0 backtests.
