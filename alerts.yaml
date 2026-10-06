@@ -2997,3 +2997,53 @@ alert2:
 # get_filter 1 re-read at 06:32: auto_buy.enabled STILL false (config otherwise
 # intact). Not toggled (mandate). Book is flat. Ledger n=13. No scam events.
 # PART B: no deployment, slot 2 untouched, runs 0.
+
+# DAILY-OPS BRIEF 2026-10-06 (07:12 UTC run):
+# 0) STATE: get_filter 1 re-read at 07:12: auto_buy.enabled STILL FALSE (filter 4
+#   too, per 00:32 read); list_positions = [] (flat). No user reply received yet
+#   on auto-buy / Arthur-WLEE-UVcu7k exits / wallet / max_calls.
+# 1) FILL SCORECARD (filter 1): 0 fills (auto-buy off). 1-day zone backtest:
+#   n=14, 2x+ 57.1% (8), 5x+ 4, 10x+ 2, 20x+ 2. MISSED because auto-buy off:
+#   ASS "Artificial Super Smartness" 24.9x (entry $22.3k, deployer
+#   BigrT9DA..., dev_deploys 120,168 - same factory as RIEMANN/KRACKPOT
+#   agencypad deploys), VACAT 20.9x (entry $51.5k, rugcheck 17,770 'creator
+#   history of rugged tokens'), 'Loan' x3 from the FhVo factory (3.6x, 5.2x,
+#   6.2x), + 8 smaller. At 0.1 SOL each with the 25/25/25 ladder, 2 of 14 at
+#   20x+ and 4 at 5x+ today is the cost of the switch being off.
+# 2) MOONER AUDIT
+#   Solana 1d (7): BACKERS 588x ($4.6k launch), Uncle Pussy 403x ($3.5k), Super
+#   Model 278x, phubber 190x ($9.7k), VACAT 143x ($7.5k launch; also filter-1
+#   crossing 20.9x), Mintro 77x ($49.3k launch), Feebits 24x ($46.2k launch).
+#   VACAT is the only one in a filter's zone window and the only one in
+#   filter-1's crossing list - unbought (auto-buy off).
+#   RH 24h (10): SHDUTY 312x (->0.78x, drained), SECTORAL 202x, SM 132x, AOTTR
+#   107x, CFLCAT 100x, PCHIP 97x (->0.3x), CBCAP 89x, OPA 86x, CLASS 79x, MEOWKEY
+#   79x. #152 24h: n=121, 2x+ 31.4%, 10x+ 3, 20x+ 1, post-ATH 9.9% (up from
+#   3-5%: watch). CAUGHT 1 of 10: CLASS (30.9x from $9.5k). MISSES: SECTORAL/
+#   OPA (graduated cheap wave), SM/AOTTR/CFLCAT/PCHIP/CBCAP/MEOWKEY
+#   (non-graduated $9-46k launches); not misses: SHDUTY, PCHIP (drained).
+# 3) REPEAT-NAME WATCHLIST: 'Loan' x3 in 90 min (FhVo factory, same ipfs image
+#   hash, entries $65-66k, 3.6-6.2x - echo within hours); SM on both chains;
+#   'AI'/'Inu' names; 'Digital Oil Trust Fund' (DOTF) echoes 'World Oil Trust
+#   Fund' (WOTF 29.8x Oct 3) at 1.26x.
+# 4) EXPERIMENT (RH #152 'cheap-graduate' bundle, 14-DAY WINDOW so the added
+#   slice can reach the n>=100 bar; same query as Oct 4 but window 336h):
+#   BASE n=2253, 2x+ 35.51% (800), 5x+ 283, 10x+ 119, 20x+ 46, 50x+ 13,
+#   100x+ 7, post-ATH 5.19%.
+#   BUNDLE n=2399 (+146), 2x+ 36.06% (865; +65 = 44.5% of the added slice),
+#   5x+ 318 (+35 = 24.0%), 10x+ 135 (+16 = 11.0%), 20x+ 54 (+8), 50x+ 17 (+4),
+#   100x+ 8 (+1 = VRAX), post-ATH 125 (+8 = 5.5%).
+#   SPLIT-HALF (second 7d: n added=66, 2x+ 45.5%, 10x+ 7 = 10.6%; implied first
+#   7d: n added=80, 2x+ 43.8%, 10x+ 9 = 11.3%): the added slice beats the
+#   base rate in BOTH halves (44-46% vs 31-36% 2x+; ~11% vs ~4.3-5.3% 10x+) and
+#   post-ATH 5.5% = base. n=146 clears the 100-token bar. Engine backtests,
+#   not row cuts (re-entry-safe). CAVEATS: the tail rides on a few tokens
+#   (VRAX 327x, 4 additional 50x+); free-tier 15s alert delay means sub-second
+#   curve sprints like VRAX are NOT actionable by a human; #152 is ALERT-ONLY
+#   (not auto-buy), so this adds more alerts, ~10/day extra (146 in 14d),
+#   not trades. RECOMMENDATION TO USER: deploy the bundle into #152 (alert-
+#   only). I did NOT deploy it: #152 is outside the autonomy mandate. Rollback
+#   = current #152 condition (logged verbatim at 2026-09-30 / AVALANCHE v3
+#   block of this file and in the HEAD condition).
+# 5) Ledger n=13. Slot 2 untouched. Runs: Solana 1 (f1 1d), RH 6 (24h #152,
+#   168h base, 168h bundle, 336h base, 336h bundle, mooners).
