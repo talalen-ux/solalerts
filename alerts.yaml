@@ -3047,3 +3047,32 @@ alert2:
 #   block of this file and in the HEAD condition).
 # 5) Ledger n=13. Slot 2 untouched. Runs: Solana 1 (f1 1d), RH 6 (24h #152,
 #   168h base, 168h bundle, 336h base, 336h bundle, mooners).
+
+# USER EXPORT ANALYSIS 2026-10-07 (filter 3 MONSTERNET, backtest_query_3_2weeks.xlsx,
+# n=9,972, Sep 22-Oct 6; user request: remove low performers, keep 5x+):
+# Universe: 2x+ 37.2%, 5x+ 11.9% (1,188), 10x+ 481, 20x+ 199, 50x+ 67, 100x+ 34,
+#   post-ATH 6.5%; curve branch C = 95% of rows (n=9,465, 5x+ 11.76%).
+# FINDING: junk is NOT separable with entry-time data. Evidence: (1) OOS
+#   gradient boosting (73 features, train week 1 -> test week 2) AUC 0.565,
+#   reverse 0.591; top decile 5x+ 15.6% vs bottom 7.4%. (2) 624 single cuts:
+#   only 11 pass half-split+retention, best lift 1.075x (dev_deploys>=448: cut
+#   20% of rows, lose 14% of 5x+). (3) greedy rule chains: test-half lift
+#   0.95x and 1.05x. (4) simple mechanism cuts (buyers>130 | dd>5000 | dm>=3)
+#   lift 1.03-1.08x and lose 20-25% of 5x+. Time of day, weekday, launchpad
+#   family (rapidlaunch 5.7%, launchblitz 6.8% 5x+), alert density: flat.
+#   Gradients that exist (all weak): bonding_progress up, mc_over_launch up,
+#   buyers down, dev_deploys/dev_migrated down.
+# BEST PRODUCT: a PREMIUM TIER (not a cut). Filter 3 + bonding>=70 & buyers<=90
+#   & dev_migrated<3. Engine 2-week bench on slot 2: n=2,157, 2x+ 42.6%, 5x+
+#   14.33% (309), 10x+ 6.35% (137), 20x+ 2.78% (60), 50x+ 0.79% (17), 100x+ 6,
+#   post-ATH 6.4% vs base 11.9 / 4.8 / 2.0 / 0.67%. Lifts 5x+ +20%, 10x+ +32%,
+#   20x+ +39% - keeps ~26% of 5x+ winners. Written to
+#   lab/monsternet_prime_candidate.md with exact text. NOT deployed anywhere:
+#   decision for user (slot 2 vs replace filter 3).
+# Rough EV table (xs only, path-blind, loss assumed -50%/-30% of non-hitters):
+#   sell-all-at 2x: +5.5% / +18.1% per trade; at 3x: +8.8% / +24.1%; at 5x:
+#   +2.9% / +20.6%; at 10x: -5.1% / +13.9% (hit rates 37% / 23.5% / 11.8% /
+#   4.7%). Takeaway: with this feed the money is in the EXIT ladder + the
+#   filter-4 type tail, not in more junk removal.
+# Slot 2 restored to SHIELD verbatim (engine echoed the string). Runs: 1 Solana
+#   bench. Also: auto-buy on filters 1 and 4 still OFF (06:32/12:33/18:32 reads).
