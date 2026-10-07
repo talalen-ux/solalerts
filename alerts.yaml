@@ -3118,3 +3118,13 @@ alert2:
 #   deployed (alert-only, outside autonomy mandate; waits for user).
 # 5) Slot 2 untouched this run (it is back on SHIELD since 00:33 Oct 7).
 #   Ledger n=13. Runs: Solana 1, RH 3.
+
+# 6H REVIEW 2026-10-07 12:33 UTC: REVIEW NOT POSSIBLE - the Solana DRBT MCP
+# server ("defirobot") now reports it needs the user to RE-AUTHORIZE it; all
+# its tools (list_positions, get_filter, run_backtest, ...) return "No such
+# tool". Session is non-interactive so I cannot run the OAuth flow. Positions,
+# auto-buy status and filter state are UNVERIFIED this review (last known:
+# 06:33 Oct 7 - flat book, auto-buy off on filters 1 and 4). Nothing changed
+# by me. The Robinhood server (drbtrh) is unaffected. USER ACTION: re-authorize
+# the defirobot connector (claude.ai connector settings / /mcp), then reviews
+# resume automatically at the next 6h tick.
