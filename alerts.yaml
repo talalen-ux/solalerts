@@ -3142,3 +3142,25 @@ alert2:
 # defirobot MCP still needs user re-authorization. Solana state unverified
 # since 06:33 Oct 7 (24h). No changes made. The 07:1x daily-ops brief will be
 # Robinhood-only unless the connector is re-authorized first.
+
+# DAILY-OPS BRIEF 2026-10-08 (07:18 UTC run) - ROBINHOOD-ONLY (Solana blocked):
+# 0) SOLANA: defirobot MCP still needs user re-authorization (4th skipped
+#   6h review at 06:33, daily brief Solana half cannot run: no fill
+#   scorecard, no Solana mooner audit, no Solana experiment). Last known
+#   Solana state: 06:33 Oct 7 - flat book, auto-buy OFF on filters 1 and 4.
+# 1) RH mooners 24h (10): HMCAT 183x, BUNNIL 119x (graduated, $11.6k launch),
+#   PUPKEY 114x, Muse 105x ($100k launch, 240 buyers, still at ATH), EON 101x
+#   ($1.6k launch, 214 buyers), RHW 96x, BPUFF 91x, BCI 85x (graduated, $4.4k
+#   launch), Passkeys 75x (graduated, $5.3k), CHOP 68x.
+#   #152 24h: n=125, 2x+ 26.4%, 5x+ 7, 10x+ 1, 20x+ 1, post-ATH 7.2%
+#   (highest recently). CAUGHT 1 of 10: Passkeys (30.0x from $13.3k).
+#   MISSES: BUNNIL, BCI (graduated cheap wave, 7th day), HMCAT/PUPKEY/BPUFF/
+#   CHOP (non-graduated $23-53k launches), EON (non-graduated $1.6k launch,
+#   214 buyers), RHW (non-graduated $3.6k launch, 1,932 buyers), Muse
+#   (non-graduated $100k launch).
+# 2) EXPERIMENT (RH, bundle live check, 24h): base n=125 vs bundle n=126 (+1);
+#   same Passkeys 30x top catch. Today the bundle changes nothing (the
+#   exempt-bypass/deployer legs did not bind). Not evidence for or against;
+#   the 14-day result (+146 tokens, 44.5% 2x+, 11% 10x+) stands.
+# 3) NOT DONE: Solana repeat-name watchlist, Solana mooner audit, filter-1
+#   scorecard, Solana experiment. Runs: RH 3, Solana 0.
