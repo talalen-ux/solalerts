@@ -3180,3 +3180,31 @@ alert2:
 # 6H REVIEW 2026-10-09 06:33 UTC: eighth consecutive skipped Solana review -
 # defirobot MCP still needs user re-authorization (non-interactive session
 # cannot run OAuth). Solana unverified since 06:33 Oct 7 (48h). No changes made.
+
+# DAILY-OPS BRIEF 2026-10-09 (07:21 UTC run) - ROBINHOOD-ONLY (Solana blocked):
+# 0) SOLANA: defirobot MCP still needs user re-authorization (8th skipped 6h
+#   review at 06:33; Solana unverified 48h+). No fill scorecard, no Solana
+#   mooner audit, no Solana experiment, no Solana repeat-name list.
+# 1) RH mooners 24h (top 10): REALM 392x ($2.8k launch, 312 buyers, 2.9h old,
+#   still at ATH), YLDCUB 162x, MOO 142x (graduated, $4.3k), CRH 142x
+#   (graduated, $10.5k), Mike 141x, BMBFI 141x, CRNKP 115x, Gunner 106x,
+#   BBDGR 102x, Clanker 94x.
+#   CATCH ATTRIBUTION (24h backtests):
+#   - #152 AVALANCHE (pons_v2): n=83, 2x+ 26.5%, 5x+ 6.0%, 10x+ 2 (2.4%),
+#     20x+ 0, post-ATH 3.6%, best VANTOR 18x, Parabol 17x. Caught 0 of the
+#     top 10 (none of them in its best-20 list).
+#   - #155 TEMPEST (uniswap_v4): n=322, 2x+ 72.7%, 5x+ 20.2%, 10x+ 9.0%,
+#     20x+ 17, 50x+ 8, 100x+ 1, post-ATH 0.3%. Caught 6 of 10: YLDCUB 115x,
+#     CRNKP 87x, Clanker 82x, BMBFI 80x, Mike 70x, Gunner 55x (entry
+#     mc $15-56k). Filter-3 xs are entry-time multiples (alert-time mc).
+#   - MISSES: REALM (sub-$3k launch rocket, 2.9h old - young-token miss),
+#     MOO and CRH (graduated cheap-launch wave, 8th day, #152 bundle class),
+#     BBDGR (not seen in #155 best-20; entry mc likely outside 15-200k or
+#     fewer than 15 buyers at the time - not verified).
+#   - #154 MUSENET doppler: not backtested today (no top-10 doppler name).
+# 2) REPEAT-NAME WATCHLIST (RH): GRAPHITEBOOM deployed twice within the day
+#   (27.9x and 22.2x via #155) - watch for deploy #3; Clanker/CRH names
+#   reappear with other addresses (CRH 0x9d73 18x vs CRH 0xd421 142x).
+# 3) EXPERIMENT: none run. The #152 cheap-graduate bundle is still awaiting
+#   the user's decision (graduated MOO/CRH misses today are the same class);
+#   not deployed. Runs: RH 2 (+1 mooners call), Solana 0.
