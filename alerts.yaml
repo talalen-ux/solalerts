@@ -3208,3 +3208,7 @@ alert2:
 # 3) EXPERIMENT: none run. The #152 cheap-graduate bundle is still awaiting
 #   the user's decision (graduated MOO/CRH misses today are the same class);
 #   not deployed. Runs: RH 2 (+1 mooners call), Solana 0.
+
+# 6H REVIEW 2026-10-09 12:33 UTC: ninth consecutive skipped Solana review -
+# defirobot MCP still needs user re-authorization (non-interactive session
+# cannot run OAuth). Solana unverified since 06:33 Oct 7 (54h). No changes made.
