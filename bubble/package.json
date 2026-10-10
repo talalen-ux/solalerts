@@ -1,0 +1,21 @@
+{
+  "name": "bubble",
+  "version": "0.1.0",
+  "description": "Telegram bot + Mini App: community tokens, token-gated shop, governance and timed build jams",
+  "main": "src/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "BUBBLE_DEV=1 node src/index.js",
+    "test": "node --test test/*.test.js"
+  },
+  "dependencies": {
+    "grammy": "^1.46.0"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=22.5"
+  }
+}

@@ -1,0 +1,69 @@
+:root {
+  --bg: var(--tg-theme-bg-color, #0f1220);
+  --bg2: var(--tg-theme-secondary-bg-color, #181c2f);
+  --text: var(--tg-theme-text-color, #eef0ff);
+  --muted: var(--tg-theme-hint-color, #8b90b0);
+  --accent: var(--tg-theme-button-color, #7c6cff);
+  --accent-text: var(--tg-theme-button-text-color, #ffffff);
+  --link: var(--tg-theme-link-color, #9d92ff);
+  --danger: var(--tg-theme-destructive-text-color, #ff6b81);
+  --ok: #3ecf8e;
+  --radius: 14px;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-tg]) {
+    --bg: #f6f6fb; --bg2: #ffffff; --text: #16182a; --muted: #6b7090;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font: 15px/1.45 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.top { display: flex; align-items: center; gap: 8px; padding: 12px 16px 4px; }
+.top h1 { font-size: 19px; margin: 0; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+nav { display: flex; gap: 4px; padding: 8px 16px; overflow-x: auto; position: sticky; top: 0; background: var(--bg); z-index: 2; }
+nav button { flex: 1; background: var(--bg2); color: var(--muted); border-radius: 999px; padding: 8px 10px; }
+nav button.on { background: var(--accent); color: var(--accent-text); }
+main { padding: 8px 16px 32px; max-width: 640px; margin: 0 auto; }
+.card { background: var(--bg2); border-radius: var(--radius); padding: 14px; margin: 10px 0; }
+.card h3 { margin: 0 0 6px; font-size: 16px; }
+.row { display: flex; gap: 8px; align-items: center; }
+.row > * { min-width: 0; }
+.grow { flex: 1; }
+.muted { color: var(--muted); font-size: 13px; }
+.big { font-size: 34px; font-weight: 700; letter-spacing: -0.5px; }
+.pill { display: inline-block; padding: 2px 8px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--link); font-size: 12px; margin: 2px 2px 2px 0; }
+.pill.ok { color: var(--ok); background: color-mix(in srgb, var(--ok) 15%, transparent); }
+button {
+  font: inherit; border: 0; border-radius: 10px; padding: 10px 14px; cursor: pointer;
+  background: var(--accent); color: var(--accent-text); font-weight: 600;
+}
+button.ghost { background: transparent; color: var(--link); padding: 6px 10px; }
+button.soft { background: color-mix(in srgb, var(--accent) 16%, transparent); color: var(--link); }
+button:disabled { opacity: .45; cursor: default; }
+input, textarea, select {
+  font: inherit; width: 100%; padding: 10px 12px; border-radius: 10px; color: var(--text);
+  background: var(--bg); border: 1px solid color-mix(in srgb, var(--muted) 30%, transparent); margin: 4px 0;
+}
+textarea { min-height: 70px; resize: vertical; }
+label { display: block; font-size: 13px; color: var(--muted); margin-top: 8px; }
+form button[type=submit] { width: 100%; margin-top: 10px; }
+.bar { height: 8px; border-radius: 4px; background: color-mix(in srgb, var(--muted) 20%, transparent); overflow: hidden; margin: 4px 0 8px; }
+.bar > i { display: block; height: 100%; background: var(--accent); }
+.list > div { display: flex; justify-content: space-between; gap: 8px; padding: 6px 0; border-bottom: 1px solid color-mix(in srgb, var(--muted) 12%, transparent); }
+.list > div:last-child { border-bottom: 0; }
+.secret { white-space: pre-wrap; word-break: break-word; background: var(--bg); border-radius: 10px; padding: 10px; margin-top: 8px; }
+.chat { max-height: 260px; overflow-y: auto; display: flex; flex-direction: column; gap: 6px; margin: 8px 0; }
+.chat .msg { background: var(--bg); border-radius: 10px; padding: 6px 10px; }
+.chat .msg.me { align-self: flex-end; background: color-mix(in srgb, var(--accent) 22%, var(--bg)); }
+.clock { font-variant-numeric: tabular-nums; font-weight: 700; font-size: 22px; }
+details summary { cursor: pointer; color: var(--link); font-weight: 600; padding: 4px 0; }
+#toast {
+  position: fixed; left: 16px; right: 16px; bottom: 20px; padding: 12px 14px; border-radius: 12px;
+  background: var(--text); color: var(--bg); text-align: center; z-index: 10; font-weight: 600;
+}
+#toast.err { background: var(--danger); color: #fff; }
+a { color: var(--link); }
+form.row button[type=submit] { width: auto; margin-top: 0; }
