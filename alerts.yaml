@@ -3216,3 +3216,37 @@ alert2:
 # 6H REVIEW 2026-10-09 18:33 UTC: tenth consecutive skipped Solana review -
 # defirobot MCP still needs user re-authorization (non-interactive session
 # cannot run OAuth). Solana unverified since 06:33 Oct 7 (60h). No changes made.
+
+# 6H REVIEW 2026-10-10 00:33 UTC: eleventh consecutive skipped Solana review -
+# defirobot MCP still needs user re-authorization. Solana unverified since
+# 06:33 Oct 7 (66h). No Solana changes made.
+
+# RH OPTIMIZATION 2026-10-10 (user: "analyze performance and optimize") -
+# DEPLOYED to RH #152 AVALANCHE (alert-only): cheap-graduate bundle.
+#   Change: (exempt_buy_pct IS NULL OR exempt_buy_pct < 40)
+#        -> (exempt_buy_pct IS NULL OR exempt_buy_pct < 40 OR
+#            (bonding_progress > 80 AND launch_mc < 8000))
+#           deployer_launches <= 3
+#        -> (deployer_launches <= 3 OR deployer_graduations >= 1)
+#   OLD CONDITION (rollback = restore_filter from filter_history, or restore
+#   this verbatim): launchpad = 'pons_v2' AND curve_buyable AND
+#   (exempt_buy_pct IS NULL OR exempt_buy_pct < 40) AND deployer_launches <= 3
+#   AND (top_router_pct IS NULL OR top_router_pct < 85) AND (
+#   (bonding_progress < 45 AND mc > 5000 AND mc < 25000 AND launch_mc < 8000
+#   AND buyers >= 28 AND buy_volume_usd > 4 * sell_volume_usd AND sellers <
+#   buyers * 0.25 AND top_maker_pct < 30 AND maker_count >= 12)
+#   OR (bonding_progress > 45 AND bonding_progress < 80 AND buyers >= 60 AND
+#   buy_volume_usd > 4 * sell_volume_usd AND top_maker_pct < 35 AND
+#   maker_count >= 10 AND launch_mc < 10000 AND sellers < buyers * 0.3)
+#   OR (bonding_progress > 80 AND buyers >= 20 AND buy_volume_usd > 4 *
+#   sell_volume_usd AND top_maker_pct < 60 AND maker_count >= 10) )
+#   EVIDENCE: 7d (168h) base n=705 (2x+ 29.50%, 10x+ 25 / 3.55%, 20x+ 10,
+#   50x+ 1, post-ATH 6.10%) vs bundle n=736 (+31; 2x+ 30.57%, 10x+ 30 /
+#   4.08%, 20x+ 12, 50x+ 3 [ZERO 60.8x, ORBANCY 53.7x], post-ATH 5.84%).
+#   Added 7d slice: 17 of 31 2x+, 5 10x+. 14d (earlier): +146 tokens,
+#   44.5% 2x+, 11.0% 10x+, split-half consistent. Today's 24h: neutral.
+#   Slice n<100 on 7d alone but 146 on 14d; filter is alert-only (no capital).
+#   PREDICTION: +4-5% more alerts/week (~+15-30), added slice ~40% 2x+, ~10%
+#   10x+; overall post-ATH not worse. Verify at next RH check; roll back if
+#   added-slice 2x+ < 25% at n>=50.
+# Other RH filters (#154 MUSENET, #155 TEMPEST) untouched. Solana untouched.
