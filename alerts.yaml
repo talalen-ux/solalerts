@@ -3250,3 +3250,11 @@ alert2:
 #   10x+; overall post-ATH not worse. Verify at next RH check; roll back if
 #   added-slice 2x+ < 25% at n>=50.
 # Other RH filters (#154 MUSENET, #155 TEMPEST) untouched. Solana untouched.
+
+# 6H REVIEW 2026-10-10 06:33 UTC: twelfth consecutive skipped Solana review -
+# defirobot MCP still needs user re-authorization. Solana unverified since
+# 06:33 Oct 7 (72h). No Solana changes.
+# RH check: #152 bundle condition confirmed saved and enabled (edits=4); its
+# sent counters restarted at the edit (15 alerts in ~6h, 3 in last hour -
+# normal rate, no flood). #154/#155 unchanged. Bundle verification vs the
+# prediction needs >=50 added-slice tokens; not yet measurable.
