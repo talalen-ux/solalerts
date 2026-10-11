@@ -3304,3 +3304,55 @@ alert2:
 # 6H REVIEW 2026-10-11 06:33 UTC: sixteenth consecutive skipped Solana review
 # - defirobot MCP still needs user re-authorization. Solana unverified since
 # 06:33 Oct 7 (96h). No changes made.
+
+# 6H REVIEW 2026-10-11 06:33 UTC: sixteenth consecutive skipped Solana review
+# - defirobot MCP still needs user re-authorization. Solana unverified since
+# 06:33 Oct 7 (96h). No changes made. (Logged with the 07:11 brief.)
+
+# DAILY-OPS BRIEF 2026-10-11 (07:11 UTC run) + WEEKLY LAW REVIEW (day 21) -
+# ROBINHOOD-ONLY (Solana blocked):
+# 0) SOLANA: defirobot still unauthorized. No fill scorecard, no Solana
+#   mooner audit, no Solana stability check, no Solana experiment. The weekly
+#   Solana law review (network_fees<0.02, dev_migrated, launch-double,
+#   echo/repeat-name, FhVo) CANNOT be run; laws stay "unverified this week".
+# 1) RH mooners 24h (top 10): TORCH 292x ($5.3k launch), CHNCHL 197x, Altai
+#   148x, ALTAI 117x (different address), HOODOG 111x (graduated, $3.2k), HBLINU
+#   106x (rugged to 0), ROBIN 102x (graduated, $5.3k), DIALN 101x, HIPPO 89x,
+#   RSHBR 85x.
+#   CAUGHT 6 of 10 by #155 TEMPEST: CHNCHL 150x, TORCH 102x, HIPPO 83x, HBLINU
+#   79x (rugged to 0 - alert-time entry), RSHBR 61x, DIALN 50x. #152 caught 0
+#   of the 10 (its ROBIN 8.1x is a different address from the 102x ROBIN).
+#   MISSES: Altai, ALTAI ($7.5-10k launches, 2.2-2.3k buyers - not captured by
+#   either filter), HOODOG and ROBIN (graduated cheap-launch, 10th day).
+#   24h: #155 n=245, 2x+ 74.3%, 5x+ 27.4%, 10x+ 32 (13.1%), 50x+ 9, 100x+ 2,
+#   post-ATH 1.2%. #152 n=54, 2x+ 29.6%, 5x+ 5.6%, 10x+ 0, post-ATH 7.4% -
+#   weak day (best 8.1x), bundle added nothing visible.
+# 2) WEEKLY STABILITY (168h, RH):
+#   #155 TEMPEST: n=1915, 2x+ 71.3%, 5x+ 28.2%, 10x+ 224 (11.7%), 20x+ 114,
+#     50x+ 44, 100x+ 13, post-ATH 1.6%, median 3.42x. STRONG and stable.
+#   #152 AVALANCHE (bundle live ~1.5d of the window): n=662, 2x+ 29.5%, 5x+
+#     7.4%, 10x+ 21 (3.2%), 50x+ 3, post-ATH 7.3%. Stable vs 7d base before the
+#     change (705, 29.5%, 3.55%); bundle verification still needs >=50 added
+#     tokens - NOT yet measurable.
+#   #154 MUSENET doppler: n=152, 2x+ 6.6%, 5x+ 2.6%, 10x+ 3, 50x+ 1 (CHOP),
+#     post-ATH 37.5%, median 1.14x. WEAK: more than a third of alerts fire
+#     after the token's high. Tightened variant (mc<80k, buyers>=15, buy vol
+#     >3x sell, top_maker<50): n=21 only, 2x+ 14%, post-ATH 28.6% - too small
+#     to deploy, and not better. Doppler venue edge is thin.
+# 3) WEEKLY LAW REVIEW (RH side only):
+#   HELD: uniswap_v4 TEMPEST law (volume 3x + decentralised makers + mc 15-
+#     200k) - 7d 71% 2x+, 44 50x+; repeat-name law (GRAPHITEBOOM 2x on Oct 9);
+#     graduated cheap-launch wave persists (10th day: HOODOG, ROBIN, DAEMON,
+#     MESH, OP) and remains the #152 miss class.
+#   WEAKENED: #152's pons_v2 curve edge - 7d 10x+ 3.2% vs TEMPEST's 11.7%.
+#   BROKE/NEW: HBLINU 79x alert-time then rugged to 0 (TEMPEST alerts are
+#     alert-time entries; rug risk exists on uniswap_v4 too).
+# 4) EXPERIMENT: #154 tighter-doppler variant (above) - rejected on n. No live
+#   change. Backlog: DAEMON/MESH/HOODOG/ROBIN entry-snapshot autopsy for the
+#   graduated branch's 4x buy_volume wall. Runs: RH 6 backtests + 1 mooners;
+#   Solana 0.
+# 5) REPEAT-NAME WATCHLIST: Altai/ALTAI (two addresses, same name, both 100x+
+#   within a day - law: deploy #2 pays); ROBIN (two addresses: 102x graduated
+#   and 8x), HOODOG (111x graduated and 17.6x via #155), GRAPHITEBOOM.
+# DECISION FOR USER: #154 slot - consider repurposing (3-filter cap on RH
+#   free tier; #155 earns far more). Not changed without user's word.
