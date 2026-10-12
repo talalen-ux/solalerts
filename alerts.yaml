@@ -3372,3 +3372,29 @@ alert2:
 # 6H REVIEW 2026-10-12 06:33 UTC: twentieth consecutive skipped Solana review
 # - defirobot MCP still needs user re-authorization. Solana unverified since
 # 06:33 Oct 7 (120h = 5 days). No changes made.
+
+# DAILY-OPS BRIEF 2026-10-12 (07:23 UTC run) - ROBINHOOD-ONLY (Solana blocked):
+# 0) SOLANA: defirobot still unauthorized (20 consecutive skipped 6h reviews;
+#   unverified since 06:33 Oct 7, 120h+). No fill scorecard / Solana mooner
+#   audit / experiment. Not a weekly-review day (next Oct 18).
+# 1) RH mooners 24h (top 10): SI 398x (graduated, $4.2k launch, 4,835 buyers),
+#   TINYTAP 266x, FUNPANDA 226x, BSKCAT 180x (dead now, 0.89x), RHF4 135x
+#   (launch_mc $2 - tiny-price artifact), EQVTA 134x, Nuts 119x (now 0.99x),
+#   GHINT 97x, Normie 90x (now 1.0x), SI#2 88x.
+#   CAUGHT by #155 TEMPEST: TINYTAP 194x, FUNPANDA 184x, BSKCAT 147x, EQVTA
+#   109x, GHINT 63x, SI#2 44x (6 of 10). #152 caught the top mooner SI 398x
+#   (graduated) at $34k entry = 48.9x. MISSED: RHF4 (price artifact), Nuts and
+#   Normie ($7.7-10k launches that wick-pumped and returned to ~1x, 984-2,289
+#   buyers - wick class, untradeable), plus SI#2's 398x sibling in #155.
+#   24h: #155 n=252, 2x+ 73.4%, 5x+ 29.0%, 10x+ 30 (11.9%), 50x+ 7, 100x+ 4,
+#   post-ATH 0.4%. #152 n=56, 2x+ 26.8%, 10x+ 2, 20x+ 2, post-ATH 3.6%.
+# 2) EXPERIMENT = cheap-graduate bundle live A/B (24h, same snapshots):
+#   base n=51 (2x+ 25.5%, 3x+ 11.8%, 10x+ 1, 20x+ 1) vs bundle n=56 (+5; 2x+
+#   26.8%, 3x+ 14.3%, 10x+ 2, 20x+ 2). The added tokens include SI 48.9x - the
+#   day's #1 mooner. FIRST LIVE confirmation the bundle adds real tail (n=5 so
+#   far; prediction check still needs >=50 added tokens, rollback rule
+#   unchanged). Post-ATH normalized to 3.6% (was 17.4% on Oct 10).
+#   Runs: RH 4 backtests + 1 mooners; Solana 0.
+# 3) REPEAT-NAME WATCHLIST: SI (3 addresses in one day: 398x graduated, 88x,
+#   plus a 43x/37x pair via #155 - name 'SI' echoing; law: deploy #2/#3 pays);
+#   Altai/ALTAI and ROBIN/HOODOG from Oct 11 still on watch.
