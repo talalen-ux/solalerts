@@ -3414,3 +3414,33 @@ alert2:
 # 6H REVIEW 2026-10-13 06:33 UTC: twenty-fourth consecutive skipped Solana
 # review - defirobot MCP still needs user re-authorization. Solana unverified
 # since 06:33 Oct 7 (144h = 6 days). No changes made.
+
+# 6H REVIEW 2026-10-13 06:33 UTC: twenty-fourth consecutive skipped Solana
+# review - defirobot still unauthorized (Solana unverified 144h). (Logged
+# with the 07:17 brief.)
+
+# DAILY-OPS BRIEF 2026-10-13 (07:17 UTC run) - ROBINHOOD-ONLY (Solana blocked;
+# not a weekly-review day, next Oct 18):
+# 0) SOLANA: defirobot still unauthorized; no scorecard / Solana audit /
+#   experiment. Last known: auto-buy OFF on filters 1 and 4 (Oct 6-7).
+# 1) RH mooners 24h (top 10): LUCKYKEY 205x (now 0.87x), PDCAP 118x (0.62x),
+#   CBARA 112x, Paper 104x ($100k launch, 216 buyers, still at ATH), TFDCAT 94x,
+#   AWAWA 90x ($1.7k launch, 67 buyers), EAXO 84x (rugged to 0), RMOLE 81x,
+#   GMGN 80x, FREELUCIA 75x.
+#   CAUGHT 7 of 10 by #155 TEMPEST: LUCKYKEY 129x, PDCAP 121x, TFDCAT 71x, EAXO
+#   54x, RMOLE 48x, GMGN 40x, FREELUCIA 46x. BUT 3 of the 7 are DEAD now
+#   (LUCKYKEY 0.87x, PDCAP 0.62x, EAXO 0): the alert-time entries are real but
+#   the ATH-to-now drawdown is total - exit timing, not entry, is the edge risk
+#   on uniswap_v4. #152 caught none of the 10. MISSES: CBARA (not in #155's
+#   best 20), Paper ($100k launch), AWAWA (tiny 67-buyer launch).
+#   24h: #155 n=255, 2x+ 60.8% (down from 73-74%), 5x+ 32.9%, 10x+ 37 (14.5%),
+#   20x+ 29, 50x+ 4, 100x+ 2, post-ATH 2.0%, median 2.74x. #152 n=76, 2x+
+#   32.9%, 5x+ 6.6%, 10x+ 1 (RAETO 19x), post-ATH 5.3%.
+# 2) EXPERIMENT = bundle live A/B (24h): base n=70 (2x+ 31.4%, 3x+ 11.4%, 5x+
+#   5.7%, 10x+ 1) vs bundle n=76 (+6; 2x+ 32.9%, 3x+ 11.8%, 5x+ 6.6%, 10x+ 1).
+#   Added tokens today: 6, of which 3 reached 2x+ (50%) incl. VRAX 7.25x. Running
+#   total of added tokens (Oct 12 +5, Oct 13 +6) = 11; need >=50 before the
+#   prediction (~40% 2x+) can be tested; no drift signal. Runs: RH 4 backtests +
+#   1 mooners; Solana 0.
+# 3) REPEAT-NAME WATCHLIST: SI deployed again (0x33e2... 48x via #155) - 4+
+#   addresses in 2 days, law 'echo pays' keeps holding; RRR/PRAI recurring tickers.
