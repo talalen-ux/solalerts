@@ -3599,3 +3599,7 @@ alert2:
 #   verbatim. Filter 2 still holds SHIELD verbatim.
 # - Filter 1 1-week backtest: n=96, 2x+ 57.3%, 3x+ 42.7%, 5x+ 24.0%, 10x+ 8.3%,
 #   20x+ 2, 50x+ 1. Agent score model (best policy ladder_2_5_20): see chat.
+#   Score model on filter 1 (RH friction assumptions, 10% in / 8% out, 40% stop):
+#   best policy scalp_2 point EV +4.4% per trade, Wilson lower bound -6.0%;
+#   ladder_3_10 -12.2% (lower bound). Marginal: NOT clearly profitable under
+#   the model. Recommendation: alerts only until re-validated.
