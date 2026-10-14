@@ -1,0 +1,251 @@
+{
+ "cycle": 1,
+ "at": "2026-10-14T18:5xZ",
+ "results": [
+  {
+   "id": "q-broad-mc150",
+   "slot": "152",
+   "family": "plain_broad",
+   "arm": "queue:broad_mc_150k",
+   "long_hours": 168,
+   "recent_hours": 72,
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 4 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 150000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)",
+   "long": {
+    "scored": 915,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 1
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 9
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 69
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 129
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 241
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 407
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 575
+     }
+    ]
+   },
+   "recent": {
+    "scored": 409,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 5
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 43
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 65
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 110
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 168
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 241
+     }
+    ]
+   }
+  },
+  {
+   "id": "c2-ea1287",
+   "slot": "154",
+   "family": "hooked_verified",
+   "arm": "hooked_verified:pred:held_low",
+   "long_hours": 336,
+   "recent_hours": 168,
+   "params": {
+    "rtb": 0.9,
+    "buyers": 8,
+    "ratio": 2,
+    "top": 60,
+    "mc_min": 8000,
+    "mc_max": 200000
+   },
+   "preds": [
+    "held_low"
+   ],
+   "condition": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 8000 AND mc < 200000 AND (held_pct IS NULL OR held_pct < 60)",
+   "long": {
+    "scored": 47,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 21
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 32
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 38
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 38
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 38
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 39
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 40
+     }
+    ]
+   },
+   "recent": {
+    "scored": 26,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 9
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 17
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 19
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 20
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 20
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 20
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 21
+     }
+    ]
+   },
+   "note": "recent window not re-run (long set = champion +1 token); champion recent used"
+  },
+  {
+   "id": "c3-0549c5",
+   "slot": "155",
+   "family": "plain_v4",
+   "arm": "plain_v4:buyers:down",
+   "long_hours": 168,
+   "recent_hours": 72,
+   "params": {
+    "buyers": 20,
+    "ratio": 5,
+    "top": 40,
+    "mc_min": 15000,
+    "mc_max": 45000
+   },
+   "preds": [],
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 20 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000",
+   "long": {
+    "scored": 628,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 3
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 4
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 23
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 42
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 103
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 321
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 440
+     }
+    ]
+   },
+   "recent": {
+    "scored": 294,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 1
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 1
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 15
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 28
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 49
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 125
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 190
+     }
+    ]
+   }
+  }
+ ]
+}

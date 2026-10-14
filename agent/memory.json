@@ -5,6 +5,16 @@
    "tests": 1,
    "wins": 0
   },
+  "hooked_verified:pred:held_low": {
+   "sum_delta": -0.1695,
+   "tests": 1,
+   "wins": 0
+  },
+  "plain_v4:buyers:down": {
+   "sum_delta": -0.0248,
+   "tests": 1,
+   "wins": 0
+  },
   "plain_v4:ratio:up": {
    "sum_delta": 0.0249,
    "tests": 1,
@@ -12,6 +22,11 @@
   },
   "plain_v4:top:down": {
    "sum_delta": 0.004,
+   "tests": 1,
+   "wins": 0
+  },
+  "queue:broad_mc_150k": {
+   "sum_delta": 0.0122,
    "tests": 1,
    "wins": 0
   },
@@ -39,6 +54,12 @@
    "passed": 1,
    "run": "runs/cycle0b.json",
    "tested": 1
+  },
+  {
+   "at": "2026-10-14T18:48:50Z",
+   "passed": 0,
+   "run": "runs/2026-10-14-18.json",
+   "tested": 3
   }
  ],
  "facts": [
@@ -54,7 +75,9 @@
   "[2026-10-14] Scoring model verdicts (7d): HOOKED-VERIFIED ev_lcb +5.7, PLAIN-TIGHT +0.19, PLAIN-WIDE(NOT hooked) +0.14, old TEMPEST +0.28 (honeypot-inflated), AVALANCHE -0.34, MUSENET -0.62.",
   "[2026-10-14] Slot 152 AVALANCHE failed the profit gate twice and was replaced by PLAIN-BROAD, the complement of PLAIN-TIGHT (mc 15-100k, buyers>=15, vol>4x, excludes the tight set so no duplicate alerts): 7d n=900 2x+ 62%, 10x+ 14%, 20x+ 65, ev_lcb +0.153, both halves positive.",
   "[2026-10-14] hooked_wide (rtb>=.85, buyers>=5, vol>1.5x, top<70, mc 5k-400k) and 'alive' predicate did not beat HOOKED-VERIFIED champion; plain ratio/top tweaks gave +0.00-0.03 (below margin).",
-  "No pons curve filter currently passes the gate; a pons challenger must clear the same gates to return."
+  "No pons curve filter currently passes the gate; a pons challenger must clear the same gates to return.",
+  "[2026-10-14] Many 80-140x mooners fully round-trip within hours (WBROO 143x->0.91x, FalconMargin 134x->0.87x, DKIT 96x->0.87x): exits must be taken on the way up; never model hold-to-peak.",
+  "[2026-10-14] Cycle 1: PLAIN-TIGHT recent ev_lcb fell to +0.078 (from +0.19 7d); PLAIN-BROAD recent +0.17 and live alert rate ~280/day (76 in 6.5h) vs backtest ~130/day - watch both."
  ],
  "queue": [],
  "slots": {
@@ -127,6 +150,15 @@
    "pass": false,
    "slot": "154"
   },
+  "0549c51148fd": {
+   "arm": "plain_v4:buyers:down",
+   "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 20 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000",
+   "date": "2026-10-14T18:48:50Z",
+   "ev_lcb": 0.1636,
+   "n": 628,
+   "pass": false,
+   "slot": "155"
+  },
   "36a4e5915a4f": {
    "arm": "plain_v4:ratio:up",
    "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 6 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000",
@@ -143,6 +175,15 @@
    "ev_lcb": 0.1535,
    "n": 900,
    "pass": true,
+   "slot": "152"
+  },
+  "af6250389984": {
+   "arm": "queue:broad_mc_150k",
+   "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 4 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 150000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)",
+   "date": "2026-10-14T18:48:50Z",
+   "ev_lcb": 0.1657,
+   "n": 915,
+   "pass": false,
    "slot": "152"
   },
   "b4bf7fe38828": {
@@ -162,8 +203,17 @@
    "n": 443,
    "pass": false,
    "slot": "155"
+  },
+  "ea1287db53b3": {
+   "arm": "hooked_verified:pred:held_low",
+   "cond": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 8000 AND mc < 200000 AND (held_pct IS NULL OR held_pct < 60)",
+   "date": "2026-10-14T18:48:50Z",
+   "ev_lcb": 6.0153,
+   "n": 47,
+   "pass": false,
+   "slot": "154"
   }
  },
- "updated": "2026-10-14T12:16:07Z",
+ "updated": "2026-10-14T18:49:05Z",
  "version": 1
 }

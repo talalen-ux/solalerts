@@ -3609,3 +3609,15 @@ alert2:
 # verbatim, slot 2 = SHIELD). Part B skipped: improving an inactive filter has
 # no live effect and the score model already rates filter 1 marginal (point
 # +4.4%, lower bound -6%); waiting on the user's re-enable decision. No changes.
+
+# STRATEGY AGENT CYCLE 1 (2026-10-14 18:47 UTC run):
+# HEALTH (recent windows): 154 HOOKED-VERIFIED 168h n=26 ev_lcb +5.19 (ok);
+#   155 PLAIN-TIGHT 72h n=247 ev_lcb +0.078 (ok, weakening from +0.19);
+#   152 PLAIN-BROAD 72h n=408 ev_lcb +0.17 (ok). Live sends 24h: 152=76 (in ~6.5h
+#   since deploy, ~280/day pace), 154=3, 155=117. No alarms, no rollback.
+# LEARN: top-10 24h mooners mostly round-tripped (WBROO 143x->0.91x, FalconMargin,
+#   DKIT, SI 386x->0.96x, PUMPKIN): exit discipline is the profit lever.
+# TESTED (6 backtests): broad mc<150k (n=915, ev_lcb +0.166, +1 token vs champion
+#   in 72h), hooked + held_pct<60 (n=47, same set +1), tight buyers>=20 (n=628,
+#   ev_lcb +0.164 < champion). DECISION: NO DEPLOYMENT (none beat its champion).
+# Budget: 9 RH backtests this run.
