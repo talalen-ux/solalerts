@@ -3448,3 +3448,64 @@ alert2:
 # 6H REVIEW 2026-10-13 12:34 UTC: twenty-fifth consecutive skipped Solana
 # review - defirobot MCP still needs user re-authorization. Solana unverified
 # since 06:33 Oct 7 (150h). No changes made.
+
+# 6H REVIEWS (logged 2026-10-14 00:35 UTC): 18:33 Oct 13 and 00:33 Oct 14 -
+# twenty-sixth and twenty-seventh consecutive skipped Solana reviews, defirobot
+# MCP still needs user re-authorization (Solana unverified since 06:33 Oct 7,
+# 162h). No Solana changes.
+
+# RH REBUILD 2026-10-13/14 (user: "this is terrible results... go all out in
+# creating 3 new filters that are tighter and more profitable"):
+# KEY FINDING: TEMPEST (#155) headline multiples were contaminated by
+#   UNSELLABLE hooked-pool tokens. 7d (Oct 6-13): base n=1922 (2x+ 70.8%, 10x+
+#   13.3%, 50x+ 46, 100x+ 17). Slice 'hooked AND round_trip_back < 0.9' (can't
+#   sell at fair price): n=149, 2x+ 87.9%, 10x+ 31.5%, 50x+ 17, 100x+ 6,
+#   post-ATH 0 - phantom profile; includes LUCKYKEY, PDCAP (both ~0 now).
+#   Another ~237 hooked tokens have round_trip_back NULL (unchecked).
+#   Sellable-only (NOT hooked OR rtb>=0.9): n=1536, 2x+ 67.1%, 10x+ 10.2%,
+#   50x+ 26, 100x+ 11. Plain pools alone (NOT hooked): n=1512, 2x+ 66.9%, 10x+
+#   9.1%, 20x+ 4.4%, 50x+ 11, 100x+ 3, post-ATH 1.5%.
+# OTHER VENUES: named launchpads (doppler/clanker/cashcat/pair/launchhook/cook/
+#   klik) 7d n=12 total - negligible; #154 MUSENET doppler was dead weight.
+#   pons curve family (AVALANCHE branches, fresh_pct band, swept_pct) cannot be
+#   tightened with available signals (branch1 alone n=511 2x+ 26%; +fresh_pct
+#   20-50 n=59 2x+ 27%). Graduated cheap-launch dedicated filter: n=39, 2x+ 28%,
+#   post-ATH 20.5% (enters too late). Entry-time safety columns (held_pct,
+#   swept_pct, untracked_sell_pct) on plain pools: n 1512->1454, no lift.
+#   router_count / momentum 40-100k tiers: 0 matches (columns NULL / no such
+#   entries). Tightening knobs trade tail for hit rate: buyers>=25, buy vol>5x,
+#   top<40, mc 15-45k -> n=396, 2x+ 73.2%, 3x+ 52.8%, 5x+ 13.4%, 10x+ 4.0%,
+#   50x+ 3, post-ATH 0.25%.
+# GOLD POCKET: hooked AND round_trip_back>=0.9 (verified sellable), buyers>=8,
+#   buy vol>2x sell, top_maker<60, mc 8k-200k: 7d n=24 median 81.8x, 2x+ 83%,
+#   10x+ 79%, 50x+ 62.5%, 100x+ 37.5%, post-ATH 0. 14d n=48 median 84.5x,
+#   100x+ 21 (44%), 50x+ 65%. 48h n=7 median 44.6x, 71% 10x+ (FUNPANDA 184x,
+#   EQVTA 111x, TFDCAT 71x, FHSCAT 45x). Entries cluster $38-59k mc (hooked
+#   launches seed ~$50k). ~3.4 alerts/day. CAVEATS: (a) free tier alerts arrive
+#   15s late - part of the first move may be gone; (b) round_trip_back tests
+#   0.01 ETH, larger sizes may slip in thin pools; (c) ATH multiples, not exits
+#   - BSKCAT was in this set and is dead now; (d) only checked backtest windows
+#   >=14d; survivorship in the check timing not fully excluded.
+# DEPLOYED (alert-only, reversible via filter_history/restore_filter):
+#   #154 MUSENET -> 'Filter 3 - HOOKED-VERIFIED (sellable)'
+#     OLD (verbatim): launchpad = 'doppler' AND mc > 15000 AND mc < 200000 AND
+#       buyers >= 5 AND age_s < 600     [7d: n=152, 2x+ 6.6%, post-ATH 37.5%]
+#     NEW: launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND
+#       buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct
+#       < 60 AND mc > 8000 AND mc < 200000
+#   #155 TEMPEST -> 'Filter 2 - PLAIN-TIGHT (no hooks)'
+#     OLD (verbatim): launchpad = 'uniswap_v4' AND buyers >= 15 AND
+#       buy_volume_usd > 3 * sell_volume_usd AND top_maker_pct < 50 AND mc >
+#       15000 AND mc < 200000     [7d: n=1922, 2x+ 70.8%, 10x+ 13.3%, honeypot-
+#       contaminated]
+#     NEW: launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND
+#       buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc >
+#       15000 AND mc < 45000
+#   #152 AVALANCHE kept (only pons coverage; caught SYNTHS 62x, SI 49x, ORBANCY
+#     54x, BORRO 98x in 7-14d; nothing tested beat it).
+# PREDICTION (verify at next RH checks): #154 ~3/day, >=60% reach 10x+ over 14d;
+#   #155 ~55/day, 2x+ ~73%, 3x+ ~53%, 10x+ ~4%. ROLLBACK: restore_filter to the
+#   previous revision_id from filter_history if #154 shows <30% 10x+ at n>=30,
+#   or if live reports show it unsellable/late.
+# OPEN: wide plain-pool tier (mc 15-60k, buyers>=15; n=1310/7d, 10x+ 10.5%, 50x+
+#   11, 100x+ 3) exists as an optional 4th alert stream if user wants the tail.
