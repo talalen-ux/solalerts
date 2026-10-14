@@ -3603,3 +3603,9 @@ alert2:
 #   best policy scalp_2 point EV +4.4% per trade, Wilson lower bound -6.0%;
 #   ladder_3_10 -12.2% (lower bound). Marginal: NOT clearly profitable under
 #   the model. Recommendation: alerts only until re-validated.
+
+# 6H REVIEW 2026-10-14 18:33 UTC: Solana readable. No open positions. All four
+# filters still INACTIVE, auto-buy off on all; conditions unchanged (filter 1
+# verbatim, slot 2 = SHIELD). Part B skipped: improving an inactive filter has
+# no live effect and the score model already rates filter 1 marginal (point
+# +4.4%, lower bound -6%); waiting on the user's re-enable decision. No changes.
