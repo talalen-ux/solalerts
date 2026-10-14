@@ -3509,3 +3509,12 @@ alert2:
 #   or if live reports show it unsellable/late.
 # OPEN: wide plain-pool tier (mc 15-60k, buyers>=15; n=1310/7d, 10x+ 10.5%, 50x+
 #   11, 100x+ 3) exists as an optional 4th alert stream if user wants the tail.
+
+# 6H REVIEW 2026-10-14 06:33 UTC: twenty-eighth consecutive skipped Solana
+# review - defirobot MCP still needs user re-authorization (Solana unverified
+# since 06:33 Oct 7, 168h = 7 days). No Solana changes.
+# RH live check of the 00:34 rebuild (~6h): #154 HOOKED-VERIFIED sent 1 alert
+# (prediction ~3/day: on track, tiny sample); #155 PLAIN-TIGHT sent 30 alerts
+# in ~6h (~120/day pace vs 7d-backtest ~57/day) - about 2x the predicted rate,
+# probably a busy session; watch the next daily brief (24h backtest vs live
+# sent_last_24h). #152 unchanged (52 sent/24h). No rollback triggered.
