@@ -3518,3 +3518,35 @@ alert2:
 # in ~6h (~120/day pace vs 7d-backtest ~57/day) - about 2x the predicted rate,
 # probably a busy session; watch the next daily brief (24h backtest vs live
 # sent_last_24h). #152 unchanged (52 sent/24h). No rollback triggered.
+
+# DAILY-OPS BRIEF 2026-10-14 (07:16 UTC run) - ROBINHOOD-ONLY (Solana blocked;
+# 6H review 06:33 already logged above; weekly review next Oct 18):
+# 0) SOLANA: defirobot still unauthorized (28 skipped reviews, 168h+).
+# 1) RH mooners 24h (top 10): SFFINU 504x (RUGGED to 0), SEALS 151x (0.65x),
+#   WBROO 143x, SCI 124x, SI 108x (0.85h old, $1.3k launch), NAP 93x, DKIT 90x,
+#   HIVE 84x, FHSCAT 81x, SAVCUB 80x.
+#   HONEYPOT VALIDATION: SFFINU (0xbb43...) was the #1 token of the old TEMPEST
+#   unsellable slice ('hooked AND round_trip_back<0.9', 320x alert-time) and is
+#   now at zero. The new filters correctly do NOT include it.
+#   CAUGHT by the rebuilt filters (backtest, point-in-time):
+#   - #154 HOOKED-VERIFIED (72h): n=13, median 71x, 2x+ 77%, 10x+ 69%, 50x+ 62%
+#     (8), 100x+ 38% (5), post-ATH 7.7%. NEW since design: WBROO 134x (entry
+#     $41k), SAVCUB 64x, FHSCAT 66x. Top-10 hits: WBROO, FHSCAT, SAVCUB.
+#   - #155 PLAIN-TIGHT (24h): n=96 (7d avg was 57/day; live sent 30 in first 6h),
+#     2x+ 63.5% (below 7d 73%), 3x+ 39.6%, 5x+ 7.3%, 10x+ 2.1% (2), best NOM
+#     41x, SI 24x; post-ATH 0%. Top-10 hits: SI? (SI 108x/0.85h old not matched
+#     by either), none of the top 10 beyond hooked ones.
+#   MISSES: SFFINU/SEALS (rug/wick), SCI 124x, NAP 93x, DKIT 90x, HIVE 84x
+#   (plain-pool runners that entered outside PLAIN-TIGHT's tight band or had
+#   <25 buyers at first match) - the cost of tightening: PLAIN-TIGHT misses
+#   real 80-120x plain-pool runners that the wide tier would have alerted.
+# 2) EXPERIMENT: rebuild verification (no new variant). Prediction check:
+#   #154 on track (n=13/72h ~4.3/day, median 71x vs 84x predicted, 10x+ 69%
+#   vs predicted >=60%); #155 weaker day, rate ~2x prediction but hit rates lower
+#   (2x+ 63% vs 73%). No rollback trigger (needs n>=30 for #154). Runs: RH 2
+#   backtests + 1 mooners.
+# 3) REPEAT-NAME WATCHLIST: SI deployed again (0.85h old, 108x; 5+ addresses in 4
+#   days), SEALS/Seals pair, SCI recurring ticker.
+# DECISION FOR USER: wide plain-pool tier would have caught SCI/NAP/DKIT/HIVE
+#   (80-124x). 3 filter slots on free tier - candidate to swap in for #152
+#   AVALANCHE (29% 2x+, 3% 10x+) if user prefers tail over pons coverage.
