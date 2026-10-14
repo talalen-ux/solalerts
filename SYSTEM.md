@@ -111,3 +111,15 @@ auto-buy enable/disable, wallets, max_calls, KOL exclusions, any other
 filter's live settings, deleting filters. Unverified cause of the fill gap
 (wallet / max_calls / failed buys) is a USER matter - do not "fix" it by
 loosening the condition. If evidence is ambiguous, log and do not deploy.
+
+## STRATEGY AGENT (2026-10-14, user: "create an agent which only creates
+## profitable strategies and self learns and optimizes 3 times per day")
+Code and rules live in agent/ (PLAYBOOK.md is the contract; memory.json is its
+memory; score.py models profit with Wilson lower bounds; candidates.py proposes
+via Thompson sampling; ledger.py applies gates, learns, watches drift, adopts).
+Routine trig_015HmF9fPrEqvovSmCfJPQ39 fires it at 02:47, 10:47, 18:47 UTC into
+this session. Scope: Robinhood slots 152/154/155, alert-only. It may update
+conditions, rename and restore filters; it may NOT delete, disable, create a 4th,
+touch Solana, alerts limits, wallets or any trading setting. Max one deployment
+per run. "Profitable" = modelled ev_lcb > 0 in both time halves with n >= 30;
+nothing here proves realised profit.

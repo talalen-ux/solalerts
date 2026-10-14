@@ -1,0 +1,169 @@
+{
+ "arms": {
+  "hooked_verified:pred:alive": {
+   "sum_delta": 0.0,
+   "tests": 1,
+   "wins": 0
+  },
+  "plain_v4:ratio:up": {
+   "sum_delta": 0.0249,
+   "tests": 1,
+   "wins": 0
+  },
+  "plain_v4:top:down": {
+   "sum_delta": 0.004,
+   "tests": 1,
+   "wins": 0
+  },
+  "queue:hooked_wide": {
+   "sum_delta": -0.1695,
+   "tests": 1,
+   "wins": 0
+  },
+  "queue:plain_broad_complement": {
+   "sum_delta": 0.5045,
+   "tests": 1,
+   "wins": 1
+  }
+ },
+ "created": "2026-10-14T11:23:27Z",
+ "cycles": [
+  {
+   "at": "2026-10-14T11:24:47Z",
+   "passed": 0,
+   "run": "runs/cycle0.json",
+   "tested": 4
+  },
+  {
+   "at": "2026-10-14T11:25:38Z",
+   "passed": 1,
+   "run": "runs/cycle0b.json",
+   "tested": 1
+  }
+ ],
+ "facts": [
+  "Backtest multiples are PEAKS from the alert price, never exits; profit is modelled in score.py.",
+  "uniswap_v4 hooked pools with round_trip_back < 0.9 or NULL are unsellable/unchecked: they carried 17 of 46 50x+ and 6 of 17 100x+ of old TEMPEST (SFFINU 504x -> 0, LUCKYKEY, PDCAP). Never alert on them.",
+  "Named launchpads (doppler/clanker/cashcat/pair/launchhook/cook/klik) fire ~12 tokens/week: not worth a slot.",
+  "router_count, fee_recipient_changes are NULL in backtests (0 matches); ath_x/now_x leak the future: banned.",
+  "Entry-time safety columns (held_pct, swept_pct, untracked_sell_pct) gave no lift on plain pools; fresh_pct band gave none on pons.",
+  "Tightening entry knobs trades tail for hit rate (plain tight: 2x+ 73% but 50x+ 3 vs wide 11).",
+  "Hooked launches seed ~ $50k mc; entries cluster $38-59k. Free tier alerts arrive 15s late.",
+  "Momentum tiers (mc 40-100k with buyers>=40) match 0 tokens: strong runners are caught at $15-60k with 15-40 buyers.",
+  "A backtest window includes re-entry effects; use time-split (older vs recent) to check stability.",
+  "[2026-10-14] Scoring model verdicts (7d): HOOKED-VERIFIED ev_lcb +5.7, PLAIN-TIGHT +0.19, PLAIN-WIDE(NOT hooked) +0.14, old TEMPEST +0.28 (honeypot-inflated), AVALANCHE -0.34, MUSENET -0.62.",
+  "[2026-10-14] Slot 152 AVALANCHE failed the profit gate twice and was replaced by PLAIN-BROAD, the complement of PLAIN-TIGHT (mc 15-100k, buyers>=15, vol>4x, excludes the tight set so no duplicate alerts): 7d n=900 2x+ 62%, 10x+ 14%, 20x+ 65, ev_lcb +0.153, both halves positive.",
+  "[2026-10-14] hooked_wide (rtb>=.85, buyers>=5, vol>1.5x, top<70, mc 5k-400k) and 'alive' predicate did not beat HOOKED-VERIFIED champion; plain ratio/top tweaks gave +0.00-0.03 (below margin).",
+  "No pons curve filter currently passes the gate; a pons challenger must clear the same gates to return."
+ ],
+ "queue": [],
+ "slots": {
+  "152": {
+   "alarms": 0,
+   "baseline": {
+    "ev_lcb": 0.1535,
+    "hours": 168.0,
+    "n": 900,
+    "source": "2026-10-14T12:16:07Z"
+   },
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 4 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)",
+   "deployed_at": "2026-10-14T12:16:07Z",
+   "failures": 0,
+   "family": "plain_broad",
+   "params": {},
+   "preds": [],
+   "previous_condition": "see alerts.yaml (AVALANCHE + cheap-graduate bundle); not mutated by the agent",
+   "previous_condition_note": "AVALANCHE (pons_v2 + cheap-graduate bundle) in alerts.yaml + RH filter_history; failed gates twice (ev_lcb -0.351)"
+  },
+  "154": {
+   "alarms": 0,
+   "baseline": {
+    "ev_lcb": 6.1848,
+    "hours": 336.0,
+    "n": 46,
+    "source": "2026-10-14T11:24:36Z"
+   },
+   "condition": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 8000 AND mc < 200000",
+   "failures": 0,
+   "family": "hooked_verified",
+   "params": {
+    "buyers": 8,
+    "mc_max": 200000,
+    "mc_min": 8000,
+    "ratio": 2,
+    "rtb": 0.9,
+    "top": 60
+   },
+   "preds": []
+  },
+  "155": {
+   "alarms": 0,
+   "baseline": {
+    "ev_lcb": 0.1884,
+    "hours": 168.0,
+    "n": 445,
+    "source": "2026-10-14T11:24:36Z"
+   },
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000",
+   "failures": 0,
+   "family": "plain_v4",
+   "params": {
+    "buyers": 25,
+    "mc_max": 45000,
+    "mc_min": 15000,
+    "ratio": 5,
+    "top": 40
+   },
+   "preds": []
+  }
+ },
+ "tested": {
+  "02795a081475": {
+   "arm": "queue:hooked_wide",
+   "cond": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.85 AND buyers >= 5 AND buy_volume_usd > 1.5 * sell_volume_usd AND top_maker_pct < 70 AND mc > 5000 AND mc < 400000",
+   "date": "2026-10-14T11:24:47Z",
+   "ev_lcb": 6.0153,
+   "n": 47,
+   "pass": false,
+   "slot": "154"
+  },
+  "36a4e5915a4f": {
+   "arm": "plain_v4:ratio:up",
+   "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 6 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000",
+   "date": "2026-10-14T11:24:47Z",
+   "ev_lcb": 0.2133,
+   "n": 407,
+   "pass": false,
+   "slot": "155"
+  },
+  "49df36ffc2ab": {
+   "arm": "queue:plain_broad_complement",
+   "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 4 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)",
+   "date": "2026-10-14T11:25:38Z",
+   "ev_lcb": 0.1535,
+   "n": 900,
+   "pass": true,
+   "slot": "152"
+  },
+  "b4bf7fe38828": {
+   "arm": "hooked_verified:pred:alive",
+   "cond": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 8000 AND mc < 200000 AND idle_blocks < 1200",
+   "date": "2026-10-14T11:24:47Z",
+   "ev_lcb": 6.1848,
+   "n": 46,
+   "pass": false,
+   "slot": "154"
+  },
+  "dbbefc2856ae": {
+   "arm": "plain_v4:top:down",
+   "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 30 AND mc > 15000 AND mc < 45000",
+   "date": "2026-10-14T11:24:47Z",
+   "ev_lcb": 0.1924,
+   "n": 443,
+   "pass": false,
+   "slot": "155"
+  }
+ },
+ "updated": "2026-10-14T12:16:07Z",
+ "version": 1
+}

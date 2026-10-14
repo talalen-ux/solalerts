@@ -1,0 +1,81 @@
+{
+ "results": [
+  {
+   "id": "broad-r4",
+   "slot": "152",
+   "family": "plain_broad",
+   "arm": "queue:plain_broad_complement",
+   "long_hours": 168,
+   "recent_hours": 72,
+   "params": {},
+   "preds": [],
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 4 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)",
+   "long": {
+    "scored": 900,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 1
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 9
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 65
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 126
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 238
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 396
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 560
+     }
+    ]
+   },
+   "recent": {
+    "scored": 368,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 6
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 38
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 58
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 102
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 147
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 218
+     }
+    ]
+   }
+  }
+ ]
+}

@@ -3550,3 +3550,33 @@ alert2:
 # DECISION FOR USER: wide plain-pool tier would have caught SCI/NAP/DKIT/HIVE
 #   (80-124x). 3 filter slots on free tier - candidate to swap in for #152
 #   AVALANCHE (29% 2x+, 3% 10x+) if user prefers tail over pons coverage.
+
+# STRATEGY AGENT BUILT + FIRST CYCLE 2026-10-14 (user: "create an agent which only
+# creates profitable strategies and self learns and optimizes 3 times per day"):
+# Built agent/ (PLAYBOOK.md, score.py, strategies.py, candidates.py, ledger.py,
+#   memory.json, 9 unit tests) and routine trig_015HmF9fPrEqvovSmCfJPQ39
+#   (cron 47 2,10,18 * * * UTC). Model: ladder exits, 10% entry + 8% exit friction,
+#   40% stop, fill probability falling with target size, Wilson 95% lower bounds.
+# MODELLED EV (ev_lcb per 1 unit stake, best exit policy, 7d unless noted):
+#   HOOKED-VERIFIED (154, 14d n=46)   +6.18   <- needs live confirmation
+#   PLAIN-TIGHT (155, n=445)          +0.19
+#   PLAIN-BROAD (new 152, n=900)      +0.15   both halves positive (+0.13/+0.17)
+#   old TEMPEST (honeypots in)        +0.28   (inflated by unsellables)
+#   AVALANCHE (old 152, n=537)        -0.35   failed gates twice  -> REPLACED
+#   MUSENET (old 154)                 -0.62   (already replaced)
+# CYCLE 0 DECISION: slot 152 AVALANCHE -> PLAIN-BROAD (complement of PLAIN-TIGHT).
+#   OLD (rollback via restore_filter; also in this file under 'RH REBUILD'):
+#     the AVALANCHE condition with the cheap-graduate bundle as listed in the
+#     2026-10-14 06:33 list_filters output (revision just before edits=5).
+#   NEW: launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND
+#     buy_volume_usd > 4 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000
+#     AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 *
+#     sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)
+#   7d n=900 (128/day) 2x+ 62.2% 3x+ 44% 5x+ 26.4% 10x+ 14.0% 20x+ 65 50x+ 9
+#     post-ATH 1.8%; 72h n=368 2x+ 59% 10x+ 15.8%. Catches SCI, NAP, HIVE-type
+#     runners the tight tier misses. TRADE-OFF: pons curve coverage is gone (no
+#     pons condition passes the gate). Challengers tested and rejected: hooked
+#     wide (rtb .85, buyers 5, vol 1.5x, mc 5k-400k) ev_lcb 6.02 vs 6.18;
+#     'alive' predicate (identical set); plain ratio 6 +0.03 / top<30 +0.00.
+# Realised profit is NOT observable on RH (alert-only). Calibration (token_history
+#   path simulation) is scheduled every 7th cycle.
