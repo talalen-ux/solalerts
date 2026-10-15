@@ -1,5 +1,10 @@
 {
  "arms": {
+  "hooked_verified:mc_max:down": {
+   "sum_delta": 0.1593,
+   "tests": 1,
+   "wins": 0
+  },
   "hooked_verified:pred:alive": {
    "sum_delta": 0.0,
    "tests": 1,
@@ -40,6 +45,11 @@
    "tests": 1,
    "wins": 0
   },
+  "queue:broad_top40": {
+   "sum_delta": 0.0119,
+   "tests": 1,
+   "wins": 0
+  },
   "queue:hooked_wide": {
    "sum_delta": -0.1695,
    "tests": 1,
@@ -75,6 +85,12 @@
    "at": "2026-10-15T02:48:21Z",
    "passed": 0,
    "run": "runs/2026-10-15-02.json",
+   "tested": 2
+  },
+  {
+   "at": "2026-10-15T10:48:29Z",
+   "passed": 0,
+   "run": "runs/2026-10-15-10.json",
    "tested": 2
   }
  ],
@@ -194,6 +210,15 @@
    "pass": true,
    "slot": "152"
   },
+  "55a4d7f3de6e": {
+   "arm": "hooked_verified:mc_max:down",
+   "cond": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 8000 AND mc < 100000",
+   "date": "2026-10-15T10:48:29Z",
+   "ev_lcb": 5.6032,
+   "n": 46,
+   "pass": false,
+   "slot": "154"
+  },
   "828ce615b239": {
    "arm": "hooked_verified:top:up",
    "cond": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 70 AND mc > 8000 AND mc < 200000",
@@ -211,6 +236,15 @@
    "n": 513,
    "pass": false,
    "slot": "155"
+  },
+  "9fa68f9010f7": {
+   "arm": "queue:broad_top40",
+   "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 4 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)",
+   "date": "2026-10-15T10:48:29Z",
+   "ev_lcb": 0.1789,
+   "n": 878,
+   "pass": false,
+   "slot": "152"
   },
   "af6250389984": {
    "arm": "queue:broad_mc_150k",
@@ -249,6 +283,6 @@
    "slot": "154"
   }
  },
- "updated": "2026-10-15T02:48:21Z",
+ "updated": "2026-10-15T10:48:29Z",
  "version": 1
 }

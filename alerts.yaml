@@ -3662,3 +3662,10 @@ alert2:
 #   (lower bound -6%) - marginal; RH #152 24h ev +13% (lower bound +5%).
 #   Recommendation stands: if Solana is re-enabled, alerts only for F1 and F4;
 #   keep F3 off unless used purely as a watchlist.
+
+# STRATEGY AGENT CYCLE 3 (2026-10-15 10:47 UTC run):
+# HEALTH: 154 7d n=25 ev_lcb +4.57; 155 72h n=271 +0.087; 152 72h n=446 +0.158.
+#   No alarms. Live 24h sends: 152=188, 154=4, 155=139.
+# TESTED: broad top_maker<40 (7d n=878 vs 937; 72h n=422) and hooked mc<100k
+#   (14d n=46, drops 2 winners). DECISION: see ledger output in chat - no
+#   candidate beat its champion by the margin -> NO DEPLOYMENT. RH backtests: 6.

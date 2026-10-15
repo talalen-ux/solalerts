@@ -1,0 +1,165 @@
+{
+ "cycle": 3,
+ "results": [
+  {
+   "id": "q-broad-top40",
+   "slot": "152",
+   "family": "plain_broad",
+   "arm": "queue:broad_top40",
+   "long_hours": 168,
+   "recent_hours": 72,
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 4 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)",
+   "long": {
+    "scored": 878,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 1
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 8
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 71
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 123
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 228
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 385
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 557
+     }
+    ]
+   },
+   "recent": {
+    "scored": 422,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 5
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 45
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 64
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 104
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 169
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 253
+     }
+    ]
+   }
+  },
+  {
+   "id": "c2-55a4d7",
+   "slot": "154",
+   "family": "hooked_verified",
+   "arm": "hooked_verified:mc_max:down",
+   "long_hours": 336,
+   "recent_hours": 168,
+   "params": {
+    "rtb": 0.9,
+    "buyers": 8,
+    "ratio": 2,
+    "top": 60,
+    "mc_min": 8000,
+    "mc_max": 100000
+   },
+   "preds": [],
+   "condition": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 8000 AND mc < 100000",
+   "long": {
+    "scored": 46,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 19
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 30
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 34
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 35
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 35
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 37
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 38
+     }
+    ]
+   },
+   "recent": {
+    "scored": 25,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 8
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 15
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 17
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 18
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 18
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 19
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 20
+     }
+    ]
+   },
+   "note": "long set = champion minus 2 tokens (both winners); recent not re-run"
+  }
+ ]
+}
