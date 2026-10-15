@@ -3626,3 +3626,12 @@ alert2:
 # still INACTIVE, auto-buy off on all; conditions unchanged. Part B skipped
 # (filter inactive; awaiting user decision). No changes. Subscription ends
 # 2026-10-18 09:14 UTC, auto_renew off.
+
+# STRATEGY AGENT CYCLE 2 (2026-10-15 02:47 UTC run) - baseline refresh cycle:
+# BASELINES (all PASS gates): 154 HOOKED-VERIFIED 14d n=48 ev_lcb +5.44
+#   (7d n=26 ev_lcb +4.34); 155 PLAIN-TIGHT 7d n=520 ev_lcb +0.18 (72h n=252
+#   +0.09); 152 PLAIN-BROAD 7d n=937 ev_lcb +0.17 (72h n=421 +0.17). No alarms.
+# Live sends 24h: 152=124, 154=4, 155=139.
+# TESTED: hooked top_maker<70 (identical set, no change); tight + clean_dev
+#   (n=513, lost a 100x and 6 10x+, ev below champion). DECISION: NO DEPLOYMENT.
+# Budget: 8 RH backtests.

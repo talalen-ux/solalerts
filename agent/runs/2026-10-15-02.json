@@ -1,0 +1,176 @@
+{
+ "cycle": 2,
+ "results": [
+  {
+   "id": "c1-828ce6",
+   "slot": "154",
+   "family": "hooked_verified",
+   "arm": "hooked_verified:top:up",
+   "long_hours": 336,
+   "recent_hours": 168,
+   "params": {
+    "rtb": 0.9,
+    "buyers": 8,
+    "ratio": 2,
+    "top": 70,
+    "mc_min": 8000,
+    "mc_max": 200000
+   },
+   "preds": [],
+   "condition": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 70 AND mc > 8000 AND mc < 200000",
+   "long": {
+    "scored": 48,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 19
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 30
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 36
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 37
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 37
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 39
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 40
+     }
+    ]
+   },
+   "recent": {
+    "scored": 26,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 8
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 15
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 17
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 18
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 18
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 19
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 20
+     }
+    ]
+   },
+   "note": "identical long set to champion; recent not re-run"
+  },
+  {
+   "id": "c2-9ee4be",
+   "slot": "155",
+   "family": "plain_v4",
+   "arm": "plain_v4:pred:clean_dev",
+   "long_hours": 168,
+   "recent_hours": 72,
+   "params": {
+    "buyers": 25,
+    "ratio": 5,
+    "top": 40,
+    "mc_min": 15000,
+    "mc_max": 45000
+   },
+   "preds": [
+    "clean_dev"
+   ],
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000 AND (dev_funder_devs IS NULL OR dev_funder_devs = 0)",
+   "long": {
+    "scored": 513,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 1
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 2
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 14
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 23
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 65
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 265
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 368
+     }
+    ]
+   },
+   "recent": {
+    "scored": 252,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 1
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 1
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 12
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 21
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 38
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 116
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 166
+     }
+    ]
+   },
+   "note": "removes 7 tokens incl. a 100x; long already below champion; recent not re-run"
+  }
+ ]
+}

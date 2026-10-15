@@ -10,8 +10,18 @@
    "tests": 1,
    "wins": 0
   },
+  "hooked_verified:top:up": {
+   "sum_delta": 0.0,
+   "tests": 1,
+   "wins": 0
+  },
   "plain_v4:buyers:down": {
    "sum_delta": -0.0248,
+   "tests": 1,
+   "wins": 0
+  },
+  "plain_v4:pred:clean_dev": {
+   "sum_delta": -0.0027,
    "tests": 1,
    "wins": 0
   },
@@ -60,6 +70,12 @@
    "passed": 0,
    "run": "runs/2026-10-14-18.json",
    "tested": 3
+  },
+  {
+   "at": "2026-10-15T02:48:21Z",
+   "passed": 0,
+   "run": "runs/2026-10-15-02.json",
+   "tested": 2
   }
  ],
  "facts": [
@@ -77,17 +93,18 @@
   "[2026-10-14] hooked_wide (rtb>=.85, buyers>=5, vol>1.5x, top<70, mc 5k-400k) and 'alive' predicate did not beat HOOKED-VERIFIED champion; plain ratio/top tweaks gave +0.00-0.03 (below margin).",
   "No pons curve filter currently passes the gate; a pons challenger must clear the same gates to return.",
   "[2026-10-14] Many 80-140x mooners fully round-trip within hours (WBROO 143x->0.91x, FalconMargin 134x->0.87x, DKIT 96x->0.87x): exits must be taken on the way up; never model hold-to-peak.",
-  "[2026-10-14] Cycle 1: PLAIN-TIGHT recent ev_lcb fell to +0.078 (from +0.19 7d); PLAIN-BROAD recent +0.17 and live alert rate ~280/day (76 in 6.5h) vs backtest ~130/day - watch both."
+  "[2026-10-14] Cycle 1: PLAIN-TIGHT recent ev_lcb fell to +0.078 (from +0.19 7d); PLAIN-BROAD recent +0.17 and live alert rate ~280/day (76 in 6.5h) vs backtest ~130/day - watch both.",
+  "[2026-10-15] clean_dev (dev_funder_devs=0) on PLAIN-TIGHT removed 7 tokens incl. a 100x and 6 10x+ - farm-funded devs are not the junk; top_maker<70 on HOOKED-VERIFIED changes nothing (set identical)."
  ],
  "queue": [],
  "slots": {
   "152": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": 0.1535,
+    "ev_lcb": 0.167,
     "hours": 168.0,
-    "n": 900,
-    "source": "2026-10-14T12:16:07Z"
+    "n": 937,
+    "source": "2026-10-15T02:47:59Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 4 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)",
    "deployed_at": "2026-10-14T12:16:07Z",
@@ -101,10 +118,10 @@
   "154": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": 6.1848,
+    "ev_lcb": 5.4439,
     "hours": 336.0,
-    "n": 46,
-    "source": "2026-10-14T11:24:36Z"
+    "n": 48,
+    "source": "2026-10-15T02:47:59Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 8000 AND mc < 200000",
    "failures": 0,
@@ -122,10 +139,10 @@
   "155": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": 0.1884,
+    "ev_lcb": 0.1834,
     "hours": 168.0,
-    "n": 445,
-    "source": "2026-10-14T11:24:36Z"
+    "n": 520,
+    "source": "2026-10-15T02:47:59Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000",
    "failures": 0,
@@ -177,6 +194,24 @@
    "pass": true,
    "slot": "152"
   },
+  "828ce615b239": {
+   "arm": "hooked_verified:top:up",
+   "cond": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 70 AND mc > 8000 AND mc < 200000",
+   "date": "2026-10-15T02:48:21Z",
+   "ev_lcb": 5.4439,
+   "n": 48,
+   "pass": false,
+   "slot": "154"
+  },
+  "9ee4be181f3f": {
+   "arm": "plain_v4:pred:clean_dev",
+   "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000 AND (dev_funder_devs IS NULL OR dev_funder_devs = 0)",
+   "date": "2026-10-15T02:48:21Z",
+   "ev_lcb": 0.1807,
+   "n": 513,
+   "pass": false,
+   "slot": "155"
+  },
   "af6250389984": {
    "arm": "queue:broad_mc_150k",
    "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 4 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 150000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)",
@@ -214,6 +249,6 @@
    "slot": "154"
   }
  },
- "updated": "2026-10-14T18:49:05Z",
+ "updated": "2026-10-15T02:48:21Z",
  "version": 1
 }
