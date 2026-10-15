@@ -3639,3 +3639,21 @@ alert2:
 # 6H REVIEW 2026-10-15 06:33 UTC: no open positions; filter 1 still INACTIVE,
 # auto-buy off, condition/auto-sell unchanged. Part B skipped (inactive;
 # awaiting user). No changes.
+
+# DAILY-OPS BRIEF 2026-10-15 (07:10 UTC run) - BOTH CHAINS READABLE:
+# 1) FILL SCORECARD (Solana filter 1): 0 fills - filter INACTIVE, auto-buy OFF;
+#   no positions. 1-week backtest (yesterday): n=96, 2x+ 57%, 10x+ 8%.
+# 2) MOONERS: Solana saved query (mc>100k AND ath>1M AND lp>50 AND buyers>500)
+#   returned NONE for 1 day (quiet day or query too strict). RH top 24h:
+#   CASHCAT 42836x (DATA ARTEFACT: launch_mc $48M, ath $2T - ignore),
+#   FalconMargin 140x (still 88x), AXIS 129x (2.0x now), ODDSINU 103x (0.91x),
+#   PUMPKIN 102x ($2.9k launch, 0.83x), GMOTH 94x (3h old, 65x now), WAP 59x,
+#   Kimba 58x, LITHO 57x (1.0x), KIMCHI 57x.
+#   RH CATCHES (24h): #152 PLAIN-BROAD n=168 2x+ 64% 10x+ 11.9% 20x+ 13 -
+#   caught LITHO 43x, WAP 39x (+ a second WAP 28x). Most top-10 runners
+#   round-tripped to ~1x (ODDSINU, PUMPKIN, LITHO, KIMCHI, Kimba).
+# 3) REPEAT-NAME WATCHLIST: WAP (2 addresses both 28-39x via #152), LLL (3
+#   addresses 24-30x via #152), KIMCHI/kimchi (RH + Solana same ticker), SI.
+# 4) EXPERIMENT (Solana, decision support): filter 3 MONSTERNET 1-week (inactive)
+#   n=3191, 2x+ 35.9%, 3x+ 21.7%, 10x+ 4.9%, 50x+ 26, 100x+ 7, post-ATH 5.9%.
+#   Score model verdicts below (RH friction assumptions). Runs: Solana 1, RH 1.
