@@ -1,0 +1,175 @@
+{
+ "cycle": 4,
+ "results": [
+  {
+   "id": "c1-2ca6fd",
+   "slot": "155",
+   "family": "plain_v4",
+   "arm": "plain_v4:ratio:down",
+   "long_hours": 168,
+   "recent_hours": 72,
+   "params": {
+    "buyers": 25,
+    "ratio": 4,
+    "top": 40,
+    "mc_min": 15000,
+    "mc_max": 45000
+   },
+   "preds": [],
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 4 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000",
+   "long": {
+    "scored": 603,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 2
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 2
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 19
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 32
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 81
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 311
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 424
+     }
+    ]
+   },
+   "recent": {
+    "scored": 326,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 1
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 1
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 12
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 23
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 51
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 161
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 215
+     }
+    ]
+   },
+   "note": "recent not re-run (champion recent used); would overlap PLAIN-BROAD (152 excludes ratio>5x tight set only)"
+  },
+  {
+   "id": "c2-d4ca02",
+   "slot": "155",
+   "family": "plain_v4",
+   "arm": "plain_v4:pred:low_tax",
+   "long_hours": 168,
+   "recent_hours": 72,
+   "params": {
+    "buyers": 25,
+    "ratio": 5,
+    "top": 40,
+    "mc_min": 15000,
+    "mc_max": 45000
+   },
+   "preds": [
+    "low_tax"
+   ],
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000 AND (creator_tax_bps IS NULL OR creator_tax_bps <= 300)",
+   "long": {
+    "scored": 580,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 2
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 2
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 18
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 32
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 79
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 299
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 408
+     }
+    ]
+   },
+   "recent": {
+    "scored": 326,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 1
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 1
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 12
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 23
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 51
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 161
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 215
+     }
+    ]
+   },
+   "note": "subset of champion; recent not re-run"
+  }
+ ]
+}
