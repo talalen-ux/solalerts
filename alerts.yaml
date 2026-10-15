@@ -3669,3 +3669,6 @@ alert2:
 # TESTED: broad top_maker<40 (7d n=878 vs 937; 72h n=422) and hooked mc<100k
 #   (14d n=46, drops 2 winners). DECISION: see ledger output in chat - no
 #   candidate beat its champion by the margin -> NO DEPLOYMENT. RH backtests: 6.
+
+# 6H REVIEW 2026-10-15 12:33 UTC: no positions; filter 1 still INACTIVE,
+# auto-buy off, settings unchanged. Part B skipped (inactive). No changes.
