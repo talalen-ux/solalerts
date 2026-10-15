@@ -3657,3 +3657,8 @@ alert2:
 # 4) EXPERIMENT (Solana, decision support): filter 3 MONSTERNET 1-week (inactive)
 #   n=3191, 2x+ 35.9%, 3x+ 21.7%, 10x+ 4.9%, 50x+ 26, 100x+ 7, post-ATH 5.9%.
 #   Score model verdicts below (RH friction assumptions). Runs: Solana 1, RH 1.
+#   SCORE MODEL: Solana F3 MONSTERNET 1w ev -22% (lower bound -24%) - clearly
+#   unprofitable as a buy-every-alert strategy; Solana F1 T20-PRIME ev +4.4%
+#   (lower bound -6%) - marginal; RH #152 24h ev +13% (lower bound +5%).
+#   Recommendation stands: if Solana is re-enabled, alerts only for F1 and F4;
+#   keep F3 off unless used purely as a watchlist.
