@@ -3686,3 +3686,12 @@ alert2:
 # 6H REVIEW 2026-10-16 00:33 UTC: no positions; filter 1 still INACTIVE,
 # auto-buy off, settings unchanged. Part B skipped. No changes. Subscription
 # ends 2026-10-18 09:14 UTC (auto_renew off) - ~57h left.
+
+# STRATEGY AGENT CYCLE 5 (2026-10-16 02:47 UTC run) - baseline refresh cycle:
+# BASELINES (all PASS): 154 14d n=43 ev_lcb +5.30 (7d n=25 +4.14);
+#   155 7d n=602 +0.151 (72h n=370 +0.099); 152 7d n=1015 +0.145 (72h n=511
+#   +0.112; 145 alerts/day, close to the 150/day gate). No alarms.
+# TESTED: broad mc<70k (n=1007, near-identical set) -> NO DEPLOYMENT.
+# WATCH: PLAIN-BROAD recent EV trending down (+0.17 -> +0.11) and volume near
+#   the cap; if it fails the gate twice it gets replaced/restored.
+# RH backtests: 7 (+3 refused for running in parallel).
