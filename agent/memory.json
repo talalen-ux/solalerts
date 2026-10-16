@@ -138,7 +138,8 @@
   "[2026-10-14] Many 80-140x mooners fully round-trip within hours (WBROO 143x->0.91x, FalconMargin 134x->0.87x, DKIT 96x->0.87x): exits must be taken on the way up; never model hold-to-peak.",
   "[2026-10-14] Cycle 1: PLAIN-TIGHT recent ev_lcb fell to +0.078 (from +0.19 7d); PLAIN-BROAD recent +0.17 and live alert rate ~280/day (76 in 6.5h) vs backtest ~130/day - watch both.",
   "[2026-10-15] clean_dev (dev_funder_devs=0) on PLAIN-TIGHT removed 7 tokens incl. a 100x and 6 10x+ - farm-funded devs are not the junk; top_maker<70 on HOOKED-VERIFIED changes nothing (set identical).",
-  "[2026-10-16] mc upper bound is not a volume lever on plain pools (mc<70k keeps 1007 of 1015): entries happen at 5-45k; to cut PLAIN-BROAD volume use buyers/ratio, not mc."
+  "[2026-10-16] mc upper bound is not a volume lever on plain pools (mc<70k keeps 1007 of 1015): entries happen at 5-45k; to cut PLAIN-BROAD volume use buyers/ratio, not mc.",
+  "[2026-10-16] 2026-10-16 mooners: three graduated pons tokens (OPENAI 112x, CUE 104x, OpenAI 92x) ran ~100x within ~1h and round-tripped; no live slot covers pons since AVALANCHE was retired - a pons challenger that passes the gate would fill this gap."
  ],
  "queue": [],
  "slots": {
@@ -338,6 +339,6 @@
    "slot": "154"
   }
  },
- "updated": "2026-10-16T02:49:08Z",
+ "updated": "2026-10-16T07:12:52Z",
  "version": 1
 }
