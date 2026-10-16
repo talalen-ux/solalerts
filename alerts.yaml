@@ -3698,3 +3698,21 @@ alert2:
 
 # 6H REVIEW 2026-10-16 06:33 UTC: no positions; all four Solana filters still
 # INACTIVE, auto-buy off; conditions unchanged. Part B skipped. No changes.
+
+# DAILY-OPS BRIEF 2026-10-16 (07:11 UTC run):
+# 1) FILL SCORECARD: Solana filter 1 inactive, 0 fills, no positions.
+# 2) MOONERS - Solana (saved query): STREAM 101x (launch $9.9k, now 22x),
+#   KnightDog 47x (now 11x). Not attributable to filters (all inactive).
+#   RH: FEATHR 2119x (38 buyers, $40k launch - likely thin/artefact), PFNDL 439x
+#   (2,261 buyers, now 45x), GCAT 151x (57 buyers, 1.3h old), CHOP 113x
+#   (launch $1.2M - artefact-like), OPENAI 112x / CUE 104x / OpenAI 92x
+#   (graduated pons, all round-tripped to 1.5-4x), HGLHG 102x (0.97x), GLFRT 92x
+#   (0.91x), PICKLEPUP 75x (now 30x).
+#   RH #152 PLAIN-BROAD 24h: n=220, 2x+ 60.9%, 10x+ 6.8%, 20x+ 11, 50x+ 1 (51x
+#   unnamed), LLL 41x again (LLL repeat-name law: 4th address), IRIDIUS 35x,
+#   BURROW 34x. None of the RH top 10 caught (they were graduated pons or
+#   hooked/thin); pons coverage gap persists since AVALANCHE was retired.
+# 3) REPEAT-NAME WATCHLIST: LLL (4 addresses 24-41x), OpenAI/OPENAI (2 graduated
+#   pons ~100x within an hour), SI, WAP.
+# 4) EXPERIMENT: Solana F4 CURVE-SCALP 1-week (inactive): n=24, 2x+ 45.8%,
+#   3x+ 33%, 10x+ 1. Too few tokens for the n>=30 gate; score below.
