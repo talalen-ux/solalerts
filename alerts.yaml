@@ -3682,3 +3682,7 @@ alert2:
 # TESTED: tight ratio>4x (n=603, would also overlap PLAIN-BROAD) and tight +
 #   creator_tax<=300bps (n=580). Both below champion + margin. NO DEPLOYMENT.
 #   RH backtests: 5.
+
+# 6H REVIEW 2026-10-16 00:33 UTC: no positions; filter 1 still INACTIVE,
+# auto-buy off, settings unchanged. Part B skipped. No changes. Subscription
+# ends 2026-10-18 09:14 UTC (auto_renew off) - ~57h left.
