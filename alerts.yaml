@@ -3695,3 +3695,6 @@ alert2:
 # WATCH: PLAIN-BROAD recent EV trending down (+0.17 -> +0.11) and volume near
 #   the cap; if it fails the gate twice it gets replaced/restored.
 # RH backtests: 7 (+3 refused for running in parallel).
+
+# 6H REVIEW 2026-10-16 06:33 UTC: no positions; all four Solana filters still
+# INACTIVE, auto-buy off; conditions unchanged. Part B skipped. No changes.
