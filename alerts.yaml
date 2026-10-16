@@ -3716,3 +3716,12 @@ alert2:
 #   pons ~100x within an hour), SI, WAP.
 # 4) EXPERIMENT: Solana F4 CURVE-SCALP 1-week (inactive): n=24, 2x+ 45.8%,
 #   3x+ 33%, 10x+ 1. Too few tokens for the n>=30 gate; score below.
+
+# STRATEGY AGENT CYCLE 6 (2026-10-16 10:47 UTC run, logged 18:3x): HEALTH ONLY.
+#   154 7d n=25 ev_lcb +3.84; 155 72h n=392 +0.090; 152 72h n=522 +0.091
+#   (PLAIN-BROAD and PLAIN-TIGHT both drifting down; still > 0, no alarms).
+#   Challenger + calibration steps were NOT completed this run (session was
+#   interrupted); nothing deployed. RH backtests: 3.
+# 6H REVIEWS 2026-10-16 12:33 and 18:33 UTC (Solana): no positions; filter 1
+#   still INACTIVE, auto-buy off, settings unchanged. No changes. Subscription
+#   ends 2026-10-18 09:14 UTC (auto_renew off).
