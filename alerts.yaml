@@ -3725,3 +3725,13 @@ alert2:
 # 6H REVIEWS 2026-10-16 12:33 and 18:33 UTC (Solana): no positions; filter 1
 #   still INACTIVE, auto-buy off, settings unchanged. No changes. Subscription
 #   ends 2026-10-18 09:14 UTC (auto_renew off).
+
+# STRATEGY AGENT CYCLE 7 (2026-10-16 18:48 UTC run, logged 00:3x): health only
+#   (session interrupted before the challenger step). 152 72h n=552 ev_lcb
+#   +0.079; 155 72h n=422 ev_lcb +0.105. No alarms, no deployment.
+#   PLAIN-BROAD continues to slide (+0.17 -> +0.11 -> +0.09 -> +0.08).
+# 6H REVIEW 2026-10-17 00:33 UTC (Solana): no positions; filter 1 INACTIVE,
+#   auto-buy off, settings unchanged. No changes. Subscription ends
+#   2026-10-18 09:14 UTC (~33h), auto_renew off.
+# NOTE: the local checkout had been restored to an older commit (aff75ea); work
+#   was rebased onto origin (68eb345) and the cycle-7 entries re-applied.
