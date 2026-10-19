@@ -3735,3 +3735,18 @@ alert2:
 #   2026-10-18 09:14 UTC (~33h), auto_renew off.
 # NOTE: the local checkout had been restored to an older commit (aff75ea); work
 #   was rebased onto origin (68eb345) and the cycle-7 entries re-applied.
+
+# CATCH-UP LOG 2026-10-19 (covers Oct 17 02:47 -> Oct 19 12:3x; several routine
+# runs were interrupted before completing):
+# - STRATEGY AGENT cycle 8 (Oct 17 02:47) found a regime change on #154
+#   HOOKED-VERIFIED: a new launcher's hooked tokens now pass the sell test at
+#   ~$8k entry (24h: 28-33 alerts/day vs ~3-4 before; median 2.5x; 24h ev_lcb
+#   -0.15). Challenger 'mc > 30000' (keeps the original ~$50k-seeded pocket):
+#   14d n=36 ev_lcb +5.79 vs champion n=68 ev_lcb +2.82 -> DEPLOY ADVICE.
+#   STATUS: NOT DEPLOYED. The update_filter_condition call is waiting for user
+#   approval (permission prompt unanswered). Pending condition:
+#   launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8
+#   AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 30000
+#   AND mc < 200000   (current live: same with mc > 8000)
+# - SOLANA: DRBT subscription EXPIRED (tier now Free: 2 filter slots, 10
+#   backtests/day). No positions; all four filters inactive, auto-buy off.

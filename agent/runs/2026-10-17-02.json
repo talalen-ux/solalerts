@@ -1,0 +1,89 @@
+{
+ "cycle": 8,
+ "results": [
+  {
+   "id": "c8-hooked-mc30k",
+   "slot": "154",
+   "family": "hooked_verified",
+   "arm": "hooked_verified:mc_min:up_30k",
+   "long_hours": 336,
+   "recent_hours": 168,
+   "params": {
+    "rtb": 0.9,
+    "buyers": 8,
+    "ratio": 2,
+    "top": 60,
+    "mc_min": 30000,
+    "mc_max": 200000
+   },
+   "preds": [],
+   "condition": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 30000 AND mc < 200000",
+   "long": {
+    "scored": 36,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 16
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 24
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 28
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 30
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 31
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 31
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 32
+     }
+    ]
+   },
+   "recent": {
+    "scored": 21,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 6
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 12
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 13
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 15
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 16
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 16
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 17
+     }
+    ]
+   }
+  }
+ ]
+}
