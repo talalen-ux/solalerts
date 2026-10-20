@@ -3790,3 +3790,11 @@ alert2:
 # 6H REVIEW 2026-10-20 18:33 UTC (Solana): no positions; filters 1/2 inactive,
 #   auto-buy off, conditions unchanged (slot 2 = SHIELD). Free tier. No changes;
 #   Part B skipped (filter 1 off). RH #154 mc>30k live since 12:3x.
+
+# STRATEGY AGENT CYCLE 12 (2026-10-20 18:47 UTC): no deployment.
+#   HEALTH (no alarms): 152 72h n=537 ev_lcb +0.073 (down from +0.196);
+#   155 72h n=409 +0.138; 154 (new mc>30k) 7d n=18 +1.46, 0 live alerts in
+#   first 6h (as predicted). 154 locked (deployed <24h ago).
+#   TESTED c12-plain-mc10k (155 with mc > 10000): 7d n=927 ev_lcb +0.132,
+#   72h set identical to champion -> fails margin. Lesson: mc lower bound is not
+#   a lever on PLAIN-TIGHT. RH backtests: 5.

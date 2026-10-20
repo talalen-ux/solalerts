@@ -1,0 +1,124 @@
+{
+ "cycle": 12,
+ "results": [
+  {
+   "id": "c12-plain-mc10k",
+   "slot": "155",
+   "family": "plain_v4",
+   "arm": "plain_v4:mc_min:down",
+   "params": {
+    "buyers": 25,
+    "mc_max": 45000,
+    "mc_min": 10000,
+    "ratio": 5,
+    "top": 40
+   },
+   "preds": [],
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 10000 AND mc < 45000",
+   "long_hours": 168,
+   "recent_hours": 72,
+   "long": {
+    "window_hours": 168,
+    "matched": 927,
+    "scored": 927,
+    "median_xs": 3.25,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0,
+      "percent": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 1,
+      "percent": 0.11
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 49,
+      "percent": 5.29
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 78,
+      "percent": 8.41
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 176,
+      "percent": 18.99
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 496,
+      "percent": 53.51
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 618,
+      "percent": 66.67
+     }
+    ],
+    "below_lowest": {
+     "tokens": 288,
+     "percent": 31.07
+    },
+    "post_ath": {
+     "tokens": 21,
+     "percent": 2.27
+    }
+   },
+   "recent": {
+    "window_hours": 72,
+    "matched": 409,
+    "scored": 409,
+    "median_xs": 3.57,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0,
+      "percent": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 1,
+      "percent": 0.24
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 25,
+      "percent": 6.11
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 37,
+      "percent": 9.05
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 85,
+      "percent": 20.78
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 227,
+      "percent": 55.5
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 266,
+      "percent": 65.04
+     }
+    ],
+    "below_lowest": {
+     "tokens": 127,
+     "percent": 31.05
+    },
+    "post_ath": {
+     "tokens": 16,
+     "percent": 3.91
+    }
+   }
+  }
+ ]
+}
