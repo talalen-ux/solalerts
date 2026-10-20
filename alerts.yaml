@@ -3757,3 +3757,17 @@ alert2:
 #   filters 3/4 no longer listed. PART B skipped: filter 1 is off, so a
 #   condition change would have no live effect to verify. No changes made.
 #   RH #154 mc>30000 fix still awaiting user approval.
+
+# STRATEGY AGENT CYCLE 11 (2026-10-19 18:47 UTC run, logged 2026-10-20 07:1x):
+#   HEALTH (all ok, no alarms): 152 72h n=508 ev_lcb +0.196 (recovered from
+#   +0.08); 155 72h n=368 ev_lcb +0.211; 154 7d n=63 ev_lcb +0.311 (live 24h
+#   alerts back down to 9/day). 154 14d baseline refreshed: n=87 ev_lcb +1.907.
+#   CHALLENGER re-test on fresh data, c11-hooked-mc30k (mc > 30000):
+#   14d n=36 (2x+ 89%, 10x+ 78%, 100x+ 13, median 71x), 7d n=18 (median 16x)
+#   -> modelled ev_lcb +4.93 vs champion +1.91 -> DEPLOY ADVICE again.
+#   CAVEAT (ev_lcb > 2): small n, 15s free-tier alert delay, 0.01 ETH sell test
+#   only, many mooners round-trip (exits must be taken on the way up).
+#   validate_condition: ok (0 current matches). STATUS: NOT DEPLOYED - the
+#   update still needs the user's permission prompt approved.
+#   Runs at 2026-10-20 00:47 and 02:47 and the 00:32/06:32 Solana reviews did
+#   not complete (session stalls). RH backtests used: 6.
