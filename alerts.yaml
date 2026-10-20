@@ -3771,3 +3771,18 @@ alert2:
 #   update still needs the user's permission prompt approved.
 #   Runs at 2026-10-20 00:47 and 02:47 and the 00:32/06:32 Solana reviews did
 #   not complete (session stalls). RH backtests used: 6.
+
+# DEPLOYED 2026-10-20 12:3x UTC - RH #154 (strategy agent DEPLOY ADVICE,
+#   cycle 11 c11-hooked-mc30k; user approved the permission prompt).
+#   OLD (rollback): launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9
+#     AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60
+#     AND mc > 8000 AND mc < 200000
+#   NEW: same with mc > 30000. Renamed "Filter 3 - HOOKED-VERIFIED $30k+ (sellable)".
+#   EVIDENCE: 14d n=36 modelled ev_lcb +4.93 (champion n=87 +1.91); 7d n=18.
+#   PREDICTION: ~1-3 alerts/day (was 7-30); drops the ~$8k new-launcher flow.
+#   WATCH: 7d backtest each agent run; 2 alarms (ev_lcb<0 and ev<0, n>=15) => rollback.
+#   Caveats: small n, 15s free-tier delay, 0.01 ETH sell test, mooners round-trip.
+# 6H REVIEWS 2026-10-20 00:32/06:32/12:32 UTC (Solana): no positions; filters 1/2
+#   inactive, auto-buy off, conditions unchanged (slot 2 = SHIELD). Free tier.
+#   No changes. DAILY-OPS 07:07 and agent runs 00:47/02:47/10:48 did not
+#   complete (session stalls) - nothing else changed.

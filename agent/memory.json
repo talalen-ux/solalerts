@@ -168,7 +168,8 @@
   "[2026-10-14] Cycle 1: PLAIN-TIGHT recent ev_lcb fell to +0.078 (from +0.19 7d); PLAIN-BROAD recent +0.17 and live alert rate ~280/day (76 in 6.5h) vs backtest ~130/day - watch both.",
   "[2026-10-15] clean_dev (dev_funder_devs=0) on PLAIN-TIGHT removed 7 tokens incl. a 100x and 6 10x+ - farm-funded devs are not the junk; top_maker<70 on HOOKED-VERIFIED changes nothing (set identical).",
   "[2026-10-16] mc upper bound is not a volume lever on plain pools (mc<70k keeps 1007 of 1015): entries happen at 5-45k; to cut PLAIN-BROAD volume use buyers/ratio, not mc.",
-  "[2026-10-16] 2026-10-16 mooners: three graduated pons tokens (OPENAI 112x, CUE 104x, OpenAI 92x) ran ~100x within ~1h and round-tripped; no live slot covers pons since AVALANCHE was retired - a pons challenger that passes the gate would fill this gap."
+  "[2026-10-16] 2026-10-16 mooners: three graduated pons tokens (OPENAI 112x, CUE 104x, OpenAI 92x) ran ~100x within ~1h and round-tripped; no live slot covers pons since AVALANCHE was retired - a pons challenger that passes the gate would fill this gap.",
+  "[2026-10-20] [2026-10-20] 154 HOOKED-VERIFIED raised to mc > 30000 (c11-hooked-mc30k, 14d n=36 ev_lcb +4.93 vs +1.91). Rollback: mc > 8000. Watch: live rate should fall to ~1-3/day; alarm if 7d ev_lcb < 0."
  ],
  "queue": [],
  "slots": {
@@ -192,23 +193,25 @@
   "154": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": 1.9069,
+    "ev_lcb": 4.9302,
     "hours": 336.0,
-    "n": 87,
-    "source": "2026-10-19T18:49:07Z"
+    "n": 36,
+    "source": "2026-10-20T12:33:53Z"
    },
-   "condition": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 8000 AND mc < 200000",
+   "condition": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 30000 AND mc < 200000",
+   "deployed_at": "2026-10-20T12:33:53Z",
    "failures": 0,
    "family": "hooked_verified",
    "params": {
     "buyers": 8,
     "mc_max": 200000,
-    "mc_min": 8000,
+    "mc_min": 30000,
     "ratio": 2,
     "rtb": 0.9,
     "top": 60
    },
-   "preds": []
+   "preds": [],
+   "previous_condition": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 8000 AND mc < 200000"
   },
   "155": {
    "alarms": 0,
@@ -377,6 +380,6 @@
    "slot": "154"
   }
  },
- "updated": "2026-10-19T18:49:07Z",
+ "updated": "2026-10-20T12:33:53Z",
  "version": 1
 }
