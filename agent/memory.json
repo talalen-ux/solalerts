@@ -84,6 +84,11 @@
    "sum_delta": 0.5045,
    "tests": 1,
    "wins": 1
+  },
+  "queue:plain_broad_ratio5": {
+   "sum_delta": 0.0754,
+   "tests": 1,
+   "wins": 1
   }
  },
  "created": "2026-10-14T11:23:27Z",
@@ -158,6 +163,12 @@
    "at": "2026-10-20T18:48:49Z",
    "passed": 0,
    "run": "runs/2026-10-20-18.json",
+   "tested": 1
+  },
+  {
+   "at": "2026-10-21T10:49:25Z",
+   "passed": 1,
+   "run": "runs/2026-10-21-10.json",
    "tested": 1
   }
  ],
@@ -382,6 +393,15 @@
    "pass": false,
    "slot": "155"
   },
+  "d950f901ac38": {
+   "arm": "queue:plain_broad_ratio5",
+   "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)",
+   "date": "2026-10-21T10:49:25Z",
+   "ev_lcb": 0.2207,
+   "n": 809,
+   "pass": true,
+   "slot": "152"
+  },
   "dbbefc2856ae": {
    "arm": "plain_v4:top:down",
    "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 30 AND mc > 15000 AND mc < 45000",
@@ -401,6 +421,6 @@
    "slot": "154"
   }
  },
- "updated": "2026-10-20T18:48:49Z",
+ "updated": "2026-10-21T10:49:25Z",
  "version": 1
 }

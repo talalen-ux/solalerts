@@ -3798,3 +3798,19 @@ alert2:
 #   TESTED c12-plain-mc10k (155 with mc > 10000): 7d n=927 ev_lcb +0.132,
 #   72h set identical to champion -> fails margin. Lesson: mc lower bound is not
 #   a lever on PLAIN-TIGHT. RH backtests: 5.
+
+# STRATEGY AGENT CYCLE 13 (2026-10-21 10:48 UTC; catch-up for the 00:32, 02:47,
+#   06:32, 07:07 runs that stalled overnight - not re-run).
+#   SOLANA: no positions; filters 1/2 inactive, auto-buy off, unchanged.
+#   HEALTH: 152 72h n=569 ev_lcb +0.045 (falling: .196 -> .073 -> .045);
+#   155 72h n=413 +0.102; 154 7d n=17 +0.663 (live: 1 alert in 22h, W4WORK
+#   127x in window). No alarms.
+#   CHALLENGER c13-broad-ratio5 (152 with buy_volume > 5x instead of 4x):
+#   7d n=809 ev_lcb +0.221 (10x+ 129, 20x+ 91); 72h n=349 keeps 54/56 of the
+#   10x+ with ~40% fewer alerts -> DEPLOY ADVICE vs champion +0.145.
+#   OLD (rollback): launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND
+#     buy_volume_usd > 4 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000
+#     AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 *
+#     sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)
+#   STATUS: deploy pending (drbtrh disconnected / awaiting the update call).
+#   RH backtests: 5.
