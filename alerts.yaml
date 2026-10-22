@@ -3814,3 +3814,12 @@ alert2:
 #     sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)
 #   STATUS: deploy pending (drbtrh disconnected / awaiting the update call).
 #   RH backtests: 5.
+
+# STATUS 2026-10-22 (covers Oct 21 18:3x -> Oct 22 18:3x routine firings):
+#   Solana: no positions; filters 1/2 inactive, auto-buy off, unchanged (last
+#   checked Oct 21 18:48). RH filters unchanged (checked Oct 22 07:1x).
+#   PENDING: RH #152 ratio-5x update (c13-broad-ratio5, DEPLOY ADVICE Oct 21
+#   10:48) - the update call was attempted twice (Oct 21 12:33, Oct 22 12:32)
+#   and both times the permission prompt went unanswered, so NOT deployed.
+#   Several routine runs in this window did not complete (session stalls,
+#   MCP reconnects). No other changes.
