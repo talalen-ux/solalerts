@@ -3836,3 +3836,20 @@ alert2:
 
 # 6H REVIEW 2026-10-23 06:32 UTC (Solana): no positions; filters 1/2 inactive,
 #   auto-buy off, conditions unchanged. No changes.
+
+# DAILY-OPS 2026-10-23 07:10 UTC (lean run)
+# 1) Fill scorecard: Solana filter 1 inactive, no fills (nothing to score).
+# 2) RH top-10 (24h, ath_x>=3, buyers>=20): GF 638x (graduated pons, $6k launch,
+#   still 448x), MERIS 226x (grad pons, round-tripped to 0.86x), Kimchi 179x
+#   (non-pons, $35k launch, holding 173x), BROODZ 176x / CC 154x / HACKEN 87x /
+#   JON 75x (all ~$1k launch, 44-45 buyers - same micro-launch template),
+#   REX 109x and RIVAL 64x round-tripped to <=1x, V4M 83x (grad pons).
+#   Attribution: none of our slots target graduated pons (known gap since
+#   AVALANCHE retired) or $1k micro-launches with <50 buyers (below buyers>=15
+#   until late, mc<15k floor). Round-trippers again show exits must be early.
+#   Solana top (1d): project kimchi 1315x ATH, now 15x.
+# 3) Repeat-name watchlist: KIMCHI on BOTH chains same day (RH 179x, SOL 1315x
+#   ATH) - cross-chain narrative tokens; add to watchlist. 44-45-buyer $1k
+#   cluster (BROODZ/CC/HACKEN/JON) looks like one deployer template - watch.
+# 4) Experiment: none run today (RH 152 ratio-5x fix still pending approval;
+#   Solana on Free tier). 5) Logged.
