@@ -3823,3 +3823,7 @@ alert2:
 #   and both times the permission prompt went unanswered, so NOT deployed.
 #   Several routine runs in this window did not complete (session stalls,
 #   MCP reconnects). No other changes.
+
+# 6H REVIEW 2026-10-23 00:32 UTC (Solana): no positions; filters 1/2 inactive,
+#   auto-buy off, conditions unchanged. No changes. RH #152 ratio-5x still
+#   awaiting user approval.
