@@ -3857,3 +3857,7 @@ alert2:
 # STRATEGY AGENT CYCLE 15 (2026-10-23 10:48 UTC): 152 health only.
 #   152 72h n=581 (10x+ 67, 20x+ 31) - see watch output in agent/runs/c15.
 #   ratio-5x fix still pending user approval. RH backtests: 1.
+
+# 6H REVIEW 2026-10-23 12:32 UTC (Solana): no positions; filters 1/2 inactive,
+#   auto-buy off, conditions unchanged. No changes.
+#   (Cycle 15 RH note, numbers: 152 72h n=581 ev +0.031 ev_lcb -0.011, alarms 0.)
