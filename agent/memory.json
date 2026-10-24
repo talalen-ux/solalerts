@@ -89,6 +89,11 @@
    "sum_delta": 0.0754,
    "tests": 1,
    "wins": 1
+  },
+  "queue:sweep_guard_fresh_rtb": {
+   "sum_delta": 0.4429,
+   "tests": 1,
+   "wins": 0
   }
  },
  "created": "2026-10-14T11:23:27Z",
@@ -169,6 +174,12 @@
    "at": "2026-10-21T10:49:25Z",
    "passed": 1,
    "run": "runs/2026-10-21-10.json",
+   "tested": 1
+  },
+  {
+   "at": "2026-10-24T14:26:07Z",
+   "passed": 0,
+   "run": "runs/2026-10-24-best.json",
    "tested": 1
   }
  ],
@@ -411,6 +422,15 @@
    "pass": false,
    "slot": "155"
   },
+  "e17c873cd729": {
+   "arm": "queue:sweep_guard_fresh_rtb",
+   "cond": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND round_trip_age_s < 900 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 30000 AND mc < 200000 AND (swept_pct IS NULL OR swept_pct < 15) AND (untracked_sell_pct IS NULL OR untracked_sell_pct < 1",
+   "date": "2026-10-24T14:26:07Z",
+   "ev_lcb": 5.3731,
+   "n": 65,
+   "pass": false,
+   "slot": "154"
+  },
   "ea1287db53b3": {
    "arm": "hooked_verified:pred:held_low",
    "cond": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 8000 AND mc < 200000 AND (held_pct IS NULL OR held_pct < 60)",
@@ -421,6 +441,6 @@
    "slot": "154"
   }
  },
- "updated": "2026-10-24T10:49:02Z",
+ "updated": "2026-10-24T14:26:07Z",
  "version": 1
 }

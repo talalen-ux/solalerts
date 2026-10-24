@@ -3907,3 +3907,20 @@ alert2:
 
 # 6H REVIEW 2026-10-24 12:32 UTC (Solana): no positions; filters 1/2 inactive,
 #   auto-buy off, conditions unchanged. No changes.
+
+# BEST-RH-FILTER SEARCH 2026-10-24 (user request "best Robinhood filter")
+#   New columns found in list_parameters: swept_pct, untracked_sell_pct,
+#   held_pct, lp_usd, round_trip_age_s, named launchpads (long/doppler/...).
+#   Results (modelled, agent/score.py, ev_lcb = conservative):
+#   - Live #154 HOOKED-VERIFIED $30k+, 30d: n=66, 2x+ 88%, 100x+ 25, ev_lcb +5.27
+#   - + sweep/untracked-sell guards, 30d: n=65 (drops 1 loser), ev_lcb +5.37
+#     7d: n=12, 2x+ 83%, 100x+ 2 (W4WORK 128x, CATONICE 117x), ev_lcb +0.67
+#     63d: n=70, 2x+ 89%, 100x+ 25, ev_lcb +5.43; + round_trip_age_s < 900 is
+#     free (same set) and protects against a hook flipping sells after a check.
+#   - mc > 20k / mc < 500k: +3 tokens, worse (ev_lcb +5.08) -> $30k floor is the edge.
+#   - lp_usd > 5000: 0 matches (lp_usd NULL in backtests) -> unusable, ban.
+#   - Named launchpads (long/doppler/clanker...): 7d n=13, 2x+ 8%, ev_lcb -0.64.
+#   - Graduated pons buyers>=100: 7d n=52, 2x+ 38%, ev_lcb -0.32.
+#   VERDICT: the guarded hooked filter is the best found. Improvement over live
+#   #154 is a safety hardening (+0.10 ev_lcb, below the agent's 10% margin), not
+#   a new edge. NOT deployed - awaiting user decision. RH backtests: 9.
