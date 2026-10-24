@@ -3941,3 +3941,9 @@ alert2:
 #   auto-buy off; slot 2 = SHIELD verbatim (restored after today's search).
 #   Part B skipped: 10/10 Free-tier backtests already used today (best-filter
 #   search). SOL-green gate on T20-PRIME awaits user decision. No changes.
+
+# STRATEGY AGENT CYCLE 19 (2026-10-24 18:48 UTC): health only, no deployment.
+#   152 72h n=570 ev +0.141 ev_lcb +0.044 (10x+ 82); 155 72h n=382 ev +0.047
+#   ev_lcb -0.005 (2x+ 57.6%, sliding - first time near zero); 154 7d n=12
+#   2x+ 83%, 100x+ 2. No alarms (alarm needs ev<0 too). Pending user decisions:
+#   152 ratio-5x, 154 guarded upgrade. RH backtests: 3 (13 today).
