@@ -3878,3 +3878,20 @@ alert2:
 
 # 6H REVIEW 2026-10-24 06:33 UTC (Solana): no positions; filters 1/2 inactive,
 #   auto-buy off, conditions unchanged. No changes.
+
+# DAILY-OPS 2026-10-24 07:08 UTC (lean run)
+# 1) Fill scorecard: Solana filter 1 inactive, no fills.
+# 2) RH top-10 (24h): 8 of 10 are the ~$700-1,500-launch / 30-45-buyer cluster
+#   (ESC 211x, XYN 173x, LONG 150x, WOLVES 127x, REBATE x2 108x/84x, CLOVER
+#   102x, PROPS 93x), all still "at ATH". Also McRib 202x ($35k launch, 151
+#   buyers, holding 158x) and PRPOS 86x (round-tripped to 12x).
+#   AUTOPSY of ESC (get_token): lp_usd NULL, idle_blocks 565,784 (no trades for
+#   a long time), 45 makers, 1 deployer launch. => the "mc" is a phantom mark
+#   on an illiquid pool, not a tradable move. LAW CANDIDATE: micro-launch
+#   cluster mooners (launch < $2k, buyers < 50, idle pool) are NOT catchable or
+#   sellable - do not chase them; our buyers>=15 + mc>15k floors correctly
+#   exclude them. Real miss today: McRib ($35k launch, 151 buyers) - check
+#   which wall blocked it next agent run.
+#   Solana top (1d, saved query): none.
+# 3) Watchlist: McRib (RH), Kimchi (both chains, from yesterday).
+# 4) Experiment: ESC token autopsy (above), no backtests used. 5) Logged.
