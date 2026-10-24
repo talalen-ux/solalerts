@@ -3895,3 +3895,12 @@ alert2:
 #   Solana top (1d, saved query): none.
 # 3) Watchlist: McRib (RH), Kimchi (both chains, from yesterday).
 # 4) Experiment: ESC token autopsy (above), no backtests used. 5) Logged.
+
+# STRATEGY AGENT CYCLE 18 (2026-10-24 10:48 UTC): 152 health + McRib autopsy.
+#   152 72h n=588 ev +0.133 ev_lcb +0.038 (10x+ 82, 20x+ 36), alarms 0 -
+#   recovered back above zero. ratio-5x fix still pending approval.
+#   McRib wall attribution (get_token): launch $35k, 151 buyers, buys 2485 vs
+#   sells 2595 (two-sided flow), top maker 3.4%. Every live slot requires
+#   buy_volume > 2-5x sell_volume, so balanced-flow runners like McRib are
+#   excluded by design; not chasing (most balanced-flow tokens are churn).
+#   Noted as a known blind spot. RH backtests: 1.
