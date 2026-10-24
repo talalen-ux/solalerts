@@ -3936,3 +3936,8 @@ alert2:
 #     1m n=179 59.2% 2x+, 5x+ 25.7%, 10x+ 9.5%; 1w n=21 47.6% (+8.0pp);
 #     red-SOL-day slice n=225 52.4% (cold week 34.4%); ev +0.068 vs +0.021.
 #   NOT DEPLOYED (filter 1 inactive; user decision). Details: lab/solana_best_filter_2026-10-24.md
+
+# 6H REVIEW 2026-10-24 18:32 UTC (Solana): no positions; filters 1/2 inactive,
+#   auto-buy off; slot 2 = SHIELD verbatim (restored after today's search).
+#   Part B skipped: 10/10 Free-tier backtests already used today (best-filter
+#   search). SOL-green gate on T20-PRIME awaits user decision. No changes.
