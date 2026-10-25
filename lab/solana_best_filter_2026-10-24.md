@@ -38,3 +38,10 @@ last week 47.6% vs 39.6% (+8.0pp, still negative EV for both in the cold week).
 - Under the conservative cost model nothing on Solana clears ev_lcb > 0 on the full month
   (the gate gets closest). Not deployed: filter 1 inactive, Free tier, user decision.
 - top_source leak not fully verified (snapshot-stored per row; token_history gave no rows).
+
+## UPDATE 2026-10-25 — response curve (protocol #2)
+T20-PRIME + sol_price_24h > -2, 1 month (window shifted 1 day): n=294, 2x+ 55.8%,
+5x+ 21.8%, 10x+ 8.5%, 20/50/100 = 8/3/2. Curve: none 55.5% -> >-2 55.8% -> >0 59.2%.
+Implied bands: <-2% ~54.5%, -2..0% ~50.4%, >0% 59.2% — NON-MONOTONE.
+Verdict DOWNGRADED: the green-day lift may be day-cluster noise (~30 days). Do not
+deploy as a leg yet; treat as a sizing hint and re-test after two more weeks.
