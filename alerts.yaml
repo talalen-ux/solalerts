@@ -3947,3 +3947,7 @@ alert2:
 #   ev_lcb -0.005 (2x+ 57.6%, sliding - first time near zero); 154 7d n=12
 #   2x+ 83%, 100x+ 2. No alarms (alarm needs ev<0 too). Pending user decisions:
 #   152 ratio-5x, 154 guarded upgrade. RH backtests: 3 (13 today).
+
+# 6H REVIEW 2026-10-25 00:32 UTC (Solana): no positions; filters 1/2 inactive,
+#   auto-buy off, conditions unchanged (slot 2 = SHIELD). No changes. Part B:
+#   the best candidate (SOL-green gate) is already tested and awaiting the user.
