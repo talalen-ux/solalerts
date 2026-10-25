@@ -3951,3 +3951,7 @@ alert2:
 # 6H REVIEW 2026-10-25 00:32 UTC (Solana): no positions; filters 1/2 inactive,
 #   auto-buy off, conditions unchanged (slot 2 = SHIELD). No changes. Part B:
 #   the best candidate (SOL-green gate) is already tested and awaiting the user.
+
+# STRATEGY AGENT CYCLE 20 (2026-10-25 02:48 UTC): health only, no deployment.
+#   155 72h n=453 2x+ 55.9% ev +0.026 ev_lcb -0.022 (second run below zero on
+#   ev_lcb; ev still >0 so no alarm). 152 72h n=640 (see watch). RH backtests: 2.
