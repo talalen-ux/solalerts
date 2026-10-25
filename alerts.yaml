@@ -3977,3 +3977,9 @@ alert2:
 #   days). Verdict downgraded: do not deploy as a leg on this evidence; treat as
 #   a sizing hint only and re-test after 2 more weeks. Slot 2 SHIELD restored.
 #   Solana backtests: 1. RH: 1.
+
+# STRATEGY AGENT CYCLE 21 (2026-10-25 10:48 UTC): no deployment.
+#   155 72h n=500 2x+ 56.8% ev +0.038 ev_lcb -0.008 (no alarm). Baseline refreshed:
+#   155 7d n=1032, 2x+ 59.5%, 10x+ 76, 20x+ 35 (see ledger output).
+#   Tested 155 + sweep guard: 7d set IDENTICAL (n=1032) -> inert on plain pools.
+#   RH backtests: 3.
