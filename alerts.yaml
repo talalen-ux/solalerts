@@ -3958,3 +3958,22 @@ alert2:
 
 # 6H REVIEW 2026-10-25 06:32 UTC (Solana): no positions; filters 1/2 inactive,
 #   auto-buy off, conditions unchanged (slot 2 = SHIELD). No changes.
+
+# DAILY-OPS 2026-10-25 07:07 UTC
+# 1) Fill scorecard: Solana filter 1 inactive, no fills.
+# 2) RH top-10 (24h): real crowds today (1,000+ buyers). #152 PLAIN-BROAD caught
+#   ACON 50.5x + 26.6x (2 of 3 ACON addresses), SEASON 40.7x, DARK 24.7x and
+#   13 tokens at 20x+ in 24h (n=260, 2x+ 39.6%, 10x+ 12.3%). Missed: Kimchi 193x
+#   ($34k launch, 98 buyers - same balanced-flow blind spot as McRib), BI 92x and
+#   SEASON-type round-trips, Marvin 41x / BTC 40x (launch under $15k floor).
+#   Solana top (1d, saved query): none.
+# 3) Watchlist: ACON (3 addresses, 61x/38x/36x - repeat-name law), Kimchi (3rd
+#   address in 3 days on RH, also SOL), PAWN / 3WS / Hercules (2 addresses each).
+# 4) EXPERIMENT: response curve for the SOL-green gate (T20-PRIME +
+#   sol_price_24h > -2), 1 month: n=294, 2x+ 55.8%, 5x+ 21.8%, 10x+ 8.5%,
+#   20/50/100 = 8/3/2. Curve: none 55.5% -> >-2 55.8% -> >0 59.2%. Implied
+#   bands: <-2 ~54.5%, -2..0 ~50.4%, >0 59.2% -> NON-MONOTONE. Under protocol #2
+#   this weakens the regime-gate finding (possible day-cluster noise over ~30
+#   days). Verdict downgraded: do not deploy as a leg on this evidence; treat as
+#   a sizing hint only and re-test after 2 more weeks. Slot 2 SHIELD restored.
+#   Solana backtests: 1. RH: 1.
