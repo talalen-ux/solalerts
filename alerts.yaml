@@ -4028,3 +4028,14 @@ alert2:
 # 3) Watchlist: NMS (2 addresses, 335x + 65x), Kimchi, ACON.
 # 4) Experiment: cycle 23 re-test of the 152 ratio-5x fix (72h ev_lcb +0.59 vs
 #   live -0.096; DEPLOY ADVICE). Awaiting user approval. 5) Logged.
+
+# STRATEGY AGENT CYCLE 24 (2026-10-26 10:48 UTC): 152 SECOND CONSECUTIVE ALARM.
+#   152 live 72h n=745, 2x+ 41.3%, 10x+ 84, PostATH 8.5%, ev -0.016 / ev_lcb -0.094
+#   -> ledger: "ROLLBACK via restore_filter (2 consecutive alarms)".
+#   The previous revision of 152 is the retired AVALANCHE-era condition (failed
+#   the gates twice on 10-14), so a plain rollback would be worse. The playbook's
+#   better path is REPLACE with the passing challenger c23-broad-ratio5 (72h
+#   ev_lcb +0.590, 7d +0.324, DEPLOY ADVICE in cycle 23).
+#   STATUS: NOT CHANGED - every filter write needs the user's permission prompt and
+#   the last attempts (10-21 x2, 10-26 x2) timed out unanswered. 152 keeps
+#   running a strategy that is currently NEGATIVE on modelled EV. RH backtests: 1.
