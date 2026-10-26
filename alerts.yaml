@@ -4014,3 +4014,17 @@ alert2:
 #     sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)
 #   STATUS: NOT DEPLOYED - update needs the user's permission prompt (third
 #   attempt pending). RH backtests: 4.
+
+# DAILY-OPS 2026-10-26 07:19 UTC
+# 1) Fill scorecard: Solana filter 1 inactive, no fills, no positions.
+# 2) RH top-10 (24h): APE 781x ($5.4k launch, 147 buyers, still 539x), NMS 335x
+#   (graduated pons, round-tripped to 9x), WPC 309x ($1k launch, 289 buyers),
+#   swordcat 85x ($33k launch, 117 buyers, holding 81x), ONECOIN 79x, ETH 72x,
+#   LOOPS 66x, ZGAP 66x, SIL 65x (round-trip), NMS #2 64.7x.
+#   CAUGHT: NMS #2 at $28.7k by BOTH 152 (64.7x) and 155 (64.6x), and by the
+#   ratio-5x challenger. MISSED: APE/WPC/ONECOIN/ETH (launch < $15k floor; most ran
+#   from sub-$10k), swordcat (likely balanced-flow wall, as McRib/Kimchi), NMS #1
+#   (graduated pons - known gap). Solana top (1d): none.
+# 3) Watchlist: NMS (2 addresses, 335x + 65x), Kimchi, ACON.
+# 4) Experiment: cycle 23 re-test of the 152 ratio-5x fix (72h ev_lcb +0.59 vs
+#   live -0.096; DEPLOY ADVICE). Awaiting user approval. 5) Logged.
