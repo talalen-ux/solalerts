@@ -1,0 +1,99 @@
+{
+ "cycle": 23,
+ "results": [
+  {
+   "id": "c23-broad-ratio5",
+   "slot": "152",
+   "family": "plain_v4",
+   "arm": "queue:plain_broad_ratio5",
+   "params": {},
+   "preds": [],
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)",
+   "long_hours": 168,
+   "recent_hours": 72,
+   "long": {
+    "window_hours": 168,
+    "matched": 786,
+    "scored": 779,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 5
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 78
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 157
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 266
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 363
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 465
+     }
+    ],
+    "below_lowest": {
+     "tokens": 293
+    },
+    "post_ath": {
+     "tokens": 21
+    }
+   },
+   "recent": {
+    "window_hours": 72,
+    "matched": 293,
+    "scored": 293,
+    "median_xs": 4.77,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 3
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 40
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 81
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 141
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 171
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 198
+     }
+    ],
+    "below_lowest": {
+     "tokens": 87
+    },
+    "post_ath": {
+     "tokens": 8
+    }
+   }
+  }
+ ]
+}

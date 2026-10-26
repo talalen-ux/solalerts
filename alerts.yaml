@@ -3999,3 +3999,18 @@ alert2:
 
 # 6H REVIEW 2026-10-26 00:33 UTC (Solana): no positions; filters 1/2 inactive,
 #   auto-buy off, conditions unchanged (slot 2 = SHIELD). No changes.
+
+# STRATEGY AGENT CYCLE 23 (2026-10-26 02:47 UTC): ALARM on 152 + DEPLOY ADVICE.
+#   152 live 72h n=752, 2x+ 40.6%, 10x+ 87, 20x+ 42, PostATH 8.5%:
+#     ev -0.018 / ev_lcb -0.096 -> ALARM 1 of 2 (rollback/replace at 2).
+#   155 72h n=609 2x+ 56.7% ev +0.036 ev_lcb -0.005 (no alarm).
+#   CHALLENGER c23-broad-ratio5 (152 with buy_volume > 5x sell, was 4x):
+#     72h n=293, 2x+ 67.6%, 5x+ 48.1%, 10x+ 81/87 kept, 20x+ 40/42 kept, 50x 3/3,
+#     PostATH 2.7%, ev +0.753 / ev_lcb +0.590;
+#     7d n=779, 2x+ 59.7%, 10x+ 157, 20x+ 78, ev_lcb +0.324 -> gates PASS, DEPLOY ADVICE.
+#   OLD (rollback): launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND
+#     buy_volume_usd > 4 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000
+#     AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 *
+#     sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)
+#   STATUS: NOT DEPLOYED - update needs the user's permission prompt (third
+#   attempt pending). RH backtests: 4.
