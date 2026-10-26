@@ -215,7 +215,7 @@
  "queue": [],
  "slots": {
   "152": {
-   "alarms": 2,
+   "alarms": 3,
    "baseline": {
     "ev_lcb": 0.1453,
     "hours": 168.0,
@@ -448,6 +448,6 @@
    "slot": "154"
   }
  },
- "updated": "2026-10-26T10:49:26Z",
+ "updated": "2026-10-26T18:48:33Z",
  "version": 1
 }

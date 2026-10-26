@@ -4045,3 +4045,9 @@ alert2:
 
 # 6H REVIEW 2026-10-26 18:32 UTC (Solana): no positions; filters 1/2 inactive,
 #   auto-buy off, conditions unchanged (slot 2 = SHIELD). No changes.
+
+# STRATEGY AGENT CYCLE 25 (2026-10-26 18:48 UTC): 152 THIRD consecutive alarm.
+#   152 live 72h n=748, 2x+ 41.4%, 10x+ 84, PostATH 8.4% (see watch: ev < 0).
+#   Replacement c23-broad-ratio5 still the passing challenger (DEPLOY ADVICE
+#   cycle 23). Not changed: filter writes need the user's permission prompt.
+#   RH backtests: 1.
