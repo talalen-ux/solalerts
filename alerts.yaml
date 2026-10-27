@@ -4061,3 +4061,51 @@ alert2:
 
 # 6H REVIEW 2026-10-27 06:32 UTC (Solana): no positions; filters 1/2 inactive,
 #   auto-buy off, conditions unchanged (slot 2 = SHIELD). No changes.
+
+# DAILY-OPS 2026-10-27 07:10 UTC (+ catch-up weekly review; 10-18 and 10-25 were skipped)
+# 1) Fill scorecard: Solana filter 1 inactive, auto-buy off, no fills, no positions.
+#   Solana DRBT still Free tier (2 slots, 10 backtests/day). Saved mooners query
+#   returned nothing again for 1d.
+# 2) RH top-10 (24h): ASSAY 288x (graduated pons), Nothing 275x ($14k launch, 995
+#   buyers), ASSAY #2 264x ($2.3k launch, now 1x), TRACR 186x, ASSAY #3 120x,
+#   REACHY 87x, HGST 85x, GINNAN 82x, RAID 70x (graduated), HOOKWIRE 57x.
+#   CAUGHT (3 of 10): Nothing by 152 at $32k (122x); ASSAY #3 by 152 at $18.5k
+#   (76x) and 155 at $25.4k (56x); REACHY by 152 at $15.1k (50x) and 155 (31x).
+#   MISSED: ASSAY #1 and RAID (graduated pons - known negative venue);
+#   ASSAY #2 / HOOKWIRE (full round-trips to 1x - correct misses);
+#   TRACR / GINNAN ($600 launches from serial deployers with 553 / 521 launches,
+#   sells > buys - correct misses); HGST (sells = 0 with 258 buyers, mc pinned at
+#   ATH -> honeypot signature, unsellable - correct miss).
+#   Other 152 catches: Kimchi 42x, MIYA 39x, TMF 32x, HOOKWIRE (other address)
+#   26x, RAID (other address) 23x. 154: 0 alerts in 24h.
+#   Solana top (1d, saved query): none.
+# 3) Watchlist: ASSAY (3 addresses in one day: 288x / 264x / 120x), RAID,
+#   HOOKWIRE and TRCH (2 addresses each), Kimchi (still running).
+# 4) EXPERIMENT - forward test of the pending 152 fix (c23-broad-ratio5) on the
+#   24h after it was proposed (out of sample):
+#     live 152:  n=131, 2x+ 74.8%, 10x+ 24, 20x+ 11, 50x+ 2, PostATH 1.5%,
+#                ev +0.44 / ev_lcb +0.23
+#     ratio-5x:  n=88,  2x+ 71.6%, 10x+ 22, 20x+ 10, 50x+ 1, PostATH 2.3%,
+#                ev +0.69 / ev_lcb +0.41
+#     slice it removes: n=43, 2x+ 81%, 10x+ 2, includes Nothing 122x;
+#                scalp_2 ev_lcb +0.20, ladders negative.
+#   Verdict: the fix still wins on modelled EV out of sample, but today it cost
+#   the day's best catch and its cut slice was not junk. Live 152 also recovered
+#   sharply in the last 24h (ev_lcb +0.23), so the 72h alarm looks regime-driven
+#   (law #32). Recommendation unchanged (ratio-5x is better on 72h, 7d and the
+#   forward 24h), urgency lower. Not deployed: needs the user's approval.
+# 5) WEEKLY STABILITY (168h):
+#   152: n=1455 (~208/day, over the 150/day gate), 2x+ 50.2%, 10x+ 170, 20x+ 80,
+#        PostATH 5.8%, ev +0.036 / ev_lcb -0.018.
+#   155: n=1021, 2x+ 59.8%, 10x+ 72, 20x+ 28, PostATH 1.6%, ev_lcb +0.043 (baseline
+#        +0.040: stable).
+#   154: n=6, 4 at 2x+, APE 47x; too few to judge.
+# 6) LAW REVIEW (catch-up):
+#   HELD: repeat-name law (ASSAY x3, RAID/HOOKWIRE/TRCH x2, NMS and ACON earlier);
+#     regime dominates (#32: 152 72h ev<0 vs 24h ev_lcb +0.23); graduated pons and
+#     serial-deployer factories stay excluded; response-curve protocol #2
+#     (downgraded the SOL-green gate on 10-25).
+#   NEW: zero-sell honeypot signature on RH (HGST: 258 buyers, 0 sells, mc at ATH).
+#   UNTESTED this week: Solana law #37 (filter 1 inactive, no fills).
+#   Next weekly review: 2026-11-01.
+#   RH backtests today: 7 (+1 rejected as concurrent). Solana backtests: 0.

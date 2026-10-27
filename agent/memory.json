@@ -210,7 +210,8 @@
   "[2026-10-16] 2026-10-16 mooners: three graduated pons tokens (OPENAI 112x, CUE 104x, OpenAI 92x) ran ~100x within ~1h and round-tripped; no live slot covers pons since AVALANCHE was retired - a pons challenger that passes the gate would fill this gap.",
   "[2026-10-20] [2026-10-20] 154 HOOKED-VERIFIED raised to mc > 30000 (c11-hooked-mc30k, 14d n=36 ev_lcb +4.93 vs +1.91). Rollback: mc > 8000. Watch: live rate should fall to ~1-3/day; alarm if 7d ev_lcb < 0.",
   "[2026-10-20] [2026-10-20] PLAIN-TIGHT mc>10000 vs mc>15000: 72h set identical (n=409) - with buyers>=25 and vol>5x entries are already above 15k; mc lower bound is not a lever on plain pools either.",
-  "[2026-10-25] [2026-10-25] swept_pct guard is inert on plain (NOT hooked) pools: 155 7d set identical (n=1032). Sweep guards only matter on hooked pools."
+  "[2026-10-25] [2026-10-25] swept_pct guard is inert on plain (NOT hooked) pools: 155 7d set identical (n=1032). Sweep guards only matter on hooked pools.",
+  "[2026-10-27] 2026-10-27 forward test: ratio-5x fix on the out-of-sample 24h held (n=88 ev_lcb +0.41 vs live 152 +0.23) but dropped Nothing 122x and its cut slice (n=43) was 81% 2x+ (scalp-positive). Tail-heavy gain, not pure junk removal."
  ],
  "queue": [],
  "slots": {
@@ -448,6 +449,6 @@
    "slot": "154"
   }
  },
- "updated": "2026-10-27T02:48:57Z",
+ "updated": "2026-10-27T07:13:49Z",
  "version": 1
 }
