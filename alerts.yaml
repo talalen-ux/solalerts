@@ -4200,3 +4200,6 @@ alert2:
 #     Roll back if the next two 72h watches alarm, or if live 2x+ falls below the
 #     old filter's on the same window.
 #   memory.json: adopted (baseline 7d n=768 ev_lcb +0.352). RH backtests: 4.
+
+# 6H REVIEW 2026-10-28 12:45 UTC (Solana): SKIPPED - defirobot connector still needs
+#   re-authorization; positions and filters unreadable. No changes.
