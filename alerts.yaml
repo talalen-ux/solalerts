@@ -4136,3 +4136,13 @@ alert2:
 # 6H REVIEW 2026-10-28 00:33 UTC (Solana): SKIPPED - the defirobot connector now
 #   needs re-authorization, so positions and filters could not be read. No changes.
 #   Last known state (10-27 12:39): no positions, filters 1/2 inactive, auto-buy off.
+
+# STRATEGY AGENT CYCLE 29 (2026-10-28 02:48 UTC): deploy attempt + health.
+#   update_filter_condition(152 <- c27-broad-ratio5) was sent and its permission
+#   prompt went unanswered (closed, not refused). 152 NOT changed.
+#   152 live 72h n=615, 2x+ 48.8%, 10x+ 64, 20x+ 29, PostATH 8.6%,
+#   ev +0.005 / ev_lcb -0.073 -> ev back above 0, alarm counter reset to 0.
+#   Baseline (10-27) still fails the gates (7d ev_lcb -0.017, 209/day): failure 1 of 2.
+#   RH backtests: 1.
+# 6H REVIEW 2026-10-28 06:32 UTC (Solana): SKIPPED - defirobot connector needs
+#   re-authorization. No changes.
