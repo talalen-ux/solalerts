@@ -86,9 +86,9 @@
    "wins": 1
   },
   "queue:plain_broad_ratio5": {
-   "sum_delta": 0.2545,
-   "tests": 2,
-   "wins": 2
+   "sum_delta": 0.6535,
+   "tests": 3,
+   "wins": 3
   },
   "queue:sweep_guard_fresh_rtb": {
    "sum_delta": 0.4429,
@@ -187,6 +187,12 @@
    "passed": 1,
    "run": "runs/2026-10-26-02.json",
    "tested": 1
+  },
+  {
+   "at": "2026-10-27T12:39:57Z",
+   "passed": 1,
+   "run": "runs/2026-10-27-10.json",
+   "tested": 1
   }
  ],
  "facts": [
@@ -216,16 +222,16 @@
  "queue": [],
  "slots": {
   "152": {
-   "alarms": 4,
+   "alarms": 5,
    "baseline": {
-    "ev_lcb": 0.1453,
+    "ev_lcb": -0.017,
     "hours": 168.0,
-    "n": 1015,
-    "source": "2026-10-16T02:48:37Z"
+    "n": 1460,
+    "source": "2026-10-27T10:50:10Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 4 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)",
    "deployed_at": "2026-10-14T12:16:07Z",
-   "failures": 0,
+   "failures": 1,
    "family": "plain_broad",
    "params": {},
    "preds": [],
@@ -415,9 +421,9 @@
   "d950f901ac38": {
    "arm": "queue:plain_broad_ratio5",
    "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)",
-   "date": "2026-10-26T02:49:10Z",
-   "ev_lcb": 0.3244,
-   "n": 779,
+   "date": "2026-10-27T12:39:57Z",
+   "ev_lcb": 0.382,
+   "n": 753,
    "pass": true,
    "slot": "152"
   },
@@ -449,6 +455,6 @@
    "slot": "154"
   }
  },
- "updated": "2026-10-27T07:13:49Z",
+ "updated": "2026-10-27T12:39:57Z",
  "version": 1
 }

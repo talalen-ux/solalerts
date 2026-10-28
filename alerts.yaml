@@ -4109,3 +4109,30 @@ alert2:
 #   UNTESTED this week: Solana law #37 (filter 1 inactive, no fills).
 #   Next weekly review: 2026-11-01.
 #   RH backtests today: 7 (+1 rejected as concurrent). Solana backtests: 0.
+
+# STRATEGY AGENT CYCLE 27 (2026-10-27 10:48 UTC): 152 FIFTH alarm + DEPLOY ADVICE.
+#   Health: 152 72h n=688, 2x+ 43.8%, 10x+ 74, PostATH 8.9%, ev -0.017 / ev_lcb -0.092
+#     (alarm 5). 155 72h n=523, 2x+ 57.4%, ev +0.045 / ev_lcb +0.0002 (ok).
+#     154 7d n=6, 4 at 2x+ (ok, too few).
+#   Baseline refresh (cycles % 3 == 0): 152 7d n=1460, 2x+ 50.2%, ev_lcb -0.017,
+#     209 alerts/day > 150 -> gate FAIL 1 of 2.
+#   Challenger c27-broad-ratio5 (152 with buy_volume > 5x sell):
+#     7d n=753, 2x+ 62.6%, 10x+ 161/171 kept, 20x+ 75/80, 50x+ 5/6, 100x+ 0/1
+#     (drops Nothing 122x), PostATH 2.4%; 72h n=294, 2x+ 68.0%, PostATH 3.1%.
+#     ledger eval: ev_lcb +0.382 vs champion -0.017 -> PASS, DEPLOY ADVICE.
+#     validate_condition ok (18 matches in last 24h). No overlap with 155 (the
+#     tight set is excluded by the NOT clause).
+#   STATUS: NOT DEPLOYED. The run stalled before update_filter_condition was sent;
+#   no write happened. RH backtests: 6.
+#   Candidates.py also proposed 155 socials/idle_blocks and two 154 tightenings;
+#   not tested (budget spent on 152; 154 tightenings cannot reach n >= 30).
+
+# 6H REVIEW 2026-10-27 12:39 UTC (Solana): no positions; filters 1/2 inactive,
+#   auto-buy off, conditions unchanged (slot 2 = SHIELD). No changes.
+# 6H REVIEW 2026-10-27 18:32 UTC (Solana): not completed (session stalled). No changes.
+# STRATEGY AGENT CYCLE 28 (2026-10-27 18:47 UTC): list_filters only - all three
+#   conditions unchanged; run did not complete. No changes. RH backtests: 0.
+
+# 6H REVIEW 2026-10-28 00:33 UTC (Solana): SKIPPED - the defirobot connector now
+#   needs re-authorization, so positions and filters could not be read. No changes.
+#   Last known state (10-27 12:39): no positions, filters 1/2 inactive, auto-buy off.
