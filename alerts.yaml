@@ -4206,3 +4206,14 @@ alert2:
 
 # 6H REVIEW 2026-10-28 18:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (4th review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 31 (2026-10-28 18:47 UTC): health only, no deployment.
+#   152 (new 5x condition, deployed 10:50) 72h n=295, 2x+ 63.1%, 10x+ 53, 20x+ 25,
+#     PostATH 4.4%, ev +0.356 / ev_lcb +0.212 -> healthy, matches prediction
+#     (2x+ ~60%, PostATH 3-5%). Note: backtests apply the condition retroactively.
+#     Live sent_last_24h still mixes old and new conditions; re-check tomorrow.
+#   155 72h n=279, 2x+ 63.8%, ev +0.124 / ev_lcb +0.064 (ok).
+#   Candidates not tested: 155 mc<60k would overlap 152 (its NOT clause stops at
+#     45k) and mc is not a lever on plain pools; three 154 tightenings cannot reach
+#     n >= 30 (14d n=36). 152 is locked for 24h after today's deploy.
+#   RH backtests: 2.
