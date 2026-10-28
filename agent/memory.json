@@ -86,9 +86,9 @@
    "wins": 1
   },
   "queue:plain_broad_ratio5": {
-   "sum_delta": 0.6535,
-   "tests": 3,
-   "wins": 3
+   "sum_delta": 1.0221,
+   "tests": 4,
+   "wins": 4
   },
   "queue:sweep_guard_fresh_rtb": {
    "sum_delta": 0.4429,
@@ -193,6 +193,12 @@
    "passed": 1,
    "run": "runs/2026-10-27-10.json",
    "tested": 1
+  },
+  {
+   "at": "2026-10-28T10:51:51Z",
+   "passed": 1,
+   "run": "runs/2026-10-28-10.json",
+   "tested": 1
   }
  ],
  "facts": [
@@ -218,26 +224,26 @@
   "[2026-10-20] [2026-10-20] PLAIN-TIGHT mc>10000 vs mc>15000: 72h set identical (n=409) - with buyers>=25 and vol>5x entries are already above 15k; mc lower bound is not a lever on plain pools either.",
   "[2026-10-25] [2026-10-25] swept_pct guard is inert on plain (NOT hooked) pools: 155 7d set identical (n=1032). Sweep guards only matter on hooked pools.",
   "[2026-10-27] 2026-10-27 forward test: ratio-5x fix on the out-of-sample 24h held (n=88 ev_lcb +0.41 vs live 152 +0.23) but dropped Nothing 122x and its cut slice (n=43) was 81% 2x+ (scalp-positive). Tail-heavy gain, not pure junk removal.",
-  "[2026-10-28] 2026-10-28 forward test day 2: ratio-5x fix LOST out of sample (24h n=119 ev_lcb -0.113 vs live 152 n=183 -0.031; the slice it cuts was ev_lcb +0.040). Out-of-sample record 1 win, 1 loss: treat the 7d DEPLOY ADVICE as weaker than it looks."
+  "[2026-10-28] 2026-10-28 forward test day 2: ratio-5x fix LOST out of sample (24h n=119 ev_lcb -0.113 vs live 152 n=183 -0.031; the slice it cuts was ev_lcb +0.040). Out-of-sample record 1 win, 1 loss: treat the 7d DEPLOY ADVICE as weaker than it looks.",
+  "[2026-10-28] 2026-10-28 152 <- c30-broad-ratio5 (buy_volume > 5x sell, was 4x). 7d n=768 ev_lcb +0.352 vs old -0.017; 72h n=314 2x+ 60.8% vs 51.4%. Forward record before deploy: 1 win, 1 loss. Watch: expect ~110 alerts/day, 2x+ ~60%; known cost: drops 4-5x-flow runners like Nothing 122x. Rollback = buy_volume_usd > 4 * sell_volume_usd."
  ],
  "queue": [],
  "slots": {
   "152": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": -0.017,
+    "ev_lcb": 0.3516,
     "hours": 168.0,
-    "n": 1460,
-    "source": "2026-10-27T10:50:10Z"
+    "n": 768,
+    "source": "2026-10-28T10:54:00Z"
    },
-   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 4 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)",
-   "deployed_at": "2026-10-14T12:16:07Z",
-   "failures": 1,
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)",
+   "deployed_at": "2026-10-28T10:54:00Z",
+   "failures": 0,
    "family": "plain_broad",
    "params": {},
    "preds": [],
-   "previous_condition": "see alerts.yaml (AVALANCHE + cheap-graduate bundle); not mutated by the agent",
-   "previous_condition_note": "AVALANCHE (pons_v2 + cheap-graduate bundle) in alerts.yaml + RH filter_history; failed gates twice (ev_lcb -0.351)"
+   "previous_condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 4 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)"
   },
   "154": {
    "alarms": 0,
@@ -422,9 +428,9 @@
   "d950f901ac38": {
    "arm": "queue:plain_broad_ratio5",
    "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)",
-   "date": "2026-10-27T12:39:57Z",
-   "ev_lcb": 0.382,
-   "n": 753,
+   "date": "2026-10-28T10:51:51Z",
+   "ev_lcb": 0.3516,
+   "n": 768,
    "pass": true,
    "slot": "152"
   },
@@ -456,6 +462,6 @@
    "slot": "154"
   }
  },
- "updated": "2026-10-28T07:08:24Z",
+ "updated": "2026-10-28T10:54:00Z",
  "version": 1
 }

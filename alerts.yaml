@@ -4172,3 +4172,31 @@ alert2:
 #   in-sample windows. Recommendation downgraded from "deploy" to "hold and keep
 #   testing": no evidence it is a reliable improvement out of sample.
 #   RH backtests: 3. Solana: 0 (connector down).
+
+# STRATEGY AGENT CYCLE 30 (2026-10-28 10:50 UTC): *** DEPLOYED 152 <- c30-broad-ratio5 ***
+#   Health: 152 72h n=568, 2x+ 51.4%, 10x+ 61, PostATH 8.8%, ev +0.043 / ev_lcb -0.040
+#     (no alarm). 155 72h n=379, 2x+ 62.5%, ev +0.109 / ev_lcb +0.057 (ok). 154 not
+#     re-run (7d n=6 yesterday).
+#   Challenger c30-broad-ratio5 (same as live 152 but buy_volume_usd > 5x sell):
+#     7d n=768, 2x+ 63.0%, 10x+ 160, 20x+ 73, 50x+ 5, PostATH 2.7%;
+#     72h n=314, 2x+ 60.8%, 10x+ 55, 20x+ 27, PostATH 5.1%.
+#     ledger eval: ev_lcb +0.352 vs champion -0.017 (baseline 10-27) -> DEPLOY ADVICE.
+#   Caveat logged before deploying: out-of-sample record 1 win (10-27) / 1 loss
+#   (10-28); the 7d window includes the losing day and the fix still wins.
+#   update_filter_condition(152) -> saved:true (approved). list_filters confirms
+#   the new condition live (edits 6). Name unchanged (still accurate).
+#   OLD CONDITION (rollback):
+#     launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND
+#     buy_volume_usd > 4 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000
+#     AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 *
+#     sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)
+#   NEW CONDITION:
+#     launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND
+#     buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000
+#     AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 *
+#     sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)
+#   PREDICTION: ~110 alerts/day (was ~180-210), 2x+ ~60%, PostATH ~3-5%.
+#     Known cost: drops runners entered at 4-5x flow (e.g. Nothing 122x on 10-26).
+#     Roll back if the next two 72h watches alarm, or if live 2x+ falls below the
+#     old filter's on the same window.
+#   memory.json: adopted (baseline 7d n=768 ev_lcb +0.352). RH backtests: 4.
