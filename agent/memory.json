@@ -217,7 +217,8 @@
   "[2026-10-20] [2026-10-20] 154 HOOKED-VERIFIED raised to mc > 30000 (c11-hooked-mc30k, 14d n=36 ev_lcb +4.93 vs +1.91). Rollback: mc > 8000. Watch: live rate should fall to ~1-3/day; alarm if 7d ev_lcb < 0.",
   "[2026-10-20] [2026-10-20] PLAIN-TIGHT mc>10000 vs mc>15000: 72h set identical (n=409) - with buyers>=25 and vol>5x entries are already above 15k; mc lower bound is not a lever on plain pools either.",
   "[2026-10-25] [2026-10-25] swept_pct guard is inert on plain (NOT hooked) pools: 155 7d set identical (n=1032). Sweep guards only matter on hooked pools.",
-  "[2026-10-27] 2026-10-27 forward test: ratio-5x fix on the out-of-sample 24h held (n=88 ev_lcb +0.41 vs live 152 +0.23) but dropped Nothing 122x and its cut slice (n=43) was 81% 2x+ (scalp-positive). Tail-heavy gain, not pure junk removal."
+  "[2026-10-27] 2026-10-27 forward test: ratio-5x fix on the out-of-sample 24h held (n=88 ev_lcb +0.41 vs live 152 +0.23) but dropped Nothing 122x and its cut slice (n=43) was 81% 2x+ (scalp-positive). Tail-heavy gain, not pure junk removal.",
+  "[2026-10-28] 2026-10-28 forward test day 2: ratio-5x fix LOST out of sample (24h n=119 ev_lcb -0.113 vs live 152 n=183 -0.031; the slice it cuts was ev_lcb +0.040). Out-of-sample record 1 win, 1 loss: treat the 7d DEPLOY ADVICE as weaker than it looks."
  ],
  "queue": [],
  "slots": {
@@ -455,6 +456,6 @@
    "slot": "154"
   }
  },
- "updated": "2026-10-28T06:33:12Z",
+ "updated": "2026-10-28T07:08:24Z",
  "version": 1
 }

@@ -4146,3 +4146,29 @@ alert2:
 #   RH backtests: 1.
 # 6H REVIEW 2026-10-28 06:32 UTC (Solana): SKIPPED - defirobot connector needs
 #   re-authorization. No changes.
+
+# DAILY-OPS 2026-10-28 07:07 UTC
+# 1) Fill scorecard: SKIPPED - defirobot (Solana) connector needs re-authorization.
+#   Last known (10-27 12:39): filter 1 inactive, auto-buy off, no positions.
+# 2) RH top-10 (24h): Robotaxi 300x ($1.2k launch, 1,036 buyers), EDS 193x,
+#   SLOPINU 144x (round-trip to 0.8x), SODI 117x (graduated pons), ILLEGAL 98x,
+#   OWED 98x ($600 launch), SOTTO 83x (graduated), PT 72x, PANGR 61x ($600),
+#   REBATE 59x (round-trip to 1x).
+#   CAUGHT: 0 of 10 by address. 152 caught same-name siblings instead: ROBOTAXI
+#   (other address) 18.6x and three SODI addresses (14.7x / 10.6x / 10.6x).
+#   MISSED: SODI / SOTTO (graduated pons, excluded venue); SLOPINU / REBATE (full
+#   round-trips, correct misses); OWED / PANGR ($600 serial-deployer pattern);
+#   Robotaxi / EDS / ILLEGAL / PT - walls not attributed this run (no entry
+#   snapshot pulled).
+#   152 24h: n=183, 2x+ 57.4%, 10x+ 17, 20x+ 6, best WIN 40.7x, ASIMOV 37.1x
+#   (3 ASIMOV addresses caught: 37x / 19x / 19x).
+# 3) Watchlist: SODI (4 addresses), ASIMOV (3), ROBOTAXI/Robotaxi (2).
+# 4) EXPERIMENT - forward test day 2 of the 152 fix (c27-broad-ratio5), 24h:
+#     live 152: n=183, 2x+ 57.4%, 10x+ 17, ev +0.045 / ev_lcb -0.031
+#     ratio-5x: n=119, 2x+ 52.1%, 10x+ 14, PostATH 6.7%, ev -0.021 / ev_lcb -0.113
+#     cut slice: n=64, 2x+ 67%, 10x+ 3, ev_lcb +0.040
+#   Verdict: the fix LOST today. Out-of-sample record is now 1 win (10-27,
+#   +0.18 ev_lcb) and 1 loss (10-28, -0.08). It still wins on the 72h / 7d
+#   in-sample windows. Recommendation downgraded from "deploy" to "hold and keep
+#   testing": no evidence it is a reliable improvement out of sample.
+#   RH backtests: 3. Solana: 0 (connector down).
