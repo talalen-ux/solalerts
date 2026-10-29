@@ -4228,3 +4228,6 @@ alert2:
 #   155 72h n=241, 2x+ 64.3%, 10x+ 22, PostATH 2.1% (see watch line).
 #   No challenger tested: 152 is inside its 24h lock (deployed 10-28 10:50); the
 #   open candidates were screened out last cycle. RH backtests: 2.
+
+# 6H REVIEW 2026-10-29 06:32 UTC (Solana): SKIPPED - defirobot connector still needs
+#   re-authorization (6th review in a row). No changes.
