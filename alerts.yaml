@@ -4217,3 +4217,6 @@ alert2:
 #     45k) and mc is not a lever on plain pools; three 154 tightenings cannot reach
 #     n >= 30 (14d n=36). 152 is locked for 24h after today's deploy.
 #   RH backtests: 2.
+
+# 6H REVIEW 2026-10-29 00:32 UTC (Solana): SKIPPED - defirobot connector still needs
+#   re-authorization (5th review in a row). No changes.
