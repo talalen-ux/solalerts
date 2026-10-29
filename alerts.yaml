@@ -4276,3 +4276,6 @@ alert2:
 #   cannot cover. Candidates for the slot: the guarded hooked-verified variant
 #   (63d n=70, ev_lcb +5.43, pending user decision) or a pons stream. Logged for
 #   the user; no change. RH backtests: 3.
+
+# 6H REVIEW 2026-10-29 12:37 UTC (Solana): SKIPPED - defirobot connector still needs
+#   re-authorization (7th review in a row). No changes.
