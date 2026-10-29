@@ -226,7 +226,8 @@
   "[2026-10-27] 2026-10-27 forward test: ratio-5x fix on the out-of-sample 24h held (n=88 ev_lcb +0.41 vs live 152 +0.23) but dropped Nothing 122x and its cut slice (n=43) was 81% 2x+ (scalp-positive). Tail-heavy gain, not pure junk removal.",
   "[2026-10-28] 2026-10-28 forward test day 2: ratio-5x fix LOST out of sample (24h n=119 ev_lcb -0.113 vs live 152 n=183 -0.031; the slice it cuts was ev_lcb +0.040). Out-of-sample record 1 win, 1 loss: treat the 7d DEPLOY ADVICE as weaker than it looks.",
   "[2026-10-28] 2026-10-28 152 <- c30-broad-ratio5 (buy_volume > 5x sell, was 4x). 7d n=768 ev_lcb +0.352 vs old -0.017; 72h n=314 2x+ 60.8% vs 51.4%. Forward record before deploy: 1 win, 1 loss. Watch: expect ~110 alerts/day, 2x+ ~60%; known cost: drops 4-5x-flow runners like Nothing 122x. Rollback = buy_volume_usd > 4 * sell_volume_usd.",
-  "[2026-10-29] 2026-10-29: 152 and 155 are NOT a strict partition over time. A token can match 152 at an early snapshot (e.g. buyers < 25) and then 155 a few blocks later, so both alert (24h: CC x2, REBOT, Waddle, Fries, MULAN, WIN, Lowo in both top lists). Complement clauses only exclude simultaneous matches; measure real overlap before calling slots complementary."
+  "[2026-10-29] 2026-10-29: 152 and 155 are NOT a strict partition over time. A token can match 152 at an early snapshot (e.g. buyers < 25) and then 155 a few blocks later, so both alert (24h: CC x2, REBOT, Waddle, Fries, MULAN, WIN, Lowo in both top lists). Complement clauses only exclude simultaneous matches; measure real overlap before calling slots complementary.",
+  "[2026-10-29] 2026-10-29 overlap measured (72h, union backtest): 152 n=343, 155 n=242, union n=428 -> 157 tokens alerted by BOTH (65% of 155). 155-only slice n=85: 2x+ 58, 5x+ 7, 10x+ 0 (scalp_2 ev_lcb +0.07, ladders negative). 155 adds no 10x+ runner that 152 does not already catch (usually earlier and cheaper). Slot 155 is mostly a duplicate stream; a unique-coverage challenger (e.g. the guarded hooked variant or a pons stream) would use the slot better. Union backtest = cheap overlap metric: overlap = n(A) + n(B) - n(A OR B)."
  ],
  "queue": [],
  "slots": {
@@ -463,6 +464,6 @@
    "slot": "154"
   }
  },
- "updated": "2026-10-29T07:14:43Z",
+ "updated": "2026-10-29T10:50:18Z",
  "version": 1
 }

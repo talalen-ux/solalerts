@@ -4260,3 +4260,19 @@ alert2:
 #   test a 152 guard that stays out of the 25-buyer / $45k tight zone for good
 #   (e.g. mc > 45000 OR buyers < 25 is not enough - needs a design pass).
 #   RH backtests: 3. Solana: 0 (connector down).
+
+# STRATEGY AGENT CYCLE 33 (2026-10-29 10:49 UTC): health + overlap measurement, no deployment.
+#   152 72h n=343, 2x+ 62.1%, 10x+ 56, 20x+ 18, PostATH 4.4%, ev +0.295 / ev_lcb +0.165 (ok).
+#   155 72h n=242, 2x+ 62.8%, 10x+ 23, 20x+ 5, PostATH 2.5%, ev +0.112 / ev_lcb +0.047 (ok).
+#   OVERLAP (backlog item from today's daily ops), via one union backtest
+#   (152 OR 155, 72h): n=428 -> 343 + 242 - 428 = 157 tokens alerted by BOTH.
+#     That is 65% of 155's alerts (~52 duplicate alerts/day).
+#     Union 10x+ = 56 = 152's 10x+ count; union 20x+ = 18 = 152's: 155 adds no
+#     10x+ runner that 152 misses (152 usually alerts earlier and cheaper).
+#     155-only slice: n=85, 2x+ 58 (68%), 3x+ 41, 5x+ 7, 10x+ 0
+#     -> scalp_2 ev_lcb +0.07, every ladder policy negative.
+#   Verdict: slot 155 is mostly a duplicate stream. Not a playbook trigger (155
+#   still passes its health check), but the slot would add more as a stream 152
+#   cannot cover. Candidates for the slot: the guarded hooked-verified variant
+#   (63d n=70, ev_lcb +5.43, pending user decision) or a pons stream. Logged for
+#   the user; no change. RH backtests: 3.
