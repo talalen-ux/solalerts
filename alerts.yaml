@@ -4282,3 +4282,10 @@ alert2:
 
 # 6H REVIEW 2026-10-29 18:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (8th review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 34 (2026-10-29 18:48 UTC): health only, no deployment.
+#   152 72h n=346, 2x+ 63.0%, 10x+ 51, 20x+ 18, PostATH 3.8%, ev +0.264 / ev_lcb +0.138 (ok).
+#   155 72h n=227, 2x+ 63.9%, 10x+ 25, PostATH 2.6%, ev +0.125 / ev_lcb +0.059 (ok).
+#   No challenger: 155's open question is a slot-purpose change (65% duplicate of
+#   152), which waits for the user; no 152/154 candidate is queued. RH backtests: 2.
+#   Solana reviews still skipped (defirobot needs re-authorization).
