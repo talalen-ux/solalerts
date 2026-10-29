@@ -4231,3 +4231,32 @@ alert2:
 
 # 6H REVIEW 2026-10-29 06:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (6th review in a row). No changes.
+
+# DAILY-OPS 2026-10-29 07:13 UTC
+# 1) Fill scorecard: SKIPPED - defirobot (Solana) connector needs re-authorization
+#   (since 10-28 00:33). Last known: filter 1 inactive, auto-buy off, no positions.
+# 2) RH top-10 (24h): PIZZA 234x ($14.1k launch, 7,920 buyers), Mob 96x, PULSE 83x
+#   (round-trip to 2.3x), sockets 73x (graduated), ROBINHOOD 65x, MICROTENEV 58x,
+#   KILLFLOOR 55x (graduated), ROBINHOOD #2 54x, TINY 54x (29 buyers), REBOT 49x
+#   (graduated, round-trip to 1x).
+#   CAUGHT (2 of 10): ROBINHOOD by 152 at $19.8k (39.1x); MICROTENEV by 155 at
+#   $15.0k (9.5x). 152 also caught a third ROBINHOOD address (19.5x) and another
+#   REBOT address (13.3x).
+#   MISSED: sockets / KILLFLOOR / REBOT (graduated pons, excluded venue); PULSE
+#   (round-trip); TINY (29 buyers, $1k launch); PIZZA / Mob / ROBINHOOD #2 - walls
+#   not attributed (no entry snapshot pulled).
+# 3) Watchlist: ROBINHOOD (3+ addresses: 65x / 54x / 39x caught / 19.5x caught),
+#   REBOT (2), CC (2), WIN (2), FRIES/Fries (2), sockets (2).
+# 4) EXPERIMENT - first full live day of the new 152 (5x) vs the old 152 (4x) on the
+#   same 24h window:
+#     new: n=133, 2x+ 65.4%, 10x+ 21, 20x+ 3, PostATH 3.0%, ev_lcb +0.097
+#     old: n=135, 2x+ 65.2%, 10x+ 21, 20x+ 3, PostATH 3.0%, ev_lcb +0.102
+#   Verdict: no drift and no difference today (few tokens sat between 4x and 5x
+#   flow). Rollback rule not triggered. 155 24h: n=55, 2x+ 65.5%, ev_lcb +0.072.
+#   FINDING: 152 and 155 overlap in time. A token can match 152 early (e.g. under
+#   25 buyers) and 155 a few blocks later, so both alert: 8 of 155's top 10 were
+#   also in 152's list. The NOT clause only blocks simultaneous matches.
+#   BACKLOG: measure true overlap (shared addresses / 155 alerts) on 72h; if large,
+#   test a 152 guard that stays out of the 25-buyer / $45k tight zone for good
+#   (e.g. mc > 45000 OR buyers < 25 is not enough - needs a design pass).
+#   RH backtests: 3. Solana: 0 (connector down).

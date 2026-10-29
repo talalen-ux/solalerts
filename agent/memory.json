@@ -225,7 +225,8 @@
   "[2026-10-25] [2026-10-25] swept_pct guard is inert on plain (NOT hooked) pools: 155 7d set identical (n=1032). Sweep guards only matter on hooked pools.",
   "[2026-10-27] 2026-10-27 forward test: ratio-5x fix on the out-of-sample 24h held (n=88 ev_lcb +0.41 vs live 152 +0.23) but dropped Nothing 122x and its cut slice (n=43) was 81% 2x+ (scalp-positive). Tail-heavy gain, not pure junk removal.",
   "[2026-10-28] 2026-10-28 forward test day 2: ratio-5x fix LOST out of sample (24h n=119 ev_lcb -0.113 vs live 152 n=183 -0.031; the slice it cuts was ev_lcb +0.040). Out-of-sample record 1 win, 1 loss: treat the 7d DEPLOY ADVICE as weaker than it looks.",
-  "[2026-10-28] 2026-10-28 152 <- c30-broad-ratio5 (buy_volume > 5x sell, was 4x). 7d n=768 ev_lcb +0.352 vs old -0.017; 72h n=314 2x+ 60.8% vs 51.4%. Forward record before deploy: 1 win, 1 loss. Watch: expect ~110 alerts/day, 2x+ ~60%; known cost: drops 4-5x-flow runners like Nothing 122x. Rollback = buy_volume_usd > 4 * sell_volume_usd."
+  "[2026-10-28] 2026-10-28 152 <- c30-broad-ratio5 (buy_volume > 5x sell, was 4x). 7d n=768 ev_lcb +0.352 vs old -0.017; 72h n=314 2x+ 60.8% vs 51.4%. Forward record before deploy: 1 win, 1 loss. Watch: expect ~110 alerts/day, 2x+ ~60%; known cost: drops 4-5x-flow runners like Nothing 122x. Rollback = buy_volume_usd > 4 * sell_volume_usd.",
+  "[2026-10-29] 2026-10-29: 152 and 155 are NOT a strict partition over time. A token can match 152 at an early snapshot (e.g. buyers < 25) and then 155 a few blocks later, so both alert (24h: CC x2, REBOT, Waddle, Fries, MULAN, WIN, Lowo in both top lists). Complement clauses only exclude simultaneous matches; measure real overlap before calling slots complementary."
  ],
  "queue": [],
  "slots": {
@@ -462,6 +463,6 @@
    "slot": "154"
   }
  },
- "updated": "2026-10-29T02:48:01Z",
+ "updated": "2026-10-29T07:14:43Z",
  "version": 1
 }
