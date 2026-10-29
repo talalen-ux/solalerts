@@ -4220,3 +4220,11 @@ alert2:
 
 # 6H REVIEW 2026-10-29 00:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (5th review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 32 (2026-10-29 02:47 UTC): health only, no deployment.
+#   list_filters: conditions unchanged. 152 live sent 95 alerts in its first ~16h on
+#   the new condition (prediction ~110/day). 154 sent 4 in 24h.
+#   152 72h n=329, 2x+ 63.5%, 10x+ 52, 20x+ 18, PostATH 4.0% (see watch line).
+#   155 72h n=241, 2x+ 64.3%, 10x+ 22, PostATH 2.1% (see watch line).
+#   No challenger tested: 152 is inside its 24h lock (deployed 10-28 10:50); the
+#   open candidates were screened out last cycle. RH backtests: 2.
