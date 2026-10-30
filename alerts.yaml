@@ -4312,3 +4312,26 @@ alert2:
 
 # 6H REVIEW 2026-10-30 06:33 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (10th review in a row). No changes.
+
+# DAILY-OPS 2026-10-30 07:07 UTC
+# 1) Fill scorecard: SKIPPED - defirobot (Solana) connector needs re-authorization.
+# 2) RH top-10 (24h): WOFL 251x (graduated pons), PULSE 241x (30 buyers, $427
+#   launch), OV 115x (1.3h old), WAGIE 86x, OREN 84x (round-trip to 1x), Wall Street
+#   61x, NOCTR 57x (graduated), WOFL #2 51x (round-trip to 1x), GLMT 48x ($22k
+#   launch, 1.5h old), SCRIP 46x.
+#   CAUGHT (2 of 10 by address): WAGIE by 152 at $25k (48.0x) and 155 at $29k
+#   (41.2x); WOFL #2 by 152 at $21k (28.3x) and 155 (18.3x). Siblings caught: OV
+#   (other address) 20.1x, WOFL (two other addresses) 26.1x / 9.2x, NOCTR (two other
+#   addresses) 11.2x / 7.4x.
+#   MISSED: WOFL #1 / NOCTR (graduated pons); PULSE (30 buyers); OREN (round-trip);
+#   OV / Wall Street / GLMT / SCRIP - not attributed (entry snapshots unavailable:
+#   downloads are blocked by the session proxy).
+# 3) Watchlist: WOFL (4 addresses: 251x / 51x / 26x / 9x), NOCTR (3), OV (2).
+# 4) EXPERIMENT - new 152 (5x) vs old 152 (4x), same 24h (rollback check, day 2):
+#     new: n=109, 2x+ 67.9%, 10x+ 10, 20x+ 6, PostATH 1.8%, ev_lcb (see run file)
+#     old: n=109 - identical set.
+#   Two days running the 4x-5x flow band has been empty (10-29: 133 vs 135). The
+#   two versions now behave the same; the 5x change only matters on busy days
+#   (10-27/28 it cut 30-35%). Rollback rule not triggered.
+#   155 24h: n=53, 2x+ 67.9%, 10x+ 5.
+#   RH backtests: 3. Solana: 0 (connector down).
