@@ -4335,3 +4335,10 @@ alert2:
 #   (10-27/28 it cut 30-35%). Rollback rule not triggered.
 #   155 24h: n=53, 2x+ 67.9%, 10x+ 5.
 #   RH backtests: 3. Solana: 0 (connector down).
+
+# STRATEGY AGENT CYCLE 36 (2026-10-30 10:48 UTC): health only, no deployment.
+#   152 72h n=364, 2x+ 60.7%, 10x+ 46, 20x+ 16, PostATH 3.8%, ev +0.176 / ev_lcb +0.059 (ok).
+#   155 72h n=217, 2x+ 60.4%, 10x+ 22, PostATH 2.3%, ev +0.082 / ev_lcb +0.013 (ok).
+#   Trend: both slots sliding (152 ev_lcb +0.21 -> +0.14 -> +0.08 -> +0.06 over
+#   10-28..10-30; 155 +0.06 -> +0.01) as the strong 10-26/27 days leave the 72h
+#   window. Still positive, no alarm. No challenger queued. RH backtests: 2.
