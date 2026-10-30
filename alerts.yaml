@@ -4342,3 +4342,6 @@ alert2:
 #   Trend: both slots sliding (152 ev_lcb +0.21 -> +0.14 -> +0.08 -> +0.06 over
 #   10-28..10-30; 155 +0.06 -> +0.01) as the strong 10-26/27 days leave the 72h
 #   window. Still positive, no alarm. No challenger queued. RH backtests: 2.
+
+# 6H REVIEW 2026-10-30 12:33 UTC (Solana): SKIPPED - defirobot connector still needs
+#   re-authorization (11th review in a row). No changes.
