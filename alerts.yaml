@@ -4292,3 +4292,20 @@ alert2:
 
 # 6H REVIEW 2026-10-30 00:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (9th review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 35 (2026-10-30 02:48 UTC): health + 7th-cycle self-check, no deployment.
+#   152 72h n=362, 2x+ 61.6%, 10x+ 47, 20x+ 15, 50x+ 0, PostATH 3.9%,
+#     ev +0.194 / ev_lcb +0.076 (ok; drifting down from +0.21 on 10-28 as the
+#     72h window loses the strong 10-26/27 days - watch).
+#   155 72h n=219, 2x+ 62.6%, 10x+ 21, PostATH 2.7%, ev +0.109 / ev_lcb +0.041 (ok).
+#   SELF-IMPROVEMENT:
+#     Arm review: no arm has >= 8 tests -> nothing retired. Best arm
+#       queue:plain_broad_ratio5 (4 tests, 4 wins).
+#     Calibration: BLOCKED. The full token list behind a backtest is only
+#       available as a download from mcp-rh.defirobot.org, and the session
+#       proxy refuses that host (403). The inline 'best calls' list is a
+#       survivorship-biased sample (top performers only), so simulating it would
+#       overstate realised returns. Not run; the score model is unchanged.
+#       Fix: allow mcp-rh.defirobot.org in the environment's network policy, or
+#       share real fills.
+#   RH backtests: 3 (one with a download link that could not be fetched).
