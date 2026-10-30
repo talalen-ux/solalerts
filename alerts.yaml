@@ -4309,3 +4309,6 @@ alert2:
 #       Fix: allow mcp-rh.defirobot.org in the environment's network policy, or
 #       share real fills.
 #   RH backtests: 3 (one with a download link that could not be fetched).
+
+# 6H REVIEW 2026-10-30 06:33 UTC (Solana): SKIPPED - defirobot connector still needs
+#   re-authorization (10th review in a row). No changes.
