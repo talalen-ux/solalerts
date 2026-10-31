@@ -4363,3 +4363,6 @@ alert2:
 #     New runners: APP 49.9x (entry $19.9k), TYGR 44.1x (entry $15.7k).
 #   155 72h n=186, 2x+ 64.0%, 10x+ 26, PostATH 2.7%, ev +0.294 / ev_lcb +0.127 (ok).
 #   Both recovered from the 10-30 dip. No challenger queued. RH backtests: 2.
+
+# 6H REVIEW 2026-10-31 06:32 UTC (Solana): SKIPPED - defirobot connector still needs
+#   re-authorization (14th review in a row). No changes.
