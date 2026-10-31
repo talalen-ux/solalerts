@@ -4391,3 +4391,8 @@ alert2:
 #   Also: all of 154's 100x+ tail dates from blocks 79-86M (3-4 weeks ago); its
 #   last 7 days had 6 alerts. The hooked-verified stream has gone quiet.
 #   RH backtests: 4. Solana: 0 (connector down).
+
+# STRATEGY AGENT CYCLE 39 (2026-10-31 10:47 UTC): health only, no deployment.
+#   152 72h n=346, 2x+ 68.8%, 10x+ 48, 20x+ 17, PostATH 2.0%, ev +0.340 / ev_lcb +0.215 (ok).
+#   155 72h n=179, 2x+ 69.3%, 10x+ 30, PostATH 1.7%, ev +0.443 / ev_lcb +0.263 (ok).
+#   No challenger queued. RH backtests: 2.
