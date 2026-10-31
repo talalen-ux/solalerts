@@ -4366,3 +4366,28 @@ alert2:
 
 # 6H REVIEW 2026-10-31 06:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (14th review in a row). No changes.
+
+# DAILY-OPS 2026-10-31 07:07 UTC
+# 1) Fill scorecard: SKIPPED - defirobot (Solana) connector needs re-authorization.
+# 2) RH top-10 (24h): APP 70x, WOFL 64x, AgenC 62x, Forever 60x ($24k launch,
+#   1,574 buyers, still 57x), TYGR 56x, SIB 56x (29 buyers), SPHINCS 53x, BOH 51x
+#   (graduated), CIRCLE 48x (26 buyers), TRADECRAFT 43x (25 buyers).
+#   CAUGHT (4 of 10): APP by 152 at $19.9k (49.9x) and 155 (35.4x); TYGR by 152 at
+#   $15.7k (44.1x); SPHINCS by 152 at $23.9k (36.4x) and 155 (29.7x); WOFL by 155
+#   at $15.2k (19.6x). NOTE: APP, TYGR, SPHINCS and WOFL have all round-tripped to
+#   ~0.5-1.0x since - the peaks were real but only an exit on the way up kept them.
+#   MISSED: BOH (graduated pons; 152 caught two other BOH addresses 22x / 9x);
+#   SIB / CIRCLE / TRADECRAFT (25-29 buyers from $1k launches - thin);
+#   AgenC (round-trip to 0.7x); Forever ($24k launch, holding 57x) - not
+#   attributed (entry snapshot download blocked). Forever is the one real miss.
+#   152 24h n=111, 2x+ 71.2%, PostATH 0%; 155 24h n=66, 2x+ 71.2%.
+# 3) Watchlist: WOFL (6+ addresses this week), BOH (3), SPHINCS (2: 36x / 30x),
+#   ASIMOV (again, 12x).
+# 4) EXPERIMENT - refresh the pending 154 guarded upgrade (user decision) on 30d:
+#     guarded: n=60, 2x+ 86.7%, 10x+ 41, 50x+ 32, 100x+ 21
+#     live 154: n=61, 2x+ 85.2%, 10x+ 41, 50x+ 32, 100x+ 21
+#   The guards now remove ONE sub-2x token in 30 days - effectively a no-op.
+#   Recommendation: drop it from the pending list (no harm either way).
+#   Also: all of 154's 100x+ tail dates from blocks 79-86M (3-4 weeks ago); its
+#   last 7 days had 6 alerts. The hooked-verified stream has gone quiet.
+#   RH backtests: 4. Solana: 0 (connector down).
