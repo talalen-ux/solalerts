@@ -4461,3 +4461,8 @@ alert2:
 #   UNTESTED: all Solana laws (connector down since 10-28).
 #   Next weekly review: 2026-11-08.
 #   RH backtests: 5. Solana: 0.
+
+# STRATEGY AGENT CYCLE 42 (2026-11-01 10:47 UTC): health only, no deployment.
+#   152 72h n=293, ev +0.443 / ev_lcb +0.301 (ok).
+#   155 72h n=182, ev +0.424 / ev_lcb +0.248 (ok).
+#   152 2x+ 68.9% 10x+ 49 PostATH 1.0%; 155 2x+ 69.8% 10x+ 29. No challenger queued. RH backtests: 2.
