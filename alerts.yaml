@@ -4408,3 +4408,6 @@ alert2:
 #     New: GTAVI 49.1x (entry $15.3k).
 #   155 72h n=203, 2x+ 71.4%, 10x+ 31, PostATH 1.0%, ev +0.408 / ev_lcb +0.243 (ok).
 #   No challenger queued. RH backtests: 2.
+
+# 6H REVIEW 2026-11-01 00:32 UTC (Solana): SKIPPED - defirobot connector still needs
+#   re-authorization (17th review in a row). No changes.
