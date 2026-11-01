@@ -4411,3 +4411,9 @@ alert2:
 
 # 6H REVIEW 2026-11-01 00:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (17th review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 41 (2026-11-01 02:47 UTC): health only, no deployment.
+#   152 72h n=293, 2x+ 69.6%, 10x+ 47, 20x+ 18, PostATH 1.4%, ev +0.426 / ev_lcb +0.285 (ok).
+#   155 72h n=180, 2x+ 70.6%, 10x+ 28, PostATH 1.1%, ev +0.415 / ev_lcb +0.240 (ok).
+#   154 7d n=8, 5 at 2x+, APE 47x, RETAIN 5x; ev +0.45 / ev_lcb -0.19 (n too small, ok).
+#   No challenger queued. RH backtests: 3.
