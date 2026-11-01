@@ -4420,3 +4420,44 @@ alert2:
 
 # 6H REVIEW 2026-11-01 06:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (18th review in a row). No changes.
+
+# DAILY-OPS 2026-11-01 07:06 UTC + WEEKLY LAW REVIEW (protocol day 42)
+# 1) Fill scorecard: SKIPPED - defirobot (Solana) connector needs re-authorization
+#   (down since 10-28 00:33; 18 reviews skipped).
+# 2) RH top-10 (24h): GTAVI 156x (now 0.5x), RETAIN 73x, ORIGO 66x (holding 24x),
+#   TINY 50x (26 buyers), Racket 48x (now 1x), ORIGO #2 46x (now 1x), MRC 41x (28
+#   buyers), VAMPCAT 38x (now 1x), SHRP 38x (graduated), CHAMPS 36x (29 buyers).
+#   CAUGHT (4 of 10 by address): GTAVI by 152 at $15.3k (49.1x); VAMPCAT at $28.3k
+#   (31.3x); Racket at $36.6k (29.3x); ORIGO #2 at $39.8k (26.1x). 152 also caught
+#   two more ORIGO addresses (22.4x / 18.7x). RETAIN (hooked) was alerted by 154 at
+#   $30.8k (5.0x).
+#   MISSED: TINY / MRC / CHAMPS (26-29 buyers from ~$1k launches - thin); SHRP
+#   (graduated pons); ORIGO #1 (66x, holding) - not attributed (download blocked).
+#   152 24h: n=68 (quiet Sunday), 2x+ 70.6%, 10x+ 22 (32%), ev_lcb +0.58.
+# 3) Watchlist: ORIGO (4 addresses in one day), WOFL, SPHINCS (3), BOH, ASIMOV.
+# 4) EXPERIMENT - response curve for 152's buy/sell ratio (protocol #2), 7d:
+#     4x (old, 10-27): n=1460, 2x+ 50.2%, ev_lcb -0.017
+#     5x (live):       n=741,  2x+ 64.9%, 10x+ 124, 20x+ 51, ev_lcb +0.281
+#     6x:              n=689,  2x+ 64.9%, 10x+ 117, 20x+ 50, ev_lcb +0.287
+#     slice 6x removes: n=52, 2x+ 65%, 10x+ 7 (same quality as kept), ev_lcb +0.003
+#   Verdict: curve is monotone and saturates at 5x - the live setting sits on the
+#   knee. 6x gains +0.006 (below the 0.05 margin). No change.
+# 5) WEEKLY STABILITY (168h):
+#   152: n=741 (~106/day, under the 150/day gate), 2x+ 64.9%, 10x+ 124, 20x+ 51,
+#        PostATH 3.4%, ev_lcb +0.281 (deploy baseline +0.352).
+#   155: n=649, 2x+ 65.0%, 10x+ 64, 50x+ 3, PostATH 1.2%, ev_lcb +0.101 (baseline +0.040).
+#   154: n=8 in 7d (APE 47x, RETAIN 5x) - quiet.
+# 6) WEEKLY LAW REVIEW (10-26..11-01):
+#   HELD: repeat-name law (ORIGO x4 in one day, WOFL x6+, ROBINHOOD x4, SODI x4,
+#     SPHINCS x3); regime dominates (#32: 152 72h ev_lcb -0.09 -> +0.29 in five days);
+#     round-trip law (GTAVI 156x, APP, TYGR, SPHINCS, Racket, VAMPCAT all back to
+#     ~1x within hours - exits must be taken on the way up); response-curve
+#     protocol #2 (ratio curve monotone, knee at 5x); graduated pons and
+#     serial-deployer factories stay excluded (1-3 per day in the top 10).
+#   BROKE: "complement clause = no duplicates" - 152 and 155 share 65% of 155's
+#     tokens over time (measured 10-29 via union backtest).
+#   NEW: zero-sell honeypot signature (10-27); hooked-verified stream gone quiet
+#     (154: 8 alerts/week, 100x+ tail 3-4 weeks old).
+#   UNTESTED: all Solana laws (connector down since 10-28).
+#   Next weekly review: 2026-11-08.
+#   RH backtests: 5. Solana: 0.
