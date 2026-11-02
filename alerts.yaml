@@ -4509,3 +4509,12 @@ alert2:
 #   the 0.05 deploy margin. Queued for the strategy agent (q-broad-buyers10) so the
 #   gate decides with a 72h recent check; expected verdict: below margin.
 #   RH backtests: 5. Solana: 0.
+
+# STRATEGY AGENT CYCLE 45 (2026-11-02 10:48 UTC): health + queued test, no deployment.
+#   152 72h n=272, 2x+ 71.3%, 10x+ 57 (21.0%), 20x+ 19, PostATH 1.5%, ev +0.582 / ev_lcb +0.425 (ok).
+#   155 72h n=175, 2x+ 71.4%, 10x+ 32, PostATH 0.6%, ev +0.484 / ev_lcb +0.298 (ok).
+#   TESTED q-broad-buyers10 (152 with buyers >= 10, from today's daily-ops curve):
+#     7d n=729, 2x+ 66.5%, 10x+ 128, 100x+ 1 (Nothing 153.7x); 72h n=273 (live 272).
+#     ledger eval: ev_lcb +0.315 vs required +0.402 (champion +0.352 + 0.05) -> FAIL.
+#     On the recent 72h the two sets are near-identical (273 vs 272); the gain is
+#     one old tail token. Arm recorded; queue cleared. RH backtests: 4.
