@@ -4485,3 +4485,6 @@ alert2:
 #   152 72h n=261, ev +0.564 / ev_lcb +0.404 (ok).
 #   155 72h n=177, ev +0.450 / ev_lcb +0.267 (ok).
 #   152 2x+ 70.1% 10x+ 54 (20.7%) PostATH 1.1%; 155 2x+ 70.1% 10x+ 31. No challenger queued. RH backtests: 2.
+
+# 6H REVIEW 2026-11-02 06:32 UTC (Solana): SKIPPED - defirobot connector still needs
+#   re-authorization (22nd review in a row). No changes.
