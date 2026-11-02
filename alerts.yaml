@@ -4488,3 +4488,24 @@ alert2:
 
 # 6H REVIEW 2026-11-02 06:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (22nd review in a row). No changes.
+
+# DAILY-OPS 2026-11-02 07:20 UTC
+# 1) Fill scorecard: SKIPPED - defirobot (Solana) connector needs re-authorization.
+# 2) RH top-10 (24h): WANDER 60x, WANDER #2 51x (graduated), BURSAR 48x, BURSAR #2
+#   45x (holding 40x), TrumpWars 44x (at ATH), PEACE 42x, BIAO 36x, ORIGO 34x, HF 31x,
+#   ORIGO #2 31x.
+#   CAUGHT 9 of 10 by address - all by 152: BURSAR 33.1x, WANDER 28.9x, TrumpWars
+#   28.6x, BIAO 27.5x, ORIGO 24.6x, BURSAR #2 23.0x, PEACE 21.9x, ORIGO #2 17.8x,
+#   HF 15.8x. Only miss: WANDER #2 (graduated pons, excluded venue). Best day yet.
+#   152 24h: n=90, 2x+ 66.7%, 10x+ 19, 20x+ 7, ev_lcb +0.26.
+# 3) Watchlist: ORIGO (6+ addresses in 3 days), WANDER (3), BURSAR (2), PEACE (2).
+# 4) EXPERIMENT - response curve for 152's buyers floor (protocol #2), same 7d window:
+#     buyers >= 20: n=185, 2x+ 58.9%, 10x+ 29,  ev_lcb +0.129
+#     buyers >= 15 (live): n=719, 2x+ 66.2%, 10x+ 124, 20x+ 45, ev_lcb +0.300
+#     buyers >= 10: n=728, 2x+ 66.6%, 10x+ 130, 20x+ 46, 100x+ 1, ev_lcb +0.326
+#   Raising the floor is clearly harmful (the 15-19 buyer band holds most early
+#   winners). Lowering to 10 adds 9 tokens and enters some runners earlier
+#   (Nothing 153.7x at $25.5k, which the live filter misses), +0.026 ev_lcb - below
+#   the 0.05 deploy margin. Queued for the strategy agent (q-broad-buyers10) so the
+#   gate decides with a 72h recent check; expected verdict: below margin.
+#   RH backtests: 5. Solana: 0.
