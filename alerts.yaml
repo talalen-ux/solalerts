@@ -4534,3 +4534,6 @@ alert2:
 #     155: 7d n=461, 2x+ 67.5%, 10x+ 60, 100x+ 1 (LOBIN 132x) -> baseline ev_lcb +0.173
 #          (was +0.040 from 10-25).
 #   No challenger queued. RH backtests: 4.
+
+# 6H REVIEW 2026-11-03 00:32 UTC (Solana): SKIPPED - defirobot connector still needs
+#   re-authorization (25th review in a row). No changes.
