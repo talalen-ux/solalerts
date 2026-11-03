@@ -4545,3 +4545,39 @@ alert2:
 
 # 6H REVIEW 2026-11-03 06:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (26th review in a row). No changes.
+
+# DAILY-OPS 2026-11-03 07:07 UTC (logged late - session stalled after the diagnostics)
+# 1) Fill scorecard: SKIPPED - defirobot (Solana) connector needs re-authorization.
+# 2) RH top-10 (24h): ANT 709x ($2.5k launch, still 517x), WSM 435x (now 5.6x), SI
+#   430x (still 403x), BRAIN 161x (round-trip), BERBS 80x ($600 launch), MHD 65x
+#   (graduated pons), MHD #2 57x, EARP 52x (hooked, 2.4h old), HOPE 50x (round-trip),
+#   GOAT 40x.
+#   CAUGHT: GOAT only (152 at $46.6k, 9.7x). 152 24h: n=76, 2x+ 75.0%, 10x+ 11,
+#   PostATH 0% - a good day for the filter, but the giants were elsewhere.
+#   WALL ATTRIBUTION (diagnostic backtests, 24h, buyers >= 8, mc 15-200k):
+#     - ANT / SI / WSM / BRAIN / HOPE: not matched in ANY venue (plain uniswap_v4,
+#       hooked, pons_v2) inside the $15-200k band. They appear to have jumped
+#       through the band between snapshots (or before 8 buyers). No condition on
+#       entry-time columns could have caught them; a lower entry band would be
+#       needed. UNVERIFIED (token_history check not completed).
+#     - MHD #2 (plain): matched the loose plain set at $26.9k (29.3x) but not 152
+#       -> blocked by 152's flow (5x) or top_maker (<50) clause.
+#     - GOAT: loose plain set entered at $25.2k (17.9x) vs 152 at $46.6k (9.7x) -
+#       152's clauses delayed the entry.
+#     - EARP (hooked): matched the loose hooked set at $34.3k (36.3x); 154 missed it
+#       (likely round_trip_back < 0.9 or ratio < 2x).
+#     - MHD #1 (pons): pons set at $36.2k (20.1x) - pons stream stays excluded
+#       (pons 24h: n=128, 2x+ 12.5%, PostATH 47% - still a bad venue).
+#   NEW PATTERN: ~12 hooked tokens in 24h with near-identical ATH ($255-260k,
+#     9.3-9.9x from ~$26-27k) - looks like a templated farm (same seed, same
+#     ceiling). Backlog: confirm and add a guard if 154 starts matching them.
+# 3) Watchlist: WANDER (again), MHD (2), ORIGO, BURSAR.
+# 4) EXPERIMENT: the wall attribution above (5 diagnostic backtests). Backlog
+#   items: (a) earlier-entry band for plain pools (mc 8-15k) for the
+#   jump-through-the-band runners; (b) 152 flow/top_maker relaxation test for the
+#   MHD #2 / GOAT type.
+#   RH backtests: 5.
+
+# STRATEGY AGENT CYCLE 48 (2026-11-03 10:47 UTC): partial (session stalled).
+#   152 72h n=235, 2x+ 72.3%, 10x+ 58 (24.7%), 20x+ 17, PostATH 1.3% (see watch line).
+#   155 not re-run this cycle. No challenger. RH backtests: 1.
