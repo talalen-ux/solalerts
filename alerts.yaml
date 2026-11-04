@@ -4606,3 +4606,25 @@ alert2:
 
 # 6H REVIEW 2026-11-04 06:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (30th review in a row). No changes.
+
+# DAILY-OPS 2026-11-04 07:09 UTC
+# 1) Fill scorecard: SKIPPED - defirobot (Solana) connector needs re-authorization.
+# 2) RH top-10 (24h): LIBBING 147x (2.8h, $4.6k launch, holding 68x), ATLAS 105x
+#   (holding 73x), OXUS 74x (round-trip), CMELT 73x ($25k launch, holding 40x),
+#   MAMESUKE 51x (round-trip), TIDEHOOK 50x (round-trip), ATLAS #2 43x (graduated),
+#   callcat 37x, KATO 34x (round-trip), FULL 33x (round-trip).
+#   CAUGHT (4 of 10 by address, all by 152): ATLAS at $16.7k (40.9x), TIDEHOOK at
+#   $21.1k (37.4x), FULL at $21.6k (24.3x), callcat at $18.9k (23.6x). Siblings:
+#   LIBBING (other address) 10.2x, MAMESUKE (other) 11.0x, MHD (other) 13.8x.
+#   MISSED: ATLAS #2 (graduated pons); OXUS / MAMESUKE / KATO (round-trips - most
+#   would have been exits on the way up anyway); LIBBING #1 (2.8h old - may still
+#   alert) and CMELT ($25k launch, holding 40x) - not attributed (no entry data).
+#   152 24h: n=96, 2x+ 63.5%, 10x+ 12, PostATH 7.3% (higher than usual).
+# 3) Watchlist: ATLAS (2), LIBBING (2), MAMESUKE (2), MHD (3 days running).
+# 4) EXPERIMENT - backlog item (a), earlier entry band for 152 (mc > 8000 vs 15000),
+#   same 7d window: n=684 vs 684 - IDENTICAL set. With buyers >= 15 and 5x flow, no
+#   plain-pool token qualifies below $15k, so the mc floor is not a lever (confirms
+#   the 10-16/10-20 fact). The jump-through-the-band runners (ANT/SI/WSM) cannot be
+#   reached by lowering mc alone - they would need a lower buyers floor AND lower
+#   mc together, which the buyers curve (11-02) says adds little. Item (a) closed.
+#   RH backtests: 3.
