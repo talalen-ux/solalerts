@@ -4692,3 +4692,36 @@ alert2:
 
 # 6H REVIEW 2026-11-05 18:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (36th review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 55 (2026-11-05 18:48 UTC): no deployment. Baselines refreshed.
+# 1) Health (live conditions equal memory):
+#     152 72h n=366, 2x+ 65.9%, 10x+ 49, PostATH 4.1%, ev +0.259 / ev_lcb +0.139 (ok)
+#     155 72h n=227, 2x+ 71.8%, 10x+ 29, PostATH 2.2%, ev +0.374 / ev_lcb +0.225 (ok)
+#   Baseline refresh (stale since 11-02; a stale baseline nearly misled this cycle, see 4):
+#     152 168h n=733 ev_lcb +0.288 pass | 155 168h n=461 ev_lcb +0.269 pass
+#     154 336h n=14 (was 36), 168h n=6, ev_lcb -0.211 -> FAILS n>=30 gate (failure 1 of 2).
+#     154 has nearly dried up: 0 alerts in 24h, 16 ever. Agent may not disable it.
+# 2) Learn (mooners 24h, 1 probe backtest): venue-only probe (plain v4, NOT hooked,
+#   mc 15k-100k, no other clauses) 24h: n=1072, 2x+ 46.4%, ev -0.092 / ev_lcb -0.122.
+#   152's clauses turn that venue from negative to +0.26 EV.
+#   PANGEA 57x: caught by 152 at $25.4k (36.7x) and 155 at $36.8k (25.3x).
+#   Kinetiq 44.7x (first in band $20.8k) and BARINA 38.8x (first in band $25.8k) are plain v4;
+#   whether 152 caught them is unknown (downloads still blocked).
+#   Harmonic 118x and HWF 77x never appear in the plain-v4 band -> hooked or another venue.
+#   GENT is graduated pons; RS 406x has a null mc (suspect).
+#   Watch: 11 of the venue's top 20 first appear at $23.8k-24.3k with no symbol
+#   (HWF also launched at $24.1k), which looks like a launch template.
+# 3-5) Candidates (candidates.py --k 4) and eval:
+#     154 mc_max 200k->400k: n=14/336h, identical to live 154 (no-op), fails n.
+#     155 + socials_count >= 1: 0 tokens in 7d. The column is dead on plain v4.
+#     155 + (untracked_sell_pct IS NULL OR < 10): 461/461, identical to live 155 in every
+#       bucket (no-op). Against the stale 11-02 baseline (0.173) it looked +0.097 better;
+#       against the same-window control it is +0.000. Recent window was inferred from
+#       the live 72h run because the clause is a proven no-op.
+#     154 + untracked guard / 154 buyers>=12: not run. Both are subsets of live 154
+#       (n<=14), so they cannot reach n>=30.
+#   ledger eval: NO DEPLOYMENT. Arms retired: plain_v4:pred:socials,
+#   plain_v4:pred:no_untracked, hooked_verified:mc_max:up.
+#   RH backtests this run: 10 (today ~15 of 50).
+# NEEDS USER: 154 will hit its 2nd gate failure at the next baseline refresh. Options are
+#   to repurpose slot 154 (or 155, a 65% duplicate of 152) or accept a near-silent slot.

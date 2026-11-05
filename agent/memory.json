@@ -5,6 +5,12 @@
    "tests": 1,
    "wins": 0
   },
+  "hooked_verified:mc_max:up": {
+   "retired": true,
+   "sum_delta": -5.141,
+   "tests": 1,
+   "wins": 0
+  },
   "hooked_verified:mc_min:up_30k": {
    "sum_delta": 5.9961,
    "tests": 2,
@@ -42,6 +48,18 @@
   },
   "plain_v4:pred:low_tax": {
    "sum_delta": -0.0178,
+   "tests": 1,
+   "wins": 0
+  },
+  "plain_v4:pred:no_untracked": {
+   "retired": true,
+   "sum_delta": 0.0,
+   "tests": 1,
+   "wins": 0
+  },
+  "plain_v4:pred:socials": {
+   "retired": true,
+   "sum_delta": 0.0,
    "tests": 1,
    "wins": 0
   },
@@ -210,6 +228,12 @@
    "passed": 0,
    "run": "runs/2026-11-02-10.json",
    "tested": 1
+  },
+  {
+   "at": "2026-11-05T18:52:28Z",
+   "passed": 0,
+   "run": "runs/2026-11-05-18.json",
+   "tested": 3
   }
  ],
  "facts": [
@@ -239,17 +263,19 @@
   "[2026-10-28] 2026-10-28 152 <- c30-broad-ratio5 (buy_volume > 5x sell, was 4x). 7d n=768 ev_lcb +0.352 vs old -0.017; 72h n=314 2x+ 60.8% vs 51.4%. Forward record before deploy: 1 win, 1 loss. Watch: expect ~110 alerts/day, 2x+ ~60%; known cost: drops 4-5x-flow runners like Nothing 122x. Rollback = buy_volume_usd > 4 * sell_volume_usd.",
   "[2026-10-29] 2026-10-29: 152 and 155 are NOT a strict partition over time. A token can match 152 at an early snapshot (e.g. buyers < 25) and then 155 a few blocks later, so both alert (24h: CC x2, REBOT, Waddle, Fries, MULAN, WIN, Lowo in both top lists). Complement clauses only exclude simultaneous matches; measure real overlap before calling slots complementary.",
   "[2026-10-29] 2026-10-29 overlap measured (72h, union backtest): 152 n=343, 155 n=242, union n=428 -> 157 tokens alerted by BOTH (65% of 155). 155-only slice n=85: 2x+ 58, 5x+ 7, 10x+ 0 (scalp_2 ev_lcb +0.07, ladders negative). 155 adds no 10x+ runner that 152 does not already catch (usually earlier and cheaper). Slot 155 is mostly a duplicate stream; a unique-coverage challenger (e.g. the guarded hooked variant or a pons stream) would use the slot better. Union backtest = cheap overlap metric: overlap = n(A) + n(B) - n(A OR B).",
-  "[2026-10-30] 2026-10-30 self-improvement cycle: no arm has >= 8 tests, so nothing retired. Calibration blocked: backtest/token_history file downloads (mcp-rh.defirobot.org) are refused by the session proxy (403), and the inline 'best' list is a survivorship-biased sample, unusable for calibration. Needs network access to that host, or user fills."
+  "[2026-10-30] 2026-10-30 self-improvement cycle: no arm has >= 8 tests, so nothing retired. Calibration blocked: backtest/token_history file downloads (mcp-rh.defirobot.org) are refused by the session proxy (403), and the inline 'best' list is a survivorship-biased sample, unusable for calibration. Needs network access to that host, or user fills.",
+  "[2026-11-05] c55: socials_count >= 1 matched 0 of the plain-v4 155 stream in 7d (column is dead there); (untracked_sell_pct IS NULL OR < 10) and 154 mc_max 200k->400k are exact no-ops (identical results). Arms retired. Always run the live slot on the same window as a control: a stale baseline made a no-op clause look like +0.097 ev_lcb.",
+  "[2026-11-05] c55: 154 has nearly dried up - 14 tokens/336h, 6/168h, 0 alerts in 24h (baseline was n=36). Restrictions of 154 can never reach n>=30; the sampler should not spend backtests on 154 subsets. 154 now fails the n>=30 gate (failure counter started). Agent may not disable it; repurposing 154 or 155 is the user's decision."
  ],
  "queue": [],
  "slots": {
   "152": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": 0.2932,
+    "ev_lcb": 0.2879,
     "hours": 168.0,
-    "n": 713,
-    "source": "2026-11-02T18:48:38Z"
+    "n": 733,
+    "source": "2026-11-05T18:52:18Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)",
    "deployed_at": "2026-10-28T10:54:00Z",
@@ -262,14 +288,14 @@
   "154": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": 4.9302,
+    "ev_lcb": -0.2108,
     "hours": 336.0,
-    "n": 36,
-    "source": "2026-10-20T12:33:53Z"
+    "n": 14,
+    "source": "2026-11-05T18:52:57Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 30000 AND mc < 200000",
    "deployed_at": "2026-10-20T12:33:53Z",
-   "failures": 0,
+   "failures": 1,
    "family": "hooked_verified",
    "params": {
     "buyers": 8,
@@ -285,10 +311,10 @@
   "155": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": 0.1725,
+    "ev_lcb": 0.2691,
     "hours": 168.0,
     "n": 461,
-    "source": "2026-11-02T18:48:38Z"
+    "source": "2026-11-05T18:52:18Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000",
    "failures": 0,
@@ -385,6 +411,15 @@
    "pass": false,
    "slot": "154"
   },
+  "8da0aac1e2a8": {
+   "arm": "plain_v4:pred:socials",
+   "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000 AND socials_count >= 1",
+   "date": "2026-11-05T18:52:28Z",
+   "ev_lcb": null,
+   "n": 0,
+   "pass": false,
+   "slot": "155"
+  },
   "9ee4be181f3f": {
    "arm": "plain_v4:pred:clean_dev",
    "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000 AND (dev_funder_devs IS NULL OR dev_funder_devs = 0)",
@@ -448,6 +483,15 @@
    "pass": false,
    "slot": "155"
   },
+  "d8bb6abed7c3": {
+   "arm": "hooked_verified:mc_max:up",
+   "cond": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 30000 AND mc < 400000",
+   "date": "2026-11-05T18:52:28Z",
+   "ev_lcb": -0.2108,
+   "n": 14,
+   "pass": false,
+   "slot": "154"
+  },
   "d950f901ac38": {
    "arm": "queue:plain_broad_ratio5",
    "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)",
@@ -483,8 +527,17 @@
    "n": 47,
    "pass": false,
    "slot": "154"
+  },
+  "f59a99a8d662": {
+   "arm": "plain_v4:pred:no_untracked",
+   "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000 AND (untracked_sell_pct IS NULL OR untracked_sell_pct < 10)",
+   "date": "2026-11-05T18:52:28Z",
+   "ev_lcb": 0.2691,
+   "n": 461,
+   "pass": false,
+   "slot": "155"
   }
  },
- "updated": "2026-11-05T10:49:28Z",
+ "updated": "2026-11-05T18:52:57Z",
  "version": 1
 }
