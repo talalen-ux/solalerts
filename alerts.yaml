@@ -4660,3 +4660,23 @@ alert2:
 #   before the health backtests. No changes.
 # 6H REVIEW 2026-11-05 06:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (34th review in a row). No changes.
+
+# DAILY-OPS 2026-11-05 07:07 UTC
+# 1) Fill scorecard: SKIPPED - defirobot (Solana) connector needs re-authorization.
+# 2) RH top-10 (24h): RS 406x ($60k launch, 39 buyers, current mc null - looks like a
+#   data artifact or unsellable token), Kitsu 123x (graduated pons), AMD 84x (round-trip
+#   to 7.5x), CUBE 80x (graduated), CPEEK 65x ($24.7k launch, holding 46x), GENT 62x
+#   (graduated), SIC 58x, SIC #2 47x (graduated), Kitsu #2 46x, LUTHEOS 41x (round-trip).
+#   CAUGHT (3 of 10, all by 152): SIC at $29.4k (33.6x), Kitsu #2 at $35.0k (32.6x),
+#   LUTHEOS at $31.3k (31.7x). Siblings: CUBE (other address) 22.3x, Kitsu (third
+#   address) 15.2x.
+#   MISSED: 4 graduated pons (excluded venue); RS (suspect data); AMD and CPEEK - not
+#   attributed (entry-snapshot download still blocked).
+#   152 24h: n=155, 2x+ 60.7%, 10x+ 21, PostATH 5.2%.
+# 3) Watchlist: Kitsu (3 addresses), SIC (2), CUBE (2), RURU (2 caught: 19.9x / 17.7x).
+# 4) EXPERIMENT - backlog item (b), relax 152's top_maker cap 50 -> 60, same 7d window:
+#     live (top < 50): n=705, 2x+ 67.4%, 10x+ 116, 20x+ 38
+#     top < 60:        n=707, 2x+ 67.3%, 10x+ 116, 20x+ 38
+#   Two extra tokens, identical tail - the cap is not binding. Not the wall that blocked
+#   MHD #2 / GOAT on 11-03; the 5x flow clause is. Item (b) closed for top_maker.
+#   RH backtests: 3.
