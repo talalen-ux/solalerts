@@ -123,3 +123,20 @@ def test_team_resolver():
     assert r.resolve("M'gladbach") == "Borussia Mönchengladbach"
     assert r.resolve("PSG") == "Paris Saint-Germain FC"
     assert norm_name("AFC Bournemouth") == "bournemouth"
+
+
+def test_team_news_adjustments():
+    from football import adjust
+    k = date(2026, 11, 8)
+    info = {"absences": [{"player": "X", "pos": "FW", "status": "out", "importance": "key"},
+                         {"player": "Y", "pos": "GK", "status": "doubtful", "importance": "key"},
+                         {"player": "Z", "pos": "DF", "status": "out", "importance": "rotation"}],
+            "europe_midweek": "2026-11-05 UEL"}
+    att, conc, why = adjust.team_factors(info, k)
+    assert att == pytest.approx(1 - 0.06 - 0.03)
+    assert conc == pytest.approx(1 + 0.03 + 0.01 + 0.02)
+    assert len(why) == 3
+    many = {"absences": [{"pos": "FW", "status": "out", "importance": "key"}] * 10}
+    assert adjust.team_factors(many, k)[0] == pytest.approx(0.85)
+    lam, mu, _, _ = adjust.adjusted_rates(1.5, 1.0, info, None, k)
+    assert lam == pytest.approx(1.5 * att) and mu == pytest.approx(1.0 * conc)

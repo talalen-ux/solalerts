@@ -35,6 +35,7 @@ class MatchPrediction:
     xg: tuple[float, float]
     probs: dict[str, float] = field(default_factory=dict)
     odds: dict[str, float] = field(default_factory=dict)
+    notes: dict = field(default_factory=dict)
 
     def __post_init__(self):
         if not self.probs:

@@ -152,7 +152,9 @@ class DixonColes:
 
     def score_matrix(self, home: str, away: str) -> np.ndarray:
         """P[i, j] = probability the match finishes home i - away j (0..MAX_GOALS)."""
-        lam, mu = self.expected_goals(home, away)
+        return self.matrix_from_rates(*self.expected_goals(home, away))
+
+    def matrix_from_rates(self, lam: float, mu: float) -> np.ndarray:
         k = np.arange(MAX_GOALS + 1)
         M = np.outer(_poisson_pmf(lam, k), _poisson_pmf(mu, k))
         M[0, 0] *= 1 - lam * mu * self.rho

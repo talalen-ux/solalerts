@@ -44,9 +44,14 @@ def _load(args):
     states = engine.load_and_fit(leagues, start, refresh=args.refresh, results_csv=args.results,
                                  xi=args.xi, ridge=args.ridge)
     _warn_stale(states, start)
+    news = None
+    if getattr(args, "news", None):
+        from .adjust import load_news
+        news = load_news(args.news.split(","))
+        print(f"Team news loaded for {len(news)} teams.", file=sys.stderr)
     preds = []
     for st in states.values():
-        preds += engine.predict(st, engine.upcoming(st, start, args.days))
+        preds += engine.predict(st, engine.upcoming(st, start, args.days), news)
     preds.sort(key=lambda p: (p.match.date, p.match.time, p.match.league))
     if getattr(args, "odds", None):
         used, problems = engine.attach_odds(preds, args.odds)
@@ -177,6 +182,7 @@ def main(argv=None) -> None:
         p.add_argument("--ridge", type=float, default=engine.DEFAULT_RIDGE, help="rating shrinkage")
         if window:
             p.add_argument("--days", type=int, default=7, help="window length in days")
+            p.add_argument("--news", help="team-news JSON file(s) or a directory of *_news.json")
 
     p = sub.add_parser("predict", help="probabilities for upcoming fixtures")
     common(p)

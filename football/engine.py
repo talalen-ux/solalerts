@@ -44,11 +44,20 @@ def upcoming(state: LeagueState, start: date, days: int) -> list[data.Match]:
                   key=lambda m: (m.date, m.time))
 
 
-def predict(state: LeagueState, fixtures: list[data.Match]) -> list[MatchPrediction]:
+def predict(state: LeagueState, fixtures: list[data.Match], news: dict | None = None) -> list[MatchPrediction]:
+    """Predictions; with `news` (see adjust.py) expected goals are adjusted for team news."""
+    from . import adjust
     out = []
     for m in fixtures:
-        out.append(MatchPrediction(m, state.model.score_matrix(m.home, m.away),
-                                   state.model.expected_goals(m.home, m.away)))
+        lam, mu = state.model.expected_goals(m.home, m.away)
+        notes = {}
+        if news:
+            base = (lam, mu)
+            lam, mu, hw, aw = adjust.adjusted_rates(lam, mu, news.get(m.home), news.get(m.away), m.date)
+            notes = {"base_xg": base, "home_news": hw, "away_news": aw}
+        p = MatchPrediction(m, state.model.matrix_from_rates(lam, mu), (lam, mu))
+        p.notes = notes
+        out.append(p)
     return out
 
 
