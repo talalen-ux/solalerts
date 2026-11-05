@@ -1,0 +1,22 @@
+home,away,selection,odds
+Paris Saint-Germain FC,ES Troyes AC,H,1.18
+Paris Saint-Germain FC,ES Troyes AC,D,7.50
+Paris Saint-Germain FC,ES Troyes AC,A,13.00
+Paris Saint-Germain FC,ES Troyes AC,O2.5,1.45
+Paris Saint-Germain FC,ES Troyes AC,U2.5,2.70
+Paris Saint-Germain FC,ES Troyes AC,H+O2.5,1.62
+Borussia Dortmund,SV 07 Elversberg,H,1.30
+Borussia Dortmund,SV 07 Elversberg,D,5.75
+Borussia Dortmund,SV 07 Elversberg,A,9.00
+Borussia Dortmund,SV 07 Elversberg,BTTS_Y,1.72
+Borussia Dortmund,SV 07 Elversberg,BTTS_N,2.05
+Sporting CP,Moreirense,H,1.22
+Sporting CP,Moreirense,D,6.50
+Sporting CP,Moreirense,A,13.00
+Sporting CP,Moreirense,O2.5,1.60
+Sporting CP,Moreirense,U2.5,2.30
+VfB Stuttgart,Werder Bremen,H,1.75
+VfB Stuttgart,Werder Bremen,D,4.00
+VfB Stuttgart,Werder Bremen,A,4.40
+VfB Stuttgart,Werder Bremen,O2.5,1.55
+VfB Stuttgart,Werder Bremen,U2.5,2.45
