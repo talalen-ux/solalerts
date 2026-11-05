@@ -14,8 +14,14 @@ from pathlib import Path
 from . import engine, markets
 from .adjust import load_news
 from .geo import distance_km
-from .leagues import LEAGUES
+from .leagues import LEAGUES, season_start_year
 from .parlay import build_parlays, candidate_legs
+
+# Main-line markets only: the model beat base rates on results (1X2 / double chance) and
+# these carry the lowest bookmaker margin. "Team scores 1+" and "no draw" legs are left out:
+# they add little information and books load their margin onto them.
+CARD_CODES = ["H", "A", "1X", "X2", "O1.5", "O2.5", "U2.5", "U3.5", "BTTS_Y", "BTTS_N",
+              "HO1.5", "AO1.5", "H_WTN", "A_WTN"]
 
 TIERS = [  # name, legs, min fair odds, sgp, note
     ("Banker double", 2, 1.6, False, "two strongest legs on the card"),
@@ -93,21 +99,22 @@ def main(argv=None):
             "km": round(km) if km is not None else None,
         })
 
+    season_start = date(season_start_year(a.start), 7, 1)
     tiers = []
-    used_first = set()
     for name, n, odds, sgp, note in TIERS:
-        legs = candidate_legs(preds, min_leg_prob=0.55, max_leg_prob=0.90, sgp=sgp)
+        legs = candidate_legs(preds, codes=CARD_CODES, min_leg_prob=0.55, max_leg_prob=0.90, sgp=sgp)
         ps = build_parlays(legs, n, mode="safe", top=3, min_fair_odds=odds)
         tiers.append({"name": name, "note": note, "legs_n": n, "target": odds,
                       "options": [{"prob": round(p.prob, 4), "fair": round(p.fair_odds, 2),
                                    "legs": [leg_json(l) for l in p.legs]} for p in ps]})
 
-    singles = sorted(candidate_legs(preds, min_leg_prob=0.60, max_leg_prob=0.92),
+    singles = sorted(candidate_legs(preds, codes=CARD_CODES, min_leg_prob=0.60, max_leg_prob=0.92),
                      key=lambda l: -l.prob)
     card = {"generated": date.today().isoformat(), "window": [a.start.isoformat(), a.days],
             "results_added": n_results, "teams_with_news": len(news),
             "last_result": {lg: str(st.last_result) for lg, st in states.items()},
-            "missing_before_window": {lg: sum(1 for m in st.matches if not m.played and m.date < a.start)
+            "missing_before_window": {lg: sum(1 for m in st.matches if not m.played
+                                              and season_start <= m.date < a.start)
                                       for lg, st in states.items()},
             "matches": matches, "tiers": tiers,
             "top_singles": [leg_json(l) for l in singles[:15]]}

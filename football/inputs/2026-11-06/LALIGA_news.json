@@ -1,0 +1,148 @@
+{
+ "league": "LALIGA",
+ "status": "UNVERIFIED - web search budget exhausted and WebFetch blocked for all hosts; no team news could be gathered. Empty arrays/nulls mean NOT RESEARCHED, not 'none'.",
+ "teams": {
+  "Athletic Club": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null,
+   "researched": false
+  },
+  "CA Osasuna": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null,
+   "researched": false
+  },
+  "Club Atlético de Madrid": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null,
+   "researched": false
+  },
+  "Deportivo Alavés": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null,
+   "researched": false
+  },
+  "Elche CF": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null,
+   "researched": false
+  },
+  "FC Barcelona": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null,
+   "researched": false
+  },
+  "Getafe CF": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null,
+   "researched": false
+  },
+  "Levante UD": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null,
+   "researched": false
+  },
+  "Málaga CF": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null,
+   "researched": false
+  },
+  "RC Celta de Vigo": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null,
+   "researched": false
+  },
+  "RC Deportivo La Coruña": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null,
+   "researched": false
+  },
+  "RCD Espanyol de Barcelona": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null,
+   "researched": false
+  },
+  "Rayo Vallecano de Madrid": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null,
+   "researched": false
+  },
+  "Real Betis Balompié": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null,
+   "researched": false
+  },
+  "Real Madrid CF": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null,
+   "researched": false
+  },
+  "Real Racing Club de Santander": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null,
+   "researched": false
+  },
+  "Real Sociedad de Fútbol": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null,
+   "researched": false
+  },
+  "Sevilla FC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null,
+   "researched": false
+  },
+  "Valencia CF": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null,
+   "researched": false
+  },
+  "Villarreal CF": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null,
+   "researched": false
+  }
+ },
+ "kickoffs": {},
+ "sources": []
+}

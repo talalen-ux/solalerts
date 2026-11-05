@@ -30,7 +30,8 @@ def _pct(p: float) -> str:
 def _warn_stale(states, start: date) -> None:
     gaps = []
     for lg, st in states.items():
-        missing = sum(1 for m in st.matches if not m.played and m.date < start)
+        season_start = date(start.year if start.month >= 7 else start.year - 1, 7, 1)
+        missing = sum(1 for m in st.matches if not m.played and season_start <= m.date < start)
         if missing:
             gaps.append(f"{lg} {missing} (last {st.last_result})")
     if gaps:

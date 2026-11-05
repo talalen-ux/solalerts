@@ -1,0 +1,128 @@
+{
+ "league": "EPL",
+ "status": "UNVERIFIED: no team-news research completed (web search budget exhausted, WebFetch blocked for all major hosts). Empty lists mean 'not researched', NOT 'no absences'.",
+ "teams": {
+  "AFC Bournemouth": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": "unverified",
+   "manager_change": "unverified"
+  },
+  "Arsenal FC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": "unverified",
+   "manager_change": "unverified"
+  },
+  "Aston Villa FC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": "unverified",
+   "manager_change": "unverified"
+  },
+  "Brentford FC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": "unverified",
+   "manager_change": "unverified"
+  },
+  "Brighton & Hove Albion FC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": "unverified",
+   "manager_change": "unverified"
+  },
+  "Chelsea FC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": "unverified",
+   "manager_change": "unverified"
+  },
+  "Coventry City FC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": "unverified",
+   "manager_change": "unverified"
+  },
+  "Crystal Palace FC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": "unverified",
+   "manager_change": "unverified"
+  },
+  "Everton FC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": "unverified",
+   "manager_change": "unverified"
+  },
+  "Fulham FC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": "unverified",
+   "manager_change": "unverified"
+  },
+  "Hull City AFC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": "unverified",
+   "manager_change": "unverified"
+  },
+  "Ipswich Town FC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": "unverified",
+   "manager_change": "unverified"
+  },
+  "Leeds United FC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": "unverified",
+   "manager_change": "unverified"
+  },
+  "Liverpool FC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": "unverified",
+   "manager_change": "unverified"
+  },
+  "Manchester City FC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": "unverified",
+   "manager_change": "unverified"
+  },
+  "Manchester United FC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": "unverified",
+   "manager_change": "unverified"
+  },
+  "Newcastle United FC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": "unverified",
+   "manager_change": "unverified"
+  },
+  "Nottingham Forest FC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": "unverified",
+   "manager_change": "unverified"
+  },
+  "Sunderland AFC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": "unverified",
+   "manager_change": "unverified"
+  },
+  "Tottenham Hotspur FC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": "unverified",
+   "manager_change": "unverified"
+  }
+ },
+ "kickoffs": {},
+ "sources": []
+}

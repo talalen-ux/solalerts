@@ -1,0 +1,136 @@
+{
+ "league": "BUNDESLIGA",
+ "teams": {
+  "1. FC Köln": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "1. FC Union Berlin": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "1. FSV Mainz 05": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "Bayer 04 Leverkusen": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "Borussia Dortmund": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "Borussia Mönchengladbach": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": "Eugen Polanski sacked in early Oct 2026 after poor start; Alexander Blessin appointed, debut 11 Oct (1-2 at Köln). Exact dates unverified."
+  },
+  "Eintracht Frankfurt": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "FC Augsburg": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "FC Bayern München": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "FC Schalke 04": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "Hamburger SV": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "RB Leipzig": {
+   "absences": [],
+   "in_form": [
+    {
+     "player": "Rômulo",
+     "note": "2G v Elversberg (24 Oct), 1G at Schalke (31 Oct); exact last-5 total unverified"
+    }
+   ],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "SC Freiburg": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "SC Paderborn 07": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "SV 07 Elversberg": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "SV Werder Bremen": {
+   "absences": [],
+   "in_form": [
+    {
+     "player": "Niclas Füllkrug",
+     "note": "scored in at least 4 of last 4 league games (2 v Paderborn, 2 pens at Mainz, 1 v Hoffenheim, late equaliser at Dortmund); exact G+A last 5 unverified"
+    }
+   ],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "TSG 1899 Hoffenheim": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "VfB Stuttgart": {
+   "absences": [],
+   "in_form": [
+    {
+     "player": "Ermedin Demirović",
+     "note": "2G at Leverkusen (31 Oct), 2G v Gladbach (23 Oct); UCL hat-trick v Viking; exact last-5 total unverified"
+    }
+   ],
+   "europe_midweek": null,
+   "manager_change": null
+  }
+ },
+ "kickoffs": {},
+ "notes": "Team news NOT researched: web search budget exhausted and WebFetch blocked for all sites. Absences, europe_midweek and kickoffs are unknown, not confirmed empty/null. Stuttgart & Leipzig are in UCL, Leverkusen & Hoffenheim in UEL, Freiburg in UECL this season, but midweek dates were not verified.",
+ "sources": [
+  "https://www.zdfheute.de/sport/fussball-bundesliga/video/1-fc-koeln-borussia-moenchengladbach-saison-2026-27-100.html",
+  "https://www.zdfheute.de/sport/fussball-bundesliga/video/werder-bremen-tsg-hoffenheim-saison-2026-27-100.html",
+  "https://www.zdfheute.de/sport/fussball-bundesliga/bundesliga-2026-2027-bayer-leverkusen-vfb-stuttgart-spielbericht-100.html",
+  "https://www.zdfheute.de/sport/fussball-bundesliga/video/fc-schalke-rb-leipzig-saison-2026-27-100.html"
+ ]
+}

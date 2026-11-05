@@ -1,0 +1,311 @@
+{
+  "league": "SERIEA",
+  "teams": {
+    "Venezia FC": {
+      "absences": [
+        {"player": "Adorante", "pos": "FW", "status": "out", "importance": "key", "note": "back surgery, return mid-Nov (agimeg/tuttofantacalcio)"},
+        {"player": "Sverko", "pos": "DF", "status": "out", "importance": "rotation", "note": "return mid-Nov"},
+        {"player": "Franjic", "pos": "DF", "status": "out", "importance": "rotation", "note": "shoulder surgery, return mid-Dec"},
+        {"player": "Correia", "pos": "MF", "status": "out", "importance": "rotation", "note": "hamstring since 12 Oct"}
+      ],
+      "in_form": [],
+      "europe_midweek": null,
+      "manager_change": "Giovanni Stroppa sacked ~13 Oct 2026; Davide Nicola now coach (Nicola confirmed on bench by calciomercato preview; exact appointment date unverified)"
+    },
+    "Udinese Calcio": {
+      "absences": [
+        {"player": "Alaba", "pos": "DF", "status": "out", "importance": "rotation", "note": "listed out by tuttofantacalcio"},
+        {"player": "Gueye", "pos": "MF", "status": "out", "importance": "rotation", "note": "listed out"},
+        {"player": "Zanoli", "pos": "DF", "status": "out", "importance": "rotation", "note": "listed out"},
+        {"player": "Solet", "pos": "DF", "status": "doubtful", "importance": "key", "note": "muscle problem since 21 Oct (Sky)"}
+      ],
+      "in_form": [],
+      "europe_midweek": null,
+      "manager_change": "Kosta Runjaic replaced by Paolo Zanetti (Zanetti named as coach in match previews; date not verified)"
+    },
+    "Torino FC": {
+      "absences": [
+        {"player": "Mandragora", "pos": "MF", "status": "out", "importance": "key", "note": "low-grade hamstring lesion, back after international break"},
+        {"player": "Cacciamani", "pos": "DF", "status": "doubtful", "importance": "rotation", "note": "shoulder subluxation, strong doubt"},
+        {"player": "Israel", "pos": "GK", "status": "out", "importance": "rotation", "note": "shoulder surgery in July"},
+        {"player": "Belghali", "pos": "DF", "status": "doubtful", "importance": "rotation", "note": "minor problem per Sky; also in selection battle with Aboukhlal"}
+      ],
+      "in_form": [],
+      "europe_midweek": null,
+      "manager_change": null
+    },
+    "US Lecce": {
+      "absences": [
+        {"player": "Monteiro", "pos": "FW", "status": "out", "importance": "key", "note": "calf, return mid-Dec; scored vs Frosinone 29 Oct"},
+        {"player": "Pierotti", "pos": "FW", "status": "out", "importance": "key", "note": "ankle fracture, out until end Jan 2027"},
+        {"player": "Ilic", "pos": "MF", "status": "out", "importance": "rotation", "note": "out until Apr 2027"},
+        {"player": "Berisha", "pos": "MF", "status": "out", "importance": "rotation", "note": "muscle overload, return 2nd half Nov"},
+        {"player": "Geubbels", "pos": "FW", "status": "doubtful", "importance": "rotation", "note": "adductor"},
+        {"player": "Coulibaly", "pos": "MF", "status": "doubtful", "importance": "key", "note": "grade-1 hamstring lesion, possible call-up"}
+      ],
+      "in_form": [],
+      "europe_midweek": null,
+      "manager_change": null
+    },
+    "Cagliari Calcio": {
+      "absences": [
+        {"player": "Obert", "pos": "DF", "status": "out", "importance": "key", "note": "suspended one match"},
+        {"player": "Fadera", "pos": "FW", "status": "out", "importance": "rotation", "note": "hamstring strain"},
+        {"player": "Nzola", "pos": "FW", "status": "doubtful", "importance": "key", "note": "low-grade right hamstring strain; L'Unione Sarda says he misses Frosinone"},
+        {"player": "Felici", "pos": "MF", "status": "out", "importance": "rotation", "note": "long-term, return May 2027"},
+        {"player": "Idrissi", "pos": "DF", "status": "out", "importance": "rotation", "note": "long-term"}
+      ],
+      "in_form": [],
+      "europe_midweek": null,
+      "manager_change": null
+    },
+    "Frosinone Calcio": {
+      "absences": [
+        {"player": "Raimondo", "pos": "FW", "status": "out", "importance": "key", "note": "multi-ligament left ankle injury, return late Dec/Jan; club top scorer (hat-trick vs Sassuolo, goal vs Lecce)"},
+        {"player": "Grillitsch", "pos": "MF", "status": "out", "importance": "rotation", "note": "post-surgery, return mid/late Nov"}
+      ],
+      "in_form": [
+        {"player": "Birligea", "note": "2G vs Lecce 29 Oct (full last-5 tally unverified)"},
+        {"player": "Schmid", "note": "2G vs Atalanta 25 Oct (full last-5 tally unverified)"}
+      ],
+      "europe_midweek": null,
+      "manager_change": null
+    },
+    "Parma Calcio 1913": {
+      "absences": [
+        {"player": "Bernabé", "pos": "MF", "status": "out", "importance": "key", "note": "left rectus femoris lesion, return late Nov"},
+        {"player": "Drobnic", "pos": "MF", "status": "doubtful", "importance": "rotation", "note": "foot problem"},
+        {"player": "Valenti", "pos": "DF", "status": "out", "importance": "rotation", "note": "listed out by one source only"}
+      ],
+      "in_form": [],
+      "europe_midweek": null,
+      "manager_change": "Carlos Cuesta replaced by Alberto Gilardino, 27 Sep 2026 (per superscommesse table; Gilardino confirmed on bench in previews)"
+    },
+    "Bologna FC 1909": {
+      "absences": [
+        {"player": "Enem", "pos": "DF", "status": "out", "importance": "rotation", "note": "Achilles tendinopathy"},
+        {"player": "Piccoli", "pos": "FW", "status": "doubtful", "importance": "key", "note": "hamstring; back in group 4 Nov, sources conflict"},
+        {"player": "De Silvestri", "pos": "DF", "status": "out", "importance": "rotation", "note": "back after international break"},
+        {"player": "Holm", "pos": "DF", "status": "out", "importance": "rotation", "note": "out until Feb-Mar 2027"},
+        {"player": "Odgaard", "pos": "MF", "status": "doubtful", "importance": "rotation", "note": "conflicting: soccernews lists thigh injury to late Nov, Italian previews list him as option up front"}
+      ],
+      "in_form": [],
+      "europe_midweek": null,
+      "manager_change": null
+    },
+    "AS Roma": {
+      "absences": [
+        {"player": "Svilar", "pos": "GK", "status": "out", "importance": "key", "note": "first-choice GK, listed out"},
+        {"player": "Gollini", "pos": "GK", "status": "doubtful", "importance": "rotation", "note": "back problem, missed Man Utd trip; Vasquez would start"},
+        {"player": "M. Koné", "pos": "MF", "status": "out", "importance": "key", "note": "listed out"},
+        {"player": "Dybala", "pos": "FW", "status": "out", "importance": "key", "note": "expected return ~7 Nov per sportsgambler; listed out by tuttofantacalcio"},
+        {"player": "Pellegrini", "pos": "MF", "status": "out", "importance": "rotation", "note": "up to two months"},
+        {"player": "Rensch", "pos": "DF", "status": "out", "importance": "rotation", "note": "listed out"}
+      ],
+      "in_form": [],
+      "europe_midweek": "2026-11-03 UCL",
+      "manager_change": null
+    },
+    "US Sassuolo Calcio": {
+      "absences": [
+        {"player": "I. Koné", "pos": "MF", "status": "out", "importance": "rotation", "note": "listed out"},
+        {"player": "Boloca", "pos": "MF", "status": "out", "importance": "rotation", "note": "listed out"},
+        {"player": "Leysen", "pos": "DF", "status": "out", "importance": "rotation", "note": "listed out"},
+        {"player": "Volpato", "pos": "MF", "status": "out", "importance": "rotation", "note": "listed out"}
+      ],
+      "in_form": [],
+      "europe_midweek": null,
+      "manager_change": null
+    },
+    "SSC Napoli": {
+      "absences": [
+        {"player": "Marianucci", "pos": "DF", "status": "out", "importance": "rotation", "note": "suspended"},
+        {"player": "Lobotka", "pos": "MF", "status": "out", "importance": "key", "note": "out until 2nd half Dec"},
+        {"player": "Buongiorno", "pos": "DF", "status": "out", "importance": "key", "note": "listed unavailable (Fantacalcio)"},
+        {"player": "Neres", "pos": "FW", "status": "out", "importance": "rotation", "note": "listed unavailable"},
+        {"player": "Spinazzola", "pos": "DF", "status": "out", "importance": "rotation", "note": "listed unavailable"},
+        {"player": "Olivera", "pos": "DF", "status": "doubtful", "importance": "key", "note": "muscle strain"},
+        {"player": "Di Lorenzo", "pos": "DF", "status": "doubtful", "importance": "key", "note": "muscle strain per Sky"},
+        {"player": "Milinkovic-Savic", "pos": "GK", "status": "doubtful", "importance": "key", "note": "doubtful; Meret expected in goal"},
+        {"player": "De Bruyne", "pos": "MF", "status": "doubtful", "importance": "key", "note": "mild ankle sprain, recovering; in predicted XI"},
+        {"player": "Hojlund", "pos": "FW", "status": "doubtful", "importance": "key", "note": "flu, expected to recover"}
+      ],
+      "in_form": [],
+      "europe_midweek": "2026-11-04 UCL",
+      "manager_change": null
+    },
+    "SS Lazio": {
+      "absences": [
+        {"player": "Gudmundsson", "pos": "FW", "status": "out", "importance": "key", "note": "dislocated right shoulder, return mid-Nov"},
+        {"player": "Zaccagni", "pos": "FW", "status": "doubtful", "importance": "key", "note": "Goal says injured; Fantacalcio has him in XI"},
+        {"player": "Marusic", "pos": "DF", "status": "doubtful", "importance": "rotation", "note": "recovering, expected available"},
+        {"player": "Rovella", "pos": "MF", "status": "doubtful", "importance": "key", "note": "recovering, expected available"}
+      ],
+      "in_form": [],
+      "europe_midweek": null,
+      "manager_change": null
+    },
+    "Genoa CFC": {
+      "absences": [
+        {"player": "Venturino", "pos": "FW", "status": "out", "importance": "rotation", "note": "patellar tendon surgery, return 2nd half Nov"},
+        {"player": "Havel", "pos": "DF", "status": "out", "importance": "rotation", "note": "injured (Sisal)"},
+        {"player": "Sow", "pos": "MF", "status": "doubtful", "importance": "rotation", "note": "FotMob lists injured; others list in selection battle"}
+      ],
+      "in_form": [],
+      "europe_midweek": null,
+      "manager_change": null
+    },
+    "AC Milan": {
+      "absences": [
+        {"player": "Tomori", "pos": "DF", "status": "out", "importance": "key", "note": "thigh, return late Nov"},
+        {"player": "Gabbia", "pos": "DF", "status": "out", "importance": "key", "note": "return early 2027"},
+        {"player": "Saelemaekers", "pos": "MF", "status": "out", "importance": "key", "note": "listed out (Sisal)"},
+        {"player": "Loftus-Cheek", "pos": "MF", "status": "out", "importance": "rotation", "note": "listed out"},
+        {"player": "Chukwueze", "pos": "FW", "status": "out", "importance": "rotation", "note": "listed out"},
+        {"player": "Terracciano", "pos": "GK", "status": "out", "importance": "rotation", "note": "listed out"},
+        {"player": "Ramos", "pos": "FW", "status": "doubtful", "importance": "key", "note": "calf per FotMob; others predict him to start"}
+      ],
+      "in_form": [
+        {"player": "Pulisic", "note": "scored vs Udinese 25 Oct and vs Inter 31 Oct (full last-5 tally unverified)"}
+      ],
+      "europe_midweek": "2026-11-05 UEL",
+      "manager_change": null
+    },
+    "AC Monza": {
+      "absences": [
+        {"player": "Pessina", "pos": "MF", "status": "out", "importance": "key", "note": "captain"},
+        {"player": "Ziolkowski", "pos": "DF", "status": "out", "importance": "rotation", "note": ""},
+        {"player": "Folorunsho", "pos": "MF", "status": "doubtful", "importance": "rotation", "note": "very likely out"},
+        {"player": "Maye", "pos": "FW", "status": "doubtful", "importance": "rotation", "note": "missed last three matches"},
+        {"player": "Ciurria", "pos": "MF", "status": "doubtful", "importance": "rotation", "note": "fitness to be assessed"}
+      ],
+      "in_form": [],
+      "europe_midweek": null,
+      "manager_change": null
+    },
+    "Atalanta BC": {
+      "absences": [
+        {"player": "Hien", "pos": "DF", "status": "out", "importance": "key", "note": "injured"},
+        {"player": "Kossounou", "pos": "DF", "status": "out", "importance": "key", "note": "injured"},
+        {"player": "Kristensen", "pos": "DF", "status": "out", "importance": "rotation", "note": "injured"},
+        {"player": "Bellanova", "pos": "DF", "status": "out", "importance": "rotation", "note": "injured"},
+        {"player": "Raspadori", "pos": "FW", "status": "out", "importance": "rotation", "note": "injured"},
+        {"player": "Gaetano", "pos": "MF", "status": "out", "importance": "rotation", "note": "injured"},
+        {"player": "Pompei", "pos": "MF", "status": "out", "importance": "rotation", "note": "injured"},
+        {"player": "Kessié", "pos": "MF", "status": "doubtful", "importance": "key", "note": "Sarri hopes to recover"},
+        {"player": "Scamacca", "pos": "FW", "status": "doubtful", "importance": "rotation", "note": "Sarri hopes to recover"},
+        {"player": "Kolasinac", "pos": "DF", "status": "doubtful", "importance": "rotation", "note": "Sarri hopes to recover"}
+      ],
+      "in_form": [
+        {"player": "Krstovic", "note": "at least 4G 1A last 5 (2G vs Venezia 12 Oct, 2G 1A vs Frosinone 25 Oct)"}
+      ],
+      "europe_midweek": "2026-11-05 UECL",
+      "manager_change": null
+    },
+    "FC Internazionale Milano": {
+      "absences": [
+        {"player": "Lautaro Martinez", "pos": "FW", "status": "out", "importance": "key", "note": "left hamstring, out until after international break"},
+        {"player": "Luis Henrique", "pos": "DF", "status": "out", "importance": "rotation", "note": "out until after international break"},
+        {"player": "Pavard", "pos": "DF", "status": "doubtful", "importance": "rotation", "note": "Chivu hopes he recovers"},
+        {"player": "Stones", "pos": "DF", "status": "doubtful", "importance": "rotation", "note": "return expected around international break"},
+        {"player": "Jones", "pos": "MF", "status": "doubtful", "importance": "rotation", "note": "expected to recover"}
+      ],
+      "in_form": [],
+      "europe_midweek": "2026-11-03 UCL",
+      "manager_change": null
+    },
+    "Como 1907": {
+      "absences": [
+        {"player": "Kean", "pos": "FW", "status": "out", "importance": "rotation", "note": "tibia, return mid-Dec"},
+        {"player": "Diao", "pos": "FW", "status": "out", "importance": "rotation", "note": "hamstring, return after break"},
+        {"player": "Addai", "pos": "FW", "status": "out", "importance": "rotation", "note": "muscle, out until after break"},
+        {"player": "Rodriguez", "pos": "MF", "status": "out", "importance": "rotation", "note": "long-term"},
+        {"player": "Chalobah", "pos": "DF", "status": "doubtful", "importance": "rotation", "note": "possible return before break"}
+      ],
+      "in_form": [
+        {"player": "Nico Paz", "note": "1G 1A vs Torino 27 Oct (full last-5 tally unverified)"}
+      ],
+      "europe_midweek": "2026-11-04 UCL",
+      "manager_change": null
+    },
+    "ACF Fiorentina": {
+      "absences": [
+        {"player": "Pongracic", "pos": "DF", "status": "out", "importance": "key", "note": "return late Nov"},
+        {"player": "L. Ranieri", "pos": "DF", "status": "doubtful", "importance": "key", "note": "doubtful per Sky"},
+        {"player": "Parisi", "pos": "DF", "status": "out", "importance": "rotation", "note": "possible return Dec"},
+        {"player": "Atta", "pos": "MF", "status": "out", "importance": "rotation", "note": "listed out (Sisal)"}
+      ],
+      "in_form": [],
+      "europe_midweek": null,
+      "manager_change": "UNVERIFIED: reports say Fabio Grosso was sacked after three straight league defeats and Paolo Vanoli appointed; sources conflict and the date is unknown"
+    },
+    "Juventus FC": {
+      "absences": [
+        {"player": "Yildiz", "pos": "FW", "status": "out", "importance": "key", "note": "return ~29 Nov / early Dec"},
+        {"player": "Locatelli", "pos": "MF", "status": "out", "importance": "key", "note": "return 2027"},
+        {"player": "K. Thuram", "pos": "MF", "status": "out", "importance": "key", "note": "listed out (Sisal)"},
+        {"player": "Conceicao", "pos": "FW", "status": "out", "importance": "key", "note": "listed out"},
+        {"player": "Celik", "pos": "DF", "status": "out", "importance": "rotation", "note": "listed out"},
+        {"player": "N. Gonzalez", "pos": "FW", "status": "out", "importance": "rotation", "note": "listed out"},
+        {"player": "Grabara", "pos": "GK", "status": "out", "importance": "rotation", "note": "listed out"},
+        {"player": "McKennie", "pos": "MF", "status": "doubtful", "importance": "key", "note": "knock vs Napoli; trending towards fit (Goal)"}
+      ],
+      "in_form": [],
+      "europe_midweek": "2026-11-05 UEL",
+      "manager_change": null
+    }
+  },
+  "kickoffs": {
+    "Venezia v Udinese": "2026-11-06 20:45",
+    "Torino v Lecce": "2026-11-07 15:00",
+    "Cagliari v Frosinone": "2026-11-07 15:00",
+    "Parma v Bologna": "2026-11-07 18:00",
+    "Roma v Sassuolo": "2026-11-07 20:45",
+    "Napoli v Lazio": "2026-11-08 12:30",
+    "Genoa v AC Milan": "2026-11-08 15:00",
+    "Monza v Atalanta": "2026-11-08 15:00",
+    "Inter v Como": "2026-11-08 18:00",
+    "Fiorentina v Juventus": "2026-11-08 20:45"
+  },
+  "sources": [
+    "https://www.calcioefinanza.it/2026/09/03/serie-a-anticipi-e-posticipi-date-orari-diretta-tv/",
+    "https://www.juventus.com/it/news/articoli/serie-a-2026-27-anticipi-e-posticipi-dalla-giornata-sei-alla-dodici",
+    "https://sport.sky.it/calcio/serie-a/2026/11/03/serie-a-indisponibili-infortunati-squalificati-giornata-11",
+    "https://www.agimeg.it/venezia-udinese-serie-a-2026-pronostico/",
+    "https://www.tuttofantacalcio.it/probabili-formazioni/serie-a-probabili-formazioni-venezia-udinese-fantacalcio-35335",
+    "https://www.calciomercato.com/liste/venezia-udinese-dove-vederla-in-tv-e-streaming-canale-orario-e-probabili-formazioni/blt08ee919b84723482",
+    "https://www.agimeg.it/torino-lecce-serie-a-2026-pronostico/",
+    "https://www.tuttofantacalcio.it/probabili-formazioni/serie-a-probabili-formazioni-cagliari-frosinone-fantacalcio-35340",
+    "https://unionesarda.it/sport/calcio/il-cagliari-recupera-gagliardini-ma-perde-nzola-anche-lui-salta-il-frosinone-r5pizg7r",
+    "https://agimeg.it/parma-bologna-serie-a-2026-pronostico",
+    "https://www.tuttofantacalcio.it/probabili-formazioni/serie-a-probabili-formazioni-roma-sassuolo-fantacalcio-35347",
+    "https://www.tuttofantacalcio.it/probabili-formazioni/serie-a-probabili-formazioni-napoli-lazio-fantacalcio-35348",
+    "https://goal.com/it/liste/probabili-formazioni-serie-a-giornata-11-mckennie-verso-il-si-pio-esposito-piu-di-bonny-ancora-rodrigo-mora-e-diawara-giovane-con-hojlund/bltba13a241245b1fd9",
+    "https://www.sisal.it/scommesse-matchpoint/blog/fuori-campo/fantacalcio-probabili-formazioni-11-giornata-serie-a-2026-27",
+    "https://www.tuttofantacalcio.it/probabili-formazioni/serie-a-probabili-formazioni-genoa-milan-fantacalcio-35351",
+    "https://www.forzamonza.it/2026/11/04/monza-atalanta-mister-juric-studia-le-mosse-dea-ferita-e-da-aggredire/",
+    "https://www.monza-news.it/news/174421085702/le-probabili-formazioni-di-monza-atalanta-le-ultime",
+    "https://www.calcionews.eu/formazioni/probabili-formazioni-inter-como/",
+    "https://www.dazn.com/it-IT/news/calcio/inter-indisponibili-squalificati/bkda75gqnyll1eakft2nlzgyt",
+    "https://www.sportsgambler.com/injuries/football/italy-serie-a/",
+    "https://sport.sky.it/calcio/serie-a/serie-a-2026-2027-allenatori-esonerati",
+    "https://www.superscommesse.it/notizie/esonero_allenatore_serie_a__le_quote_sulle_panchine_a_rischio-8847.html",
+    "https://www.cbssports.com/soccer/news/uefa-champions-league-schedule-matchday-4/",
+    "https://english.ahram.org.eg/NewsContent/6/55/581509/Sports/World/UEFA-Champions-League-results-amp;-fixtures-League.aspx",
+    "https://www.uefa.com/uefaeuropaleague/news/02a8-2174cafa5bb6-82bbc20c9b92-1000--2026-27-europa-league-all-the-league-phase-fixtures-and-re/",
+    "https://www.espn.com/soccer/schedule/_/league/uefa.europa.conf",
+    "https://www.lifestyleblog.it/blog/2026/10/atalanta-frosinone-4-4-25-ottobre-2026/",
+    "https://www.nigfooty.com/2026/10/serie-matchday-6-results-so-far-updated.html",
+    "https://www.nigfooty.com/2026/10/serie-matchday-7-results-so-far-updated_01012821732.html",
+    "https://www.nigfooty.com/2026/10/serie-matchday-9-full-results-and.html",
+    "https://www.footballwebpages.co.uk/italian-serie-a/fixtures-results",
+    "https://www.tntsports.co.uk/football/serie-a/calendar-results.shtml",
+    "https://onefootball.com/en/competition/serie-a-13/results",
+    "https://www.lapresse.it/calcio/2026/10/16/serie-a-frosinone-sassuolo-4-2-una-tripletta-di-raimondo-manda-i-gialloblu-in-paradiso/",
+    "https://www.footballwebpages.co.uk/match/2026-2027/italian-serie-a/atalanta/venezia/592663",
+    "https://gulfnews.com/sport/football/udinese-0-2-milan-early-strike-and-a-second-half-goal-settle-it-in-udine-1.500723437",
+    "https://www.lifestyleblog.it/blog/2026/10/torino-como-1-3-27-ottobre-2026/",
+    "https://www.lifestyleblog.it/blog/2026/10/frosinone-lecce-5-1-29-ottobre-2026-doppietta-birligea/",
+    "https://www.acmilan.com/en/news/articles/serie-a/2026-10-31/ac-milan-wins-the-derby"
+  ]
+}

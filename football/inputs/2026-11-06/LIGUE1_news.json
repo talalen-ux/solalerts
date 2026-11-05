@@ -1,0 +1,136 @@
+{
+ "league": "LIGUE1",
+ "teams": {
+  "AJ Auxerre": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "AS Monaco FC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "Angers SCO": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "ES Troyes AC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "FC Lorient": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "Le Havre AC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "Le Mans FC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "Lille OSC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "OGC Nice": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "Olympique Lyonnais": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "Olympique de Marseille": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "Paris FC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "Paris Saint-Germain FC": {
+   "absences": [],
+   "in_form": [
+    {
+     "player": "Achraf Hakimi",
+     "note": "3G 2A vs Le Havre on 30 Oct (last-5 totals unverified)"
+    }
+   ],
+   "europe_midweek": "2026-11-03 UCL",
+   "manager_change": null,
+   "notes": "europe_midweek from pre-match report: UCL at Villarreal on Tuesday 3 Nov; result not verified"
+  },
+  "RC Strasbourg Alsace": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "Racing Club de Lens": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "Stade Brestois 29": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "Stade Rennais FC 1901": {
+   "absences": [
+    {
+     "player": "Esteban Lepaul",
+     "pos": "FW",
+     "status": "doubtful",
+     "importance": "key",
+     "note": "ankle sprain, missed Nice game ~30-31 Oct per preview; status for Lille game unverified"
+    }
+   ],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  },
+  "Toulouse FC": {
+   "absences": [],
+   "in_form": [],
+   "europe_midweek": null,
+   "manager_change": null
+  }
+ },
+ "kickoffs": {
+  "Toulouse FC v RC Strasbourg Alsace": "2026-11-06 20:45"
+ },
+ "sources": [
+  "https://ligue1.com/fr/articles/l1_article_5839-programmation-tv-j10-j11-ligue-1-2026-2027",
+  "https://www.sudradio.fr/sport-rugby/sport/l1-sans-ses-cadres-le-psg-assomme-le-havre-et-consolide-sa-premiere-place",
+  "https://www.topmercato.com/2151634-pronostic-nice-vs-rennes-30-10-2026/"
+ ],
+ "notes": "INCOMPLETE: web search budget exhausted and WebFetch blocked (ligue1.com, espn, fotmob, wikipedia unresolvable). Only Toulouse-Strasbourg kickoff confirmed; other kickoffs, injuries, Europe results and manager changes NOT researched. Empty lists mean unknown, not none."
+}
