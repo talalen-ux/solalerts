@@ -1,0 +1,1 @@
+{"window_hours": 24, "matched": 17, "scored": 17, "reached": [{"at_least_x": 100, "tokens": 1}, {"at_least_x": 50, "tokens": 3}, {"at_least_x": 20, "tokens": 3}, {"at_least_x": 10, "tokens": 5}, {"at_least_x": 5, "tokens": 9}, {"at_least_x": 3, "tokens": 9}, {"at_least_x": 2, "tokens": 9}], "post_ath": {"tokens": 5}}

@@ -4741,3 +4741,39 @@ alert2:
 
 # 6H REVIEW 2026-11-06 06:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (38th review in a row). No changes.
+
+# DAILY-OPS 2026-11-06 07:07 UTC
+# 1) Fill scorecard: SKIPPED - defirobot (Solana) connector needs re-authorization.
+# 2) RH top-10 (24h): Harmonic 118x (hooked, $14.8k launch), HWF 77x (hooked; now mc ~0,
+#   drained), FLORA 60x (hooked, $10.2k), TOPFLOOR 59x (graduated pons), PANGEA 57x,
+#   Kinetiq 45x, MI 35x, VICE 34x ($2.4k launch, mc null), sssdfg 33x, Mootun 29x.
+#   CAUGHT (3 of 10, all by 152): PANGEA at $25.4k (36.7x; 155 at $36.8k 25.3x),
+#   Kinetiq at $20.8k (29.2x), sssdfg at $19.4k (19.1x; 155 at $43.1k 8.6x).
+#   MISSED - wall attribution:
+#     Harmonic: hooked, round_trip_back NULL at entry -> blocked by 154's rtb >= 0.9.
+#       Without it 154 would have entered at $31.0k (56.4x).
+#     HWF: hooked, round_trip_back < 0.9 at entry -> blocked by rtb (54.9x at $34.0k),
+#       then drained to ~$0. The guard was right on risk.
+#     FLORA: hooked, still blocked with rtb removed -> buyers/flow/top clause.
+#     TOPFLOOR: graduated pons (excluded venue). MI (0xfeea), Mootun, VICE: unattributed
+#     (downloads blocked); a sibling MI (0x68e7) was caught by 152 at $19.1k (12.7x).
+#   152 24h: n=155, 2x+ 71.6%, 10x+ 16, 20x+ 4, PostATH 0%, ev_lcb +0.143.
+#   155 24h: n=142, 2x+ 72.5%, 10x+ 5, PostATH 2.1%, ev_lcb +0.152.
+# 3) Watchlist (repeat-name law holds): PANGEA - 4 addresses, all caught 10x+ by 152
+#   (36.7x / 17.0x / 11.4x / 10.8x); sssdfg (2: 19.1x / 10.2x); MI (2); HWF (2, hooked).
+# 4) EXPERIMENT - why 154 dried up (backlog: hooked wall attribution + templated farm):
+#     154 floor 30k -> 10k, 24h:              n=1  (the floor is not the wall)
+#     154 without rtb, mc 10k-200k, 24h:      n=5, Harmonic 56.4x, HWF 54.9x, COGE 8.5x
+#     same with rtb IS NULL only, 24h:        n=2 (Harmonic, Nasdaqistan)
+#     154 with (rtb >= 0.9 OR NULL), 336h:    n=160, 2x+ 88.1%, 5x+ 97, 10x+ 11,
+#                                             ev +0.570 / ev_lcb +0.450 (modelled)
+#     + deployer_launches <= 3, 336h:         n=158 (no split)
+#   FINDING: 154 is quiet because round_trip_back is NULL for ~91% of hooked tokens
+#   that pass its other clauses (14 tested vs 160 total in 14d). The data coverage is
+#   the problem, not the venue.
+#   NOT RECOMMENDED: the NULL-allowed variant has a 5x->10x cliff (97 -> 11), so 86 of
+#   160 sit just under a hard ceiling. That fits the templated hooked farm flagged 11-03
+#   (ATH ~$255k). Nobody has tested whether those tokens can be sold. Its modelled EV
+#   cannot be trusted until there is a farm discriminator, which needs entry snapshots
+#   (downloads blocked). Not queued for the strategy agent. Recorded as a memory fact.
+#   RH backtests: 9.
