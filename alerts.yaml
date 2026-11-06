@@ -4725,3 +4725,6 @@ alert2:
 #   RH backtests this run: 10 (today ~15 of 50).
 # NEEDS USER: 154 will hit its 2nd gate failure at the next baseline refresh. Options are
 #   to repurpose slot 154 (or 155, a 65% duplicate of 152) or accept a near-silent slot.
+
+# 6H REVIEW 2026-11-06 00:32 UTC (Solana): SKIPPED - defirobot connector still needs
+#   re-authorization (37th review in a row). No changes.
