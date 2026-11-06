@@ -4777,3 +4777,23 @@ alert2:
 #   cannot be trusted until there is a farm discriminator, which needs entry snapshots
 #   (downloads blocked). Not queued for the strategy agent. Recorded as a memory fact.
 #   RH backtests: 9.
+
+# STRATEGY AGENT CYCLE 57 (2026-11-06 10:48 UTC): no deployment. 7th-cycle self-check
+#   (carried over from 56) done; calibration attempted after this entry (see below).
+# 1) Health (live conditions equal memory):
+#     152 72h n=405, 2x+ 65.2%, 10x+ 47, PostATH 3.7%, ev +0.208 / ev_lcb +0.098 (ok, falling:
+#       +0.51 on 11-03 -> +0.15 -> +0.10 as volume rose 235 -> 405 per 72h)
+#     155 72h n=278, 2x+ 73.0%, 10x+ 24, PostATH 2.5%, ev +0.238 / ev_lcb +0.182 (ok)
+# 2) Learn: used the 07:07 daily-ops attribution (Harmonic blocked by 154's NULL rtb;
+#   HWF correctly blocked by rtb < 0.9). No extra backtest.
+# 3-5) Candidates (candidates.py --k 4), against a same-window control (live 155 168h:
+#   n=501, ev_lcb +0.265):
+#     155 + idle_blocks < 1200: 501/501, identical (no-op)
+#     155 top_maker 40 -> 50: n=505 (+4), ev_lcb +0.260 (-0.005), cap not binding
+#     154 ratio 2 -> 1.5: 14/14 at 336h, identical (no-op)
+#     154 + idle_blocks < 1200: not run (subset of live 154, n<=14)
+#   ledger eval: NO DEPLOYMENT.
+# Self-check: no arm has >= 8 tests, so the demotion rule did nothing. Retired 4 no-op
+#   arms (plain_v4:pred:alive, plain_v4:top:up, hooked_verified:ratio:down,
+#   hooked_verified:pred:alive). Unit tests 9/9 OK. No code change.
+#   RH backtests: 6.

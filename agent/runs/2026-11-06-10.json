@@ -1,0 +1,302 @@
+{
+ "date": "2026-11-06T10:48Z",
+ "cycle": 57,
+ "long_hours": 168,
+ "results": [
+  {
+   "slot": "155",
+   "family": "plain_v4",
+   "arm": "plain_v4:top:up",
+   "params": {
+    "buyers": 25,
+    "mc_max": 45000,
+    "mc_min": 15000,
+    "ratio": 5,
+    "top": 50
+   },
+   "preds": [],
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 45000",
+   "hash": "8c06fead89cf",
+   "long_hours": 168,
+   "recent_hours": 72,
+   "id": "c1-8c06fe",
+   "long": {
+    "window_hours": 168,
+    "matched": 505,
+    "scored": 505,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 10
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 64
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 152
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 292
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 369
+     }
+    ],
+    "post_ath": {
+     "tokens": 8
+    }
+   },
+   "recent": {
+    "window_hours": 72,
+    "matched": 0,
+    "scored": 0,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 0
+     }
+    ],
+    "post_ath": {
+     "tokens": 0
+    }
+   },
+   "note": "recent NOT RUN: +4 tokens vs same-window control (501->505), identical buckets; cannot clear the 0.05 margin"
+  },
+  {
+   "slot": "155",
+   "family": "plain_v4",
+   "arm": "plain_v4:pred:alive",
+   "params": {
+    "buyers": 25,
+    "mc_max": 45000,
+    "mc_min": 15000,
+    "ratio": 5,
+    "top": 40
+   },
+   "preds": [
+    "alive"
+   ],
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000 AND idle_blocks < 1200",
+   "hash": "1872ae19de76",
+   "long_hours": 168,
+   "recent_hours": 72,
+   "id": "c2-1872ae",
+   "long": {
+    "window_hours": 168,
+    "matched": 501,
+    "scored": 501,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 10
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 64
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 151
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 291
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 366
+     }
+    ],
+    "post_ath": {
+     "tokens": 8
+    }
+   },
+   "recent": {
+    "window_hours": 72,
+    "matched": 278,
+    "scored": 278,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 4
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 24
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 75
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 163
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 203
+     }
+    ],
+    "post_ath": {
+     "tokens": 7
+    }
+   },
+   "note": "no-op: 168h identical to live 155 control (501/501); recent INFERRED = live 155 72h"
+  },
+  {
+   "slot": "154",
+   "family": "hooked_verified",
+   "arm": "hooked_verified:ratio:down",
+   "params": {
+    "buyers": 8,
+    "mc_max": 200000,
+    "mc_min": 30000,
+    "ratio": 1.5,
+    "rtb": 0.9,
+    "top": 60
+   },
+   "preds": [],
+   "condition": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 1.5 * sell_volume_usd AND top_maker_pct < 60 AND mc > 30000 AND mc < 200000",
+   "hash": "e08656bb54f6",
+   "long_hours": 336,
+   "recent_hours": 168,
+   "id": "c3-e08656",
+   "long": {
+    "window_hours": 336,
+    "matched": 14,
+    "scored": 14,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 1
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 3
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 4
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 5
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 8
+     }
+    ],
+    "post_ath": {
+     "tokens": 0
+    }
+   },
+   "recent": {
+    "window_hours": 168,
+    "matched": 0,
+    "scored": 0,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 0
+     }
+    ],
+    "post_ath": {
+     "tokens": 0
+    }
+   },
+   "note": "recent NOT RUN: long n=14 < 30 (identical to live 154)"
+  }
+ ],
+ "skipped": [
+  {
+   "id": "c4-c46005",
+   "arm": "hooked_verified:pred:alive",
+   "reason": "subset of live 154 (n=14/336h) - cannot reach n>=30"
+  }
+ ]
+}

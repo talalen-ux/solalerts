@@ -17,12 +17,19 @@
    "wins": 2
   },
   "hooked_verified:pred:alive": {
+   "retired": true,
    "sum_delta": 0.0,
    "tests": 1,
    "wins": 0
   },
   "hooked_verified:pred:held_low": {
    "sum_delta": -0.1695,
+   "tests": 1,
+   "wins": 0
+  },
+  "hooked_verified:ratio:down": {
+   "retired": true,
+   "sum_delta": 0.0,
    "tests": 1,
    "wins": 0
   },
@@ -38,6 +45,12 @@
   },
   "plain_v4:mc_min:down": {
    "sum_delta": -0.0191,
+   "tests": 1,
+   "wins": 0
+  },
+  "plain_v4:pred:alive": {
+   "retired": true,
+   "sum_delta": -0.004,
    "tests": 1,
    "wins": 0
   },
@@ -75,6 +88,12 @@
   },
   "plain_v4:top:down": {
    "sum_delta": 0.004,
+   "tests": 1,
+   "wins": 0
+  },
+  "plain_v4:top:up": {
+   "retired": true,
+   "sum_delta": -0.0092,
    "tests": 1,
    "wins": 0
   },
@@ -234,6 +253,12 @@
    "passed": 0,
    "run": "runs/2026-11-05-18.json",
    "tested": 3
+  },
+  {
+   "at": "2026-11-06T10:50:08Z",
+   "passed": 0,
+   "run": "runs/2026-11-06-10.json",
+   "tested": 3
   }
  ],
  "facts": [
@@ -266,7 +291,8 @@
   "[2026-10-30] 2026-10-30 self-improvement cycle: no arm has >= 8 tests, so nothing retired. Calibration blocked: backtest/token_history file downloads (mcp-rh.defirobot.org) are refused by the session proxy (403), and the inline 'best' list is a survivorship-biased sample, unusable for calibration. Needs network access to that host, or user fills.",
   "[2026-11-05] c55: socials_count >= 1 matched 0 of the plain-v4 155 stream in 7d (column is dead there); (untracked_sell_pct IS NULL OR < 10) and 154 mc_max 200k->400k are exact no-ops (identical results). Arms retired. Always run the live slot on the same window as a control: a stale baseline made a no-op clause look like +0.097 ev_lcb.",
   "[2026-11-05] c55: 154 has nearly dried up - 14 tokens/336h, 6/168h, 0 alerts in 24h (baseline was n=36). Restrictions of 154 can never reach n>=30; the sampler should not spend backtests on 154 subsets. 154 now fails the n>=30 gate (failure counter started). Agent may not disable it; repurposing 154 or 155 is the user's decision.",
-  "[2026-11-06] d1106: 154 dried up because round_trip_back is NULL for ~91% of hooked tokens that pass its other clauses (336h: 14 with rtb>=0.9 vs 160 with rtb>=0.9 OR NULL). The NULL-allowed variant models ev_lcb +0.45 (n=160) but 86 of its 160 sit in a 5-10x band with a hard ceiling (5x+ 97 -> 10x+ 11), consistent with the templated hooked farm (ATH ~$255k); sellability of NULL-rtb tokens is UNTESTED and HWF (rtb<0.9) pumped 55x then drained to ~0. Do NOT deploy a NULL-rtb hooked condition on modelled EV alone - it needs a farm discriminator from entry snapshots (blocked) or the user's explicit ok. deployer_launches<=3 does not split the cluster (158/160)."
+  "[2026-11-06] d1106: 154 dried up because round_trip_back is NULL for ~91% of hooked tokens that pass its other clauses (336h: 14 with rtb>=0.9 vs 160 with rtb>=0.9 OR NULL). The NULL-allowed variant models ev_lcb +0.45 (n=160) but 86 of its 160 sit in a 5-10x band with a hard ceiling (5x+ 97 -> 10x+ 11), consistent with the templated hooked farm (ATH ~$255k); sellability of NULL-rtb tokens is UNTESTED and HWF (rtb<0.9) pumped 55x then drained to ~0. Do NOT deploy a NULL-rtb hooked condition on modelled EV alone - it needs a farm discriminator from entry snapshots (blocked) or the user's explicit ok. deployer_launches<=3 does not split the cluster (158/160).",
+  "[2026-11-06] c57 self-check: on the plain-v4 155 stream, idle_blocks<1200 and the top_maker cap 40->50 are no-ops (501/501 and +4 of 505); on 154, buy/sell ratio 2->1.5 is a no-op (14/14). Retired 4 arms. 154 is gated only by round_trip_back coverage, so any 154 mutation that keeps rtb>=0.9 is untestable (n<=14) - skip 154 candidates until rtb coverage returns or the user decides on NULL-rtb."
  ],
  "queue": [],
  "slots": {
@@ -349,6 +375,15 @@
    "pass": false,
    "slot": "155"
   },
+  "1872ae19de76": {
+   "arm": "plain_v4:pred:alive",
+   "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000 AND idle_blocks < 1200",
+   "date": "2026-11-06T10:50:08Z",
+   "ev_lcb": 0.2651,
+   "n": 501,
+   "pass": false,
+   "slot": "155"
+  },
   "2ca6fd2f2c28": {
    "arm": "plain_v4:ratio:down",
    "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 4 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000",
@@ -411,6 +446,15 @@
    "n": 48,
    "pass": false,
    "slot": "154"
+  },
+  "8c06fead89cf": {
+   "arm": "plain_v4:top:up",
+   "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 45000",
+   "date": "2026-11-06T10:50:08Z",
+   "ev_lcb": 0.2599,
+   "n": 505,
+   "pass": false,
+   "slot": "155"
   },
   "8da0aac1e2a8": {
    "arm": "plain_v4:pred:socials",
@@ -511,6 +555,15 @@
    "pass": false,
    "slot": "155"
   },
+  "e08656bb54f6": {
+   "arm": "hooked_verified:ratio:down",
+   "cond": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 1.5 * sell_volume_usd AND top_maker_pct < 60 AND mc > 30000 AND mc < 200000",
+   "date": "2026-11-06T10:50:08Z",
+   "ev_lcb": -0.2108,
+   "n": 14,
+   "pass": false,
+   "slot": "154"
+  },
   "e17c873cd729": {
    "arm": "queue:sweep_guard_fresh_rtb",
    "cond": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND round_trip_age_s < 900 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 30000 AND mc < 200000 AND (swept_pct IS NULL OR swept_pct < 15) AND (untracked_sell_pct IS NULL OR untracked_sell_pct < 1",
@@ -539,6 +592,6 @@
    "slot": "155"
   }
  },
- "updated": "2026-11-06T07:08:58Z",
+ "updated": "2026-11-06T10:50:18Z",
  "version": 1
 }
