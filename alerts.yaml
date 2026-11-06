@@ -4797,3 +4797,7 @@ alert2:
 #   arms (plain_v4:pred:alive, plain_v4:top:up, hooked_verified:ratio:down,
 #   hooked_verified:pred:alive). Unit tests 9/9 OK. No code change.
 #   RH backtests: 6.
+#   CALIBRATION (cycle 57): NOT RUN. token_history needs an approval prompt. In this
+#   unattended run an open prompt stalls the session until the next notification (that
+#   is how cycle 56 was lost), so I did not send it. Unbiased sampling method recorded
+#   in memory facts. Unblocks if the user pre-approves mcp__drbtrh__token_history.

@@ -292,7 +292,8 @@
   "[2026-11-05] c55: socials_count >= 1 matched 0 of the plain-v4 155 stream in 7d (column is dead there); (untracked_sell_pct IS NULL OR < 10) and 154 mc_max 200k->400k are exact no-ops (identical results). Arms retired. Always run the live slot on the same window as a control: a stale baseline made a no-op clause look like +0.097 ev_lcb.",
   "[2026-11-05] c55: 154 has nearly dried up - 14 tokens/336h, 6/168h, 0 alerts in 24h (baseline was n=36). Restrictions of 154 can never reach n>=30; the sampler should not spend backtests on 154 subsets. 154 now fails the n>=30 gate (failure counter started). Agent may not disable it; repurposing 154 or 155 is the user's decision.",
   "[2026-11-06] d1106: 154 dried up because round_trip_back is NULL for ~91% of hooked tokens that pass its other clauses (336h: 14 with rtb>=0.9 vs 160 with rtb>=0.9 OR NULL). The NULL-allowed variant models ev_lcb +0.45 (n=160) but 86 of its 160 sit in a 5-10x band with a hard ceiling (5x+ 97 -> 10x+ 11), consistent with the templated hooked farm (ATH ~$255k); sellability of NULL-rtb tokens is UNTESTED and HWF (rtb<0.9) pumped 55x then drained to ~0. Do NOT deploy a NULL-rtb hooked condition on modelled EV alone - it needs a farm discriminator from entry snapshots (blocked) or the user's explicit ok. deployer_launches<=3 does not split the cluster (158/160).",
-  "[2026-11-06] c57 self-check: on the plain-v4 155 stream, idle_blocks<1200 and the top_maker cap 40->50 are no-ops (501/501 and +4 of 505); on 154, buy/sell ratio 2->1.5 is a no-op (14/14). Retired 4 arms. 154 is gated only by round_trip_back coverage, so any 154 mutation that keeps rtb>=0.9 is untestable (n<=14) - skip 154 candidates until rtb coverage returns or the user decides on NULL-rtb."
+  "[2026-11-06] c57 self-check: on the plain-v4 155 stream, idle_blocks<1200 and the top_maker cap 40->50 are no-ops (501/501 and +4 of 505); on 154, buy/sell ratio 2->1.5 is a no-op (14/14). Retired 4 arms. 154 is gated only by round_trip_back coverage, so any 154 mutation that keeps rtb>=0.9 is untestable (n<=14) - skip 154 candidates until rtb coverage returns or the user decides on NULL-rtb.",
+  "[2026-11-06] Calibration method (when unblocked): take an UNBIASED sample by backtesting 152 over a short window (2-3h) with show=20 so every matched token is listed, then token_history (limit 200) on 8-10 of them. The normal best-list is biased high and must not be used for calibration."
  ],
  "queue": [],
  "slots": {
@@ -592,6 +593,6 @@
    "slot": "155"
   }
  },
- "updated": "2026-11-06T10:50:18Z",
+ "updated": "2026-11-06T10:50:48Z",
  "version": 1
 }
