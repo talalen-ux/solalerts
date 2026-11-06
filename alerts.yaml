@@ -4807,3 +4807,16 @@ alert2:
 
 # 6H REVIEW 2026-11-06 18:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (40th review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 58 (2026-11-06 18:47 UTC): no deployment.
+# 1) Health (live conditions equal memory):
+#     152 72h n=393, 2x+ 64.6%, 10x+ 43, PostATH 3.1%, ev +0.196 / ev_lcb +0.086 (ok; 5th
+#       straight drop: +0.51 -> +0.15 -> +0.14 -> +0.10 -> +0.09. Watch alarms need ev_lcb<0.)
+#     155 72h n=279, 2x+ 75.3%, 10x+ 21, PostATH 1.8%, ev +0.266 / ev_lcb +0.211 (ok)
+# 3-5) Candidates (--k 4) against a same-window control (live 155 168h n=509, ev_lcb +0.241):
+#     155 + (held_pct IS NULL OR < 60): n=507, ev_lcb +0.238 (loses one 20x and one 10x)
+#     155 buyers 25 -> 35:              n=183, 10x+ 60 -> 2, ev_lcb +0.213. Removes the tail.
+#     154 rtb 0.9 -> 0.85:              n=14/336h (no gain; the issue is NULL rtb, not values)
+#     155 mc cap 45k -> 60k: not run. The added 45-60k slice is already alerted by 152
+#       (its NOT block only covers mc < 45k), so it would only duplicate 152.
+#   ledger eval: NO DEPLOYMENT. RH backtests: 6.

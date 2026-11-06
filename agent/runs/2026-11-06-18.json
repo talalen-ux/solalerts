@@ -1,0 +1,302 @@
+{
+ "date": "2026-11-06T18:47Z",
+ "cycle": 58,
+ "long_hours": 168,
+ "results": [
+  {
+   "slot": "155",
+   "family": "plain_v4",
+   "arm": "plain_v4:pred:held_low",
+   "params": {
+    "buyers": 25,
+    "mc_max": 45000,
+    "mc_min": 15000,
+    "ratio": 5,
+    "top": 40
+   },
+   "preds": [
+    "held_low"
+   ],
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000 AND (held_pct IS NULL OR held_pct < 60)",
+   "hash": "f6eaaaefb2a8",
+   "long_hours": 168,
+   "recent_hours": 72,
+   "id": "c3-f6eaaa",
+   "long": {
+    "window_hours": 168,
+    "matched": 507,
+    "scored": 507,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 8
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 59
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 151
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 294
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 371
+     }
+    ],
+    "post_ath": {
+     "tokens": 8
+    }
+   },
+   "recent": {
+    "window_hours": 72,
+    "matched": 0,
+    "scored": 0,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 0
+     }
+    ],
+    "post_ath": {
+     "tokens": 0
+    }
+   },
+   "note": "recent NOT RUN: 507 vs control 509, removes one 20x and one 10x; below control"
+  },
+  {
+   "slot": "155",
+   "family": "plain_v4",
+   "arm": "plain_v4:buyers:up",
+   "params": {
+    "buyers": 35,
+    "mc_max": 45000,
+    "mc_min": 15000,
+    "ratio": 5,
+    "top": 40
+   },
+   "preds": [],
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 35 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000",
+   "hash": "08f1f119603b",
+   "long_hours": 168,
+   "recent_hours": 72,
+   "id": "c4-08f1f1",
+   "long": {
+    "window_hours": 168,
+    "matched": 183,
+    "scored": 183,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 2
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 35
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 116
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 140
+     }
+    ],
+    "post_ath": {
+     "tokens": 1
+    }
+   },
+   "recent": {
+    "window_hours": 72,
+    "matched": 0,
+    "scored": 0,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 0
+     }
+    ],
+    "post_ath": {
+     "tokens": 0
+    }
+   },
+   "note": "recent NOT RUN: long below control; buyers>=35 strips the 10x tail (60 -> 2)"
+  },
+  {
+   "slot": "154",
+   "family": "hooked_verified",
+   "arm": "hooked_verified:rtb:down",
+   "params": {
+    "buyers": 8,
+    "mc_max": 200000,
+    "mc_min": 30000,
+    "ratio": 2,
+    "rtb": 0.85,
+    "top": 60
+   },
+   "preds": [],
+   "condition": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.85 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 30000 AND mc < 200000",
+   "hash": "7575a953d1a3",
+   "long_hours": 336,
+   "recent_hours": 168,
+   "id": "c2-7575a9",
+   "long": {
+    "window_hours": 336,
+    "matched": 14,
+    "scored": 14,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 1
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 3
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 4
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 4
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 7
+     }
+    ],
+    "post_ath": {
+     "tokens": 0
+    }
+   },
+   "recent": {
+    "window_hours": 168,
+    "matched": 0,
+    "scored": 0,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 0
+     }
+    ],
+    "post_ath": {
+     "tokens": 0
+    }
+   },
+   "note": "recent NOT RUN: n=14 < 30"
+  }
+ ],
+ "skipped": [
+  {
+   "id": "c1-1eeb19",
+   "arm": "plain_v4:mc_max:up",
+   "reason": "155 mc cap 45k->60k: the added 45-60k slice is by construction already alerted by 152 (its NOT clause only excludes mc<45k) -> pure duplication, fails the overlap rule"
+  }
+ ]
+}
