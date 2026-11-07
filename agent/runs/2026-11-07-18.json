@@ -1,0 +1,124 @@
+{
+ "date": "2026-11-07T18:47Z",
+ "cycle": 61,
+ "long_hours": 168,
+ "results": [
+  {
+   "slot": "155",
+   "family": "plain_v4",
+   "arm": "plain_v4:mc_max:down",
+   "params": {
+    "buyers": 25,
+    "mc_max": 30000,
+    "mc_min": 15000,
+    "ratio": 5,
+    "top": 40
+   },
+   "preds": [],
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 30000",
+   "hash": "58cec9b88e6e",
+   "long_hours": 168,
+   "recent_hours": 72,
+   "id": "c2-58cec9",
+   "long": {
+    "window_hours": 168,
+    "matched": 339,
+    "scored": 339,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 1
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 17
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 83
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 202
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 230
+     }
+    ],
+    "post_ath": {
+     "tokens": 4
+    }
+   },
+   "recent": {
+    "window_hours": 72,
+    "matched": 0,
+    "scored": 0,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 0
+     }
+    ],
+    "post_ath": {
+     "tokens": 0
+    }
+   },
+   "note": "recent NOT RUN: long below same-window control; cap 30k strips the 10x tail (55 -> 17)"
+  }
+ ],
+ "skipped": [
+  {
+   "id": "c1-9bf5eb",
+   "reason": "154 restriction; live 154 n=15/336h so n<30 by construction"
+  },
+  {
+   "id": "c3-332c6f",
+   "reason": "154 restriction; live 154 n=15/336h so n<30 by construction"
+  },
+  {
+   "id": "c4-2d118c",
+   "reason": "154 restriction; live 154 n=15/336h so n<30 by construction"
+  },
+  {
+   "id": "c5-a9a616",
+   "reason": "154 restriction; live 154 n=15/336h so n<30 by construction"
+  },
+  {
+   "id": "c6-0b5808",
+   "reason": "154 restriction; live 154 n=15/336h so n<30 by construction"
+  }
+ ]
+}

@@ -4914,3 +4914,15 @@ alert2:
 
 # 6H REVIEW 2026-11-07 18:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (44th review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 61 (2026-11-07 18:47 UTC): no deployment.
+# 1) Health (live conditions equal memory):
+#     152 72h n=344, 2x+ 67.7%, 10x+ 43, PostATH 1.2%, ev +0.291 / ev_lcb +0.169 (ok)
+#     155 72h n=353, 2x+ 70.3%, 10x+ 14, PostATH 1.4%, ev +0.204 / ev_lcb +0.153 (ok; tail
+#       thinning: 10x+ share 4.0% vs 6.5% on 11-07 10:47)
+# 3-5) Candidates (--k 6): five were 154 restrictions (n <= 15 by construction; not run).
+#     155 mc cap 45k -> 30k, 168h: n=339, 10x+ 17 (control n=560, 10x+ 55), ev_lcb +0.121 vs
+#       control +0.192. The runners enter 155 at $30-45k; never lower the cap.
+#   ledger eval: NO DEPLOYMENT. q-155-reuse4 stays queued for the scheduled baseline refresh
+#   (next at cycles % 3 == 0). Sampler fix (skip restrictions on slots with baseline n < 30)
+#   is due in the cycle-63 self-improvement. RH backtests: 4.
