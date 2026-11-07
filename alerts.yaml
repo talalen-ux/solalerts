@@ -4891,3 +4891,20 @@ alert2:
 #   Conclusion: the 155 + symbol_reuse >= 4 change drops ~14 weak alerts/day, not runners,
 #   and no paired 152 change is needed. Re-test of q-155-reuse4 stays queued for cycle 60.
 #   RH backtests: 8.
+
+# STRATEGY AGENT CYCLE 60 (2026-11-07 10:47 UTC): no deployment.
+# 1) Health (live conditions equal memory):
+#     152 72h n=387, 2x+ 67.7%, 10x+ 49, PostATH 1.8%, ev +0.278 / ev_lcb +0.162 (ok, recovering;
+#       new best NATE 44.5x at $26.7k)
+#     155 72h n=336, 2x+ 73.8%, 10x+ 22, PostATH 1.2%, ev +0.248 / ev_lcb +0.197 (ok)
+# 3-5) Re-test of the cycle-59 DEPLOY ADVICE (q-155-reuse4) on a fresh window:
+#     live 155 168h (control):     n=550, ev_lcb +0.210
+#     155 + symbol_reuse >= 4 168h: n=447, 2x+ 73.6%, 10x+ 55, ev +0.378 / ev_lcb +0.271
+#     155 + symbol_reuse >= 4 72h:  n=268, 2x+ 75.4%, 10x+ 22, ev_lcb +0.211 (live 72h +0.197)
+#   ledger eval: FAIL by 0.0009 - needs +0.2722 (stored baseline +0.222 from cycle 59 + 0.05).
+#     Against the same-window control it is +0.061, so the effect is stable across both runs,
+#     but the gate compares with the stored baseline. NOT DEPLOYED, and the baseline was not
+#     refreshed off-schedule to make it pass. Kept queued; next retest after the scheduled
+#     baseline refresh (cycles % 3 == 0).
+#   Sampled candidates: three 154 restrictions (n <= 15 by construction) and 155 mc cap 60k
+#     (only duplicates 152) - not run. RH backtests: 6.

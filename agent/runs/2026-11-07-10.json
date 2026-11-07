@@ -1,0 +1,115 @@
+{
+ "date": "2026-11-07T10:47Z",
+ "cycle": 60,
+ "long_hours": 168,
+ "results": [
+  {
+   "arm": "queue:plain_v4_symbol_reuse4",
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000 AND symbol_reuse >= 4",
+   "family": "plain_v4",
+   "id": "q-155-reuse4",
+   "slot": "155",
+   "params": {},
+   "preds": [
+    "symbol_reuse>=4"
+   ],
+   "long_hours": 168,
+   "recent_hours": 72,
+   "long": {
+    "window_hours": 168,
+    "matched": 447,
+    "scored": 447,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 8
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 55
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 138
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 268
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 329
+     }
+    ],
+    "post_ath": {
+     "tokens": 8
+    }
+   },
+   "recent": {
+    "window_hours": 72,
+    "matched": 268,
+    "scored": 268,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 4
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 22
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 75
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 167
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 202
+     }
+    ],
+    "post_ath": {
+     "tokens": 4
+    }
+   },
+   "note": "re-test of cycle-59 DEPLOY ADVICE on a fresh window; same-window control live 155 168h n=550"
+  }
+ ],
+ "skipped": [
+  {
+   "id": "c1-4b7602",
+   "reason": "154 restriction; live 154 n=15/336h so n<30 by construction"
+  },
+  {
+   "id": "c2-2d118c",
+   "reason": "154 restriction; live 154 n=15/336h so n<30 by construction"
+  },
+  {
+   "id": "c3-5fde42",
+   "reason": "154 restriction; live 154 n=15/336h so n<30 by construction"
+  },
+  {
+   "id": "c4-1eeb19",
+   "reason": "155 mc cap 45k->60k: added slice already alerted by 152 (pure duplication)"
+  }
+ ]
+}
