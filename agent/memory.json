@@ -91,6 +91,11 @@
    "tests": 1,
    "wins": 0
   },
+  "plain_v4:pred:unique_symbol": {
+   "sum_delta": -0.1731,
+   "tests": 1,
+   "wins": 0
+  },
   "plain_v4:ratio:down": {
    "sum_delta": -0.0174,
    "tests": 1,
@@ -146,6 +151,11 @@
    "sum_delta": 1.0221,
    "tests": 4,
    "wins": 4
+  },
+  "queue:plain_v4_symbol_reuse4": {
+   "sum_delta": 0.057,
+   "tests": 1,
+   "wins": 1
   },
   "queue:sweep_guard_fresh_rtb": {
    "sum_delta": 0.4429,
@@ -280,6 +290,12 @@
    "passed": 0,
    "run": "runs/2026-11-06-18.json",
    "tested": 3
+  },
+  {
+   "at": "2026-11-07T02:49:34Z",
+   "passed": 1,
+   "run": "runs/2026-11-07-02.json",
+   "tested": 2
   }
  ],
  "facts": [
@@ -315,17 +331,26 @@
   "[2026-11-06] d1106: 154 dried up because round_trip_back is NULL for ~91% of hooked tokens that pass its other clauses (336h: 14 with rtb>=0.9 vs 160 with rtb>=0.9 OR NULL). The NULL-allowed variant models ev_lcb +0.45 (n=160) but 86 of its 160 sit in a 5-10x band with a hard ceiling (5x+ 97 -> 10x+ 11), consistent with the templated hooked farm (ATH ~$255k); sellability of NULL-rtb tokens is UNTESTED and HWF (rtb<0.9) pumped 55x then drained to ~0. Do NOT deploy a NULL-rtb hooked condition on modelled EV alone - it needs a farm discriminator from entry snapshots (blocked) or the user's explicit ok. deployer_launches<=3 does not split the cluster (158/160).",
   "[2026-11-06] c57 self-check: on the plain-v4 155 stream, idle_blocks<1200 and the top_maker cap 40->50 are no-ops (501/501 and +4 of 505); on 154, buy/sell ratio 2->1.5 is a no-op (14/14). Retired 4 arms. 154 is gated only by round_trip_back coverage, so any 154 mutation that keeps rtb>=0.9 is untestable (n<=14) - skip 154 candidates until rtb coverage returns or the user decides on NULL-rtb.",
   "[2026-11-06] Calibration method (when unblocked): take an UNBIASED sample by backtesting 152 over a short window (2-3h) with show=20 so every matched token is listed, then token_history (limit 200) on 8-10 of them. The normal best-list is biased high and must not be used for calibration.",
-  "[2026-11-06] c58: on 155 (plain tight), raising buyers 25 -> 35 cuts 10x+ from 60 to 2 per 7d (n 509 -> 183): the runners are caught early at buyers 25-34. Never raise 155's buyer floor, and remember that a 155 restriction on a clause mirrored in 152's NOT block drops those tokens from BOTH feeds. held_pct<60 guard: slight negative (-2 tokens, one 20x and one 10x lost)."
+  "[2026-11-06] c58: on 155 (plain tight), raising buyers 25 -> 35 cuts 10x+ from 60 to 2 per 7d (n 509 -> 183): the runners are caught early at buyers 25-34. Never raise 155's buyer floor, and remember that a 155 restriction on a clause mirrored in 152's NOT block drops those tokens from BOTH feeds. held_pct<60 guard: slight negative (-2 tokens, one 20x and one 10x lost).",
+  "[2026-11-07] c59 (interrupted): 155 + symbol_reuse >= 4 passed every gate (168h n=432 ev_lcb +0.279 vs champion +0.222, margin +0.057 vs 0.05 needed; 72h n=248 ev_lcb +0.193 vs live +0.178). symbol_reuse is fixed at launch (no lookahead). DEPLOY ADVICE printed but the run was cut off before deploying. CAVEAT: the 97/7d unique-symbol tight tokens (ev_lcb +0.049, still positive) would drop from BOTH feeds, since 152's NOT block still excludes them. Consider a later paired 152 change (NOT block gains AND symbol_reuse >= 4) so they route to 152. Re-test on a fresh window before deploying."
  ],
- "queue": [],
+ "queue": [
+  {
+   "arm": "queue:plain_v4_symbol_reuse4",
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000 AND symbol_reuse >= 4",
+   "family": "plain_v4",
+   "id": "q-155-reuse4",
+   "slot": "155"
+  }
+ ],
  "slots": {
   "152": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": 0.2879,
+    "ev_lcb": 0.2958,
     "hours": 168.0,
-    "n": 733,
-    "source": "2026-11-05T18:52:18Z"
+    "n": 732,
+    "source": "2026-11-07T02:48:29Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)",
    "deployed_at": "2026-10-28T10:54:00Z",
@@ -338,14 +363,14 @@
   "154": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": -0.2108,
+    "ev_lcb": -0.2234,
     "hours": 336.0,
-    "n": 14,
-    "source": "2026-11-05T18:52:57Z"
+    "n": 15,
+    "source": "2026-11-07T02:48:29Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 30000 AND mc < 200000",
    "deployed_at": "2026-10-20T12:33:53Z",
-   "failures": 1,
+   "failures": 2,
    "family": "hooked_verified",
    "params": {
     "buyers": 8,
@@ -361,10 +386,10 @@
   "155": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": 0.2691,
+    "ev_lcb": 0.2222,
     "hours": 168.0,
-    "n": 461,
-    "source": "2026-11-05T18:52:18Z"
+    "n": 529,
+    "source": "2026-11-07T02:48:29Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000",
    "failures": 0,
@@ -551,6 +576,15 @@
    "pass": false,
    "slot": "154"
   },
+  "ca9b551499b9": {
+   "arm": "queue:plain_v4_symbol_reuse4",
+   "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000 AND symbol_reuse >= 4",
+   "date": "2026-11-07T02:49:34Z",
+   "ev_lcb": 0.2792,
+   "n": 432,
+   "pass": true,
+   "slot": "155"
+  },
   "d0600ef24695": {
    "arm": "plain_v4:mc_min:down",
    "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 10000 AND mc < 45000",
@@ -623,6 +657,15 @@
    "pass": false,
    "slot": "154"
   },
+  "f46bf73dc835": {
+   "arm": "plain_v4:pred:unique_symbol",
+   "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000 AND symbol_reuse <= 3",
+   "date": "2026-11-07T02:49:34Z",
+   "ev_lcb": 0.0491,
+   "n": 97,
+   "pass": false,
+   "slot": "155"
+  },
   "f59a99a8d662": {
    "arm": "plain_v4:pred:no_untracked",
    "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000 AND (untracked_sell_pct IS NULL OR untracked_sell_pct < 10)",
@@ -642,6 +685,6 @@
    "slot": "155"
   }
  },
- "updated": "2026-11-06T18:49:38Z",
+ "updated": "2026-11-07T06:33:22Z",
  "version": 1
 }

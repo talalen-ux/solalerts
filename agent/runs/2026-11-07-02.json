@@ -1,0 +1,208 @@
+{
+ "date": "2026-11-07T02:47Z",
+ "cycle": 59,
+ "long_hours": 168,
+ "results": [
+  {
+   "slot": "155",
+   "family": "plain_v4",
+   "arm": "plain_v4:pred:unique_symbol",
+   "params": {
+    "buyers": 25,
+    "mc_max": 45000,
+    "mc_min": 15000,
+    "ratio": 5,
+    "top": 40
+   },
+   "preds": [
+    "unique_symbol"
+   ],
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000 AND symbol_reuse <= 3",
+   "hash": "f46bf73dc835",
+   "long_hours": 168,
+   "recent_hours": 72,
+   "id": "c2-f46bf7",
+   "long": {
+    "window_hours": 168,
+    "matched": 97,
+    "scored": 97,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 1
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 3
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 23
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 47
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 64
+     }
+    ],
+    "post_ath": {
+     "tokens": 0
+    }
+   },
+   "recent": {
+    "window_hours": 72,
+    "matched": 0,
+    "scored": 0,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 0
+     }
+    ],
+    "post_ath": {
+     "tokens": 0
+    }
+   },
+   "note": "recent NOT RUN: long ev_lcb +0.049 far below champion"
+  },
+  {
+   "id": "c59-155-reuse4",
+   "slot": "155",
+   "family": "plain_v4",
+   "arm": "queue:plain_v4_symbol_reuse4",
+   "params": {},
+   "preds": [
+    "symbol_reuse>=4"
+   ],
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000 AND symbol_reuse >= 4",
+   "long_hours": 168,
+   "recent_hours": 72,
+   "long": {
+    "window_hours": 168,
+    "matched": 432,
+    "scored": 432,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 8
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 56
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 133
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 257
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 317
+     }
+    ],
+    "post_ath": {
+     "tokens": 8
+    }
+   },
+   "recent": {
+    "window_hours": 72,
+    "matched": 248,
+    "scored": 248,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 3
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 22
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 69
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 150
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 184
+     }
+    ],
+    "post_ath": {
+     "tokens": 5
+    }
+   },
+   "note": "inverse of the sampled unique_symbol candidate (symbol_reuse is fixed at launch per list_parameters: no lookahead)"
+  }
+ ],
+ "skipped": [
+  {
+   "id": "c1-27cdb6",
+   "reason": "154 restriction; live 154 n=15/336h so n<30 by construction"
+  },
+  {
+   "id": "c3-280b7c",
+   "reason": "154 restriction; live 154 n=15/336h so n<30 by construction"
+  },
+  {
+   "id": "c4-e3b15c",
+   "reason": "154 restriction; live 154 n=15/336h so n<30 by construction"
+  }
+ ]
+}

@@ -4823,3 +4823,40 @@ alert2:
 
 # 6H REVIEW 2026-11-07 00:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (41st review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 59 (2026-11-07 02:47 UTC): INTERRUPTED after eval. DEPLOY ADVICE
+#   printed, NOT deployed (worker restarted; my error: I then ended the turn without
+#   resuming). Logged 06:33.
+# 1) Health (live conditions equal memory):
+#     152 72h n=393, 2x+ 66.9%, 10x+ 46, ev +0.237 / ev_lcb +0.125 (ok, up from +0.086)
+#     155 72h n=309, 2x+ 72.5%, 10x+ 22, ev +0.232 / ev_lcb +0.178 (ok)
+#   Baseline refresh (cycles % 3 == 0):
+#     152 168h n=732 ev_lcb +0.296 pass | 155 168h n=529 ev_lcb +0.222 pass
+#     154 336h n=15, 168h n=8, ev_lcb -0.223 -> FAILS a 2nd time = REPLACE-ME.
+#     154 caught BID at $88.8k (9.8x) this week.
+#   154 REPLACE-ME handling: no challenger that passes and is safe. Previous revision
+#   (rev 4062, mc > 8000) has the same round-trip bottleneck; older revisions are doppler
+#   or pons venues (dead or negative). The only passing variant (allow NULL rtb, ev_lcb
+#   +0.45) is unsafe: sellability untested, farm cluster. 154 left unchanged, since the
+#   agent may not disable it. NEEDS USER.
+# 3-5) Candidates: sampled 155 + symbol_reuse <= 3 (unique tickers): n=97 of 529,
+#   2x+ 66%, 10x+ 3, ev_lcb +0.049. 82% of 155's tokens have a sprayed ticker, and the
+#   runners sit there (repeat-name law). Its inverse, measured directly:
+#     155 + symbol_reuse >= 4: 168h n=432, 2x+ 73.4%, 10x+ 56, ev +0.389 / ev_lcb +0.279
+#                              72h  n=248, 2x+ 74.2%, 10x+ 22, ev +0.253 / ev_lcb +0.193
+#     symbol_reuse = "distinct tokens sharing this ticker as of this launch" (no lookahead).
+#   ledger eval: PASS, margin +0.057 (needs 0.05).
+#   DEPLOY ADVICE: slot 155 <- launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND
+#     buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND
+#     mc < 45000 AND symbol_reuse >= 4
+#   NOT DEPLOYED. Re-test on a fresh window at cycle 60 (queued as q-155-reuse4). Reasons:
+#     the advice is ~4h old, the margin is thin, and the unique-ticker tokens (~14/day,
+#     modelled ev_lcb still +0.049) would drop from both 155 and 152. 152's NOT block
+#     excludes them, so a paired 152 change should follow if it ships.
+#   Old 155 condition (rollback): launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25
+#     AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND
+#     mc < 45000
+#   154 restriction candidates (3): not run (n <= 15 by construction). RH backtests: 9.
+
+# 6H REVIEW 2026-11-07 06:32 UTC (Solana): SKIPPED - defirobot connector still needs
+#   re-authorization (42nd review in a row). No changes.
