@@ -4908,3 +4908,6 @@ alert2:
 #     baseline refresh (cycles % 3 == 0).
 #   Sampled candidates: three 154 restrictions (n <= 15 by construction) and 155 mc cap 60k
 #     (only duplicates 152) - not run. RH backtests: 6.
+
+# 6H REVIEW 2026-11-07 12:32 UTC (Solana): SKIPPED - defirobot connector still needs
+#   re-authorization (43rd review in a row). No changes.
