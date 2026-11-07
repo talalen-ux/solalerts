@@ -332,7 +332,8 @@
   "[2026-11-06] c57 self-check: on the plain-v4 155 stream, idle_blocks<1200 and the top_maker cap 40->50 are no-ops (501/501 and +4 of 505); on 154, buy/sell ratio 2->1.5 is a no-op (14/14). Retired 4 arms. 154 is gated only by round_trip_back coverage, so any 154 mutation that keeps rtb>=0.9 is untestable (n<=14) - skip 154 candidates until rtb coverage returns or the user decides on NULL-rtb.",
   "[2026-11-06] Calibration method (when unblocked): take an UNBIASED sample by backtesting 152 over a short window (2-3h) with show=20 so every matched token is listed, then token_history (limit 200) on 8-10 of them. The normal best-list is biased high and must not be used for calibration.",
   "[2026-11-06] c58: on 155 (plain tight), raising buyers 25 -> 35 cuts 10x+ from 60 to 2 per 7d (n 509 -> 183): the runners are caught early at buyers 25-34. Never raise 155's buyer floor, and remember that a 155 restriction on a clause mirrored in 152's NOT block drops those tokens from BOTH feeds. held_pct<60 guard: slight negative (-2 tokens, one 20x and one 10x lost).",
-  "[2026-11-07] c59 (interrupted): 155 + symbol_reuse >= 4 passed every gate (168h n=432 ev_lcb +0.279 vs champion +0.222, margin +0.057 vs 0.05 needed; 72h n=248 ev_lcb +0.193 vs live +0.178). symbol_reuse is fixed at launch (no lookahead). DEPLOY ADVICE printed but the run was cut off before deploying. CAVEAT: the 97/7d unique-symbol tight tokens (ev_lcb +0.049, still positive) would drop from BOTH feeds, since 152's NOT block still excludes them. Consider a later paired 152 change (NOT block gains AND symbol_reuse >= 4) so they route to 152. Re-test on a fresh window before deploying."
+  "[2026-11-07] c59 (interrupted): 155 + symbol_reuse >= 4 passed every gate (168h n=432 ev_lcb +0.279 vs champion +0.222, margin +0.057 vs 0.05 needed; 72h n=248 ev_lcb +0.193 vs live +0.178). symbol_reuse is fixed at launch (no lookahead). DEPLOY ADVICE printed but the run was cut off before deploying. CAVEAT: the 97/7d unique-symbol tight tokens (ev_lcb +0.049, still positive) would drop from BOTH feeds, since 152's NOT block still excludes them. Consider a later paired 152 change (NOT block gains AND symbol_reuse >= 4) so they route to 152. Re-test on a fresh window before deploying.",
+  "[2026-11-07] d1107: the symbol_reuse split also holds on 152 (7d): reuse>=4 n=644 ev_lcb +0.304, unique (<=3) n=80 ev_lcb +0.074, control 724 +0.287. Unique-ticker tokens are the weak tail on BOTH plain feeds, so routing 155's unique tokens to 152 is not worth a paired change. The cost of 155 + symbol_reuse>=4 is ~14 weak alerts/day dropped, not lost runners."
  ],
  "queue": [
   {
@@ -685,6 +686,6 @@
    "slot": "155"
   }
  },
- "updated": "2026-11-07T06:33:22Z",
+ "updated": "2026-11-07T07:08:03Z",
  "version": 1
 }
