@@ -1,0 +1,396 @@
+{
+ "date": "2026-11-08T10:47Z",
+ "cycle": 63,
+ "long_hours": 168,
+ "results": [
+  {
+   "slot": "155",
+   "family": "plain_v4",
+   "arm": "plain_v4:mc_min:up",
+   "params": {
+    "buyers": 25,
+    "mc_max": 45000,
+    "mc_min": 20000,
+    "ratio": 5,
+    "top": 40
+   },
+   "preds": [],
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 20000 AND mc < 45000",
+   "hash": "f442cb1e1265",
+   "long_hours": 168,
+   "recent_hours": 72,
+   "id": "c4-f442cb",
+   "long": {
+    "window_hours": 168,
+    "matched": 315,
+    "scored": 315,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 8
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 49
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 116
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 172
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 225
+     }
+    ],
+    "post_ath": {
+     "tokens": 8
+    }
+   },
+   "recent": {
+    "window_hours": 72,
+    "matched": 129,
+    "scored": 129,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 2
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 13
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 49
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 72
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 91
+     }
+    ],
+    "post_ath": {
+     "tokens": 4
+    }
+   }
+  },
+  {
+   "slot": "155",
+   "family": "plain_v4",
+   "arm": "plain_v4:pred:no_sweep",
+   "params": {
+    "buyers": 25,
+    "mc_max": 45000,
+    "mc_min": 15000,
+    "ratio": 5,
+    "top": 40
+   },
+   "preds": [
+    "no_sweep"
+   ],
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000 AND (swept_pct IS NULL OR swept_pct < 15)",
+   "hash": "f97d7c38fc16",
+   "long_hours": 168,
+   "recent_hours": 72,
+   "id": "c3-f97d7c",
+   "long": {
+    "window_hours": 168,
+    "matched": 602,
+    "scored": 602,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 8
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 49
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 167
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 340
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 422
+     }
+    ],
+    "post_ath": {
+     "tokens": 9
+    }
+   },
+   "recent": {
+    "window_hours": 72,
+    "matched": 356,
+    "scored": 356,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 2
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 13
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 87
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 200
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 245
+     }
+    ],
+    "post_ath": {
+     "tokens": 5
+    }
+   },
+   "note": "no-op: 602/602 identical to live 155; recent INFERRED = live 72h"
+  },
+  {
+   "slot": "154",
+   "family": "hooked_verified",
+   "arm": "hooked_verified:buyers:down",
+   "params": {
+    "buyers": 5,
+    "mc_max": 200000,
+    "mc_min": 30000,
+    "ratio": 2,
+    "rtb": 0.9,
+    "top": 60
+   },
+   "preds": [],
+   "condition": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 5 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 30000 AND mc < 200000",
+   "hash": "403c89527132",
+   "long_hours": 336,
+   "recent_hours": 168,
+   "id": "c1-403c89",
+   "long": {
+    "window_hours": 336,
+    "matched": 17,
+    "scored": 17,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 1
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 3
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 6
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 6
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 9
+     }
+    ],
+    "post_ath": {
+     "tokens": 0
+    }
+   },
+   "recent": {
+    "window_hours": 168,
+    "matched": 0,
+    "scored": 0,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 0
+     }
+    ],
+    "post_ath": {
+     "tokens": 0
+    }
+   },
+   "note": "measured as combined loosening (buyers>=5 AND top<70): 17 = live 154 17, so both single loosenings are no-ops"
+  },
+  {
+   "slot": "154",
+   "family": "hooked_verified",
+   "arm": "hooked_verified:top:up",
+   "params": {
+    "buyers": 8,
+    "mc_max": 200000,
+    "mc_min": 30000,
+    "ratio": 2,
+    "rtb": 0.9,
+    "top": 70
+   },
+   "preds": [],
+   "condition": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 70 AND mc > 30000 AND mc < 200000",
+   "hash": "4b5d7fa7f02f",
+   "long_hours": 336,
+   "recent_hours": 168,
+   "id": "c2-4b5d7f",
+   "long": {
+    "window_hours": 336,
+    "matched": 17,
+    "scored": 17,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 1
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 3
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 6
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 6
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 9
+     }
+    ],
+    "post_ath": {
+     "tokens": 0
+    }
+   },
+   "recent": {
+    "window_hours": 168,
+    "matched": 0,
+    "scored": 0,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 0
+     }
+    ],
+    "post_ath": {
+     "tokens": 0
+    }
+   },
+   "note": "measured as combined loosening (buyers>=5 AND top<70): 17 = live 154 17, so both single loosenings are no-ops"
+  }
+ ],
+ "skipped": [
+  {
+   "id": "c5-1eeb19",
+   "reason": "155 mc cap 60k: added slice is already alerted by 152 (pure duplication); arm retired"
+  }
+ ]
+}

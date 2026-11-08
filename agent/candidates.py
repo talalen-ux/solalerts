@@ -29,6 +29,27 @@ def neighbours(family, params):
             yield f"{family}:{name}:up", name, values[i + 1]
 
 
+# Direction in which each grid parameter makes a condition STRICTER (fewer tokens).
+# Every added predicate is also a restriction.
+TIGHTEN = {"buyers": "up", "ratio": "up", "top": "down", "mc_min": "up", "mc_max": "down", "rtb": "up"}
+MIN_N = 30  # the eval gate's n floor
+
+
+def is_restriction(arm):
+    """True when the mutation can only remove tokens from the champion's stream."""
+    parts = arm.split(":")
+    if len(parts) >= 3 and parts[1] == "pred":
+        return True
+    if len(parts) == 3 and parts[1] in TIGHTEN:
+        return parts[2] == TIGHTEN[parts[1]]
+    return False
+
+
+def starved(ch):
+    """A slot whose baseline is already below the n floor: its restrictions cannot pass."""
+    return ch.get("baseline", {}).get("n", MIN_N) < MIN_N
+
+
 def propose(mem, k=4, seed=None):
     rng = random.Random(seed)
     tested = mem["tested"]
@@ -46,14 +67,17 @@ def propose(mem, k=4, seed=None):
         if fam not in FAMILIES:
             continue
         base_params, base_preds = ch["params"], ch.get("preds", [])
+        skip_restrictions = starved(ch)
         for arm, name, val in neighbours(fam, base_params):
+            if skip_restrictions and is_restriction(arm):
+                continue
             p = copy.deepcopy(base_params)
             p[name] = val
             cond = render(fam, p, base_preds)
             pool.append((thompson(mem, arm, rng), {"slot": slot, "family": fam, "arm": arm,
                                                    "params": p, "preds": base_preds, "condition": cond}))
         for pname in PREDICATES:
-            if pname in base_preds:
+            if pname in base_preds or skip_restrictions:
                 continue
             arm = f"{fam}:pred:{pname}"
             preds = base_preds + [pname]

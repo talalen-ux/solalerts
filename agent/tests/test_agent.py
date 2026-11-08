@@ -88,5 +88,28 @@ class Retired(unittest.TestCase):
         self.assertNotIn(first["arm"], {c["arm"] for c in again})
 
 
+class Starved(unittest.TestCase):
+    def test_is_restriction(self):
+        self.assertTrue(candidates.is_restriction("plain_v4:pred:socials"))
+        self.assertTrue(candidates.is_restriction("plain_v4:buyers:up"))
+        self.assertTrue(candidates.is_restriction("hooked_verified:mc_max:down"))
+        self.assertTrue(candidates.is_restriction("hooked_verified:rtb:up"))
+        self.assertFalse(candidates.is_restriction("hooked_verified:buyers:down"))
+        self.assertFalse(candidates.is_restriction("plain_v4:mc_max:up"))
+        self.assertFalse(candidates.is_restriction("queue:anything"))
+
+    def test_starved_slot_gets_no_restrictions(self):
+        tmp = tempfile.mkdtemp(); memory_io.PATH = os.path.join(tmp, "memory.json")
+        ledger.cmd_init([])
+        mem = memory_io.load()
+        mem["slots"]["154"]["baseline"]["n"] = 15
+        memory_io.save(mem)
+        cs = candidates.propose(memory_io.load(), k=40, seed=7)
+        on154 = [c for c in cs if c["slot"] == "154"]
+        self.assertTrue(on154, "loosening arms for the starved slot should still be proposed")
+        self.assertFalse([c for c in on154 if candidates.is_restriction(c["arm"])])
+        self.assertTrue([c for c in cs if c["slot"] != "154" and candidates.is_restriction(c["arm"])])
+
+
 if __name__ == "__main__":
     unittest.main()
