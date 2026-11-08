@@ -4992,3 +4992,35 @@ alert2:
 #   OPEN FOR USER: 154 replace-me (3 straight gate failures), token_history pre-approval
 #     (calibration), environment allowing mcp-rh.defirobot.org (downloads).
 #   Next weekly review: 2026-11-15.
+
+# STRATEGY AGENT CYCLE 63 (2026-11-08 10:47 UTC): DEPLOY ADVICE printed, NOT deployed - the
+#   worker restarted twice during the deploy review and I ended those turns without
+#   resuming (my error). Logged 18:33. Self-improvement (7th cycle) done.
+# 1) Health (live conditions equal memory):
+#     152 72h n=317, 2x+ 66.3%, 10x+ 43, ev +0.307 / ev_lcb +0.178 (ok)
+#     155 72h n=356, 2x+ 68.8%, 10x+ 13, ev +0.186 / ev_lcb +0.135 (ok, tail thin)
+# SELF-IMPROVEMENT: candidates.py no longer proposes restrictions (added predicates and
+#   tightening moves) for slots whose baseline n < 30. 154 had been taking most of the
+#   proposals with candidates that could not pass. Unit tests 11/11 OK, 2 new.
+#   Retired plain_v4:mc_max:up (it only duplicates 152). No arm has >= 8 tests.
+#   Calibration: still blocked (token_history approval).
+# 3-5) Candidates (same-window control: live 155 168h n=602, ev_lcb +0.163):
+#     155 + (swept_pct IS NULL OR < 15): 602/602 identical (no-op)
+#     154 buyers 8 -> 5 and top 60 -> 70 (both at once): n=17 = live (no-op; 154 stays
+#       gated by NULL rtb)
+#     155 mc floor 15k -> 20k:  168h n=315, 2x+ 71.4%, 10x+ 49, 20x+ 8, ev +0.397 / ev_lcb +0.262
+#                               72h  n=129, 2x+ 70.5%, 10x+ 13, ev_lcb +0.122 (live 72h +0.135)
+#   ledger eval: PASS (+0.092 over stored baseline +0.170). DEPLOY ADVICE:
+#     slot 155 <- launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND
+#     buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 20000 AND mc < 45000
+#   NOT DEPLOYED. Caveats: the 72h window does not confirm it. The 10x/20x counts are
+#   unchanged (49/8), so the gain is precision. ~41 tokens/day would leave BOTH plain feeds.
+#   Re-test on a fresh window in cycle 64 (queued q-155-mcmin20); deploy there if it holds.
+#   Rollback (current 155): launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND
+#     buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000
+#   RH backtests: 7.
+
+# 6H REVIEW 2026-11-08 12:32 UTC (Solana): SKIPPED - defirobot connector still needs
+#   re-authorization (47th). Logged late (session stalled).
+# 6H REVIEW 2026-11-08 18:32 UTC (Solana): SKIPPED - defirobot connector still needs
+#   re-authorization (48th review in a row). No changes.

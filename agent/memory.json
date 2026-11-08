@@ -63,6 +63,12 @@
    "tests": 1,
    "wins": 0
   },
+  "plain_v4:mc_max:up": {
+   "retired": true,
+   "sum_delta": 0.0,
+   "tests": 0,
+   "wins": 0
+  },
   "plain_v4:mc_min:down": {
    "sum_delta": -0.0191,
    "tests": 1,
@@ -381,9 +387,18 @@
   "[2026-11-07] c60: re-test of 155 + symbol_reuse >= 4 FAILED the gate by 0.0009 (ev_lcb +0.2713 vs required +0.2722 = stored baseline +0.222 + 0.05). Against the same-window control (live 155 168h n=550, +0.210) it is +0.061, and +0.014 on 72h. The stored baseline is higher than today's control. Do not refresh a baseline off-schedule to make a candidate pass. Kept queued; retest after the next scheduled baseline refresh.",
   "[2026-11-07] c61: 155 mc cap 45k -> 30k strips the tail (10x+ 55 -> 17 per 7d; Kitsu/SIC/NATE entered 155 at 36-43k). Never lower 155's cap. SAMPLER FLAW for the cycle-63 self-improvement: candidates.py spent 5 of 6 proposals on 154 restrictions that cannot reach n>=30. Fix: skip restriction arms for any slot whose baseline n < 30 (add a unit test).",
   "[2026-11-08] c62: 155 + symbol_reuse >= 4, 3rd test on a fresh window after the scheduled baseline refresh: 168h ev_lcb +0.203 vs control +0.170 (+0.033, below the 0.05 margin); 72h +0.149 vs live +0.153 (worse). The edge decayed from +0.057/+0.061 to +0.033 within 24h. Not stable: dropped. Lesson: a thin-margin pass needs a fresh-window retest before deploying - cycle 59's advice would have shipped a fading edge.",
-  "[2026-11-08] d1108: the 8888 vanity cluster (CURVEIL, JUGGER, AMM, MASCOT...) is INVISIBLE to the snapshotter - absent at launch ($1.5-4k band) and at its ~$200k plateau (mc 150-250k, buyers<120: only 6 other tokens). No condition can catch it; stop spending backtests on it. Mooners with mc=null (EGGS 994x, RS 406x) are data artifacts - ignore."
+  "[2026-11-08] d1108: the 8888 vanity cluster (CURVEIL, JUGGER, AMM, MASCOT...) is INVISIBLE to the snapshotter - absent at launch ($1.5-4k band) and at its ~$200k plateau (mc 150-250k, buyers<120: only 6 other tokens). No condition can catch it; stop spending backtests on it. Mooners with mc=null (EGGS 994x, RS 406x) are data artifacts - ignore.",
+  "[2026-11-08] c63: 155 mc floor 15k -> 20k PASSED the gate (168h n=315 ev_lcb +0.262 vs same-window control +0.163; stored baseline +0.170) but the 72h window disagrees (+0.122 vs live +0.135). The 10x/20x counts are identical (49/8), so the gain is per-alert quality, and ~41 tokens/day would leave BOTH plain feeds (152's NOT block covers mc<45k). Not deployed in c63 (session stalled). Retest queued as q-155-mcmin20 for c64. Retired plain_v4:mc_max:up (it only duplicates 152)."
  ],
- "queue": [],
+ "queue": [
+  {
+   "arm": "queue:plain_v4_mcmin20_retest",
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 20000 AND mc < 45000",
+   "family": "plain_v4",
+   "id": "q-155-mcmin20",
+   "slot": "155"
+  }
+ ],
  "slots": {
   "152": {
    "alarms": 0,
@@ -771,6 +786,6 @@
    "slot": "155"
   }
  },
- "updated": "2026-11-08T10:49:06Z",
+ "updated": "2026-11-08T18:33:06Z",
  "version": 1
 }
