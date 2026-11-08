@@ -359,7 +359,8 @@
   "[2026-11-07] d1107: the symbol_reuse split also holds on 152 (7d): reuse>=4 n=644 ev_lcb +0.304, unique (<=3) n=80 ev_lcb +0.074, control 724 +0.287. Unique-ticker tokens are the weak tail on BOTH plain feeds, so routing 155's unique tokens to 152 is not worth a paired change. The cost of 155 + symbol_reuse>=4 is ~14 weak alerts/day dropped, not lost runners.",
   "[2026-11-07] c60: re-test of 155 + symbol_reuse >= 4 FAILED the gate by 0.0009 (ev_lcb +0.2713 vs required +0.2722 = stored baseline +0.222 + 0.05). Against the same-window control (live 155 168h n=550, +0.210) it is +0.061, and +0.014 on 72h. The stored baseline is higher than today's control. Do not refresh a baseline off-schedule to make a candidate pass. Kept queued; retest after the next scheduled baseline refresh.",
   "[2026-11-07] c61: 155 mc cap 45k -> 30k strips the tail (10x+ 55 -> 17 per 7d; Kitsu/SIC/NATE entered 155 at 36-43k). Never lower 155's cap. SAMPLER FLAW for the cycle-63 self-improvement: candidates.py spent 5 of 6 proposals on 154 restrictions that cannot reach n>=30. Fix: skip restriction arms for any slot whose baseline n < 30 (add a unit test).",
-  "[2026-11-08] c62: 155 + symbol_reuse >= 4, 3rd test on a fresh window after the scheduled baseline refresh: 168h ev_lcb +0.203 vs control +0.170 (+0.033, below the 0.05 margin); 72h +0.149 vs live +0.153 (worse). The edge decayed from +0.057/+0.061 to +0.033 within 24h. Not stable: dropped. Lesson: a thin-margin pass needs a fresh-window retest before deploying - cycle 59's advice would have shipped a fading edge."
+  "[2026-11-08] c62: 155 + symbol_reuse >= 4, 3rd test on a fresh window after the scheduled baseline refresh: 168h ev_lcb +0.203 vs control +0.170 (+0.033, below the 0.05 margin); 72h +0.149 vs live +0.153 (worse). The edge decayed from +0.057/+0.061 to +0.033 within 24h. Not stable: dropped. Lesson: a thin-margin pass needs a fresh-window retest before deploying - cycle 59's advice would have shipped a fading edge.",
+  "[2026-11-08] d1108: the 8888 vanity cluster (CURVEIL, JUGGER, AMM, MASCOT...) is INVISIBLE to the snapshotter - absent at launch ($1.5-4k band) and at its ~$200k plateau (mc 150-250k, buyers<120: only 6 other tokens). No condition can catch it; stop spending backtests on it. Mooners with mc=null (EGGS 994x, RS 406x) are data artifacts - ignore."
  ],
  "queue": [],
  "slots": {
@@ -713,6 +714,6 @@
    "slot": "155"
   }
  },
- "updated": "2026-11-08T02:49:00Z",
+ "updated": "2026-11-08T07:07:42Z",
  "version": 1
 }

@@ -4946,3 +4946,49 @@ alert2:
 
 # 6H REVIEW 2026-11-08 06:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (46th review in a row). No changes.
+
+# DAILY-OPS 2026-11-08 07:07 UTC + WEEKLY LAW REVIEW
+# 1) Fill scorecard: SKIPPED - defirobot (Solana) connector needs re-authorization.
+# 2) RH top-10 (24h): EGGS 994x (launch $325k, mc null - data artifact), CANNACAT 459x
+#   ($335 launch, 38 buyers), MOPES 311x ($558 launch, 39 buyers), CURVEIL 95x (8888),
+#   puter 84x ($2.5k launch, now 27x), JUGGER 74x (8888), OMEN 56x (now 1.0x), CANNACAT
+#   #2 54x, CANNACAT #3 52x, MOPES #2 45x.
+#   CAUGHT: 1 of 10 - OMEN by 152 at $23.5k (37.5x). It then round-tripped to 1.0x within
+#   12h (round-trip law: exits on the way up).
+#   MISSED: 8888 pair (CURVEIL, JUGGER) - invisible to the snapshotter (experiment below);
+#     CANNACAT x3 / MOPES x2 - micro-launch template ($335-1.2k launches, <45 buyers);
+#     puter - only seen at launch ($2.5k, 83.7x) in the $1.5-4k band, which is 85% post-ATH
+#     (no filter should live there); EGGS - artifact.
+#   152 24h: n=101, 2x+ 53.5% (down from ~70%), 10x+ 16, PostATH 6.9%.
+#   155 24h: n=117, 2x+ 60.7%, 10x+ 4, PostATH 1.7%. A weaker day on both plain feeds.
+# 3) Watchlist (repeat-name law): SUNPEAK - 6 addresses, all caught by 152 (26.1x / 16.5x /
+#   16.2x / 11.2x / 10.9x / 8.3x); LETRO (2 more: 23.9x / 15.6x); ADYROS (2: 22.0x / 10.9x);
+#   QUERO (2); CANNACAT (3); MOPES (2); CURVEIL (8888 + a plain one in 155).
+# 4) EXPERIMENT - where does the 8888 cluster live?
+#     all venues, mc 150-250k, buyers < 120, 48h: n=6 (none of them 8888; 5 null-symbol
+#       tokens at $199-226k = the hooked farm's plateau)
+#     all venues, mc 1.5-4k, buyers >= 3, 48h:    n=466, 85% post-ATH; puter is the only
+#       mooner seen, no 8888 token
+#   FINDING: the 8888 tokens are never snapshotted, at launch or at their plateau, so no
+#   filter condition can match them. Closed - stop spending backtests on it.
+#   RH backtests: 5.
+#
+# 5) WEEKLY LAW REVIEW (11-02..11-08):
+#   HELD: repeat-name law (SUNPEAK x6, LETRO x4, KYTE x4, PANGEA x4 - copies of a hot ticker
+#     keep running), BUT as a filter clause (155 + symbol_reuse >= 4) the edge decayed
+#     +0.06 -> +0.03 in 24h: it describes the tail, not a stable gate. Round-trip law (OMEN
+#     56x -> 1.0x, HWF 77x -> 0, Harmonic 118x -> 5.7x). Regime dominates (152 72h ev_lcb
+#     +0.086 .. +0.169 this week with no change). Response-curve protocol: 155 mapped -
+#     buyer floor 25 and mc cap 45k are both load-bearing (moving either kills the tail);
+#     top cap, staleness, held, untracked, socials are no-ops. Pons stays excluded.
+#   BROKE: "154 went quiet because hooked launches stopped" - wrong. round_trip_back is NULL
+#     for ~91% of hooked tokens, so it is a data-coverage gap. "A stored baseline is a fair
+#     champion bar" - wrong twice (c55 no-op looked +0.097; c60 near-miss). Rule: always run
+#     the live slot on the same window as a control.
+#   NEW: templated ceiling farms - hooked (~$255k ceiling, NULL rtb), 8888 vanity (~$200-225k,
+#     never snapshotted), micro-launch (CANNACAT/MOPES, $335-1.2k launches). mc-null mooners
+#     (EGGS, RS) are artifacts.
+#   UNTESTED: all Solana laws (connector down since 10-28; 46 reviews skipped).
+#   OPEN FOR USER: 154 replace-me (3 straight gate failures), token_history pre-approval
+#     (calibration), environment allowing mcp-rh.defirobot.org (downloads).
+#   Next weekly review: 2026-11-15.
