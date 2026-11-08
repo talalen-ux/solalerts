@@ -178,6 +178,11 @@
    "tests": 4,
    "wins": 4
   },
+  "queue:plain_v4_mcmin20_retest": {
+   "sum_delta": 0.0933,
+   "tests": 1,
+   "wins": 1
+  },
   "queue:plain_v4_symbol_reuse4": {
    "sum_delta": 0.1395,
    "tests": 3,
@@ -346,6 +351,12 @@
    "passed": 1,
    "run": "runs/2026-11-08-10.json",
    "tested": 4
+  },
+  {
+   "at": "2026-11-08T18:47:58Z",
+   "passed": 1,
+   "run": "runs/2026-11-08-18.json",
+   "tested": 1
   }
  ],
  "facts": [
@@ -390,15 +401,7 @@
   "[2026-11-08] d1108: the 8888 vanity cluster (CURVEIL, JUGGER, AMM, MASCOT...) is INVISIBLE to the snapshotter - absent at launch ($1.5-4k band) and at its ~$200k plateau (mc 150-250k, buyers<120: only 6 other tokens). No condition can catch it; stop spending backtests on it. Mooners with mc=null (EGGS 994x, RS 406x) are data artifacts - ignore.",
   "[2026-11-08] c63: 155 mc floor 15k -> 20k PASSED the gate (168h n=315 ev_lcb +0.262 vs same-window control +0.163; stored baseline +0.170) but the 72h window disagrees (+0.122 vs live +0.135). The 10x/20x counts are identical (49/8), so the gain is per-alert quality, and ~41 tokens/day would leave BOTH plain feeds (152's NOT block covers mc<45k). Not deployed in c63 (session stalled). Retest queued as q-155-mcmin20 for c64. Retired plain_v4:mc_max:up (it only duplicates 152)."
  ],
- "queue": [
-  {
-   "arm": "queue:plain_v4_mcmin20_retest",
-   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 20000 AND mc < 45000",
-   "family": "plain_v4",
-   "id": "q-155-mcmin20",
-   "slot": "155"
-  }
- ],
+ "queue": [],
  "slots": {
   "152": {
    "alarms": 0,
@@ -741,11 +744,11 @@
    "slot": "154"
   },
   "f442cb1e1265": {
-   "arm": "plain_v4:mc_min:up",
+   "arm": "queue:plain_v4_mcmin20_retest",
    "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 20000 AND mc < 45000",
-   "date": "2026-11-08T10:49:06Z",
-   "ev_lcb": 0.2618,
-   "n": 315,
+   "date": "2026-11-08T18:47:58Z",
+   "ev_lcb": 0.2628,
+   "n": 311,
    "pass": true,
    "slot": "155"
   },
@@ -786,6 +789,6 @@
    "slot": "155"
   }
  },
- "updated": "2026-11-08T18:33:06Z",
+ "updated": "2026-11-08T18:47:58Z",
  "version": 1
 }

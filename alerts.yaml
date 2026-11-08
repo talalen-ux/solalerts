@@ -5024,3 +5024,29 @@ alert2:
 #   re-authorization (47th). Logged late (session stalled).
 # 6H REVIEW 2026-11-08 18:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (48th review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 64 (2026-11-08 18:47 UTC): DEPLOYING 155 mc floor 15k -> 20k.
+# 1) Health (live conditions equal memory):
+#     152 72h n=305, 2x+ 64.6%, 10x+ 45, 20x+ 16, ev +0.322 / ev_lcb +0.188 (ok; MGL 27.6x)
+#     155 72h n=363, 2x+ 67.8%, 10x+ 14, ev +0.173 / ev_lcb +0.122 (ok, weakest in 2 weeks)
+# 3-5) Fresh-window retest of the cycle-63 DEPLOY ADVICE (q-155-mcmin20):
+#     live 155 168h (control):  n=633, 10x+ 48, 20x+ 9, ev_lcb +0.163 (ladder_3_10 +0.113)
+#     candidate 168h:           n=311, 10x+ 48, 20x+ 9, ev +0.398 / ev_lcb +0.263 (+0.100)
+#     live 155 72h:             n=363, ev_lcb +0.122 (ladder_3_10 -0.025)
+#     candidate 72h:            n=123, ev_lcb +0.122 (ladder_3_10 +0.108)
+#   Stable: +0.099 (c63) -> +0.100 (c64) on 168h; 72h went from -0.013 to even, and is
+#   clearly better under the ladder exits. Every 10x/20x token is kept; the cut tokens
+#   (~46/day) entered at $15-20k and never reached 10x from there.
+#   ledger eval: PASS, DEPLOY ADVICE (2nd consecutive cycle).
+#   PREDICTION (next 72h health on 155): about half the alert volume of the old condition
+#     (~40-45/day), 10x+ share ~10-15% (old ~4-8%), ev_lcb above the old condition's 72h value.
+#     Roll back if two consecutive 72h checks come in below +0.12, or if the watch alarm fires.
+#   OLD 155 condition (rollback via restore_filter or update_filter_condition):
+#     launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 *
+#     sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000
+#   NEW 155 condition:
+#     launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 *
+#     sell_volume_usd AND top_maker_pct < 40 AND mc > 20000 AND mc < 45000
+#   Known cost: tokens matching 155's conditions at $15-20k leave BOTH plain feeds (152's NOT
+#   block covers mc < 45k). They were scalp-grade (2x+ ~68%, no 10x+ from that entry).
+#   RH backtests: 6.

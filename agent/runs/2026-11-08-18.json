@@ -1,0 +1,95 @@
+{
+ "date": "2026-11-08T18:47Z",
+ "cycle": 64,
+ "long_hours": 168,
+ "results": [
+  {
+   "arm": "queue:plain_v4_mcmin20_retest",
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 20000 AND mc < 45000",
+   "family": "plain_v4",
+   "id": "q-155-mcmin20",
+   "slot": "155",
+   "params": {},
+   "preds": [],
+   "long_hours": 168,
+   "recent_hours": 72,
+   "long": {
+    "window_hours": 168,
+    "matched": 311,
+    "scored": 311,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 9
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 48
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 116
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 171
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 223
+     }
+    ],
+    "post_ath": {
+     "tokens": 8
+    }
+   },
+   "recent": {
+    "window_hours": 72,
+    "matched": 123,
+    "scored": 123,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 3
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 14
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 47
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 68
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 87
+     }
+    ],
+    "post_ath": {
+     "tokens": 3
+    }
+   },
+   "note": "fresh-window retest of c63 DEPLOY ADVICE; control live 155 168h n=633"
+  }
+ ]
+}
