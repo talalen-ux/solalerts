@@ -158,8 +158,8 @@
    "wins": 4
   },
   "queue:plain_v4_symbol_reuse4": {
-   "sum_delta": 0.1061,
-   "tests": 2,
+   "sum_delta": 0.1395,
+   "tests": 3,
    "wins": 1
   },
   "queue:sweep_guard_fresh_rtb": {
@@ -313,6 +313,12 @@
    "passed": 0,
    "run": "runs/2026-11-07-18.json",
    "tested": 1
+  },
+  {
+   "at": "2026-11-08T02:48:51Z",
+   "passed": 0,
+   "run": "runs/2026-11-08-02.json",
+   "tested": 1
   }
  ],
  "facts": [
@@ -352,17 +358,18 @@
   "[2026-11-07] c59 (interrupted): 155 + symbol_reuse >= 4 passed every gate (168h n=432 ev_lcb +0.279 vs champion +0.222, margin +0.057 vs 0.05 needed; 72h n=248 ev_lcb +0.193 vs live +0.178). symbol_reuse is fixed at launch (no lookahead). DEPLOY ADVICE printed but the run was cut off before deploying. CAVEAT: the 97/7d unique-symbol tight tokens (ev_lcb +0.049, still positive) would drop from BOTH feeds, since 152's NOT block still excludes them. Consider a later paired 152 change (NOT block gains AND symbol_reuse >= 4) so they route to 152. Re-test on a fresh window before deploying.",
   "[2026-11-07] d1107: the symbol_reuse split also holds on 152 (7d): reuse>=4 n=644 ev_lcb +0.304, unique (<=3) n=80 ev_lcb +0.074, control 724 +0.287. Unique-ticker tokens are the weak tail on BOTH plain feeds, so routing 155's unique tokens to 152 is not worth a paired change. The cost of 155 + symbol_reuse>=4 is ~14 weak alerts/day dropped, not lost runners.",
   "[2026-11-07] c60: re-test of 155 + symbol_reuse >= 4 FAILED the gate by 0.0009 (ev_lcb +0.2713 vs required +0.2722 = stored baseline +0.222 + 0.05). Against the same-window control (live 155 168h n=550, +0.210) it is +0.061, and +0.014 on 72h. The stored baseline is higher than today's control. Do not refresh a baseline off-schedule to make a candidate pass. Kept queued; retest after the next scheduled baseline refresh.",
-  "[2026-11-07] c61: 155 mc cap 45k -> 30k strips the tail (10x+ 55 -> 17 per 7d; Kitsu/SIC/NATE entered 155 at 36-43k). Never lower 155's cap. SAMPLER FLAW for the cycle-63 self-improvement: candidates.py spent 5 of 6 proposals on 154 restrictions that cannot reach n>=30. Fix: skip restriction arms for any slot whose baseline n < 30 (add a unit test)."
+  "[2026-11-07] c61: 155 mc cap 45k -> 30k strips the tail (10x+ 55 -> 17 per 7d; Kitsu/SIC/NATE entered 155 at 36-43k). Never lower 155's cap. SAMPLER FLAW for the cycle-63 self-improvement: candidates.py spent 5 of 6 proposals on 154 restrictions that cannot reach n>=30. Fix: skip restriction arms for any slot whose baseline n < 30 (add a unit test).",
+  "[2026-11-08] c62: 155 + symbol_reuse >= 4, 3rd test on a fresh window after the scheduled baseline refresh: 168h ev_lcb +0.203 vs control +0.170 (+0.033, below the 0.05 margin); 72h +0.149 vs live +0.153 (worse). The edge decayed from +0.057/+0.061 to +0.033 within 24h. Not stable: dropped. Lesson: a thin-margin pass needs a fresh-window retest before deploying - cycle 59's advice would have shipped a fading edge."
  ],
  "queue": [],
  "slots": {
   "152": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": 0.2958,
+    "ev_lcb": 0.2672,
     "hours": 168.0,
-    "n": 732,
-    "source": "2026-11-07T02:48:29Z"
+    "n": 740,
+    "source": "2026-11-08T02:48:44Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)",
    "deployed_at": "2026-10-28T10:54:00Z",
@@ -375,14 +382,14 @@
   "154": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": -0.2234,
+    "ev_lcb": -0.2799,
     "hours": 336.0,
-    "n": 15,
-    "source": "2026-11-07T02:48:29Z"
+    "n": 17,
+    "source": "2026-11-08T02:48:45Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 30000 AND mc < 200000",
    "deployed_at": "2026-10-20T12:33:53Z",
-   "failures": 2,
+   "failures": 3,
    "family": "hooked_verified",
    "params": {
     "buyers": 8,
@@ -398,10 +405,10 @@
   "155": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": 0.2222,
+    "ev_lcb": 0.1695,
     "hours": 168.0,
-    "n": 529,
-    "source": "2026-11-07T02:48:29Z"
+    "n": 596,
+    "source": "2026-11-08T02:48:44Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000",
    "failures": 0,
@@ -600,9 +607,9 @@
   "ca9b551499b9": {
    "arm": "queue:plain_v4_symbol_reuse4",
    "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000 AND symbol_reuse >= 4",
-   "date": "2026-11-07T10:48:34Z",
-   "ev_lcb": 0.2713,
-   "n": 447,
+   "date": "2026-11-08T02:48:51Z",
+   "ev_lcb": 0.2029,
+   "n": 495,
    "pass": false,
    "slot": "155"
   },
@@ -706,6 +713,6 @@
    "slot": "155"
   }
  },
- "updated": "2026-11-07T18:48:40Z",
+ "updated": "2026-11-08T02:49:00Z",
  "version": 1
 }

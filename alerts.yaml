@@ -4929,3 +4929,17 @@ alert2:
 
 # 6H REVIEW 2026-11-08 00:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (45th review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 62 (2026-11-08 02:48 UTC): no deployment. Baselines refreshed.
+# 1) Health (live conditions equal memory):
+#     152 72h n=334, 2x+ 67.4%, 10x+ 41, ev +0.282 / ev_lcb +0.159 (ok; OMEN 37.5x at $23.5k)
+#     155 72h n=372, 2x+ 70.2%, 10x+ 13, ev +0.203 / ev_lcb +0.153 (ok; tail still thin)
+#   Baseline refresh: 152 168h n=740 ev_lcb +0.267 pass | 155 168h n=596 ev_lcb +0.170 pass
+#     154 336h n=17, 168h n=9, ev_lcb -0.280 -> 3rd straight gate failure (REPLACE-ME; no
+#     safe passing challenger, left unchanged; needs user).
+# 3-5) Third test of 155 + symbol_reuse >= 4 (after the scheduled refresh, fresh window):
+#     168h: n=495, ev_lcb +0.203 vs control +0.170 -> +0.033 (needs +0.05)
+#     72h:  n=303, ev_lcb +0.149 vs live +0.153 -> slightly WORSE
+#   ledger eval: FAIL. The edge fell from +0.057 (c59) and +0.061 (c60) to +0.033 in 24h.
+#   It is not stable, so the idea is dropped. Holding the cycle-59 advice for a fresh-window
+#   retest avoided shipping a fading edge. RH backtests: 8.
