@@ -5095,3 +5095,9 @@ alert2:
 # STRATEGY AGENT CYCLE 66 (2026-11-09 10:47 UTC): health + scheduled baseline refresh;
 #   no candidates tested, no deployment (the 155 mc-floor change is HELD for the user's
 #   exit-style answer; kept short because the worker keeps restarting mid-run).
+#   152 72h n=279, 2x+ 59.9%, 10x+ 46, 100x+ 1 (TEXEL), ev +0.328 / ev_lcb +0.183 (ok)
+#   155 72h n=367, 2x+ 67.0%, 10x+ 17, ev +0.164 / ev_lcb +0.113 (ok; lowest in 3 weeks)
+#   Baselines: 152 168h n=758 ev_lcb +0.206 pass | 155 168h n=692 ev_lcb +0.168 pass
+#     154 336h n=15, ev_lcb -0.323 -> 4th straight failure (REPLACE-ME; no safe challenger).
+#     154 caught QHOOKS at $30.3k (15.6x) this week.
+#   RH backtests: 6.
