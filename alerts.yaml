@@ -5068,3 +5068,26 @@ alert2:
 #   multi-step runs (deploys especially) are not finishing. The 155 deploy (mc floor
 #   15k -> 20k, DEPLOY ADVICE in c63 and c64) is still PENDING. Each run will retry the
 #   single update_filter_condition call first.
+
+# DAILY-OPS 2026-11-09 07:09 UTC
+# 1) Fill scorecard: SKIPPED - defirobot (Solana) connector needs re-authorization.
+# 2) RH top-10 (24h): TEXEL 186x, TEXEL #2 86x, MOO 79x, MEME 52x, QUERO 49x, GRVT 47x,
+#   MGL 42x, QUINN 38x, TEXEL #3 38x, XCoin 32x.
+#   CAUGHT: 7 of 10 - best day so far. 152: TEXEL at $17.3k (119.5x, the first 100x+ catch),
+#   TEXEL #2 $19.7k (58.5x), MGL $34.4k (27.6x), MEME $30.8k (26.6x), QUERO $33.1k (23.0x),
+#   TEXEL #3 $29.2k (16.7x), XCoin $47.9k (5.8x). 155: TEXEL $21.2k (97.5x), TEXEL #2 (40.9x),
+#   XCoin $16.8k (16.4x).
+#   MISSED: MOO ($4.6k launch), GRVT ($10k launch), QUINN 0x8453 ($16.9k launch; its sibling
+#   0xda30 was caught at 14.5x) - unattributed (downloads blocked).
+#   Round-trip law again: TEXEL 186x -> 0.97x, QUERO 49x -> 1.1x, TEXEL #3 38x -> 1.0x.
+#   152 24h: n=87, 2x+ 60.9%, 10x+ 13, 100x+ 1, ev_lcb +0.027 (a fat tail on a weak base).
+#   155 24h: n=147, 2x+ 68.7%, 10x+ 6, ev_lcb +0.104.
+# 3) Watchlist: TEXEL x4 (all caught 16.7-119.5x), MGL x2, MEME x2, QUINN x2, QUERO x2+.
+# 4) EXPERIMENT - the slice the pending 155 change (mc floor 15k -> 20k) would drop,
+#   measured directly (155 at mc 15-20k, 168h): n=387, 2x+ 70.8%, 3x+ 47.8%, 5x+ 15.3%,
+#   10x+ 2 (38x, XCoin 16.4x). Scalp_2 ev_lcb +0.162 (POSITIVE); ladder_3_10 -0.132.
+#   FINDING: the change turns 155 from a scalp feed into a ladder feed. It is a trade, not a
+#   free gain. ~55 scalp-positive alerts/day would leave both plain feeds. The ledger gate
+#   picks the best policy per set and does not see this.
+#   DECISION: the 155 deploy is now HELD for the user's exit-style preference (scalp at 2x vs
+#   ladder 3x/10x). Not deployed. RH backtests: 4.

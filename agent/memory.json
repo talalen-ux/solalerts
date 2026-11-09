@@ -399,7 +399,8 @@
   "[2026-11-07] c61: 155 mc cap 45k -> 30k strips the tail (10x+ 55 -> 17 per 7d; Kitsu/SIC/NATE entered 155 at 36-43k). Never lower 155's cap. SAMPLER FLAW for the cycle-63 self-improvement: candidates.py spent 5 of 6 proposals on 154 restrictions that cannot reach n>=30. Fix: skip restriction arms for any slot whose baseline n < 30 (add a unit test).",
   "[2026-11-08] c62: 155 + symbol_reuse >= 4, 3rd test on a fresh window after the scheduled baseline refresh: 168h ev_lcb +0.203 vs control +0.170 (+0.033, below the 0.05 margin); 72h +0.149 vs live +0.153 (worse). The edge decayed from +0.057/+0.061 to +0.033 within 24h. Not stable: dropped. Lesson: a thin-margin pass needs a fresh-window retest before deploying - cycle 59's advice would have shipped a fading edge.",
   "[2026-11-08] d1108: the 8888 vanity cluster (CURVEIL, JUGGER, AMM, MASCOT...) is INVISIBLE to the snapshotter - absent at launch ($1.5-4k band) and at its ~$200k plateau (mc 150-250k, buyers<120: only 6 other tokens). No condition can catch it; stop spending backtests on it. Mooners with mc=null (EGGS 994x, RS 406x) are data artifacts - ignore.",
-  "[2026-11-08] c63: 155 mc floor 15k -> 20k PASSED the gate (168h n=315 ev_lcb +0.262 vs same-window control +0.163; stored baseline +0.170) but the 72h window disagrees (+0.122 vs live +0.135). The 10x/20x counts are identical (49/8), so the gain is per-alert quality, and ~41 tokens/day would leave BOTH plain feeds (152's NOT block covers mc<45k). Not deployed in c63 (session stalled). Retest queued as q-155-mcmin20 for c64. Retired plain_v4:mc_max:up (it only duplicates 152)."
+  "[2026-11-08] c63: 155 mc floor 15k -> 20k PASSED the gate (168h n=315 ev_lcb +0.262 vs same-window control +0.163; stored baseline +0.170) but the 72h window disagrees (+0.122 vs live +0.135). The 10x/20x counts are identical (49/8), so the gain is per-alert quality, and ~41 tokens/day would leave BOTH plain feeds (152's NOT block covers mc<45k). Not deployed in c63 (session stalled). Retest queued as q-155-mcmin20 for c64. Retired plain_v4:mc_max:up (it only duplicates 152).",
+  "[2026-11-09] d1109: measured directly, the 155 slice that the mc-floor-20k change would drop (155 at mc 15-20k, 168h) is n=387, 2x+ 70.8%, 10x+ 2 (0x2d68 38x, XCoin 16.4x). Under scalp_2 its ev_lcb is +0.162 (positive); under ladder_3_10 it is -0.132. So the change is a policy TRADE, scalp feed -> ladder feed, not a free gain. ~55 scalp-positive alerts/day would leave both plain feeds. The ledger gate picks the best policy per set and does not see this. HOLD the 155 deploy for the user's exit-style preference."
  ],
  "queue": [],
  "slots": {
@@ -789,6 +790,6 @@
    "slot": "155"
   }
  },
- "updated": "2026-11-08T18:47:58Z",
+ "updated": "2026-11-09T07:10:10Z",
  "version": 1
 }
