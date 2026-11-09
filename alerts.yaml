@@ -5101,3 +5101,6 @@ alert2:
 #     154 336h n=15, ev_lcb -0.323 -> 4th straight failure (REPLACE-ME; no safe challenger).
 #     154 caught QHOOKS at $30.3k (15.6x) this week.
 #   RH backtests: 6.
+
+# 6H REVIEW 2026-11-09 12:32 UTC (Solana): SKIPPED - defirobot connector still needs
+#   re-authorization (51st review in a row). No changes.
