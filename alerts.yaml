@@ -5091,3 +5091,7 @@ alert2:
 #   picks the best policy per set and does not see this.
 #   DECISION: the 155 deploy is now HELD for the user's exit-style preference (scalp at 2x vs
 #   ladder 3x/10x). Not deployed. RH backtests: 4.
+
+# STRATEGY AGENT CYCLE 66 (2026-11-09 10:47 UTC): health + scheduled baseline refresh;
+#   no candidates tested, no deployment (the 155 mc-floor change is HELD for the user's
+#   exit-style answer; kept short because the worker keeps restarting mid-run).
