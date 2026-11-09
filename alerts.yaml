@@ -5050,3 +5050,10 @@ alert2:
 #   Known cost: tokens matching 155's conditions at $15-20k leave BOTH plain feeds (152's NOT
 #   block covers mc < 45k). They were scalp-grade (2x+ ~68%, no 10x+ from that entry).
 #   RH backtests: 6.
+#   CORRECTION (2026-11-09 00:33): the cycle-64 deployment was NOT executed. The worker
+#   restarted right after the pre-deploy record was pushed, and I ended that turn without
+#   resuming (my error). 155 is still on the OLD condition. Completing the deployment now
+#   (00:33) through the normal update_filter_condition permission prompt.
+
+# 6H REVIEW 2026-11-09 00:32 UTC (Solana): SKIPPED - defirobot connector still needs
+#   re-authorization (49th review in a row). No changes.
