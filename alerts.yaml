@@ -5150,3 +5150,6 @@ alert2:
 #   152 72h n=278, 2x+ 56.8%, 10x+ 42, 20x+ 20, PostATH 3.6% (see watch line)
 #   155 72h n=380, 2x+ 68.4%, 3x+ 30.5%, 10x+ 21 (scalp-shaped; see watch line)
 #   RH backtests: 2.
+
+# 6H REVIEW 2026-11-10 12:33 UTC (Solana): SKIPPED - defirobot connector still needs
+#   re-authorization (55th review in a row). No changes.
