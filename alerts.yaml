@@ -5144,3 +5144,9 @@ alert2:
 #   CLOVER x2 / SWELL x2 (farm).
 # 4) EXPERIMENT: plateau probe for the micro-launch farm (above) - unsnapshotted, closed.
 #   RH backtests: 4.
+
+# STRATEGY AGENT CYCLE 69 (2026-11-10 10:47 UTC): health only, no deployment (155 change
+#   still HELD for the user's exit-style answer).
+#   152 72h n=278, 2x+ 56.8%, 10x+ 42, 20x+ 20, PostATH 3.6% (see watch line)
+#   155 72h n=380, 2x+ 68.4%, 3x+ 30.5%, 10x+ 21 (scalp-shaped; see watch line)
+#   RH backtests: 2.
