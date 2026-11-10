@@ -5125,3 +5125,22 @@ alert2:
 
 # 6H REVIEW 2026-11-10 06:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (54th review in a row). No changes.
+
+# DAILY-OPS 2026-11-10 07:09 UTC
+# 1) Fill scorecard: SKIPPED - defirobot (Solana) connector needs re-authorization.
+# 2) RH top-10 (24h): MOCHI 368x, CLOVER 229x, SWELL 224x, SPIN 192x, GOBLIN 184x, APESHIT
+#   165x, SWELL #2 155x, CLOVER #2 133x - eight MICRO-LAUNCH template tokens ($531-850
+#   launch, 39-42 buyers each, all still AT their ATH of $113-196k); BEEPZ 84x ($4.3k
+#   launch, 1172 buyers, now 25x); AGI 77x (now 1.0x).
+#   CAUGHT: 1 of 10 - AGI. 152 caught 4 AGI addresses (42.3x at $19.3k, 36.5x, 33.0x, 8.8x),
+#   155 caught 3 (32.8x / 27.6x / 23.6x). The lead one round-tripped to 1.0x in 17h.
+#   MISSED: the 8 micro-launch tokens are NOT in the snapshot data at their plateau (all
+#   venues, mc 100-220k, buyers < 50, 24h: n=2, neither of them). Same as the 8888 cluster:
+#   no filter can match them. ~40 buyers holding a $150k+ cap with no drawdown = a
+#   templated farm, not organic demand. BEEPZ: unattributed.
+#   152 24h: n=90, 2x+ 55.6%, 10x+ 12, 20x+ 7 (NOVASI 42.3x, ORGENT 29.2x, AGENTDOM 25.2x).
+#   155 24h: n=122, 2x+ 72.1%, 3x+ only 25.4%, 10x+ 10.
+# 3) Watchlist: AGI x4 (all caught), ORGENT x2 (29.2x / 11.0x), LETRO (again, 16.7x),
+#   CLOVER x2 / SWELL x2 (farm).
+# 4) EXPERIMENT: plateau probe for the micro-launch farm (above) - unsnapshotted, closed.
+#   RH backtests: 4.
