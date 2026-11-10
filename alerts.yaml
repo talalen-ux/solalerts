@@ -5161,5 +5161,5 @@ alert2:
 #   still HELD for the user's exit-style answer).
 #   152 72h n=299, 2x+ 58.5%, 10x+ 39, 20x+ 20, PostATH 4.0% (see watch line)
 #   155 72h n=385, 2x+ 72.7%, 3x+ 30.1%, 10x+ 22 (scalp-shaped; see watch line)
-#   7th-cycle self-check is due next cycle (70 is not a multiple of 7; 70 = 7x10 - due now,
-#   deferred to 71 to keep this run short). RH backtests: 2.
+#   Cycle 70 is a 7th-cycle self-check cycle; the self-check is deferred to cycle 71 to keep
+#   this run short. RH backtests: 2.
