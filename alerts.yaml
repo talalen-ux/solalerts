@@ -5200,3 +5200,9 @@ alert2:
 #   PostATH 34% (ev_lcb in runs/d1111_hooked_band_24.json). A rich but dirty stream; it stays
 #   behind 154's sell test. Attribution switched to the organic mooners query.
 #   RH backtests: 4.
+
+# STRATEGY AGENT CYCLE 72 (2026-11-11 10:47 UTC): health only, no deployment (155 change
+#   still HELD for the user's exit-style answer).
+#   152 72h n=286, 2x+ 61.9%, 10x+ 34, 20x+ 19, PostATH 2.1% (see watch line)
+#   155 72h n=404, 2x+ 71.3%, 3x+ 25.5%, 10x+ 22 (see watch line)
+#   RH backtests: 2.
