@@ -5176,3 +5176,27 @@ alert2:
 
 # 6H REVIEW 2026-11-11 06:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (58th review in a row). No changes.
+
+# DAILY-OPS 2026-11-11 07:07 UTC
+# 1) Fill scorecard: SKIPPED - defirobot (Solana) connector needs re-authorization.
+# 2) RH top-10 (24h, default query): 10 of 10 are the MICRO-LAUNCH FARM - DROOLIES 386x,
+#   MEMEPIT 363x / 232x, TIDE 238x, SPIN 166x, ELYSIUM 160x, VIBE 154x, ETA 135x, MOPES 123x,
+#   MOCHI 121x: $517-1,179 launches, 37-41 buyers each, all sitting at their ATH. They are
+#   never snapshotted (proved 11-10), so no filter can match them. The saved mooners query no
+#   longer sees organic movers.
+#   ORGANIC top-10 (same 24h, buyers >= 100): BP 80x, PAYOLA 65x, TIDE 55x, ZOLVA 49x,
+#   ODORA 46x, LEASE 43x, X 41x, TEXEL 34x, ZOLVA #2 28x (graduated pons), AGESIC 26x.
+#   CAUGHT 5 of 10: TIDE (152 $21.5k 31.2x; 155 25.6x), ZOLVA (152 $27.6k 36.1x; 155 23.5x),
+#   X (152 $20.0k 29.6x; 155 23.6x), TEXEL (152 $17.5k 23.9x - then back to 1.0x),
+#   AGESIC (152 $25.0k 21.5x; 155 15.9x).
+#   MISSED: PAYOLA - hooked, entered the hooked band at $25.1k (13.8x), 154's rtb gate;
+#   BP 0x4515 and LEASE - $4-7k launches (pons-like), unattributed; ODORA ($23.8k launch,
+#   1467 buyers) - in neither plain 152/155 nor the hooked band, unattributed; ZOLVA #2 -
+#   graduated pons (excluded).
+#   152 24h: n=111, 2x+ 66.7%, 10x+ 10. 155 24h: n=143, 2x+ 72.0%, 3x+ 28.0%, 10x+ 6.
+# 3) Watchlist: ZOLVA x2, X x3 (152: 29.6x / 9.6x / 9.2x), TEXEL (5th address), TIDE (farm
+#   copy + real one), BP x2, MOPES / MOCHI / SPIN (farm copies of older names).
+# 4) EXPERIMENT: hooked band (mc 15-100k), 24h: n=32, 10x+ 7 (21.9%), median 5.8x, but
+#   PostATH 34% (ev_lcb in runs/d1111_hooked_band_24.json). A rich but dirty stream; it stays
+#   behind 154's sell test. Attribution switched to the organic mooners query.
+#   RH backtests: 4.
