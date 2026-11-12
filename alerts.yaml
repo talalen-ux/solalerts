@@ -5230,3 +5230,23 @@ alert2:
 
 # 6H REVIEW 2026-11-12 06:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (62nd review in a row). No changes.
+
+# DAILY-OPS 2026-11-12 07:07 UTC
+# 1) Fill scorecard: SKIPPED - defirobot (Solana) connector needs re-authorization.
+# 2) RH top-10 (24h, organic query buyers >= 100; the default list is farm-dominated):
+#   Max 100x ($6.4k launch), ORBYN 66x, SPIN 66x, HOOD 50x ($2.1k), SPYHOOKS 42x, RSPWN 40x,
+#   FPAW 39x, AME 37.5x, AME #2 37.3x, TEXEL 29.6x.
+#   CAUGHT 4 of 10: AME (152 $16.1k 29.0x; 155 19.0x), AME #2 (152 $15.9k 24.3x; 155 15.5x),
+#   TEXEL (152 $16.0k 18.9x; 155 14.1x), SPIN (152 $16.0k 13.8x; 155 9.9x). Siblings also
+#   caught: Max x2 (18.1x / 13.1x), SPYHOOKS (16.6x). AME, AME #2 and TEXEL all went back to ~1.0x.
+#   MISSED: RSPWN 40x and FPAW 39x - both HOOKED, entered the hooked band at $22.8k / $22.3k,
+#   ~1000-1180 buyers, still AT their ATH ($915k / $874k). ORBYN (hooked, $25.1k, 14x) too.
+#   All blocked by 154's round_trip_back gate. Max/HOOD/SPYHOOKS - $2-7k launches,
+#   unattributed.
+#   152 24h: n=112, 2x+ 71.4%, 10x+ 14 (strong day). 155 24h: n=77, 2x+ 61.0%, 10x+ 8.
+# 3) Watchlist: TEXEL (6th-7th addresses), AME x2, Max x3, SPYHOOKS x2, 4Robinhood x2, SPIN.
+# 4) EXPERIMENT: hooked band (mc 15-100k), 24h: n=41, 10x+ 4, 20x+ 2 (RSPWN, FPAW), but 30 of
+#   41 (73%) post-ATH -> modelled ev_lcb negative. The hooked tail is real and still
+#   running (RSPWN/FPAW at ATH with ~1000 buyers), but it sits inside a mostly-dead stream
+#   that only the sell test can clean. Same conclusion: 154's NULL-rtb question is the
+#   user's call. RH backtests: 4.
