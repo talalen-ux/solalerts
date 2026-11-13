@@ -5314,3 +5314,12 @@ alert2:
 
 # 6H REVIEW 2026-11-13 18:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (68th review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 79 (2026-11-13 18:47 UTC): health only, no deployment.
+#   152 72h n=332, 2x+ 61.1%, 10x+ 33, 20x+ 10, PostATH 1.5%, ev +0.091 / ev_lcb +0.036 (ok)
+#   155 72h n=266, 2x+ 60.2%, 3x+ 33.1%, 10x+ 21, ev +0.079 / ev_lcb +0.017 (ok)
+#   TREND WARNING: both slots have fallen for five checks in a row (152: +0.183 -> +0.036;
+#   155: +0.175 -> +0.017 since 11-11). 2x+ rates slid from ~70% to ~60% on the same
+#   conditions, so this is the market (regime law), not a filter change. The watch alarm
+#   fires on two consecutive 72h checks below zero; the playbook rollback then restores
+#   each slot's previous revision. No candidates tested this run. RH backtests: 2.
