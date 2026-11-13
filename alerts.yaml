@@ -5302,3 +5302,9 @@ alert2:
 #   FINDING: allowing NULL rtb as-is adds a few big runners inside a mostly-dead stream. It
 #   would need an extra clause that removes post-ATH entries first. Not recommended
 #   as a plain switch; the question stays with the user. RH backtests: 4.
+
+# STRATEGY AGENT CYCLE 78 (2026-11-13 10:52 UTC): health only, no deployment (155 floor
+#   change and the 154 NULL-rtb question still waiting on the user).
+#   152 72h n=337, 2x+ 63.2%, 10x+ 35, 20x+ 11, PostATH 2.1% (see watch line)
+#   155 72h n=286, 2x+ 64.3%, 3x+ 35.3%, 10x+ 20 (see watch line)
+#   RH backtests: 2.
