@@ -401,7 +401,8 @@
   "[2026-11-08] d1108: the 8888 vanity cluster (CURVEIL, JUGGER, AMM, MASCOT...) is INVISIBLE to the snapshotter - absent at launch ($1.5-4k band) and at its ~$200k plateau (mc 150-250k, buyers<120: only 6 other tokens). No condition can catch it; stop spending backtests on it. Mooners with mc=null (EGGS 994x, RS 406x) are data artifacts - ignore.",
   "[2026-11-08] c63: 155 mc floor 15k -> 20k PASSED the gate (168h n=315 ev_lcb +0.262 vs same-window control +0.163; stored baseline +0.170) but the 72h window disagrees (+0.122 vs live +0.135). The 10x/20x counts are identical (49/8), so the gain is per-alert quality, and ~41 tokens/day would leave BOTH plain feeds (152's NOT block covers mc<45k). Not deployed in c63 (session stalled). Retest queued as q-155-mcmin20 for c64. Retired plain_v4:mc_max:up (it only duplicates 152).",
   "[2026-11-09] d1109: measured directly, the 155 slice that the mc-floor-20k change would drop (155 at mc 15-20k, 168h) is n=387, 2x+ 70.8%, 10x+ 2 (0x2d68 38x, XCoin 16.4x). Under scalp_2 its ev_lcb is +0.162 (positive); under ladder_3_10 it is -0.132. So the change is a policy TRADE, scalp feed -> ladder feed, not a free gain. ~55 scalp-positive alerts/day would leave both plain feeds. The ledger gate picks the best policy per set and does not see this. HOLD the 155 deploy for the user's exit-style preference.",
-  "[2026-11-11] d1111: the default mooners query (ath_x>=3 AND buyers>=20) is now 100% micro-launch farm (10/10: $517-1.2k launches, 37-41 buyers, sitting at ATH). For attribution use mooners(condition='ath_x >= 3 AND buyers >= 100') - organic top 10 had 5 of 10 caught. Did not change the saved query (user setting)."
+  "[2026-11-11] d1111: the default mooners query (ath_x>=3 AND buyers>=20) is now 100% micro-launch farm (10/10: $517-1.2k launches, 37-41 buyers, sitting at ATH). For attribution use mooners(condition='ath_x >= 3 AND buyers >= 100') - organic top 10 had 5 of 10 caught. Did not change the saved query (user setting).",
+  "[2026-11-13] d1113: hooked tokens with NULL round_trip_back in the band (mc 15-100k), 48h: n=51, 2x+ 25%, 10x+ 6 (RSPWN 40x, STCAR 21x, FTDIP 17x, ORBYN 16x) but 69% post-ATH -> modelled EV negative. Allowing NULL rtb on 154 as-is would add a few big runners inside a mostly-dead stream; it needs an extra clause that removes post-ATH entries before it could pass. FPAW (39x) was NOT in the NULL set: it had rtb < 0.9 and still ran, so the sell test can also block real runners (or they are taxed)."
  ],
  "queue": [],
  "slots": {
@@ -791,6 +792,6 @@
    "slot": "155"
   }
  },
- "updated": "2026-11-13T02:51:17Z",
+ "updated": "2026-11-13T07:08:21Z",
  "version": 1
 }

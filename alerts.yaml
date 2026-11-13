@@ -5282,3 +5282,23 @@ alert2:
 
 # 6H REVIEW 2026-11-13 06:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (66th review in a row). No changes.
+
+# DAILY-OPS 2026-11-13 07:08 UTC
+# 1) Fill scorecard: SKIPPED - defirobot (Solana) connector needs re-authorization.
+# 2) RH top-10 (24h, organic query buyers >= 100): TEXEL 56x, LLEAK 55x, DTC 53x, GIRAFF 40x
+#   (graduated pons), FHERUM 35x, DAPDAP 33x, ROOQ 27x, AI 27x, PNDSDE 26x, LOOT 25x.
+#   CAUGHT 6 of 10 (all by 152, 3 also by 155): TEXEL ($17.8k, 38.8x), DTC ($20.4k, 31.6x),
+#   DAPDAP ($23.4k, 28.6x), FHERUM ($15.3k, 22.6x), ROOQ ($20.1k, 18.7x), AI ($26.0k, 12.4x).
+#   Round-trip law, hard: TEXEL, DTC, ROOQ and AI are all back to ~1.0x within hours.
+#   MISSED: LLEAK ($23.4k launch, 1583 buyers) and PNDSDE ($26.0k, 1478 buyers) - not in the
+#   NULL-rtb hooked set, unattributed (downloads blocked); GIRAFF - graduated pons;
+#   LOOT - $6k launch.
+#   152 24h: n=107, 2x+ 54.2%, 10x+ 11. 155 24h: n=66, 2x+ 54.5%, 10x+ 6 (both soft days).
+# 3) Watchlist: TEXEL (8th+ address), AI x2, APESHIT x2, Max (again), FHERUM x2.
+# 4) EXPERIMENT - 154's NULL-rtb question, measured on the hooked band (mc 15-100k), 48h:
+#     hooked AND round_trip_back IS NULL: n=51, 2x+ 25%, 10x+ 6 (RSPWN 40x, STCAR 21x,
+#     FTDIP 17x, ORBYN 16x), but 35 of 51 (69%) post-ATH -> modelled ev_lcb negative.
+#   FPAW 39x is NOT in the NULL set: it had rtb < 0.9 and still ran.
+#   FINDING: allowing NULL rtb as-is adds a few big runners inside a mostly-dead stream. It
+#   would need an extra clause that removes post-ATH entries first. Not recommended
+#   as a plain switch; the question stays with the user. RH backtests: 4.
