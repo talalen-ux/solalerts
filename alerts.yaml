@@ -5269,3 +5269,6 @@ alert2:
 #     $17.8k (see watch line)
 #   155 72h n=324, 2x+ 68.5%, 3x+ 30.2%, 10x+ 23 (see watch line)
 #   RH backtests: 2.
+
+# 6H REVIEW 2026-11-13 00:32 UTC (Solana): SKIPPED - defirobot connector still needs
+#   re-authorization (65th review in a row). No changes.
