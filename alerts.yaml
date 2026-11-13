@@ -5272,3 +5272,10 @@ alert2:
 
 # 6H REVIEW 2026-11-13 00:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (65th review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 77 (2026-11-13 02:51 UTC): health only, no deployment (155 floor
+#   change and the 154 NULL-rtb question still waiting on the user). 7th-cycle self-check
+#   due (77 = 7x11): no arm has >= 8 tests, nothing to demote; calibration still blocked.
+#   152 72h n=345, 2x+ 64.3%, 10x+ 37, 20x+ 13, PostATH 2.0% (see watch line)
+#   155 72h n=298, 2x+ 65.4%, 3x+ 33.6%, 10x+ 23 (see watch line)
+#   RH backtests: 2.
