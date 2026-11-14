@@ -5336,3 +5336,41 @@ alert2:
 
 # 6H REVIEW 2026-11-14 06:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (70th review in a row). No changes.
+
+# DAILY-OPS 2026-11-14 07:07 UTC
+# 1) Fill scorecard: SKIPPED - defirobot (Solana) connector needs re-authorization.
+# 2) RH top-10 (24h, organic query buyers >= 100): Altai 198x, papercat 73x, BULL 64x
+#   (graduated pons), SNQKE 52x, BULL 39x, BULW 28.9x, BULL 26.6x, PLUQO 23.9x, PUSSY 22.9x,
+#   SHARKBUX 22.7x.
+#   CAUGHT 4 of 10: BULL 0xfaeb (152 $23.0k 23.1x; 155 $26.8k 19.9x - now back to 1.0x),
+#   BULW (152 $33.6k 16.7x; 155 13.1x), BULL 0x4144 (152 $32.9k 16.5x; 155 14.7x),
+#   PUSSY (152 $22.3k 10.9x).
+#   MISSED: papercat ($11.9k launch, 1766 buyers), SNQKE ($22.5k, 1066) and SHARKBUX ($22.7k,
+#   931) - WETH-quoted with an organic profile (1-2 buys per buyer, top maker < 2%), but in
+#   neither plain 152/155 nor the NULL-rtb hooked set: unattributed. PLUQO - the hooked
+#   farm template below (entered the NULL-rtb set at $30.3k, 4.65x). Altai - $5.2k
+#   launch, now 0.37x, unattributed. BULL 0x3076 - graduated pons.
+#   152 24h: n=73, 2x+ 56.2%, 10x+ 8, ev_lcb -0.089 (24h only; the watch uses 72h).
+#   155 24h: n=52, 2x+ 67.3%, 10x+ 6, ev_lcb +0.028. Volume still falling (152 107 -> 73).
+# 3) Watchlist: BULL x5 (4 caught: 23.1x / 16.5x / 14.6x / 6.9x; the 64x one is pons) +
+#   BULW, ROOQ x2 again (9.9x / 8.8x), Sakura x2, Maxcoin x2, papercat x2 (73x missed; 3.3x
+#   caught by 155), Max.
+# 4) EXPERIMENT - can a clause make 154's NULL-rtb option safe? 9 RH backtests.
+#   a) Fresh-high clause (head_block - ath_block < 3000) on the NULL-rtb band, 48h: 19/19
+#      identical. Those entries were tops, not stale late entries, so a recency clause
+#      cannot remove them.
+#   b) Same window, 154 live vs 154 with (round_trip_back >= 0.9 OR IS NULL):
+#        48h:  live n=2 (both 10x+)          | + NULL n=6, 3x+ 6, 10x+ 2, PostATH 0
+#        168h: live n=7, 2x+ 3, 10x+ 3,      | + NULL n=22, 3x+ 18 (82%), 10x+ 4, PostATH 0,
+#              ev_lcb +0.040 (ladder_3_10)   |   ev_lcb +0.341 (ladder_3_10)
+#   c) BUT 12 of the 15 added tokens are one farm template: ETH-quoted, ~525-535 wallets,
+#      8-11 buys per wallet (wash trading), $6-10k launches, ATH capped at $140-152k (a
+#      ~4-5x ceiling from a $30k entry). Only 3 additions are not that template:
+#      ORBYN 12.9x, JUGGER 7.1x, AMD 5.4x.
+#   d) buys < 4 * buyers at entry: 22/22 identical (no-op); the wash ratio builds after
+#      entry, so no clause found yet that separates the farm at a $30k snapshot.
+#   FINDING: the NULL-rtb lift is mostly a scripted farm with a fixed ~$150k ceiling and an
+#   UNTESTED sell path (round_trip_back NULL). The farm wallets do sell (3.5-5k sells each),
+#   but whether an outside buyer can sell is not measurable from a backtest. n=22 < 30 gate.
+#   Still not recommended as a plain switch; the 154 question stays with the user, now with
+#   this caveat. Fact saved to agent/memory.json. RH backtests this run: 9.
