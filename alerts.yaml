@@ -5323,3 +5323,6 @@ alert2:
 #   conditions, so this is the market (regime law), not a filter change. The watch alarm
 #   fires on two consecutive 72h checks below zero; the playbook rollback then restores
 #   each slot's previous revision. No candidates tested this run. RH backtests: 2.
+
+# 6H REVIEW 2026-11-14 00:32 UTC (Solana): SKIPPED - defirobot connector still needs
+#   re-authorization (69th review in a row). No changes.
