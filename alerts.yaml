@@ -5400,3 +5400,6 @@ alert2:
 #     STCAR (NULL at entry) also now < 0.6. Hooked alerts need a fast take-profit, and the
 #     NULL-rtb option is weaker still. Fact saved.
 #   RH backtests: 8 (+ 5 free validate/mooners checks).
+
+# 6H REVIEW 2026-11-14 12:32 UTC (Solana): SKIPPED - defirobot connector still needs
+#   re-authorization (71st review in a row). No changes.
