@@ -5374,3 +5374,29 @@ alert2:
 #   but whether an outside buyer can sell is not measurable from a backtest. n=22 < 30 gate.
 #   Still not recommended as a plain switch; the 154 question stays with the user, now with
 #   this caveat. Fact saved to agent/memory.json. RH backtests this run: 9.
+
+# STRATEGY AGENT CYCLE 81 (2026-11-14 10:48 UTC): health + baseline refresh, no deployment.
+#   Live conditions match memory (152/154/155 unchanged).
+#   152 72h n=291, 2x+ 59.5%, 10x+ 34, 20x+ 8, PostATH 2.1%, ev +0.070 / ev_lcb +0.011 (ok)
+#   155 72h n=210, 2x+ 58.1%, 3x+ 36.2%, 10x+ 21, ev +0.054 / ev_lcb -0.017 (ok: the first
+#     negative lower bound, but the alarm needs ev < 0 too). Both slots keep sliding with
+#     the market (regime law); rollback still only on two consecutive alarms.
+#   PROCESS LAPSE: the every-3rd-cycle baseline refresh was skipped at cycles 69, 72, 75
+#   and 78 (baselines were dated 11-09). Done now:
+#     152 168h n=682 ev_lcb +0.101 PASS (was +0.206) | 155 168h n=730 ev_lcb +0.114 PASS
+#     (was +0.168) | 154 336h n=15 ev_lcb -0.071 FAIL (5th straight; REPLACE-ME, still no
+#     safe passing challenger - left unchanged, as in c58/c62/c66).
+#   PROPOSE: candidates.py returned [] - every neighbour of the three champions is tested
+#   or retired and the queue is empty. The sampler is exhausted at these champions.
+#   LEARN (wall attribution for this morning's unexplained misses):
+#     papercat 73x, SNQKE 52x, SHARKBUX 22.7x, MeowKey 25x and CSI 19x are all hooked
+#     uniswap_v4. 154 with rtb >= 0.85 = identical to live over 168h (7/7). 154 with
+#     rtb < 0.85: n=26, 2x+ 85%, 10x+ 15, median 12.7x, PostATH 0 (SNQKE 36x, LDMPL 26x,
+#     PNDSDE 22x, QUINN 21x, SHARKBUX 16x, MeowKey 16x) - but rtb in 0.6-0.85: n=0, so
+#     all 26 read < 0.6 ("the hook keeps what sellers are owed"). SNQKE, SHARKBUX and
+#     MeowKey still read < 0.6 now. VERDICT: 154's sell test is blocking honeypot-type
+#     hooks correctly; those charts are not sellable multiples. NEW RISK: inuhao passed
+#     >= 0.9 at its $31k 154 alert and now reads < 0.6 (hook rules changed after entry);
+#     STCAR (NULL at entry) also now < 0.6. Hooked alerts need a fast take-profit, and the
+#     NULL-rtb option is weaker still. Fact saved.
+#   RH backtests: 8 (+ 5 free validate/mooners checks).

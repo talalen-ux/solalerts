@@ -403,17 +403,18 @@
   "[2026-11-09] d1109: measured directly, the 155 slice that the mc-floor-20k change would drop (155 at mc 15-20k, 168h) is n=387, 2x+ 70.8%, 10x+ 2 (0x2d68 38x, XCoin 16.4x). Under scalp_2 its ev_lcb is +0.162 (positive); under ladder_3_10 it is -0.132. So the change is a policy TRADE, scalp feed -> ladder feed, not a free gain. ~55 scalp-positive alerts/day would leave both plain feeds. The ledger gate picks the best policy per set and does not see this. HOLD the 155 deploy for the user's exit-style preference.",
   "[2026-11-11] d1111: the default mooners query (ath_x>=3 AND buyers>=20) is now 100% micro-launch farm (10/10: $517-1.2k launches, 37-41 buyers, sitting at ATH). For attribution use mooners(condition='ath_x >= 3 AND buyers >= 100') - organic top 10 had 5 of 10 caught. Did not change the saved query (user setting).",
   "[2026-11-13] d1113: hooked tokens with NULL round_trip_back in the band (mc 15-100k), 48h: n=51, 2x+ 25%, 10x+ 6 (RSPWN 40x, STCAR 21x, FTDIP 17x, ORBYN 16x) but 69% post-ATH -> modelled EV negative. Allowing NULL rtb on 154 as-is would add a few big runners inside a mostly-dead stream; it needs an extra clause that removes post-ATH entries before it could pass. FPAW (39x) was NOT in the NULL set: it had rtb < 0.9 and still ran, so the sell test can also block real runners (or they are taxed).",
-  "[2026-11-14] RH hooked farm template: ETH-quoted (not WETH), ~525-535 wallets, 8-11 buys per wallet, launch $6-10k, ATH capped at $140-152k, round_trip_back NULL (QZO, Metrion, LOOT, PLUQO, MEMECHAIN, PLOG, APEKIMCHI + 5 unnamed). It is 12 of the 15 tokens that allowing NULL rtb adds to 154 over 168h. At a ~$30k entry, neither buys < 4*buyers nor head_block - ath_block < 3000 separates it (both no-ops); the wash ratio builds after entry."
+  "[2026-11-14] RH hooked farm template: ETH-quoted (not WETH), ~525-535 wallets, 8-11 buys per wallet, launch $6-10k, ATH capped at $140-152k, round_trip_back NULL (QZO, Metrion, LOOT, PLUQO, MEMECHAIN, PLOG, APEKIMCHI + 5 unnamed). It is 12 of the 15 tokens that allowing NULL rtb adds to 154 over 168h. At a ~$30k entry, neither buys < 4*buyers nor head_block - ath_block < 3000 separates it (both no-ops); the wash ratio builds after entry.",
+  "[2026-11-14] Hooked sell-test law (c81, 2026-11-14): the hooked runners 154 blocks are UNSELLABLE, not misses. Within 154's other clauses over 168h, round_trip_back < 0.85 gives n=26, 10x+ 15, median 12.7x, but ALL 26 sit below 0.6 (none in 0.6-0.85), i.e. the hook keeps sellers' proceeds; SNQKE, SHARKBUX and MeowKey still read < 0.6 at their last check. Charts of those tokens are not realisable multiples. Also: a pass can flip later - inuhao passed >= 0.9 at its $31k alert and now reads < 0.6; STCAR (NULL at entry) now < 0.6. 154's modelled EV therefore overstates what can be sold; take profit early on 154 alerts. rtb >= 0.85 (the lint floor) is identical to 0.9 over 168h (7/7)."
  ],
  "queue": [],
  "slots": {
   "152": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": 0.2064,
+    "ev_lcb": 0.1013,
     "hours": 168.0,
-    "n": 758,
-    "source": "2026-11-09T10:48:16Z"
+    "n": 682,
+    "source": "2026-11-14T10:48:37Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)",
    "deployed_at": "2026-10-28T10:54:00Z",
@@ -426,14 +427,14 @@
   "154": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": -0.323,
+    "ev_lcb": -0.0713,
     "hours": 336.0,
     "n": 15,
-    "source": "2026-11-09T10:48:16Z"
+    "source": "2026-11-14T10:48:37Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 30000 AND mc < 200000",
    "deployed_at": "2026-10-20T12:33:53Z",
-   "failures": 4,
+   "failures": 5,
    "family": "hooked_verified",
    "params": {
     "buyers": 8,
@@ -449,10 +450,10 @@
   "155": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": 0.1676,
+    "ev_lcb": 0.1138,
     "hours": 168.0,
-    "n": 692,
-    "source": "2026-11-09T10:48:16Z"
+    "n": 730,
+    "source": "2026-11-14T10:48:37Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000",
    "failures": 0,
@@ -793,6 +794,6 @@
    "slot": "155"
   }
  },
- "updated": "2026-11-14T07:09:51Z",
+ "updated": "2026-11-14T10:51:00Z",
  "version": 1
 }
