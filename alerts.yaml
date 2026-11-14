@@ -5406,3 +5406,13 @@ alert2:
 
 # 6H REVIEW 2026-11-14 18:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (72nd review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 82 (2026-11-14 18:48 UTC): health only, no deployment.
+#   Live conditions match memory.
+#   152 72h n=269, 2x+ 57.6%, 10x+ 28, 20x+ 9, PostATH 2.2%, ev +0.048 / ev_lcb -0.014 (ok:
+#     first negative lower bound for 152; alarm needs ev < 0 too). New: VEKTA 30.7x at $22.4k.
+#   155 72h n=211, 2x+ 61.1%, 3x+ 32.7%, 10x+ 16, ev +0.091 / ev_lcb +0.022 (ok; back above
+#     zero after -0.017 at c81).
+#   candidates.py: [] again (sampler exhausted at these champions; queue empty).
+#   Still waiting on the user: 155 floor/exit style, 154 NULL-rtb (now weaker, see c81),
+#   Solana re-auth. RH backtests: 2.
