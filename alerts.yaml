@@ -5494,3 +5494,6 @@ alert2:
 #     155 + low_tax:    n=703, identical (no-op)
 #     155 top < 30:     n=651, ev_lcb +0.133 (+0.004)
 #   RH backtests: 8.
+
+# 6H REVIEW 2026-11-15 12:32 UTC (Solana): SKIPPED - defirobot connector still needs
+#   re-authorization (75th review in a row). No changes.
