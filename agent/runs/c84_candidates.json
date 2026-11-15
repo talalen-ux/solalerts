@@ -1,0 +1,60 @@
+[
+ {
+  "slot": "155",
+  "family": "plain_v4",
+  "arm": "plain_v4:pred:clean_dev",
+  "params": {
+   "buyers": 25,
+   "mc_max": 45000,
+   "mc_min": 15000,
+   "ratio": 5,
+   "top": 40
+  },
+  "preds": [
+   "clean_dev"
+  ],
+  "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000 AND (dev_funder_devs IS NULL OR dev_funder_devs = 0)",
+  "hash": "9ee4be181f3f",
+  "long_hours": 168,
+  "recent_hours": 72,
+  "id": "c1-9ee4be"
+ },
+ {
+  "slot": "155",
+  "family": "plain_v4",
+  "arm": "plain_v4:pred:low_tax",
+  "params": {
+   "buyers": 25,
+   "mc_max": 45000,
+   "mc_min": 15000,
+   "ratio": 5,
+   "top": 40
+  },
+  "preds": [
+   "low_tax"
+  ],
+  "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000 AND (creator_tax_bps IS NULL OR creator_tax_bps <= 300)",
+  "hash": "d4ca025149f4",
+  "long_hours": 168,
+  "recent_hours": 72,
+  "id": "c2-d4ca02"
+ },
+ {
+  "slot": "155",
+  "family": "plain_v4",
+  "arm": "plain_v4:top:down",
+  "params": {
+   "buyers": 25,
+   "mc_max": 45000,
+   "mc_min": 15000,
+   "ratio": 5,
+   "top": 30
+  },
+  "preds": [],
+  "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 30 AND mc > 15000 AND mc < 45000",
+  "hash": "dbbefc2856ae",
+  "long_hours": 168,
+  "recent_hours": 72,
+  "id": "c3-dbbefc"
+ }
+]

@@ -86,8 +86,8 @@
    "wins": 0
   },
   "plain_v4:pred:clean_dev": {
-   "sum_delta": -0.0027,
-   "tests": 1,
+   "sum_delta": 0.0014,
+   "tests": 2,
    "wins": 0
   },
   "plain_v4:pred:held_low": {
@@ -97,7 +97,7 @@
   },
   "plain_v4:pred:low_tax": {
    "sum_delta": -0.0178,
-   "tests": 1,
+   "tests": 2,
    "wins": 0
   },
   "plain_v4:pred:no_sweep": {
@@ -133,8 +133,8 @@
    "wins": 0
   },
   "plain_v4:top:down": {
-   "sum_delta": 0.004,
-   "tests": 1,
+   "sum_delta": 0.0082,
+   "tests": 2,
    "wins": 0
   },
   "plain_v4:top:up": {
@@ -357,6 +357,12 @@
    "passed": 1,
    "run": "runs/2026-11-08-18.json",
    "tested": 1
+  },
+  {
+   "at": "2026-11-15T10:49:44Z",
+   "passed": 0,
+   "run": "runs/2026-11-15-10.json",
+   "tested": 3
   }
  ],
  "facts": [
@@ -405,17 +411,21 @@
   "[2026-11-13] d1113: hooked tokens with NULL round_trip_back in the band (mc 15-100k), 48h: n=51, 2x+ 25%, 10x+ 6 (RSPWN 40x, STCAR 21x, FTDIP 17x, ORBYN 16x) but 69% post-ATH -> modelled EV negative. Allowing NULL rtb on 154 as-is would add a few big runners inside a mostly-dead stream; it needs an extra clause that removes post-ATH entries before it could pass. FPAW (39x) was NOT in the NULL set: it had rtb < 0.9 and still ran, so the sell test can also block real runners (or they are taxed).",
   "[2026-11-14] RH hooked farm template: ETH-quoted (not WETH), ~525-535 wallets, 8-11 buys per wallet, launch $6-10k, ATH capped at $140-152k, round_trip_back NULL (QZO, Metrion, LOOT, PLUQO, MEMECHAIN, PLOG, APEKIMCHI + 5 unnamed). It is 12 of the 15 tokens that allowing NULL rtb adds to 154 over 168h. At a ~$30k entry, neither buys < 4*buyers nor head_block - ath_block < 3000 separates it (both no-ops); the wash ratio builds after entry.",
   "[2026-11-14] Hooked sell-test law (c81, 2026-11-14): the hooked runners 154 blocks are UNSELLABLE, not misses. Within 154's other clauses over 168h, round_trip_back < 0.85 gives n=26, 10x+ 15, median 12.7x, but ALL 26 sit below 0.6 (none in 0.6-0.85), i.e. the hook keeps sellers' proceeds; SNQKE, SHARKBUX and MeowKey still read < 0.6 at their last check. Charts of those tokens are not realisable multiples. Also: a pass can flip later - inuhao passed >= 0.9 at its $31k alert and now reads < 0.6; STCAR (NULL at entry) now < 0.6. 154's modelled EV therefore overstates what can be sold; take profit early on 154 alerts. rtb >= 0.85 (the lint floor) is identical to 0.9 over 168h (7/7).",
-  "[2026-11-15] 152 composition (2026-11-15, 168h): ~83% of its stream first matches at 15-19 buyers (buyers >= 20 variant: n=110 of 667); the $45-100k band is only n=29/week and slightly negative (cap 45k: ev_lcb +0.090 vs +0.074, below the +0.05 margin). The 11-11..11-15 decline is uniform across both slices (2x+ 60-61% in each) - regime, not a clause. plain_broad has no grid, so only queue ideas can test 152."
+  "[2026-11-15] 152 composition (2026-11-15, 168h): ~83% of its stream first matches at 15-19 buyers (buyers >= 20 variant: n=110 of 667); the $45-100k band is only n=29/week and slightly negative (cap 45k: ev_lcb +0.090 vs +0.074, below the +0.05 margin). The 11-11..11-15 decline is uniform across both slices (2x+ 60-61% in each) - regime, not a clause. plain_broad has no grid, so only queue ideas can test 152.",
+  "[2026-11-15] Sampler retest rule (c84): candidates.py now re-proposes a tested condition once its result is >= 14 days old (RETEST_DAYS; regime law: old results go stale), and never proposes hashes in memory['held'] (conditions waiting on the user; 155 mc > 20000 is held for the exit-style answer). The first retest round (155 clean_dev, low_tax, top 30) was again flat (+0.000..+0.004)."
+ ],
+ "held": [
+  "f442cb1e1265"
  ],
  "queue": [],
  "slots": {
   "152": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": 0.1013,
+    "ev_lcb": 0.0727,
     "hours": 168.0,
-    "n": 682,
-    "source": "2026-11-14T10:48:37Z"
+    "n": 662,
+    "source": "2026-11-15T10:48:35Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)",
    "deployed_at": "2026-10-28T10:54:00Z",
@@ -428,14 +438,14 @@
   "154": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": -0.0713,
+    "ev_lcb": -0.2404,
     "hours": 336.0,
-    "n": 15,
-    "source": "2026-11-14T10:48:37Z"
+    "n": 13,
+    "source": "2026-11-15T10:48:35Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 30000 AND mc < 200000",
    "deployed_at": "2026-10-20T12:33:53Z",
-   "failures": 5,
+   "failures": 6,
    "family": "hooked_verified",
    "params": {
     "buyers": 8,
@@ -451,10 +461,10 @@
   "155": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": 0.1138,
+    "ev_lcb": 0.1288,
     "hours": 168.0,
-    "n": 730,
-    "source": "2026-11-14T10:48:37Z"
+    "n": 703,
+    "source": "2026-11-15T10:48:35Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000",
    "failures": 0,
@@ -626,9 +636,9 @@
   "9ee4be181f3f": {
    "arm": "plain_v4:pred:clean_dev",
    "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000 AND (dev_funder_devs IS NULL OR dev_funder_devs = 0)",
-   "date": "2026-10-15T02:48:21Z",
-   "ev_lcb": 0.1807,
-   "n": 513,
+   "date": "2026-11-15T10:49:44Z",
+   "ev_lcb": 0.1329,
+   "n": 698,
    "pass": false,
    "slot": "155"
   },
@@ -689,9 +699,9 @@
   "d4ca025149f4": {
    "arm": "plain_v4:pred:low_tax",
    "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000 AND (creator_tax_bps IS NULL OR creator_tax_bps <= 300)",
-   "date": "2026-10-15T18:48:10Z",
-   "ev_lcb": 0.1656,
-   "n": 580,
+   "date": "2026-11-15T10:49:44Z",
+   "ev_lcb": 0.1288,
+   "n": 703,
    "pass": false,
    "slot": "155"
   },
@@ -716,9 +726,9 @@
   "dbbefc2856ae": {
    "arm": "plain_v4:top:down",
    "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 30 AND mc > 15000 AND mc < 45000",
-   "date": "2026-10-14T11:24:47Z",
-   "ev_lcb": 0.1924,
-   "n": 443,
+   "date": "2026-11-15T10:49:44Z",
+   "ev_lcb": 0.133,
+   "n": 651,
    "pass": false,
    "slot": "155"
   },
@@ -795,6 +805,6 @@
    "slot": "155"
   }
  },
- "updated": "2026-11-15T07:09:16Z",
+ "updated": "2026-11-15T10:49:49Z",
  "version": 1
 }

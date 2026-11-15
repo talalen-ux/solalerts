@@ -5474,3 +5474,23 @@ alert2:
 #   OPEN FOR USER: Solana re-auth; 155 exit style (floor 15k -> 20k); 154 NULL-rtb (now not
 #     recommended); token_history pre-approval; mcp-rh.defirobot.org downloads.
 #   Next weekly review: 2026-11-22.
+
+# STRATEGY AGENT CYCLE 84 (2026-11-15 10:48 UTC): health + baseline refresh + 7th-cycle
+#   self-improvement. No deployment (ledger: NO DEPLOYMENT).
+#   Live conditions match memory.
+#   152 72h n=253, 2x+ 54.2%, 10x+ 26, ev +0.005 / ev_lcb -0.059 (ok - the mean is a hair
+#     above zero; the alarm starts counting when it goes negative)
+#   155 72h n=221, 2x+ 62.4%, 10x+ 14, ev +0.108 / ev_lcb +0.040 (ok)
+#   Baselines: 152 168h n=662 ev_lcb +0.073 PASS | 155 168h n=703 ev_lcb +0.129 PASS |
+#     154 336h n=13 ev_lcb -0.240 FAIL (6th; no safe challenger, unchanged; 168h recent
+#     reused from d1114).
+#   SELF-IMPROVEMENT: no arm has >= 8 tests (max 4), nothing to retire. Calibration still
+#     blocked (token_history needs the user's pre-approval). Sampler fix: candidates.py had
+#     returned [] since c81 because every tested hash was skipped forever. Now a result >= 14
+#     days old may be retested (RETEST_DAYS, regime law), and memory["held"] blocks
+#     conditions waiting on the user (155 mc > 20000). New unit test; 12/12 green.
+#   TEST (168h, same window as the 155 baseline; 72h not run - none could clear +0.05):
+#     155 + clean_dev:  n=698, ev_lcb +0.133 (+0.004)
+#     155 + low_tax:    n=703, identical (no-op)
+#     155 top < 30:     n=651, ev_lcb +0.133 (+0.004)
+#   RH backtests: 8.

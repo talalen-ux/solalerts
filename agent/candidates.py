@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Propose the next experiments. Thompson sampling over mutation arms, learned
 from memory.json, so the agent spends its backtest budget where changes have paid."""
-import copy, json, random, sys
+import copy, datetime, json, random, sys
 import memory_io
 from strategies import FAMILIES, PREDICATES, render, lint, cond_hash
 
@@ -50,14 +50,33 @@ def starved(ch):
     return ch.get("baseline", {}).get("n", MIN_N) < MIN_N
 
 
-def propose(mem, k=4, seed=None):
+# Regime law: a result older than this says little about today's market, so the
+# condition may be proposed again. Held conditions wait on the user and are never proposed.
+RETEST_DAYS = 14
+
+
+def fresh_tested(mem, h, now=None):
+    """True when hash h was tested recently (skip it) or is held for the user."""
+    if h in mem.get("held", []):
+        return True
+    t = mem["tested"].get(h)
+    if t is None:
+        return False
+    now = now or datetime.datetime.utcnow()
+    try:
+        when = datetime.datetime.strptime(t["date"], "%Y-%m-%dT%H:%M:%SZ")
+    except (KeyError, ValueError):
+        return True
+    return (now - when).days < RETEST_DAYS
+
+
+def propose(mem, k=4, seed=None, now=None):
     rng = random.Random(seed)
-    tested = mem["tested"]
     pool = []
     # 1) queued free-form hypotheses written by the agent itself get priority
     for q in list(mem.get("queue", [])):
         cond = q["condition"]
-        if cond_hash(cond) in tested or lint(cond):
+        if fresh_tested(mem, cond_hash(cond), now) or lint(cond):
             continue
         pool.append((9.0, {"id": q["id"], "slot": q["slot"], "family": q.get("family", "freeform"),
                            "arm": q.get("arm", "queue"), "condition": cond, "preds": []}))
@@ -87,7 +106,7 @@ def propose(mem, k=4, seed=None):
     out, seen_arms = [], set()
     for score, c in sorted(pool, key=lambda x: -x[0]):
         h = cond_hash(c["condition"])
-        if h in tested or lint(c["condition"]) or c["arm"] in seen_arms:
+        if fresh_tested(mem, h, now) or lint(c["condition"]) or c["arm"] in seen_arms:
             continue
         if mem["arms"].get(c["arm"], {}).get("retired"):
             continue

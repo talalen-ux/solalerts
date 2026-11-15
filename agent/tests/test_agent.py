@@ -111,5 +111,24 @@ class Starved(unittest.TestCase):
         self.assertTrue([c for c in cs if c["slot"] != "154" and candidates.is_restriction(c["arm"])])
 
 
+class Retest(unittest.TestCase):
+    def test_stale_result_is_retested_and_held_is_skipped(self):
+        import datetime
+        from strategies import cond_hash
+        tmp = tempfile.mkdtemp(); memory_io.PATH = os.path.join(tmp, "memory.json")
+        ledger.cmd_init([])
+        mem = memory_io.load()
+        first = candidates.propose(mem, k=1, seed=11)[0]
+        h = first["hash"]
+        now = datetime.datetime(2026, 11, 15)
+        mem["tested"][h] = {"date": "2026-11-10T00:00:00Z", "arm": first["arm"], "slot": first["slot"]}
+        self.assertNotIn(h, {c["hash"] for c in candidates.propose(mem, k=60, seed=11, now=now)})
+        mem["tested"][h]["date"] = "2026-10-20T00:00:00Z"   # older than RETEST_DAYS
+        self.assertIn(h, {c["hash"] for c in candidates.propose(mem, k=60, seed=11, now=now)})
+        mem["held"] = [h]                                   # waiting on the user
+        self.assertNotIn(h, {c["hash"] for c in candidates.propose(mem, k=60, seed=11, now=now)})
+        self.assertEqual(h, cond_hash(first["condition"]))
+
+
 if __name__ == "__main__":
     unittest.main()
