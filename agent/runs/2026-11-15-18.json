@@ -1,0 +1,290 @@
+{
+ "cycle": 85,
+ "results": [
+  {
+   "slot": "155",
+   "family": "plain_v4",
+   "arm": "plain_v4:ratio:down",
+   "params": {
+    "buyers": 25,
+    "mc_max": 45000,
+    "mc_min": 15000,
+    "ratio": 4,
+    "top": 40
+   },
+   "preds": [],
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 4 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000",
+   "hash": "2ca6fd2f2c28",
+   "long_hours": 168,
+   "recent_hours": 72,
+   "id": "c1-2ca6fd",
+   "long": {
+    "window_hours": 168,
+    "matched": 691,
+    "scored": 691,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 2
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 16
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 47
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 108
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 197
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 463
+     }
+    ],
+    "post_ath": {
+     "tokens": 11
+    }
+   },
+   "recent": {
+    "window_hours": 72,
+    "matched": 0,
+    "scored": 0,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 0
+     }
+    ],
+    "post_ath": {
+     "tokens": 0
+    },
+    "note": "NOT RUN - long window cannot clear the +0.05 margin"
+   }
+  },
+  {
+   "slot": "155",
+   "family": "plain_v4",
+   "arm": "plain_v4:buyers:down",
+   "params": {
+    "buyers": 20,
+    "mc_max": 45000,
+    "mc_min": 15000,
+    "ratio": 5,
+    "top": 40
+   },
+   "preds": [],
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 20 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000",
+   "hash": "0549c51148fd",
+   "long_hours": 168,
+   "recent_hours": 72,
+   "id": "c2-0549c5",
+   "long": {
+    "window_hours": 168,
+    "matched": 704,
+    "scored": 704,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 2
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 16
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 51
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 113
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 204
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 476
+     }
+    ],
+    "post_ath": {
+     "tokens": 10
+    }
+   },
+   "recent": {
+    "window_hours": 72,
+    "matched": 0,
+    "scored": 0,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 0
+     }
+    ],
+    "post_ath": {
+     "tokens": 0
+    },
+    "note": "NOT RUN - long window cannot clear the +0.05 margin"
+   }
+  },
+  {
+   "slot": "155",
+   "family": "plain_v4",
+   "arm": "plain_v4:mc_min:down",
+   "params": {
+    "buyers": 25,
+    "mc_max": 45000,
+    "mc_min": 10000,
+    "ratio": 5,
+    "top": 40
+   },
+   "preds": [],
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 10000 AND mc < 45000",
+   "hash": "d0600ef24695",
+   "long_hours": 168,
+   "recent_hours": 72,
+   "id": "c3-d0600e",
+   "long": {
+    "window_hours": 168,
+    "matched": 691,
+    "scored": 691,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 2
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 16
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 47
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 108
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 197
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 463
+     }
+    ],
+    "post_ath": {
+     "tokens": 11
+    }
+   },
+   "recent": {
+    "window_hours": 72,
+    "matched": 0,
+    "scored": 0,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 0
+     }
+    ],
+    "post_ath": {
+     "tokens": 0
+    },
+    "note": "NOT RUN - long window cannot clear the +0.05 margin"
+   }
+  }
+ ]
+}

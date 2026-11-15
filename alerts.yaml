@@ -5500,3 +5500,18 @@ alert2:
 
 # 6H REVIEW 2026-11-15 18:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (76th review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 85 (2026-11-15 18:48 UTC): health + 3 retests, no deployment.
+#   Live conditions match memory.
+#   152 72h n=239, 2x+ 50.2%, 10x+ 22, PostATH 5.0%, ev -0.044 / ev_lcb -0.110 -> WATCH ALARM 1.
+#     A second consecutive alarm (next cycle) triggers the playbook rollback. Pre-checked the
+#     rollback target, revision 4144 (ratio > 4 instead of > 5), on the same 72h window:
+#     239/239 identical. Rolling back would change nothing - the decline is the market
+#     (regime law), not the ratio clause. If alarm 2 fires, rollback is a measured no-op.
+#     152 can only be paused or kept, and that is the user's call (the agent may not disable).
+#   155 72h n=222, 2x+ 63.5%, 10x+ 13, ev +0.121 / ev_lcb +0.053 (ok). New: PAW 22.5x at $20.0k.
+#   TEST (168h, same window as a fresh 155 control n=691, ev_lcb +0.127):
+#     ratio 4: 691/691 identical | mc > 10000: 691/691 identical | buyers >= 20: n=704,
+#     ev_lcb +0.135 (+0.008). Ledger: NO DEPLOYMENT. 155's floor, ratio and buyer clauses are
+#     slack on this window; 155 is at a local optimum.
+#   RH backtests: 7.

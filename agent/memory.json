@@ -49,8 +49,8 @@
    "wins": 0
   },
   "plain_v4:buyers:down": {
-   "sum_delta": -0.0248,
-   "tests": 1,
+   "sum_delta": -0.0188,
+   "tests": 2,
    "wins": 0
   },
   "plain_v4:buyers:up": {
@@ -70,8 +70,8 @@
    "wins": 0
   },
   "plain_v4:mc_min:down": {
-   "sum_delta": -0.0191,
-   "tests": 1,
+   "sum_delta": -0.0211,
+   "tests": 2,
    "wins": 0
   },
   "plain_v4:mc_min:up": {
@@ -123,8 +123,8 @@
    "wins": 0
   },
   "plain_v4:ratio:down": {
-   "sum_delta": -0.0174,
-   "tests": 1,
+   "sum_delta": -0.0194,
+   "tests": 2,
    "wins": 0
   },
   "plain_v4:ratio:up": {
@@ -363,6 +363,12 @@
    "passed": 0,
    "run": "runs/2026-11-15-10.json",
    "tested": 3
+  },
+  {
+   "at": "2026-11-15T18:48:25Z",
+   "passed": 0,
+   "run": "runs/2026-11-15-18.json",
+   "tested": 3
   }
  ],
  "facts": [
@@ -420,7 +426,7 @@
  "queue": [],
  "slots": {
   "152": {
-   "alarms": 0,
+   "alarms": 1,
    "baseline": {
     "ev_lcb": 0.0727,
     "hours": 168.0,
@@ -492,9 +498,9 @@
   "0549c51148fd": {
    "arm": "plain_v4:buyers:down",
    "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 20 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000",
-   "date": "2026-10-14T18:48:50Z",
-   "ev_lcb": 0.1636,
-   "n": 628,
+   "date": "2026-11-15T18:48:25Z",
+   "ev_lcb": 0.1348,
+   "n": 704,
    "pass": false,
    "slot": "155"
   },
@@ -519,9 +525,9 @@
   "2ca6fd2f2c28": {
    "arm": "plain_v4:ratio:down",
    "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 4 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000",
-   "date": "2026-10-15T18:48:10Z",
-   "ev_lcb": 0.166,
-   "n": 603,
+   "date": "2026-11-15T18:48:25Z",
+   "ev_lcb": 0.1268,
+   "n": 691,
    "pass": false,
    "slot": "155"
   },
@@ -690,9 +696,9 @@
   "d0600ef24695": {
    "arm": "plain_v4:mc_min:down",
    "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 10000 AND mc < 45000",
-   "date": "2026-10-20T18:48:49Z",
-   "ev_lcb": 0.1315,
-   "n": 927,
+   "date": "2026-11-15T18:48:25Z",
+   "ev_lcb": 0.1268,
+   "n": 691,
    "pass": false,
    "slot": "155"
   },
@@ -805,6 +811,6 @@
    "slot": "155"
   }
  },
- "updated": "2026-11-15T10:49:49Z",
+ "updated": "2026-11-15T18:48:25Z",
  "version": 1
 }
