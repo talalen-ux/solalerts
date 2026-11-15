@@ -5419,3 +5419,13 @@ alert2:
 
 # 6H REVIEW 2026-11-15 00:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (73rd review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 83 (2026-11-15 02:48 UTC): health only, no deployment.
+#   Live conditions match memory.
+#   152 72h n=272, 2x+ 55.2%, 10x+ 26, 20x+ 8, PostATH 3.3%, ev +0.017 / ev_lcb -0.045 (ok,
+#     but the mean is now close to zero: one more slide and the watch alarm starts counting;
+#     two consecutive alarms trigger the playbook rollback). New: TEXEL (another address)
+#     36.5x at $15.6k; VEKTA up to 39.4x.
+#   155 72h n=212, 2x+ 59.4%, 3x+ 31.6%, 10x+ 14, ev +0.070 / ev_lcb +0.001 (ok).
+#   candidates.py: [] (no proposals). Still waiting on the user: 155 floor/exit style,
+#   154 NULL-rtb, Solana re-auth. RH backtests: 2.
