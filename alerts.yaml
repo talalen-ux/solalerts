@@ -5536,3 +5536,28 @@ alert2:
 
 # 6H REVIEW 2026-11-16 06:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (78th review in a row). No changes.
+
+# DAILY-OPS 2026-11-16 07:09 UTC
+# 1) Fill scorecard: SKIPPED - defirobot (Solana) connector needs re-authorization.
+# 2) RH top-10 (24h, organic query buyers >= 100): BarkByte 81x, RAS 51x, RUSHR 43x,
+#   Vezquorin 41x, GC 39x, mihao 38.7x, RightsLayer 38x, FalconMargin 36x, Keyvora 35x,
+#   PURSER 33.5x.
+#   CAUGHT 3 of 10: GC (152 $17.9k 26.1x - now 0.91x), mihao 0xb07a (152 $23.6k 21.1x; 155
+#   13.8x), PURSER 0xa53a (152 $21.0k 20.4x; 155 12.1x).
+#   MISSED: BarkByte, Vezquorin, RightsLayer, FalconMargin, Keyvora - all hooked with
+#   round_trip_back < 0.6: a tech-name honeypot template (~$18-20k launches, ~1,400-1,500
+#   buyers; same as IntentRail/DepthReceipt yesterday). Correctly blocked by 154.
+#   RAS (plain, $10.9k launch, 756 buyers, now 1.0x) is absent even from a broad plain set
+#   without the ratio/top clauses: it crossed the $15-100k band between snapshots (too fast),
+#   not a clause wall. RUSHR 0x5178 ($5.5k launch, now 1.02x) - same; a later RUSHR copy was
+#   caught (152 11.7x, 155 7.5x).
+#   152 24h: n=71, 2x+ 54.9%, 10x+ 8, 20x+ 5, PostATH 7.0%. 155 24h: n=102, 2x+ 63.7%, 10x+ 3.
+# 3) Watchlist: Marvin x3 (4.9x / 4.85x / 4.1x), RUSHR x3, mihao x2 (21.1x / 12.7x), PURSER x2
+#   (20.4x / 6.1x).
+# 4) EXPERIMENT - can a fresh-high clause cut 152's rising post-ATH share (2% -> 5-7%)?
+#     152 live 72h:                  n=231, PostATH 11, ev +0.015 / ev_lcb -0.052
+#     + (ath_block IS NULL OR head_block - ath_block < 3000): n=229, PostATH 9, ev_lcb -0.046
+#   Removes 2 tokens, both post-ATH, nothing else: 152's late entries are mostly tops at a
+#   fresh high, so recency cannot screen them (same as the hooked finding on 11-14). No-op;
+#   168h not run. Note: 152's 72h mean is back above zero on this fresher window (+0.015).
+#   RH backtests: 5.
