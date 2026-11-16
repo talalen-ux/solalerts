@@ -5533,3 +5533,6 @@ alert2:
 #   155 72h n=234, 2x+ 63.2%, 10x+ 12, ev +0.098 / ev_lcb +0.033 (ok).
 #   No candidates tested this run (152 has no grid; the 155 retests at c84/c85 were flat).
 #   RH backtests: 3.
+
+# 6H REVIEW 2026-11-16 06:32 UTC (Solana): SKIPPED - defirobot connector still needs
+#   re-authorization (78th review in a row). No changes.
