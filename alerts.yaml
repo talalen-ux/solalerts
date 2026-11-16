@@ -5518,3 +5518,18 @@ alert2:
 
 # 6H REVIEW 2026-11-16 00:32 UTC (Solana): SKIPPED - defirobot connector still needs
 #   re-authorization (77th review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 86 (2026-11-16 02:48 UTC): health only. 152 WATCH ALARM 2 - rollback
+#   NOT executed (deliberate deviation from the mechanical rule, reason below).
+#   Live conditions match memory.
+#   152 72h n=219, 2x+ 51.6%, 10x+ 22, 20x+ 10, PostATH 5.0%, ev -0.027 / ev_lcb -0.095
+#     -> second consecutive alarm; ledger says "ROLLBACK via restore_filter".
+#     Rollback target rev 4144 (ratio > 4) on the SAME 72h window: 219/219 identical (it was
+#     239/239 at c85 too). The rollback rule exists to undo a harmful deployment; here no
+#     deployment caused the slide (152's last change was 10-28, validated 4 times) and the
+#     target performs identically, so restoring it changes nothing. Skipped and logged; the
+#     real choice (keep 152 through the slump or pause it) is the user's.
+#     New in 152: GC 26.1x at $17.9k.
+#   155 72h n=234, 2x+ 63.2%, 10x+ 12, ev +0.098 / ev_lcb +0.033 (ok).
+#   No candidates tested this run (152 has no grid; the 155 retests at c84/c85 were flat).
+#   RH backtests: 3.
