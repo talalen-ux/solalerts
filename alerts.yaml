@@ -5561,3 +5561,16 @@ alert2:
 #   fresh high, so recency cannot screen them (same as the hooked finding on 11-14). No-op;
 #   168h not run. Note: 152's 72h mean is back above zero on this fresher window (+0.015).
 #   RH backtests: 5.
+
+# STRATEGY AGENT CYCLE 87 (2026-11-16 10:48 UTC): health + baseline refresh + 1 retest.
+#   No deployment (ledger: NO DEPLOYMENT). Live conditions match memory.
+#   152 72h n=221, 2x+ 55.7%, 10x+ 23, ev +0.024 / ev_lcb -0.045 -> alarm CLEARED (counter 0).
+#     The c86 decision to skip the no-op rollback held up: the slot recovered unchanged.
+#   155 72h n=243, 2x+ 64.2%, 10x+ 11, ev +0.129 / ev_lcb +0.065 (ok)
+#   Baselines: 152 168h n=640 ev_lcb +0.050 PASS | 155 168h n=654 ev_lcb +0.116 PASS |
+#     154 336h n=15 ev_lcb +0.050 FAIL on n only (7th; first positive lower bound - FiveM 13.8x
+#     at $32.6k and DACAT 14.3x this week; 168h n=7, 4 of 7 reached 10x).
+#   TEST: 155 ratio 6 (the only stale arm left), 168h: n=530, ev_lcb +0.104 vs live +0.116
+#     (worse). Every 155 neighbour has now been retested within 14 days; the sampler will be
+#     empty again until 11-28 unless queue ideas are added.
+#   RH backtests: 8.
