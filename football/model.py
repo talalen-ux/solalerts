@@ -75,7 +75,9 @@ class DixonColes:
         hg = np.array([m.home_goals for m in played], float)
         ag = np.array([m.away_goals for m in played], float)
         age = np.array([(as_of - m.date).days for m in played], float)
-        w = np.exp(-self.xi * age)
+        # optional per-match weight (e.g. friendlies count less) and neutral-venue flag
+        w = np.exp(-self.xi * age) * np.array([m.extra.get("weight", 1.0) for m in played])
+        home_ind = np.array([0.0 if m.extra.get("neutral") else 1.0 for m in played])
 
         prior = self._priors(played, names, as_of)
         # theta = [mu, home, att(n), def(n)]
@@ -89,7 +91,7 @@ class DixonColes:
         m = len(played)
         X = np.zeros((2 * m, 2 + 2 * n))
         r = np.arange(m)
-        X[r, 0] = 1; X[r, 1] = 1; X[r, 2 + hi] = 1; X[r, 2 + n + ai] = -1
+        X[r, 0] = 1; X[r, 1] = home_ind; X[r, 2 + hi] = 1; X[r, 2 + n + ai] = -1
         X[m + r, 0] = 1; X[m + r, 2 + ai] = 1; X[m + r, 2 + n + hi] = -1
         y = np.r_[hg, ag]
         ww = np.r_[w, w]
@@ -111,7 +113,7 @@ class DixonColes:
         self.teams = {t: TeamRating(float(theta[2 + i]), float(theta[2 + n + i]), float(wt[i]))
                       for t, i in idx.items()}
 
-        lam_h = np.exp(theta[0] + theta[1] + theta[2 + hi] - theta[2 + n + ai])
+        lam_h = np.exp(theta[0] + theta[1] * home_ind + theta[2 + hi] - theta[2 + n + ai])
         lam_a = np.exp(theta[0] + theta[2 + ai] - theta[2 + n + hi])
         self.rho = self._fit_rho(hg, ag, lam_h, lam_a, w)
         return self
@@ -144,9 +146,9 @@ class DixonColes:
             return self.teams[team]
         return TeamRating(PROMOTED_PRIOR, PROMOTED_PRIOR, 0.0)  # never seen: assume promoted
 
-    def expected_goals(self, home: str, away: str) -> tuple[float, float]:
+    def expected_goals(self, home: str, away: str, neutral: bool = False) -> tuple[float, float]:
         h, a = self.rating(home), self.rating(away)
-        lam = math.exp(self.mu + self.home_adv + h.attack - a.defence)
+        lam = math.exp(self.mu + (0.0 if neutral else self.home_adv) + h.attack - a.defence)
         mu = math.exp(self.mu + a.attack - h.defence)
         return lam, mu
 
