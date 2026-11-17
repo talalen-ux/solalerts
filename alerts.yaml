@@ -5603,3 +5603,24 @@ alert2:
 
 # 6H REVIEW 2026-11-17 06:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
 #   again (82nd review in a row). No changes.
+
+# DAILY-OPS 2026-11-17 07:07 UTC
+# 1) Fill scorecard: SKIPPED - defirobot refused its stored sign-in (user must sign in again).
+# 2) RH top-10 (24h, organic query buyers >= 100): NOUNY 103x (graduated pons), TradionFinance
+#   39x, FOMOFUN 38.6x (graduated pons, now 0.42x), Percy 28.9x, PLKT 25x (graduated pons),
+#   NOYA 24.3x, NOUNY #2 22.75x, Vision 22.7x, Minimoon 22.5x, Percy #2 22.2x.
+#   CAUGHT 3 of 10: Percy 0x4479 (152 $27.1k 19.3x), NOYA (152 $21.7k 16.1x), Minimoon (152
+#   $18.7k 21.9x; 155 $19.6k 21.0x).
+#   MISSED: TradionFinance and Vision - hooked, round_trip_back < 0.6 (tech-name honeypot
+#   template again), correctly blocked. NOUNY #2 (plain) first entered the $15-100k band at
+#   $62.5k and failed 152's ratio/top clause there (would have been 6.7x). Percy #2 (100
+#   buyers, now 0.92x) - same ratio/top wall at $31.9k. 3 graduated pons - excluded venue.
+#   152 24h: n=88, 2x+ 58.0%, 10x+ 8, PostATH 3.4%. 155 24h: n=70, 2x+ 55.7%, 10x+ 1.
+# 3) Watchlist: BAWSAQ x3 (10.1x / 7.6x / 4.1x), SNUT x2, CHAR x2 (11.7x / 9.6x), rockstar x2,
+#   Percy x2, NOUNY x2.
+# 4) EXPERIMENT - does 154's $30k floor starve it? 336h, same window:
+#     154 live (mc > 30000): n=15, 2x+ 7, 10x+ 5, 20x+ 1
+#     154 with mc > 20000:   n=15, identical buckets (FiveM enters earlier: $28.1k 16.0x vs
+#       $32.6k 13.8x; Anthropig 14.1x appears in the list)
+#   FINDING: no-op. 154's small n is the sell test, not the floor: few hooked tokens pass
+#   round_trip_back >= 0.9 at all. Nothing to queue. RH backtests: 5.
