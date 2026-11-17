@@ -5624,3 +5624,18 @@ alert2:
 #       $32.6k 13.8x; Anthropig 14.1x appears in the list)
 #   FINDING: no-op. 154's small n is the sell test, not the floor: few hooked tokens pass
 #   round_trip_back >= 0.9 at all. Nothing to queue. RH backtests: 5.
+
+# STRATEGY AGENT CYCLE 90 (2026-11-17 10:47 UTC): health + baseline refresh, no deployment.
+#   Live conditions match memory.
+#   152 72h n=292, 2x+ 51.4%, 10x+ 24, ev -0.030 / ev_lcb -0.089 -> WATCH ALARM 1 again.
+#     Volume jumped: 138 alerts in 24h (usual ~70-85), 292 per 72h (usual ~220-235) at a lower
+#     2x rate - a flood of weaker plain launches. The rollback target (rev 4144, ratio > 4)
+#     admits MORE tokens, not fewer, and was token-for-token identical twice (c85/c86), so a
+#     rollback cannot help here either. If alarm 2 fires, the decision stays with the user.
+#   155 72h n=261, 2x+ 62.5%, 10x+ 7, ev +0.108 / ev_lcb +0.045 (ok)
+#   Baselines: 152 168h n=696 ev_lcb +0.006 FAIL (first ever: recent-half ev -0.030 <= 0;
+#     failures=1 - a second consecutive failure at c93 makes 152 REPLACE-ME, and since the
+#     only previous revision is a measured no-op, that will need the user's decision) |
+#     155 168h n=611 ev_lcb +0.072 PASS | 154 336h n=15 ev_lcb +0.050 FAIL on n (8th;
+#     168h n=6, 4 of 6 reached 10x).
+#   candidates.py: [] (no stale arms until ~11-28). RH backtests: 6.
