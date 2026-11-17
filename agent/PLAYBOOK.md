@@ -45,6 +45,11 @@ THE RUN (do in order)
    `python3 ledger.py watch SLOT FILE`. Two consecutive alarms => roll that slot back
    with `restore_filter` to the previous revision (see `filter_history`) or to the
    best previous condition in memory, log it, and add a fact explaining why.
+   Before restoring, backtest the rollback target on the SAME window (1 backtest).
+   Restore only if it is better there. If it is token-for-token identical or worse, the
+   alarm is the market, not a deployment: skip the rollback, log the comparison, and
+   report that keeping or pausing the slot is the user's call (the agent may not
+   disable filters). (Added at c91 after three identical-target checks: c85, c86, c91.)
    Every 3rd run (cycles % 3 == 0) also refresh baselines with LONG+RECENT backtests
    via `ledger.py baseline` (two consecutive gate failures => slot is REPLACE-ME:
    promote the best passing challenger even with a smaller margin, else restore the
