@@ -5674,3 +5674,6 @@ alert2:
 #     155 is also running hot on volume (146 alerts/24h vs ~80) - the same plain-launch flood,
 #     but 155's tighter clauses keep its 2x rate up.
 #   candidates.py: []. RH backtests: 3.
+
+# 6H REVIEW 2026-11-18 06:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
+#   again (86th review in a row). No changes.
