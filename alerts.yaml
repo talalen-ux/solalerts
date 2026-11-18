@@ -5701,3 +5701,24 @@ alert2:
 #   windows. A unique-only 152 (~9 alerts/day) has the better mean but fails ev_lcb > 0 at
 #   n=65/week. Not deployable yet; re-test next week. On 155 the copies were the better slice
 #   (11-08), so this is not a universal rule. Fact saved. RH backtests: 6.
+
+# STRATEGY AGENT CYCLE 93 (2026-11-18 10:48 UTC): health + baseline refresh. No deployment.
+#   152 is now REPLACE-ME (second consecutive baseline failure) with no safe action available
+#   to the agent - USER DECISION NEEDED.
+#   Live conditions match memory.
+#   152 72h n=315, 2x+ 52.4%, 10x+ 19, ev -0.017 / ev_lcb -0.074 -> alarm 4 in a row. Rollback
+#     target rev 4144 on the same window: 315/315 identical (fifth time) -> skipped per the
+#     c91 playbook rule.
+#   155 72h n=304, 2x+ 65.1%, 10x+ 3, ev +0.141 / ev_lcb +0.084 (ok)
+#   Baselines (168h): 152 n=691 ev_lcb -0.009 FAIL (2nd consecutive: ev_lcb <= 0 and recent
+#     half ev -0.017) -> REPLACE-ME | 155 n=603 ev_lcb +0.076 PASS | 154 336h n=13 ev_lcb
+#     +0.400 FAIL on n only (9th; 7 of 13 reached 5x+, 6 reached 10x+; 168h 5 of 6 at 10x+).
+#   REPLACE-ME HANDLING for 152: the playbook says promote a passing challenger, else restore
+#     the previous condition. No challenger passes (unique-ticker 152: 168h ev_lcb -0.030,
+#     d1118; cap 45k: +0.016 margin on 11-15; buyers 20: -0.033) and the previous condition is
+#     measured identical, so neither action changes anything. The agent may not disable
+#     filters. Options for the user: (a) pause 152 until the copycat-ticker flood passes;
+#     (b) keep it as a scalp feed (modelled best policy scalp_2; ~break-even before the 15s
+#     alert delay and fees); (c) wait a week and re-test the unique-ticker version when its n
+#     has grown.
+#   candidates.py: []. RH backtests: 7.
