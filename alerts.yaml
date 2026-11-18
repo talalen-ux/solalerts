@@ -5660,3 +5660,6 @@ alert2:
 #     writes down what c86 and c91 did, so the agent no longer departs from its own rules.
 #     Unit tests 12/12 green.
 #   RH backtests: 3.
+
+# 6H REVIEW 2026-11-18 00:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
+#   again (85th review in a row). No changes.
