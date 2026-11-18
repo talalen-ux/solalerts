@@ -5663,3 +5663,14 @@ alert2:
 
 # 6H REVIEW 2026-11-18 00:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
 #   again (85th review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 92 (2026-11-18 02:47 UTC): health only, no deployment.
+#   Live conditions match memory.
+#   152 72h n=305, 2x+ 53.1%, 10x+ 21, ev -0.008 / ev_lcb -0.066 -> alarm 3 in a row. Per the
+#     c91 playbook rule the rollback target (rev 4144) was checked on the same window first:
+#     305/305 identical (fourth time) -> rollback skipped. 152 is close to break-even
+#     (mean -0.008, up from -0.040). Volume still high: 156 alerts/24h.
+#   155 72h n=298, 2x+ 66.1%, 10x+ 5, ev +0.153 / ev_lcb +0.095 (ok; best reading in a week).
+#     155 is also running hot on volume (146 alerts/24h vs ~80) - the same plain-launch flood,
+#     but 155's tighter clauses keep its 2x rate up.
+#   candidates.py: []. RH backtests: 3.
