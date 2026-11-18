@@ -5677,3 +5677,27 @@ alert2:
 
 # 6H REVIEW 2026-11-18 06:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
 #   again (86th review in a row). No changes.
+
+# DAILY-OPS 2026-11-18 07:07 UTC
+# 1) Fill scorecard: SKIPPED - defirobot refused its stored sign-in (user must sign in again).
+# 2) RH top-10 (24h, organic query buyers >= 100): AX1 87.8x ($3.6k launch), LEOSTAR 65x,
+#   HoodBank 40x, RobinFactor 36x, OBSYN 26x (graduated pons), RDRIOT 25x, VaultLeap 23.9x,
+#   KATIA 22.6x, NOUNY 19.7x, NLITH 18.2x.
+#   CAUGHT 3 of 10 (all 152): KATIA ($35.8k 11.5x - now 0.99x), NOUNY 0xb3d9 ($33.7k 10.7x),
+#   NLITH ($27.8k 11.7x).
+#   MISSED: LEOSTAR, HoodBank, RobinFactor, RDRIOT, VaultLeap - all hooked with
+#   round_trip_back < 0.6 (tech-name honeypot template), correctly blocked by 154. AX1 - $3.6k
+#   launch, 323 buyers, unattributed. OBSYN - graduated pons.
+#   152 24h: n=147 (flood), 2x+ 50.3%, 10x+ 4, 20x+ 0. 155 24h: n=131 (flood), 2x+ 74.8%,
+#   5x+ 7, 10x+ 0 - many small 2-3x pops, no runners.
+# 3) Watchlist: NOUNY x4 (10.7x / 7.1x / 6.5x + the 22.75x yesterday), GTAVI x2, SACK x3.
+# 4) EXPERIMENT - what is the volume flood? Free counts: 50 of 56 tokens now matching 152's
+#   core clauses have symbol_reuse >= 3. Backtested split (symbol_reuse is fixed at launch, so
+#   this is a clean partition):
+#     72h:  152 n=306 ev -0.002 | unique (reuse <= 2) n=32 ev +0.147 lcb -0.033 | copies
+#           n=274 ev -0.019
+#     168h: 152 n=685 ev +0.039 | unique n=65 ev +0.096 lcb -0.030 | copies n=620 ev +0.033
+#   FINDING: ~90% of 152 is copycat tickers, and the copies are the weaker slice on both
+#   windows. A unique-only 152 (~9 alerts/day) has the better mean but fails ev_lcb > 0 at
+#   n=65/week. Not deployable yet; re-test next week. On 155 the copies were the better slice
+#   (11-08), so this is not a universal rule. Fact saved. RH backtests: 6.
