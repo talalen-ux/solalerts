@@ -5749,3 +5749,6 @@ alert2:
 #   155 72h n=301, 2x+ 69.1%, 10x+ 3, ev +0.190 / ev_lcb +0.134 (ok; best in three weeks).
 #     Same NOUNY at $27.0k = 31.9x.
 #   candidates.py: []. RH backtests: 2.
+
+# 6H REVIEW 2026-11-19 06:33 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
+#   again (90th review in a row). No changes.
