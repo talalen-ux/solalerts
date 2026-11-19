@@ -5740,3 +5740,12 @@ alert2:
 
 # 6H REVIEW 2026-11-19 00:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
 #   again (89th review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 95 (2026-11-19 02:47 UTC): health only, no deployment.
+#   Live conditions match memory.
+#   152 72h n=329, 2x+ 55.9%, 5x+ 70, 10x+ 18, PostATH 2.1%, ev +0.027 / ev_lcb -0.029 (ok;
+#     recovering for a second check in a row). New: NOUNY 0xeebf 42.9x at $20.1k (another NOUNY
+#     copy - the copycat stream produced the week's best plain catch), ANSEMWIF 23.8x at $22.9k.
+#   155 72h n=301, 2x+ 69.1%, 10x+ 3, ev +0.190 / ev_lcb +0.134 (ok; best in three weeks).
+#     Same NOUNY at $27.0k = 31.9x.
+#   candidates.py: []. RH backtests: 2.
