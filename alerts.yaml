@@ -5773,3 +5773,16 @@ alert2:
 #   November). In this market only "live 155 + sell everything at 2x" is positive. The change
 #   stays held for the user, but the evidence now says drop it and use a fast 2x exit on 155.
 #   RH backtests: 4.
+
+# STRATEGY AGENT CYCLE 96 (2026-11-19 10:48 UTC): health + baseline refresh, no deployment.
+#   Live conditions match memory.
+#   152 72h n=332, 2x+ 54.5%, 5x+ 77, 10x+ 22, ev +0.009 / ev_lcb -0.047 (ok, no alarm)
+#   155 72h n=298, 2x+ 68.8%, ev +0.186 / ev_lcb +0.130 (ok)
+#   Baselines (168h): 152 n=654 ev_lcb -0.033 FAIL (3rd consecutive; REPLACE-ME stands - no
+#     passing challenger, previous revision identical, agent may not disable: USER DECISION) |
+#     155 n=609 ev_lcb +0.110 PASS | 154 336h n=13 ev_lcb +0.400 FAIL on n only (10th).
+#     154 168h: 5 of 5 reached 10x+ (CFLCAT 34.8x at $30.7k). Caution: CFLCAT read
+#     round_trip_back < 0.6 in the 11-19 daily check, so its sell path flipped after the
+#     alert - the same post-entry flip as inuhao (c81). 154's chart multiples overstate
+#     what can be sold; take profit early on 154 alerts.
+#   candidates.py: []. RH backtests: 7.
