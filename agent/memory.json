@@ -427,7 +427,8 @@
   "[2026-11-15] Sampler retest rule (c84): candidates.py now re-proposes a tested condition once its result is >= 14 days old (RETEST_DAYS; regime law: old results go stale), and never proposes hashes in memory['held'] (conditions waiting on the user; 155 mc > 20000 is held for the exit-style answer). The first retest round (155 clean_dev, low_tax, top 30) was again flat (+0.000..+0.004).",
   "[2026-11-16] 152 rollback skipped (c86): two consecutive watch alarms (c85 ev -0.044, c86 ev -0.027 on 72h), but the only rollback target (rev 4144, ratio > 4) matched 152 token-for-token on both windows (239/239, 219/219). The alarm is the market (regime law), not a deployment; restoring an identical condition would only undo the 4x-validated ratio-5 change. Pausing 152 is the user's call (the agent may not disable). Re-check each cycle; if a rollback target ever differs and scores better on the same window, follow the playbook.",
   "[2026-11-16] Tech-name hooked honeypot template (2026-11-15/16): ~$18-20k launches, ~1,370-2,000 buyers, invented compound names (IntentRail, DepthReceipt, BarkByte, Vezquorin, RightsLayer, FalconMargin, Keyvora); all hooked with round_trip_back < 0.6. They fill the organic top-10 (5 of 10 on 11-16) but are unsellable at a fair price; 154 blocks them correctly. Fresh-high clause on 152 (null-guarded head_block - ath_block < 3000): removes 2 of 231 (both post-ATH) on 72h, ev_lcb +0.006 - no-op.",
-  "[2026-11-18] 152 is ~90% copycat tickers (2026-11-18): only 32/306 (72h) and 65/685 (168h) of its entries have symbol_reuse <= 2. The 11-17 volume flood is copies (SACK, NOUNY, GTAVI...). Unique-ticker slice: ev +0.147 (72h) / +0.096 (168h) vs copies -0.019 / +0.033, but n=65/week leaves ev_lcb < 0 (-0.030), so a unique-only 152 fails the gates for now. Re-test when n grows; on 155 copies were the BETTER slice (+0.03, 11-08), so ticker reuse is not a stable gate."
+  "[2026-11-18] 152 is ~90% copycat tickers (2026-11-18): only 32/306 (72h) and 65/685 (168h) of its entries have symbol_reuse <= 2. The 11-17 volume flood is copies (SACK, NOUNY, GTAVI...). Unique-ticker slice: ev +0.147 (72h) / +0.096 (168h) vs copies -0.019 / +0.033, but n=65/week leaves ev_lcb < 0 (-0.030), so a unique-only 152 fails the gates for now. Re-test when n grows; on 155 copies were the BETTER slice (+0.03, 11-08), so ticker reuse is not a stable gate.",
+  "[2026-11-19] 155 floor 15k->20k re-measured 2026-11-19 (168h): it no longer wins under any exit. Live 155 ev_lcb by policy: scalp_2 +0.098, ladder_2_5_20 -0.080, ladder_3_10 -0.322, moon -0.591. Floor 20k: scalp_2 -0.029, ladder_2_5_20 -0.074, ladder_3_10 -0.082, moon -0.532. Only 'live 155 + sell everything at 2x' is positive. The held change stays held (user decision) but the evidence now points to dropping it."
  ],
  "held": [
   "f442cb1e1265"
@@ -820,6 +821,6 @@
    "slot": "155"
   }
  },
- "updated": "2026-11-19T02:47:30Z",
+ "updated": "2026-11-19T07:07:50Z",
  "version": 1
 }

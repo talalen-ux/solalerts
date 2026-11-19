@@ -5752,3 +5752,24 @@ alert2:
 
 # 6H REVIEW 2026-11-19 06:33 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
 #   again (90th review in a row). No changes.
+
+# DAILY-OPS 2026-11-19 07:06 UTC
+# 1) Fill scorecard: SKIPPED - defirobot refused its stored sign-in (user must sign in again).
+# 2) RH top-10 (24h, organic query buyers >= 100): LUNO 77.7x, SmartFund 72.9x, NOUNY 69.9x,
+#   can 64.4x (graduated pons), MarketLayer 53.5x, ANSEMWIF 51.9x, DCTY 50.1x (graduated pons),
+#   CATCOIN 47.6x, Koda 42.5x, STMINT 41.1x.
+#   CAUGHT 2 of 10: NOUNY 0xeebf (152 $20.1k 42.9x; 155 $27.0k 31.9x), ANSEMWIF (152 $22.9k
+#   23.8x). Same-name copies also caught: can (152 $34.4k 18.2x), DCTY (152 $22.2k 11.2x).
+#   MISSED: LUNO, SmartFund, MarketLayer, STMINT - all hooked, round_trip_back < 0.6
+#   (honeypot-type; STMINT 22.4k -> 922k in 19 minutes), correctly blocked. CATCOIN - plain,
+#   $3.6k launch, 1.2h old (too new/fast for the band). Koda - $5.5k launch, not plain v4,
+#   unattributed. can/DCTY originals - graduated pons.
+#   152 24h: n=97, 2x+ 55.7%, 5x+ 28, 10x+ 8. 155 24h: n=101, 2x+ 68.3%, 10x+ 2. (Flood easing.)
+# 3) Watchlist: NOUNY x2 more (42.9x / 8.5x), can x2, DCTY x2, AI again.
+# 4) EXPERIMENT - re-measured the HELD 155 floor change (15k -> 20k) by exit policy, 168h:
+#     live 155 n=612: scalp_2 +0.098 | ladder_2_5_20 -0.080 | ladder_3_10 -0.322 | moon -0.591
+#     floor 20k n=284: scalp_2 -0.029 | ladder_2_5_20 -0.074 | ladder_3_10 -0.082 | moon -0.532
+#   FINDING: the floor change no longer wins under ANY exit style (it was +ladder in early
+#   November). In this market only "live 155 + sell everything at 2x" is positive. The change
+#   stays held for the user, but the evidence now says drop it and use a fast 2x exit on 155.
+#   RH backtests: 4.
