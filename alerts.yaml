@@ -5792,3 +5792,12 @@ alert2:
 
 # 6H REVIEW 2026-11-19 18:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
 #   again (92nd review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 97 (2026-11-19 18:48 UTC): health only, no deployment.
+#   Live conditions match memory.
+#   152 72h n=345, 2x+ 56.8%, 5x+ 86, 10x+ 29, ev +0.038 / ev_lcb -0.017 (ok; third
+#     improving check in a row - recovering toward a passing baseline). New: MI 18.8x at
+#     $27.3k.
+#   155 72h n=304, 2x+ 69.4%, 10x+ 4, ev +0.194 / ev_lcb +0.138 (ok; best reading on record
+#     for this filter). New: After 14.6x at $19.7k.
+#   candidates.py: []. RH backtests: 2.
