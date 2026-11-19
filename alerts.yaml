@@ -5737,3 +5737,6 @@ alert2:
 #   155 72h n=307, 2x+ 67.1%, 5x+ 28, ev +0.165 / ev_lcb +0.109 (ok; best reading in two
 #     weeks). New: GATO 13.7x at $19.8k.
 #   candidates.py: []. RH backtests: 2.
+
+# 6H REVIEW 2026-11-19 00:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
+#   again (89th review in a row). No changes.
