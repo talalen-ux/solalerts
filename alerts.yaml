@@ -5815,3 +5815,6 @@ alert2:
 #     blocked (token_history needs the user's pre-approval); unit tests 12/12 green; no new
 #     columns. The sampler has nothing to retest until ~11-28. No code change this cycle.
 #   RH backtests: 2.
+
+# 6H REVIEW 2026-11-20 06:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
+#   again (94th review in a row). No changes.
