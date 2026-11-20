@@ -5888,3 +5888,13 @@ alert2:
 
 # 6H REVIEW 2026-11-20 18:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
 #   again (96th review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 100 (2026-11-20 18:47 UTC): health only, no deployment.
+#   Live conditions match memory.
+#   152 72h n=293, 2x+ 64.2%, 5x+ 94, 10x+ 34, ev +0.233 / ev_lcb +0.105 (ok; best 72h
+#     reading since early November, ladder_3_10 exit). New: AMC 43.4x at $15.7k.
+#   155 72h n=247, 2x+ 73.3%, 10x+ 14, ev +0.242 / ev_lcb +0.181 (ok, scalp_2 exit).
+#   152 is recovering fast on 72h, but its 168h baseline (refreshed at c99) still fails;
+#     the next refresh is c102. The 45k-cap challenger stays held for the user.
+#   candidates.py: [] (sampler empty until ~11-28; the cap is tested and held).
+#   RH backtests: 2 (19 today).
