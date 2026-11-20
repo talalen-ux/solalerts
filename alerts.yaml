@@ -5859,3 +5859,26 @@ alert2:
 #   A planned independent read-only review was not run (its approval prompt went unanswered
 #   and the restart closed it).
 #   RH backtests: 9.
+
+# STRATEGY AGENT CYCLE 99 (2026-11-20 10:48 UTC): health + baseline refresh + 1 queued
+#   challenger, no deployment (ledger: NO DEPLOYMENT). Live conditions match memory.
+#   152 72h n=292, 2x+ 62.3%, 5x+ 91, 10x+ 33, ev +0.150 / ev_lcb +0.048 (ok; first positive
+#     72h lower bound since the flood). New: AMC 41.8x at $15.7k.
+#   155 72h n=270, 2x+ 73.7%, ev +0.247 / ev_lcb +0.190 (ok; new high, scalp_2 exit).
+#   Baselines: 152 168h n=651 ev_lcb -0.006 FAIL (4th in a row; older half -0.024) |
+#     155 168h n=595 ev_lcb +0.125 PASS | 154 336h n=12 ev_lcb +0.501 FAIL on n only (11th);
+#     154 168h: 4 of 4 reached 10x+ (CFLCAT, DACAT, FiveM + 1), 0 alerts in the last 24h.
+#   TESTED (queued from today's daily ops): 152 capped at mc < 45000.
+#     168h n=601 ev +0.070 / ev_lcb +0.029, halves 72h +0.172 (n=278) / older +0.024 (n=323)
+#     -> passes every absolute gate, but +0.034 over live is under the +0.05 margin
+#     (needs +0.044): NO DEPLOY ADVICE. Removed $45-100k slice: 168h n=50, 2x 11, 10x 0,
+#     ev -0.393 (third measurement, all negative).
+#   NEEDS USER: 152 is REPLACE-ME and the cap is the only passing challenger. Approving
+#     "mc < 45000" for 152 (everything else unchanged) is the user's call; held in memory
+#     (64a4f9ae1b4b). Old condition, for the record:
+#     launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 5 *
+#     sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 100000 AND NOT (buyers
+#     >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)
+#   LEARN: mooners attribution was done at the 07:06 daily ops (3 of 10 caught; misses were
+#     honeypots, wash farm, graduated pons, and one real 6.6x plain miss, CENTRIA).
+#   RH backtests: 8 (17 today with daily ops and c98).
