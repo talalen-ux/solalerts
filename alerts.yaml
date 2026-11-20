@@ -5801,3 +5801,6 @@ alert2:
 #   155 72h n=304, 2x+ 69.4%, 10x+ 4, ev +0.194 / ev_lcb +0.138 (ok; best reading on record
 #     for this filter). New: After 14.6x at $19.7k.
 #   candidates.py: []. RH backtests: 2.
+
+# 6H REVIEW 2026-11-20 00:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
+#   again (93rd review in a row). No changes.
