@@ -5818,3 +5818,44 @@ alert2:
 
 # 6H REVIEW 2026-11-20 06:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
 #   again (94th review in a row). No changes.
+
+# DAILY-OPS 2026-11-20 07:06 UTC (logged 10:50 - a worker restart interrupted the run before
+#   the log step; all numbers below are from the 07:06-07:30 backtests)
+# 1) Fill scorecard: SKIPPED - defirobot refused its stored sign-in (user must sign in again).
+# 2) RH top-10 (24h, buyers >= 100): NVDAc 93.8x (graduated pons, NVDA-quoted), CATMARIO 81.4x
+#   (graduated pons, GME-quoted), RobinInfinity 72.9x, RCTY 68.3x, SDQST 53.4x, MI 50.1x,
+#   VLAD 48.2x, MI (0x9409) 47.6x, CENTRIA 47.5x, BiscuitBandit 47.3x.
+#   CAUGHT 3 of 10: MI 0xaf07 (152 $23.9k 24.2x; 155 $34.5k 16.8x; now 0.99x - round-trip
+#   law), VLAD 0x097e (155 $15.1k 11.0x, 2h old), RCTY (155 $15.0k 8.4x).
+#   Same-name copies caught: NVDAc 0x3483 (152 $20.1k 20.5x; 155 $22.4k 18.4x); CATMARIO
+#   0x0072 (152 $32.7k 23.7x), 0x03ed (152 $22.7k 17.9x), 0x6d74 (152 $21.3k 17.4x; 155
+#   $25.2k 14.6x), 0x1496 (152 $23.3k 14.2x).
+#   MISSED: RobinInfinity, SDQST, BiscuitBandit - hooked, round_trip_back < 0.6, $17-21k
+#   launches, 1,500-1,900 buyers (invented-name honeypot template) - correctly blocked.
+#   NVDAc/CATMARIO originals - graduated pons (no pons slot). MI 0x9409 - ETH-quoted, 518
+#   buyers, 10 buys per buyer, ATH $170k (ETH-quoted wash-farm template, NULL rtb) -
+#   correctly blocked. CENTRIA - plain v4, entered the band at $26.0k (6.6x from there) but
+#   failed buy/sell ratio > 5 or top_maker < 50: a real 6.6x miss.
+#   Note: RCTY and CENTRIA (both ETH-quoted, 5 socials) have had no trades for ~21h and ~18h
+#   of their ~22h lives; their multiples are stale last prints, not live markets.
+#   152 24h: n=96, 2x+ 64.6%, 5x+ 35, 10x+ 19, 20x+ 3; modelled ev +0.513 / ev_lcb +0.262
+#   (ladder_3_10) - best 24h reading for 152 in over a week. 155 24h: n=53, 2x+ 69.8%,
+#   10x+ 8, ev_lcb +0.086. (24h windows include young tokens.)
+# 3) Watchlist: MI x5 addresses, CATMARIO x5, OWED x3, PIPI x3, NVDAc x2, VLAD x2, RBHH x2,
+#   DCTY again. Copies paid today: 7 of 152's best 10 were repeat tickers (repeat-name law:
+#   ticker reuse is not a stable gate).
+# 4) EXPERIMENT - 152 REPLACE-ME challenger: cap 152 at mc < 45000 (same windows):
+#     168h: live n=659 ev +0.031 / ev_lcb -0.008 | cap n=610 ev +0.065 / ev_lcb +0.024
+#     72h:  live n=339 ev +0.039 / ev_lcb -0.016 | cap n=305 ev +0.093 / ev_lcb +0.036
+#   Removed slice (first match at $45-100k): 168h n=49, 2x 11, 5x 5, 10x 0, ev -0.388; 72h
+#   n=34, 2x 6, 10x 0, ev -0.447. 2x rate 22% vs 59% kept (Fisher p = 6e-7); 10x 0/49 vs
+#   63/610 (p = 0.006). Second measurement in a row (11-15: n=29/week, slightly negative).
+#   Caveat: a later entry has less headroom by construction, but that is also true for a
+#   trader acting on the alert.
+#   The cap passes every absolute gate (n=610, halves +0.093 / +0.037, ev_lcb +0.024,
+#   87 alerts/day) but beats live by +0.032, below the ledger's +0.05 margin, so the ledger
+#   gives no DEPLOY ADVICE. It goes to the strategy cycle to test on fresh windows; if it
+#   still falls short of the margin, approving it as 152's REPLACE-ME fix is the user's call.
+#   A planned independent read-only review was not run (its approval prompt went unanswered
+#   and the restart closed it).
+#   RH backtests: 9.
