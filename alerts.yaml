@@ -5882,3 +5882,6 @@ alert2:
 #   LEARN: mooners attribution was done at the 07:06 daily ops (3 of 10 caught; misses were
 #     honeypots, wash farm, graduated pons, and one real 6.6x plain miss, CENTRIA).
 #   RH backtests: 8 (17 today with daily ops and c98).
+
+# 6H REVIEW 2026-11-20 12:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
+#   again (95th review in a row). No changes.
