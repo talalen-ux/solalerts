@@ -5898,3 +5898,15 @@ alert2:
 #     the next refresh is c102. The 45k-cap challenger stays held for the user.
 #   candidates.py: [] (sampler empty until ~11-28; the cap is tested and held).
 #   RH backtests: 2 (19 today).
+
+# MISSED RUNS 2026-11-20 19:00 -> 2026-11-22 18:32 UTC: the session worker restarted
+#   repeatedly and 15 scheduled runs queued without executing. They were delivered together
+#   at 2026-11-22 18:32. Not run, and not back-filled (backfilling stale windows adds nothing):
+#   - Solana 6h reviews 11-21 00:32/06:32/12:32/18:32 and 11-22 00:32/06:32/12:32/18:32:
+#     SKIPPED - defirobot also refused the stored sign-in at 18:33 (97th-104th reviews in a
+#     row). No Solana changes.
+#   - Strategy runs 11-21 02:47/10:47/18:47 and 11-22 02:47/10:47: replaced by one catch-up
+#     cycle (c101) at 18:35 on 11-22.
+#   - Daily ops 11-21 07:06: missed. 11-22 07:06: run late at ~18:45, with the weekly law
+#     review (due 11-22).
+#   No live filter was changed by anyone during the gap (verified by list_filters in c101).
