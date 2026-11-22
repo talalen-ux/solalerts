@@ -68,5 +68,49 @@ LEAGUE_MARKS = {
 }
 
 
-def for_teams(teams) -> dict:
-    return {t: BADGES[t] for t in teams if t in BADGES}
+LEAGUE_MARKS.update({
+    "EREDIVISIE": ("ED", "#e4002b", "#ffffff"), "PRIMEIRA": ("PT", "#001e50", "#d4e600"),
+    "BELGIUM": ("BE", "#000000", "#fdda24"), "TURKEY": ("TR", "#e30a17", "#ffffff"),
+    "RUSSIA": ("RU", "#0039a6", "#ffffff"), "SCOTLAND": ("SC", "#5b2c83", "#ffffff"),
+    "GREECE": ("GR", "#0d5eaf", "#ffffff"), "AUSTRIA": ("AT", "#ed2939", "#ffffff"),
+    "DENMARK": ("DK", "#c8102e", "#ffffff"), "CHAMPIONSHIP": ("EFL", "#1b1f4b", "#ffd100"),
+    "BUNDESLIGA2": ("B2", "#d20515", "#ffffff"), "LALIGA2": ("L2", "#ff8b00", "#ffffff"),
+    "SERIEB": ("SB", "#1a8b3c", "#ffffff"), "LIGUE2": ("L2", "#0b2a5b", "#f5a623"),
+    "SAUDI": ("SPL", "#006c35", "#ffffff"), "JAPAN": ("J1", "#e60012", "#ffffff"),
+    "BRAZIL": ("BR", "#009c3b", "#ffdf00"), "ARGENTINA": ("AR", "#74acdf", "#ffffff"),
+    "MLS": ("MLS", "#001f5b", "#ffffff"), "LIGAMX": ("MX", "#006847", "#ffffff"),
+})
+
+
+BIG5 = {"EPL", "LALIGA", "SERIEA", "BUNDESLIGA", "LIGUE1"}
+
+
+def for_teams(team_leagues) -> dict:
+    """Badge per (team, league): hand-set badges for the big five (matched to the feed's names),
+    otherwise the feed's colours and code. Codes that clash inside one league become initials."""
+    from collections import defaultdict
+    from .data import TeamResolver
+    from .espn import TEAM_META
+    resolver = TeamResolver(BADGES)
+    out, by_league = {}, defaultdict(list)
+    for team, league in sorted(team_leagues):
+        hand = BADGES.get(team) or (BADGES.get(resolver.resolve(team)) if league in BIG5 else None)
+        badge = hand or TEAM_META.get(team)
+        if badge:
+            out[team] = tuple(badge)
+            by_league[league].append(team)
+    for league, teams in by_league.items():
+        seen = defaultdict(list)
+        for t in teams:
+            seen[out[t][0]].append(t)
+        for code, ts in seen.items():
+            if len(ts) > 1:
+                for t in ts:
+                    words = [w for w in t.replace(".", " ").split() if w[0].isalpha()]
+                    initials = "".join(w[0] for w in words[:3]).upper()
+                    out[t] = (initials if len(initials) > 1 else t[:3].upper(),) + out[t][1:]
+    return out
+
+
+def league_marks(keys) -> dict:
+    return {k: LEAGUE_MARKS.get(k, (k[:3], "#8e8e93", "#ffffff")) for k in keys}

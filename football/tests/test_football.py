@@ -181,3 +181,28 @@ def test_next_friday():
     from football.weekly import next_friday
     assert next_friday(date(2026, 11, 22)) == date(2026, 11, 27)
     assert next_friday(date(2026, 11, 27)) == date(2026, 11, 27)
+
+
+def test_espn_parse_results_fixtures_and_colours():
+    from football import espn
+    def ev(i, d, done, hs, as_, status="STATUS_FULL_TIME"):
+        return {"id": str(i), "date": d, "status": {"type": {"name": status, "completed": done}},
+                "competitions": [{"neutralSite": False, "competitors": [
+                    {"homeAway": "home", "score": hs, "team": {"displayName": "Al Nassr", "abbreviation": "NSR",
+                                                               "color": "f7f316", "alternateColor": "1c31ce"}},
+                    {"homeAway": "away", "score": as_, "team": {"displayName": "Al Hilal", "abbreviation": "HIL"}}]}]}
+    ms = espn._parse("SAUDI", {"events": [ev(1, "2026-11-20T17:00Z", True, "2", "1"),
+                                          ev(2, "2026-11-28T17:00Z", False, "0", "0", "STATUS_SCHEDULED"),
+                                          ev(3, "2026-11-29T17:00Z", False, "0", "0", "STATUS_POSTPONED")]})
+    assert len(ms) == 2
+    assert ms[0].played and (ms[0].home_goals, ms[0].away_goals) == (2, 1)
+    assert not ms[1].played and ms[1].date == date(2026, 11, 28)
+    assert espn.TEAM_META["Al Nassr"] == ("NSR", "#f7f316", "#1c31ce")
+    assert espn.TEAM_META["Al Hilal"][1] == "#8e8e93"   # no colour in feed -> neutral
+
+
+def test_badge_clashes_within_league_get_initials():
+    from football import badges, espn
+    espn.TEAM_META.update({"Dundee": ("DUN", "#000040", "#ffffff"), "Dundee United": ("DUN", "#ff621a", "#009f00")})
+    b = badges.for_teams({("Dundee", "SCOTLAND"), ("Dundee United", "SCOTLAND")})
+    assert b["Dundee"][0] != b["Dundee United"][0]

@@ -43,6 +43,30 @@ def form_string(matches, team, before, n=5):
     return out
 
 
+# Leagues where the model beat base rates by under 4% in the 2025-26 walk-forward
+# (football/research/espn_backtest.py). Their 80%+ legs won 80.5% vs 84.1% predicted, so legs
+# from them are capped at 80%, where calibration held (74.8% predicted, 74.2% won).
+LOW_CONFIDENCE = {"CHAMPIONSHIP", "BUNDESLIGA2", "LALIGA2", "SERIEB", "LIGUE2", "AUSTRIA", "DENMARK",
+                  "MLS", "LIGAMX", "ARGENTINA"}
+LOW_CONFIDENCE_CAP = 0.80
+
+
+def capped(legs):
+    return [l for l in legs if not (l.pred.match.league in LOW_CONFIDENCE and l.prob > LOW_CONFIDENCE_CAP)]
+
+
+def league_label(key):
+    from . import espn
+    if key in espn.LEAGUES:
+        _, name, short, region = espn.LEAGUES[key]
+        return [name, short, region]
+    return [LEAGUES[key]["name"], key, "Europe"]
+
+
+def league_name(key):
+    return league_label(key)[0]
+
+
 FORM_MIN_WINS = 3        # "top performing": won at least 3 of the last 5 league games
 FORM_MIN_PROB = 0.50     # and the model makes them favourite to win this one
 
@@ -62,6 +86,8 @@ def form_winners(preds, states):
             f = form_string(st.matches, team, m.date)
             wins = sum(x["r"] == "W" for x in f)
             if len(f) < 5 or wins < FORM_MIN_WINS or p.probs[code] < FORM_MIN_PROB:
+                continue
+            if m.league in LOW_CONFIDENCE and p.probs[code] > LOW_CONFIDENCE_CAP:
                 continue
             rows.append({"team": team, "opponent": opp, "home": side == "home", "league": m.league,
                          "date": m.date.isoformat(), "wins": wins, "form": "".join(x["r"] for x in f),
@@ -101,6 +127,7 @@ def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--research", required=True)
     ap.add_argument("--leagues", default="EPL,LALIGA,SERIEA,BUNDESLIGA,LIGUE1")
+    ap.add_argument("--source", choices=["openfootball", "espn"], default="openfootball")
     ap.add_argument("--start", type=lambda s: datetime.strptime(s, "%Y-%m-%d").date(), default=date.today())
     ap.add_argument("--days", type=int, default=4)
     ap.add_argument("--out", required=True)
@@ -124,7 +151,8 @@ def main(argv=None):
                         n_results += 1
 
     news = load_news([research])
-    states = engine.load_and_fit(leagues, a.start, results_csv=str(merged))
+    states = engine.load_and_fit(leagues, a.start, results_csv=None if a.source == "espn" else str(merged),
+                                 source=a.source)
     preds = []
     for st in states.values():
         preds += engine.predict(st, engine.upcoming(st, a.start, a.days), news)
@@ -135,7 +163,7 @@ def main(argv=None):
         st = states[m.league]
         km = distance_km(m.home, m.away)
         matches.append({
-            "league": m.league, "league_name": LEAGUES[m.league]["name"], "date": m.date.isoformat(),
+            "league": m.league, "league_name": league_name(m.league), "date": m.date.isoformat(),
             "time": m.time, "home": m.home, "away": m.away,
             "xg": [round(x, 2) for x in p.xg],
             "base_xg": [round(x, 2) for x in p.notes.get("base_xg", p.xg)],
@@ -152,7 +180,7 @@ def main(argv=None):
     season_start = date(season_start_year(a.start), 7, 1)
     tiers = []
     for name, n, odds, sgp, note in TIERS:
-        legs = candidate_legs(preds, codes=CARD_CODES, min_leg_prob=0.55, max_leg_prob=0.90, sgp=sgp)
+        legs = capped(candidate_legs(preds, codes=CARD_CODES, min_leg_prob=0.55, max_leg_prob=0.90, sgp=sgp))
         ps = build_parlays(legs, n, mode="safe", top=3, min_fair_odds=odds)
         tiers.append({"name": name, "note": note, "legs_n": n, "target": odds,
                       "options": [{"prob": round(p.prob, 4), "fair": round(p.fair_odds, 2),
@@ -160,7 +188,7 @@ def main(argv=None):
 
     form_teams, form_tiers = form_winners(preds, states)
 
-    singles = sorted(candidate_legs(preds, codes=CARD_CODES, min_leg_prob=0.60, max_leg_prob=0.92),
+    singles = sorted(capped(candidate_legs(preds, codes=CARD_CODES, min_leg_prob=0.60, max_leg_prob=0.92)),
                      key=lambda l: -l.prob)
     card = {"generated": date.today().isoformat(), "window": [a.start.isoformat(), a.days],
             "results_added": n_results, "teams_with_news": len(news),
@@ -169,8 +197,10 @@ def main(argv=None):
                                               and season_start <= m.date < a.start)
                                       for lg, st in states.items()},
             "matches": matches, "tiers": tiers, "form_teams": form_teams, "form_tiers": form_tiers,
-            "badges": badges.for_teams({t for m in matches for t in (m["home"], m["away"])}),
-            "league_marks": badges.LEAGUE_MARKS,
+            "badges": badges.for_teams({(t, m["league"]) for m in matches for t in (m["home"], m["away"])}),
+            "league_marks": badges.league_marks({m["league"] for m in matches}),
+            "league_names": {k: league_label(k) for k in {m["league"] for m in matches}},
+            "low_confidence": sorted(LOW_CONFIDENCE & {m["league"] for m in matches}),
             "top_singles": [leg_json(l) for l in singles[:15]]}
     Path(a.out).write_text(json.dumps(card, indent=1, ensure_ascii=False))
     print(f"{len(matches)} matches, {n_results} results merged, news for {len(news)} teams -> {a.out}")

@@ -136,7 +136,8 @@ details.news summary::-webkit-details-marker{display:none}
 .crest.sm{--s:22px;font-size:7px}
 .pair{flex:none;display:inline-flex;flex-direction:column;gap:3px;width:30px;align-items:center}
 .pair .crest{--s:22px;font-size:7px}
-.lmark{flex:none;display:inline-grid;place-items:center;width:20px;height:20px;border-radius:6px;font:800 9px/1 var(--round);letter-spacing:-.02em}
+.lmark{flex:none;display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 3px;border-radius:6px;font:800 9px/1 var(--round);letter-spacing:-.02em}
+.about .lmark{min-width:30px;height:30px;border-radius:7px;font-size:11px}
 .seg button{display:inline-flex;align-items:center;justify-content:center;gap:6px}
 .lgline{display:inline-flex;align-items:center;gap:6px}
 .appicon{flex:none;width:46px;height:46px;border-radius:22.5%;display:grid;place-items:center;
@@ -191,12 +192,15 @@ details.news summary::-webkit-details-marker{display:none}
   <div class="screen about" id="v-about" hidden>
     <div class="section-h"><span>How the numbers are made</span></div>
     <div class="group">
-      <div class="row indent"><div class="ic" style="background:var(--tint)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></div><div class="grow"><div class="t1">Team strength</div><div class="t2">Attack and defence ratings from three seasons, older matches fading. Results since the public feed stopped come from a researched ledger.</div></div><span class="badge b-on">On</span></div>
+      <div class="row indent"><div class="ic" style="background:var(--tint)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></div><div class="grow"><div class="t1">Team strength</div><div class="t2">Attack and defence ratings per league from three seasons of ESPN results, older matches fading. Refit every week with the latest scores.</div></div><span class="badge b-on">On</span></div>
       <div class="row indent"><div class="ic" style="background:var(--orange)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3c2 4 6 5 6 10a6 6 0 0 1-12 0c0-3 2-4 2-7 2 1 3 2 4 4"/></svg></div><div class="grow"><div class="t1">Last 5 games</div><div class="t2">Picks the form list. A separate form term added nothing to predictions, so it never raises a probability.</div></div><span class="badge b-mid">Filter</span></div>
       <div class="row indent"><div class="ic" style="background:var(--gray)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div class="grow"><div class="t1">Travel distance</div><div class="t2">Its effect flipped sign between seasons and never improved held-out predictions.</div></div><span class="badge b-off">Off</span></div>
       <div class="row indent"><div class="ic" style="background:var(--red)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div><div class="grow"><div class="t1">Injuries &amp; bans</div><div class="t2">Key forward out −6% goals; midfielder −3%/+2% conceded; defender +4%; keeper +6%. Doubts count half, capped at 15%.</div></div><span class="badge b-mid">If sourced</span></div>
       <div class="row indent"><div class="ic" style="background:#5e5ce6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div class="grow"><div class="t1">Europe midweek</div><div class="t2">A Thursday-to-Sunday turnaround costs −3% goals and +2% conceded.</div></div><span class="badge b-on">On</span></div>
     </div>
+    <div class="section-h"><span>Leagues this week</span><span id="nleagues"></span></div>
+    <div class="group" id="coverage"></div>
+    <div class="section-f">Results and fixtures come from ESPN's live scoreboard. Leagues marked "even" are where the model beat base rates by under 4% in backtests; their legs are capped at 80%.</div>
     <div class="section-h"><span>Before you bet</span></div>
     <div class="group">
       <div class="row"><div class="grow"><div class="t1"><b>Fair odds are not value</b></div><div class="t2">The model is calibrated, so a slip at its fair price only breaks even.</div></div></div>
@@ -217,8 +221,9 @@ details.news summary::-webkit-details-marker{display:none}
 
 <script>
 const DATA = __DATA__;
-const LG={EPL:"Premier League",LALIGA:"La Liga",SERIEA:"Serie A",BUNDESLIGA:"Bundesliga",LIGUE1:"Ligue 1"};
-const LGS={EPL:"EPL",LALIGA:"LaLiga",SERIEA:"Serie A",BUNDESLIGA:"BuLi",LIGUE1:"Ligue 1"};
+const LN=DATA.league_names||{};
+const LG=new Proxy({},{get:(_,k)=>(LN[k]||[k])[0]}), LGS=new Proxy({},{get:(_,k)=>(LN[k]||[k,k])[1]});
+const LOWC=new Set(DATA.low_confidence||[]);
 const SHORT=s=>String(s).replace(/ (FC|AFC|CF|Calcio|SCO|AC|OSC|29)$/,'').replace(/^(FC|AC|AS|SS|SSC|US|RC|RCD|CA|SC|TSG 1899|1\. FSV|1\. FC|SV|AJ|ES|OGC|ACF|UD|Club) /,'').replace(/ (de Fútbol|Balompié|de Madrid|de Barcelona|Albion)$/,'').replace(/ (1913|1909|1907|1901|05|07)$/,'');
 const pct=p=>Math.round(p*100)+'%';
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
@@ -247,7 +252,7 @@ const pick=l=>l.pick.replace(/^(.*?) (win|or draw|over|win to nil)/,(m,a,b)=>SHO
 const vs=l=>l.match.split(' v ').map(SHORT).join(' v ');
 
 const W0=new Date(DATA.window[0]+'T12:00:00'), W1=new Date(W0.getTime()+(DATA.window[1]-1)*864e5);
-$('dates').textContent=`${W0.toLocaleDateString('en-GB',{day:'numeric',month:'short'})} – ${W1.toLocaleDateString('en-GB',{day:'numeric',month:'short'})} · ${DATA.matches.length} matches`;
+$('dates').textContent=`${W0.getMonth()===W1.getMonth()?W0.getDate():W0.toLocaleDateString('en-GB',{day:'numeric',month:'short'})}–${W1.toLocaleDateString('en-GB',{day:'numeric',month:'short'})} · ${DATA.matches.length} matches`;
 $('gaps').textContent='Matches this season still without a result: '+Object.entries(DATA.missing_before_window||{}).map(([k,v])=>`${LGS[k]} ${v}`).join(', ')+'.';
 $('foot').textContent=`Refreshed every Thursday · built ${DATA.generated}`;
 
@@ -295,7 +300,8 @@ $('slipdots').innerHTML=MT.map((_,i)=>`<i class="${i?'':'on'}"></i>`).join('');
 $('sliprail').addEventListener('scroll',e=>{const r=e.target,c=r.querySelector('.card');if(!c)return;const i=Math.round(r.scrollLeft/(c.offsetWidth+12));[...$('slipdots').children].forEach((d,k)=>d.classList.toggle('on',k===i))},{passive:true});
 
 // FIXTURES screen
-const leagues=[...new Set(DATA.matches.map(m=>m.league))];
+const REG=['Europe','Asia','Americas'];
+const leagues=[...new Set(DATA.matches.map(m=>m.league))].sort((a,b)=>REG.indexOf((LN[a]||[])[2])-REG.indexOf((LN[b]||[])[2]));
 let lg=leagues[0]; try{const s=localStorage.getItem('lg2');if(leagues.includes(s))lg=s}catch(e){}
 function fixture(m){
   const p=m.probs, notes=[];
@@ -318,10 +324,15 @@ function drawFX(){
   const ms=DATA.matches.filter(m=>m.league===lg);
   $('fxhead').textContent=`${LG[lg]} · ${ms.length} matches`;
   $('fxresults').textContent=`results to ${new Date(DATA.last_result[lg]+'T12:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short'})}`;
-  $('fxlist').innerHTML=ms.map(fixture).join('');
+  $('fxlist').innerHTML=(LOWC.has(lg)?`<div class="row"><div class="t2" style="margin:0">Evenly matched league: the model's edge is small here, so legs from it are capped at 80% on the slips.</div></div>`:'')+ms.map(fixture).join('');
 }
 $('seg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;lg=b.dataset.l;try{localStorage.setItem('lg2',lg)}catch(err){}drawFX()});
 drawFX();
+
+$('nleagues').textContent=`${leagues.length} leagues`;
+// coverage list
+$('coverage').innerHTML=REG.map(r=>{const ks=leagues.filter(k=>(LN[k]||[])[2]===r);if(!ks.length)return '';
+  return ks.map(k=>`<div class="row indent">${lmark(k)}<div class="grow"><div class="t1">${esc(LG[k])}</div><div class="t2">${r} · ${DATA.matches.filter(m=>m.league===k).length} matches</div></div>${LOWC.has(k)?'<span class="badge b-mid">Even</span>':''}</div>`).join('')}).join('');
 
 // navigation: one screen per tab, routed on the hash
 const TITLES={form:'Form',slips:'Slips',fixtures:'Fixtures',about:'About'};

@@ -1,57 +1,50 @@
 # Weekly parlay card runbook
 
-Runs every Thursday morning (UK). Produces the card for the coming Friday-to-Monday and
-republishes it to the same page: https://claude.ai/artifact/4j98Go6HigD8VvHx9qbFWP
+Runs every Thursday morning (UK). It produces the card for the coming Friday-to-Monday across 25
+leagues and republishes it to the same page: https://claude.ai/artifact/4j98Go6HigD8VvHx9qbFWP
 
 Work on branch `claude/solana-token-alerts-mYL5N` of `talalen-ux/solalerts`. Another job also
 pushes to this branch, so always `git pull --rebase` before pushing.
 
+The session must run in the **solalerts** cloud environment, which allows `site.api.espn.com`.
+That host is the data source for fixtures, results and team colours.
+
 ## Steps
 
-1. **Find missing results.** The public feed stopped on 20 Sept 2026; results live in
-   `football/ledger/`.
-   ```
-   python3 -m football.weekly gaps --outdir <scratch>/gaps
-   ```
-   This writes `<LEAGUE>_gaps.csv` for EPL, LALIGA, SERIEA, BUNDESLIGA and LIGUE1.
-
-2. **Research the scores.** One research agent per league with missing results, run in
-   parallel. Each gets about 20 web searches and works from round summaries. Each writes
-   `<scratch>/gaps/<LEAGUE>_new_results.csv` with the same columns and the exact team names
-   from the gaps file. Only verified final scores go in: never guess.
-
-3. **Add them to the ledger.**
-   ```
-   python3 -m football.weekly ingest <scratch>/gaps
-   ```
-
-4. **Team news (optional, if search budget is left).** For big matches, write
-   `<LEAGUE>_news.json` (format in `football/adjust.py`) and pass `--news <dir>` to the next step.
-   Apply only absences you can source.
-
-5. **Build the card.**
+1. **Build the card.** This fetches ESPN results and fixtures, fits each league and builds the slips.
    ```
    python3 -m football.weekly card            # next Friday + 4 days -> football/cards/<date>/
    ```
-   Check that it reports about 45-50 fixtures and that the form-winners list is not empty.
+   Check that it reports at least 150 matches and that the form-winners list is not empty. If
+   ESPN is unreachable, the fetch fails with an HTTP error: report that and stop.
 
-6. **Publish** `football/cards/<date>/parlay-card.html` with the Artifact tool, passing
+2. **Team news (optional).** For the biggest matches, write `<LEAGUE>_news.json` using the team
+   names exactly as they appear in `card.json` (format in `football/adjust.py`), then rebuild with
+   `--news <dir>`. Apply only absences you can source.
+
+3. **Publish** `football/cards/<date>/parlay-card.html` with the Artifact tool, passing
    `url: https://claude.ai/artifact/4j98Go6HigD8VvHx9qbFWP` (read the artifact first, as the
-   tool requires) so the page keeps its link.
+   tool requires) so the link stays the same.
 
-7. **Commit and push** the ledger, the card folder and any news files:
+4. **Commit and push** the card folder and any news files:
    `git pull --rebase origin claude/solana-token-alerts-mYL5N && git push`.
 
-8. **Report.** Give the top form-winners slip and the core treble, the number of results
-   added, the number of gaps left, and anything that failed.
+5. **Report.** Give the form treble, the core treble, the number of matches and leagues, and
+   anything that failed.
 
-## What the card contains
+## Leagues
 
-- **Form winners:** teams with 3+ wins in their last 5 league games who are favourites again,
-  ranked by model win probability, plus win-only doubles, trebles and four-folds.
-  Over 2023-26, in-form favourites won at least as often as the model predicted, so form is
-  used as a filter and does not raise the probabilities
-  (`football/research/form_favourites.py`).
-- **Model slips:** a banker double, a treble at about 2.0, a four-fold at about 3.0, a
-  same-game builder and a long shot, all at fair odds.
-- **Every fixture:** form, travel distance, team news and probabilities.
+Europe: Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Eredivisie, Primeira Liga,
+Belgium, Turkey, Russia, Scotland, Greece, Austria, Denmark, Championship, 2. Bundesliga,
+LaLiga 2, Serie B, Ligue 2. Asia: Saudi Pro League, J1 League. Americas: Brasileirão,
+Argentina, MLS, Liga MX. The list is in `football/espn.py`; add a league there with its ESPN code.
+
+**Even leagues.** In 10 leagues the model beat base rates by under 4%: the second divisions,
+Austria, Denmark, MLS, Liga MX and Argentina. Their legs are capped at 80% on the slips, because
+legs above that won 80.5% against 84.1% predicted (`football/research/espn_backtest.py`).
+
+## Fallback
+
+If ESPN becomes unavailable, `python3 -m football.weekly card --source openfootball` still covers
+the big five leagues. Their results come from `football/ledger/`, which `gaps` and `ingest` keep
+up to date from researched scores.

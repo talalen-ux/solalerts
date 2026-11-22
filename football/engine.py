@@ -23,10 +23,16 @@ class LeagueState:
 
 def load_and_fit(leagues: list[str], as_of: date, seasons: int = 3, refresh: bool = False,
                  results_csv: str | None = None, xi: float = DEFAULT_XI,
-                 ridge: float = DEFAULT_RIDGE) -> dict[str, LeagueState]:
+                 ridge: float = DEFAULT_RIDGE, source: str = "openfootball") -> dict[str, LeagueState]:
+    """source "espn" covers every league in espn.LEAGUES with live results; "openfootball"
+    covers the original seven (its feed stopped on 20 Sept 2026, hence results_csv)."""
     states = {}
-    start = season_start_year(as_of)
-    all_matches = {lg: data.load_league(lg, start, seasons, refresh) for lg in leagues}
+    if source == "espn":
+        from . import espn
+        all_matches = espn.load_many(leagues, as_of + timedelta(days=45), months_back=12 * seasons)
+    else:
+        start = season_start_year(as_of)
+        all_matches = {lg: data.load_league(lg, start, seasons, refresh) for lg in leagues}
     if results_csv:
         for lg in leagues:
             data.merge_results_csv(all_matches[lg], results_csv)

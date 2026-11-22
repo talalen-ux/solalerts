@@ -98,7 +98,8 @@ def render(card: dict, out: Path) -> None:
     out.write_text(TEMPLATE.read_text().replace("__DATA__", json.dumps(card, ensure_ascii=False)))
 
 
-def card(start: date, days: int, outdir: Path, news: Path | None) -> Path:
+def card(start: date, days: int, outdir: Path, news: Path | None, source: str = "espn",
+         leagues: list[str] | None = None) -> Path:
     tmp = Path(tempfile.mkdtemp())
     for lg in LEAGUES:
         if (LEDGER / f"{lg}.csv").exists():
@@ -107,7 +108,11 @@ def card(start: date, days: int, outdir: Path, news: Path | None) -> Path:
             shutil.copy(news / f"{lg}_news.json", tmp / f"{lg}_news.json")
     outdir.mkdir(parents=True, exist_ok=True)
     js = outdir / "card.json"
-    weekend.main(["--research", str(tmp), "--start", start.isoformat(), "--days", str(days), "--out", str(js)])
+    if leagues is None:
+        from .espn import LEAGUES as ESPN_LEAGUES
+        leagues = list(ESPN_LEAGUES) if source == "espn" else LEAGUES
+    weekend.main(["--research", str(tmp), "--start", start.isoformat(), "--days", str(days), "--out", str(js),
+                  "--source", source, "--leagues", ",".join(leagues)])
     html = outdir / "parlay-card.html"
     render(json.loads(js.read_text()), html)
     return html
@@ -127,6 +132,8 @@ def main(argv=None):
     c.add_argument("--days", type=int, default=4)
     c.add_argument("--outdir", type=Path, default=ROOT / "cards")
     c.add_argument("--news", type=Path)
+    c.add_argument("--source", choices=["espn", "openfootball"], default="espn")
+    c.add_argument("--leagues", help="comma list of league keys (default: all for the source)")
     a = ap.parse_args(argv)
     if a.cmd == "gaps":
         print(json.dumps(gaps(a.outdir, a.until)))
@@ -134,7 +141,8 @@ def main(argv=None):
         print(json.dumps(ingest(a.src)))
     else:
         start = a.start or next_friday(date.today())
-        out = card(start, a.days, a.outdir / start.isoformat(), a.news)
+        out = card(start, a.days, a.outdir / start.isoformat(), a.news, a.source,
+                   a.leagues.split(",") if a.leagues else None)
         print(f"card -> {out}")
 
 
