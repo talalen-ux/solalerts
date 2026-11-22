@@ -79,6 +79,17 @@ def form_winners(preds, states):
     return rows, tiers
 
 
+def team_notes(info):
+    """Key absences, in-form players and manager change from a team's news entry, for display."""
+    info = info or {}
+    absn = [a for a in info.get("absences", []) if isinstance(a, dict) and a.get("importance") == "key"]
+    mgr = info.get("manager_change")
+    return {"abs": [f"{a.get('player')} ({a.get('pos')}{', doubtful' if a.get('status') == 'doubtful' else ''})"
+                    for a in absn],
+            "inform": [x for x in info.get("in_form", []) if isinstance(x, dict)][:3],
+            "mgr": mgr if mgr not in (None, "", "unverified") else None}
+
+
 def leg_json(l):
     m = l.pred.match
     return {"league": m.league, "date": m.date.isoformat(), "match": l.pred.title,
@@ -132,6 +143,8 @@ def main(argv=None):
             "home_form": form_string(st.matches, m.home, m.date),
             "away_form": form_string(st.matches, m.away, m.date),
             "home_news": p.notes.get("home_news", []), "away_news": p.notes.get("away_news", []),
+            **{f"{side}_{k}": v for side in ("home", "away")
+               for k, v in team_notes(news.get(getattr(m, side))).items()},
             "km": round(km) if km is not None else None,
         })
 

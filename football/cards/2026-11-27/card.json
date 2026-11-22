@@ -153,6 +153,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 148
   },
   {
@@ -287,6 +293,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 212
   },
   {
@@ -421,6 +433,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 257
   },
   {
@@ -555,6 +573,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 258
   },
   {
@@ -689,6 +713,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 3
   },
   {
@@ -823,6 +853,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 140
   },
   {
@@ -957,6 +993,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 174
   },
   {
@@ -1091,6 +1133,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 469
   },
   {
@@ -1225,6 +1273,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 379
   },
   {
@@ -1359,6 +1413,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 262
   },
   {
@@ -1493,6 +1553,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 766
   },
   {
@@ -1627,6 +1693,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 349
   },
   {
@@ -1761,6 +1833,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 393
   },
   {
@@ -1895,6 +1973,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 385
   },
   {
@@ -2029,6 +2113,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 278
   },
   {
@@ -2163,6 +2253,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 500
   },
   {
@@ -2297,6 +2393,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 740
   },
   {
@@ -2431,6 +2533,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 527
   },
   {
@@ -2565,6 +2673,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 893
   },
   {
@@ -2699,6 +2813,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 737
   },
   {
@@ -2833,6 +2953,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 520
   },
   {
@@ -2967,6 +3093,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 698
   },
   {
@@ -3101,6 +3233,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 136
   },
   {
@@ -3235,6 +3373,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 478
   },
   {
@@ -3369,6 +3513,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 427
   },
   {
@@ -3503,6 +3653,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 519
   },
   {
@@ -3637,6 +3793,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 133
   },
   {
@@ -3771,6 +3933,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 912
   },
   {
@@ -3905,6 +4073,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 297
   },
   {
@@ -4039,6 +4213,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 119
   },
   {
@@ -4173,6 +4353,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 269
   },
   {
@@ -4307,6 +4493,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 180
   },
   {
@@ -4441,6 +4633,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 463
   },
   {
@@ -4575,6 +4773,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 115
   },
   {
@@ -4709,6 +4913,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 609
   },
   {
@@ -4843,6 +5053,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 148
   },
   {
@@ -4977,6 +5193,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 492
   },
   {
@@ -5111,6 +5333,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 178
   },
   {
@@ -5245,6 +5473,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 59
   },
   {
@@ -5379,6 +5613,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 496
   },
   {
@@ -5513,6 +5753,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 411
   },
   {
@@ -5647,6 +5893,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 362
   },
   {
@@ -5781,6 +6033,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 565
   },
   {
@@ -5915,6 +6173,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 563
   },
   {
@@ -6049,6 +6313,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 433
   },
   {
@@ -6183,6 +6453,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 522
   },
   {
@@ -6317,6 +6593,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 559
   },
   {
@@ -6451,6 +6733,12 @@
    ],
    "home_news": [],
    "away_news": [],
+   "home_abs": [],
+   "home_inform": [],
+   "home_mgr": null,
+   "away_abs": [],
+   "away_inform": [],
+   "away_mgr": null,
    "km": 297
   }
  ],
