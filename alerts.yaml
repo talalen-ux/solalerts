@@ -5910,3 +5910,18 @@ alert2:
 #   - Daily ops 11-21 07:06: missed. 11-22 07:06: run late at ~18:45, with the weekly law
 #     review (due 11-22).
 #   No live filter was changed by anyone during the gap (verified by list_filters in c101).
+
+# STRATEGY AGENT CYCLE 101 (2026-11-22 18:35 UTC, catch-up for the 5 missed runs): health +
+#   baseline refresh (last refresh was 56h old) + 2 retests. No deployment (ledger: NO
+#   DEPLOYMENT). Live conditions match memory (edits 6/8/3, unchanged).
+#   152 72h n=252, 2x+ 60.7%, 5x+ 84, 10x+ 44, 20x+ 11, ev +0.361 / ev_lcb +0.207 (ok)
+#   155 72h n=150, 2x+ 64.7%, 10x+ 27, ev +0.380 / ev_lcb +0.182 (ok)
+#   Baselines: 152 168h n=666 ev_lcb +0.072 PASS - REPLACE-ME CLEARED (failures 4 -> 0; first
+#     passing 152 baseline since 11-12) | 155 168h n=523 ev_lcb +0.123 PASS | 154 336h n=8
+#     ev_lcb +0.652 FAIL on n only (12th; 0 alerts in 48h).
+#   The held 45k cap for 152 is no longer a REPLACE-ME fix; it stays held as an optional
+#     improvement (the $45-100k band was negative in 3 measurements).
+#   TESTED (14-day retests now due): 155 + held_pct < 60 (null-guarded): n=517, ev_lcb
+#     +0.122, delta -0.000 (no-op) | 155 + symbol_reuse <= 3: n=99, ev_lcb +0.098, delta
+#     -0.025 (worse; copies were 155's better slice again). Both below the needed +0.173.
+#   RH backtests: 10.

@@ -91,8 +91,8 @@
    "wins": 0
   },
   "plain_v4:pred:held_low": {
-   "sum_delta": -0.0312,
-   "tests": 1,
+   "sum_delta": -0.0314,
+   "tests": 2,
    "wins": 0
   },
   "plain_v4:pred:low_tax": {
@@ -118,8 +118,8 @@
    "wins": 0
   },
   "plain_v4:pred:unique_symbol": {
-   "sum_delta": -0.1731,
-   "tests": 1,
+   "sum_delta": -0.1978,
+   "tests": 2,
    "wins": 0
   },
   "plain_v4:ratio:down": {
@@ -386,6 +386,12 @@
    "passed": 0,
    "run": "runs/2026-11-20-10.json",
    "tested": 1
+  },
+  {
+   "at": "2026-11-22T18:34:21Z",
+   "passed": 0,
+   "run": "runs/2026-11-22-18.json",
+   "tested": 2
   }
  ],
  "facts": [
@@ -451,14 +457,14 @@
   "152": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": -0.0056,
+    "ev_lcb": 0.0716,
     "hours": 168.0,
-    "n": 651,
-    "source": "2026-11-20T10:49:58Z"
+    "n": 666,
+    "source": "2026-11-22T18:33:48Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)",
    "deployed_at": "2026-10-28T10:54:00Z",
-   "failures": 4,
+   "failures": 0,
    "family": "plain_broad",
    "params": {},
    "preds": [],
@@ -467,14 +473,14 @@
   "154": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": 0.5005,
+    "ev_lcb": 0.6515,
     "hours": 336.0,
-    "n": 12,
-    "source": "2026-11-20T10:49:58Z"
+    "n": 8,
+    "source": "2026-11-22T18:33:48Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 30000 AND mc < 200000",
    "deployed_at": "2026-10-20T12:33:53Z",
-   "failures": 11,
+   "failures": 12,
    "family": "hooked_verified",
    "params": {
     "buyers": 8,
@@ -490,10 +496,10 @@
   "155": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": 0.1245,
+    "ev_lcb": 0.1225,
     "hours": 168.0,
-    "n": 595,
-    "source": "2026-11-20T10:49:58Z"
+    "n": 523,
+    "source": "2026-11-22T18:33:48Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000",
    "failures": 0,
@@ -809,9 +815,9 @@
   "f46bf73dc835": {
    "arm": "plain_v4:pred:unique_symbol",
    "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000 AND symbol_reuse <= 3",
-   "date": "2026-11-07T02:49:34Z",
-   "ev_lcb": 0.0491,
-   "n": 97,
+   "date": "2026-11-22T18:34:21Z",
+   "ev_lcb": 0.0978,
+   "n": 99,
    "pass": false,
    "slot": "155"
   },
@@ -827,9 +833,9 @@
   "f6eaaaefb2a8": {
    "arm": "plain_v4:pred:held_low",
    "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000 AND (held_pct IS NULL OR held_pct < 60)",
-   "date": "2026-11-06T18:49:21Z",
-   "ev_lcb": 0.2379,
-   "n": 507,
+   "date": "2026-11-22T18:34:21Z",
+   "ev_lcb": 0.1223,
+   "n": 517,
    "pass": false,
    "slot": "155"
   },
@@ -843,6 +849,6 @@
    "slot": "155"
   }
  },
- "updated": "2026-11-20T18:47:39Z",
+ "updated": "2026-11-22T18:34:21Z",
  "version": 1
 }
