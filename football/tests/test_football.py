@@ -249,3 +249,30 @@ def test_whelan_leg_thresholds_match_published_table():
     assert rr.max_legs(0.30) == 1 and rr.max_legs(0.45) == 2 and rr.max_legs(0.72) == 5
     c = rr.check([0.5] * 4)
     assert c["near_miss"] == pytest.approx(4 / 16) and not c["within_rule"]
+
+
+def test_winners_by_league_one_pick_per_league_and_spread():
+    from football import weekend
+    from football.parlay import Leg
+    ms, teams = synthetic_league(seasons=3)
+    model = DixonColes().fit(ms, date(2028, 1, 1))
+
+    class St:
+        matches = ms
+    preds, states = [], {}
+    for i, lg in enumerate(["EPL", "LALIGA", "SERIEA", "SAUDI"]):
+        states[lg] = St
+        for h, a in ((teams[0], teams[9 - i]), (teams[1 + i], teams[8])):
+            f = Match(lg, date(2028, 1, 2), h, a)
+            preds.append(MatchPrediction(f, model.score_matrix(h, a), model.expected_goals(h, a)))
+    w = weekend.winners_by_league(preds, states)
+    assert len(w["league_best"]) == 4 and len({r["league"] for r in w["league_best"]}) == 4
+    probs = [r["prob"] for r in w["mismatches"]]
+    assert probs == sorted(probs, reverse=True)
+    assert all(r["prob"] > r["loser_prob"] for r in w["mismatches"])
+    treble = next(t for t in w["world_tiers"] if t["name"] == "World treble")["options"][0]
+    assert len({l["league"] for l in treble["legs"]}) == 3 and all(l["code"] in "HA" for l in treble["legs"])
+    # the generic builder honours the league spread too
+    legs = [Leg(p, ("H",), p.probs["H"], p.probs["H"]) for p in preds]
+    for par in build_parlays(legs, 3, max_per_league=1):
+        assert len({l.pred.match.league for l in par.legs}) == 3

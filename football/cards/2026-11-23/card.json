@@ -51978,51 +51978,6 @@
        "fair": 1.26
       },
       {
-       "league": "LALIGA2",
-       "date": "2026-11-29",
-       "match": "Almería v Sporting Gijón",
-       "home": "Almería",
-       "away": "Sporting Gijón",
-       "pick": "Almería or draw",
-       "code": "1X",
-       "prob": 0.7931,
-       "fair": 1.26
-      }
-     ],
-     "check": {
-      "geo_mean": 0.7936,
-      "max_legs": 7,
-      "within_rule": true,
-      "near_miss": 0.39
-     }
-    },
-    {
-     "prob": 0.4996,
-     "fair": 2.0,
-     "legs": [
-      {
-       "league": "SAUDI",
-       "date": "2026-11-28",
-       "match": "Al Ahli v Al Taawoun",
-       "home": "Al Ahli",
-       "away": "Al Taawoun",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.7937,
-       "fair": 1.26
-      },
-      {
-       "league": "LALIGA2",
-       "date": "2026-11-29",
-       "match": "Granada v Ceuta",
-       "home": "Granada",
-       "away": "Ceuta",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.7936,
-       "fair": 1.26
-      },
-      {
        "league": "CHAMPIONSHIP",
        "date": "2026-11-27",
        "match": "Southampton v Middlesbrough",
@@ -52035,10 +51990,10 @@
       }
      ],
      "check": {
-      "geo_mean": 0.7935,
+      "geo_mean": 0.7936,
       "max_legs": 7,
       "within_rule": true,
-      "near_miss": 0.3901
+      "near_miss": 0.39
      }
     },
     {
@@ -52084,6 +52039,51 @@
       "max_legs": 7,
       "within_rule": true,
       "near_miss": 0.3901
+     }
+    },
+    {
+     "prob": 0.4991,
+     "fair": 2.0,
+     "legs": [
+      {
+       "league": "UEL",
+       "date": "2026-11-26",
+       "match": "Besiktas v Hapoel Be'er",
+       "home": "Besiktas",
+       "away": "Hapoel Be'er",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.7946,
+       "fair": 1.26
+      },
+      {
+       "league": "CHAMPIONSHIP",
+       "date": "2026-11-27",
+       "match": "Southampton v Middlesbrough",
+       "home": "Southampton",
+       "away": "Middlesbrough",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.7931,
+       "fair": 1.26
+      },
+      {
+       "league": "AUSTRIA",
+       "date": "2026-11-27",
+       "match": "Grazer AK v SC Rheindorf Altach",
+       "home": "Grazer AK",
+       "away": "SC Rheindorf Altach",
+       "pick": "Under 3.5 goals",
+       "code": "U3.5",
+       "prob": 0.792,
+       "fair": 1.26
+      }
+     ],
+     "check": {
+      "geo_mean": 0.7932,
+      "max_legs": 7,
+      "within_rule": true,
+      "near_miss": 0.3903
      }
     }
    ]
@@ -53817,7 +53817,7 @@
      }
     },
     {
-     "prob": 0.427,
+     "prob": 0.4269,
      "fair": 2.34,
      "legs": [
       {
@@ -53854,22 +53854,22 @@
        "fair": 1.29
       },
       {
-       "league": "UCL",
+       "league": "ACLE",
        "date": "2026-11-24",
-       "match": "Bodo/Glimt v LASK Linz",
-       "home": "Bodo/Glimt",
-       "away": "LASK Linz",
-       "pick": "Bodo/Glimt win",
-       "code": "H",
-       "prob": 0.7713,
+       "match": "Newcastle Jets v Kashiwa Reysol",
+       "home": "Newcastle Jets",
+       "away": "Kashiwa Reysol",
+       "pick": "Kashiwa Reysol win",
+       "code": "A",
+       "prob": 0.7712,
        "fair": 1.3
       }
      ],
      "check": {
-      "geo_mean": 0.8084,
-      "max_legs": 8,
+      "geo_mean": 0.8083,
+      "max_legs": 7,
       "within_rule": true,
-      "near_miss": 0.4079
+      "near_miss": 0.408
      }
     }
    ]
@@ -53886,20 +53886,9 @@
    "expected_return": -0.386,
    "options": [
     {
-     "prob": 0.40484,
+     "prob": 0.40408,
      "fair": 2.47,
      "legs": [
-      {
-       "league": "UCL",
-       "date": "2026-11-24",
-       "match": "Bodo/Glimt v LASK Linz",
-       "home": "Bodo/Glimt",
-       "away": "LASK Linz",
-       "pick": "Bodo/Glimt or draw",
-       "code": "1X",
-       "prob": 0.9078,
-       "fair": 1.1
-      },
       {
        "league": "UCL",
        "date": "2026-11-24",
@@ -53989,117 +53978,6 @@
        "fair": 1.1
       },
       {
-       "league": "NORWAY",
-       "date": "2026-11-29",
-       "match": "Viking FK v Vålerenga",
-       "home": "Viking FK",
-       "away": "Vålerenga",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.9156,
-       "fair": 1.09
-      }
-     ],
-     "check": {
-      "geo_mean": 0.9135,
-      "max_legs": 18,
-      "within_rule": true,
-      "near_miss": 0.3832
-     }
-    },
-    {
-     "prob": 0.40447,
-     "fair": 2.47,
-     "legs": [
-      {
-       "league": "UCL",
-       "date": "2026-11-24",
-       "match": "Bodo/Glimt v LASK Linz",
-       "home": "Bodo/Glimt",
-       "away": "LASK Linz",
-       "pick": "Bodo/Glimt or draw",
-       "code": "1X",
-       "prob": 0.9078,
-       "fair": 1.1
-      },
-      {
-       "league": "UCL",
-       "date": "2026-11-24",
-       "match": "Slovan Bratislava v Real Betis",
-       "home": "Slovan Bratislava",
-       "away": "Real Betis",
-       "pick": "Real Betis or draw",
-       "code": "X2",
-       "prob": 0.9184,
-       "fair": 1.09
-      },
-      {
-       "league": "UCL",
-       "date": "2026-11-24",
-       "match": "Real Madrid v PSV Eindhoven",
-       "home": "Real Madrid",
-       "away": "PSV Eindhoven",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.9172,
-       "fair": 1.09
-      },
-      {
-       "league": "UEL",
-       "date": "2026-11-26",
-       "match": "Union St.-Gilloise v Lech Poznan",
-       "home": "Union St.-Gilloise",
-       "away": "Lech Poznan",
-       "pick": "Union St.-Gilloise or draw",
-       "code": "1X",
-       "prob": 0.9183,
-       "fair": 1.09
-      },
-      {
-       "league": "UEL",
-       "date": "2026-11-26",
-       "match": "Juventus v Omonia Nicosia",
-       "home": "Juventus",
-       "away": "Omonia Nicosia",
-       "pick": "Juventus or draw",
-       "code": "1X",
-       "prob": 0.9167,
-       "fair": 1.09
-      },
-      {
-       "league": "BUNDESLIGA",
-       "date": "2026-11-28",
-       "match": "SC Paderborn 07 v Schalke 04",
-       "home": "SC Paderborn 07",
-       "away": "Schalke 04",
-       "pick": "Under 3.5 goals",
-       "code": "U3.5",
-       "prob": 0.9116,
-       "fair": 1.1
-      },
-      {
-       "league": "BUNDESLIGA",
-       "date": "2026-11-28",
-       "match": "Hamburg SV v Bayern Munich",
-       "home": "Hamburg SV",
-       "away": "Bayern Munich",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.9093,
-       "fair": 1.1
-      },
-      {
-       "league": "SOUTHAFRICA",
-       "date": "2026-11-28",
-       "match": "Kruger United v Mamelodi Sundowns",
-       "home": "Kruger United",
-       "away": "Mamelodi Sundowns",
-       "pick": "Mamelodi Sundowns or draw",
-       "code": "X2",
-       "prob": 0.9137,
-       "fair": 1.09
-      },
-      {
        "league": "LALIGA",
        "date": "2026-11-28",
        "match": "Real Madrid v Alavés",
@@ -54130,7 +54008,7 @@
      }
     },
     {
-     "prob": 0.4031,
+     "prob": 0.40263,
      "fair": 2.48,
      "legs": [
       {
@@ -54169,17 +54047,6 @@
       {
        "league": "UEL",
        "date": "2026-11-26",
-       "match": "Besiktas v Hapoel Be'er",
-       "home": "Besiktas",
-       "away": "Hapoel Be'er",
-       "pick": "Besiktas or draw",
-       "code": "1X",
-       "prob": 0.9047,
-       "fair": 1.11
-      },
-      {
-       "league": "UEL",
-       "date": "2026-11-26",
        "match": "Juventus v Omonia Nicosia",
        "home": "Juventus",
        "away": "Omonia Nicosia",
@@ -54222,14 +54089,25 @@
        "fair": 1.09
       },
       {
-       "league": "LALIGA",
+       "league": "EREDIVISIE",
        "date": "2026-11-28",
-       "match": "Real Madrid v Alavés",
-       "home": "Real Madrid",
-       "away": "Alavés",
-       "pick": "Real Madrid or draw",
+       "match": "PSV Eindhoven v Go Ahead Eagles",
+       "home": "PSV Eindhoven",
+       "away": "Go Ahead Eagles",
+       "pick": "PSV Eindhoven or draw",
        "code": "1X",
-       "prob": 0.906,
+       "prob": 0.9028,
+       "fair": 1.11
+      },
+      {
+       "league": "EREDIVISIE",
+       "date": "2026-11-28",
+       "match": "SC Cambuur v Sparta Rotterdam",
+       "home": "SC Cambuur",
+       "away": "Sparta Rotterdam",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.9069,
        "fair": 1.1
       },
       {
@@ -54245,26 +54123,15 @@
       }
      ],
      "check": {
-      "geo_mean": 0.9131,
+      "geo_mean": 0.913,
       "max_legs": 18,
       "within_rule": true,
       "near_miss": 0.3835
      }
-    }
-   ]
-  },
-  {
-   "name": "15-leg wildcard",
-   "note": "the 15 most likely results this week, one per match",
-   "legs_n": 15,
-   "target": 1.0,
-   "wildcard": true,
-   "typical_book_odds": 2.0,
-   "expected_return": -0.519,
-   "options": [
+    },
     {
-     "prob": 0.24237,
-     "fair": 4.13,
+     "prob": 0.39926,
+     "fair": 2.5,
      "legs": [
       {
        "league": "ACLE",
@@ -54280,17 +54147,6 @@
       {
        "league": "UCL",
        "date": "2026-11-24",
-       "match": "Bodo/Glimt v LASK Linz",
-       "home": "Bodo/Glimt",
-       "away": "LASK Linz",
-       "pick": "Bodo/Glimt or draw",
-       "code": "1X",
-       "prob": 0.9078,
-       "fair": 1.1
-      },
-      {
-       "league": "UCL",
-       "date": "2026-11-24",
        "match": "Slovan Bratislava v Real Betis",
        "home": "Slovan Bratislava",
        "away": "Real Betis",
@@ -54320,28 +54176,6 @@
        "code": "1X",
        "prob": 0.9183,
        "fair": 1.09
-      },
-      {
-       "league": "UEL",
-       "date": "2026-11-26",
-       "match": "Besiktas v Hapoel Be'er",
-       "home": "Besiktas",
-       "away": "Hapoel Be'er",
-       "pick": "Besiktas or draw",
-       "code": "1X",
-       "prob": 0.9047,
-       "fair": 1.11
-      },
-      {
-       "league": "UEL",
-       "date": "2026-11-26",
-       "match": "RB Salzburg v Ararat-Armenia",
-       "home": "RB Salzburg",
-       "away": "Ararat-Armenia",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.8996,
-       "fair": 1.11
       },
       {
        "league": "UEL",
@@ -54399,28 +54233,6 @@
        "fair": 1.11
       },
       {
-       "league": "EREDIVISIE",
-       "date": "2026-11-28",
-       "match": "SC Cambuur v Sparta Rotterdam",
-       "home": "SC Cambuur",
-       "away": "Sparta Rotterdam",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.9069,
-       "fair": 1.1
-      },
-      {
-       "league": "LALIGA",
-       "date": "2026-11-28",
-       "match": "Real Madrid v Alavés",
-       "home": "Real Madrid",
-       "away": "Alavés",
-       "pick": "Real Madrid or draw",
-       "code": "1X",
-       "prob": 0.906,
-       "fair": 1.1
-      },
-      {
        "league": "NORWAY",
        "date": "2026-11-29",
        "match": "Viking FK v Vålerenga",
@@ -54433,26 +54245,37 @@
       }
      ],
      "check": {
-      "geo_mean": 0.9098,
+      "geo_mean": 0.9123,
       "max_legs": 17,
       "within_rule": true,
-      "near_miss": 0.3604
+      "near_miss": 0.384
      }
-    },
+    }
+   ]
+  },
+  {
+   "name": "15-leg wildcard",
+   "note": "the 15 most likely results this week, one per match",
+   "legs_n": 15,
+   "target": 1.0,
+   "wildcard": true,
+   "typical_book_odds": 2.0,
+   "expected_return": -0.519,
+   "options": [
     {
-     "prob": 0.24191,
-     "fair": 4.13,
+     "prob": 0.23693,
+     "fair": 4.22,
      "legs": [
       {
-       "league": "UCL",
+       "league": "ACLE",
        "date": "2026-11-24",
-       "match": "Bodo/Glimt v LASK Linz",
-       "home": "Bodo/Glimt",
-       "away": "LASK Linz",
-       "pick": "Bodo/Glimt or draw",
-       "code": "1X",
-       "prob": 0.9078,
-       "fair": 1.1
+       "match": "Newcastle Jets v Kashiwa Reysol",
+       "home": "Newcastle Jets",
+       "away": "Kashiwa Reysol",
+       "pick": "Kashiwa Reysol or draw",
+       "code": "X2",
+       "prob": 0.8993,
+       "fair": 1.11
       },
       {
        "league": "UCL",
@@ -54490,28 +54313,6 @@
       {
        "league": "UEL",
        "date": "2026-11-26",
-       "match": "Besiktas v Hapoel Be'er",
-       "home": "Besiktas",
-       "away": "Hapoel Be'er",
-       "pick": "Besiktas or draw",
-       "code": "1X",
-       "prob": 0.9047,
-       "fair": 1.11
-      },
-      {
-       "league": "UEL",
-       "date": "2026-11-26",
-       "match": "RB Salzburg v Ararat-Armenia",
-       "home": "RB Salzburg",
-       "away": "Ararat-Armenia",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.8996,
-       "fair": 1.11
-      },
-      {
-       "league": "UEL",
-       "date": "2026-11-26",
        "match": "Juventus v Omonia Nicosia",
        "home": "Juventus",
        "away": "Omonia Nicosia",
@@ -54521,170 +54322,15 @@
        "fair": 1.09
       },
       {
-       "league": "SAUDI",
-       "date": "2026-11-27",
-       "match": "Al Qadsiah v Al Fayha",
-       "home": "Al Qadsiah",
-       "away": "Al Fayha",
-       "pick": "Al Qadsiah or draw",
-       "code": "1X",
-       "prob": 0.8976,
-       "fair": 1.11
-      },
-      {
-       "league": "BUNDESLIGA",
-       "date": "2026-11-28",
-       "match": "SC Paderborn 07 v Schalke 04",
-       "home": "SC Paderborn 07",
-       "away": "Schalke 04",
-       "pick": "Under 3.5 goals",
-       "code": "U3.5",
-       "prob": 0.9116,
-       "fair": 1.1
-      },
-      {
-       "league": "BUNDESLIGA",
-       "date": "2026-11-28",
-       "match": "Hamburg SV v Bayern Munich",
-       "home": "Hamburg SV",
-       "away": "Bayern Munich",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.9093,
-       "fair": 1.1
-      },
-      {
-       "league": "SOUTHAFRICA",
-       "date": "2026-11-28",
-       "match": "Kruger United v Mamelodi Sundowns",
-       "home": "Kruger United",
-       "away": "Mamelodi Sundowns",
-       "pick": "Mamelodi Sundowns or draw",
-       "code": "X2",
-       "prob": 0.9137,
-       "fair": 1.09
-      },
-      {
-       "league": "EREDIVISIE",
-       "date": "2026-11-28",
-       "match": "PSV Eindhoven v Go Ahead Eagles",
-       "home": "PSV Eindhoven",
-       "away": "Go Ahead Eagles",
-       "pick": "PSV Eindhoven or draw",
-       "code": "1X",
-       "prob": 0.9028,
-       "fair": 1.11
-      },
-      {
-       "league": "EREDIVISIE",
-       "date": "2026-11-28",
-       "match": "SC Cambuur v Sparta Rotterdam",
-       "home": "SC Cambuur",
-       "away": "Sparta Rotterdam",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.9069,
-       "fair": 1.1
-      },
-      {
-       "league": "LALIGA",
-       "date": "2026-11-28",
-       "match": "Real Madrid v Alavés",
-       "home": "Real Madrid",
-       "away": "Alavés",
-       "pick": "Real Madrid or draw",
-       "code": "1X",
-       "prob": 0.906,
-       "fair": 1.1
-      },
-      {
-       "league": "NORWAY",
-       "date": "2026-11-29",
-       "match": "Viking FK v Vålerenga",
-       "home": "Viking FK",
-       "away": "Vålerenga",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.9156,
-       "fair": 1.09
-      }
-     ],
-     "check": {
-      "geo_mean": 0.9097,
-      "max_legs": 17,
-      "within_rule": true,
-      "near_miss": 0.3602
-     }
-    },
-    {
-     "prob": 0.24126,
-     "fair": 4.14,
-     "legs": [
-      {
-       "league": "UCL",
-       "date": "2026-11-24",
-       "match": "Bodo/Glimt v LASK Linz",
-       "home": "Bodo/Glimt",
-       "away": "LASK Linz",
-       "pick": "Bodo/Glimt or draw",
-       "code": "1X",
-       "prob": 0.9078,
-       "fair": 1.1
-      },
-      {
-       "league": "UCL",
-       "date": "2026-11-24",
-       "match": "Slovan Bratislava v Real Betis",
-       "home": "Slovan Bratislava",
-       "away": "Real Betis",
-       "pick": "Real Betis or draw",
-       "code": "X2",
-       "prob": 0.9184,
-       "fair": 1.09
-      },
-      {
-       "league": "UCL",
-       "date": "2026-11-24",
-       "match": "Real Madrid v PSV Eindhoven",
-       "home": "Real Madrid",
-       "away": "PSV Eindhoven",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.9172,
-       "fair": 1.09
-      },
-      {
-       "league": "UEL",
+       "league": "UECL",
        "date": "2026-11-26",
-       "match": "Union St.-Gilloise v Lech Poznan",
-       "home": "Union St.-Gilloise",
-       "away": "Lech Poznan",
-       "pick": "Union St.-Gilloise or draw",
+       "match": "Braga v KuPS Kuopio",
+       "home": "Braga",
+       "away": "KuPS Kuopio",
+       "pick": "Braga or draw",
        "code": "1X",
-       "prob": 0.9183,
-       "fair": 1.09
-      },
-      {
-       "league": "UEL",
-       "date": "2026-11-26",
-       "match": "Besiktas v Hapoel Be'er",
-       "home": "Besiktas",
-       "away": "Hapoel Be'er",
-       "pick": "Besiktas or draw",
-       "code": "1X",
-       "prob": 0.9047,
-       "fair": 1.11
-      },
-      {
-       "league": "UEL",
-       "date": "2026-11-26",
-       "match": "Juventus v Omonia Nicosia",
-       "home": "Juventus",
-       "away": "Omonia Nicosia",
-       "pick": "Juventus or draw",
-       "code": "1X",
-       "prob": 0.9167,
-       "fair": 1.09
+       "prob": 0.8968,
+       "fair": 1.12
       },
       {
        "league": "SAUDI",
@@ -54787,26 +54433,15 @@
       }
      ],
      "check": {
-      "geo_mean": 0.9096,
+      "geo_mean": 0.9085,
       "max_legs": 17,
       "within_rule": true,
-      "near_miss": 0.3599
+      "near_miss": 0.3582
      }
-    }
-   ]
-  },
-  {
-   "name": "19-leg wildcard",
-   "note": "the 19 most likely results this week, one per match",
-   "legs_n": 19,
-   "target": 1.0,
-   "wildcard": true,
-   "typical_book_odds": 2.5,
-   "expected_return": -0.604,
-   "options": [
+    },
     {
-     "prob": 0.15632,
-     "fair": 6.4,
+     "prob": 0.23594,
+     "fair": 4.24,
      "legs": [
       {
        "league": "ACLE",
@@ -54818,17 +54453,6 @@
        "code": "X2",
        "prob": 0.8993,
        "fair": 1.11
-      },
-      {
-       "league": "UCL",
-       "date": "2026-11-24",
-       "match": "Bodo/Glimt v LASK Linz",
-       "home": "Bodo/Glimt",
-       "away": "LASK Linz",
-       "pick": "Bodo/Glimt or draw",
-       "code": "1X",
-       "prob": 0.9078,
-       "fair": 1.1
       },
       {
        "league": "ACLE",
@@ -54877,24 +54501,831 @@
       {
        "league": "UEL",
        "date": "2026-11-26",
-       "match": "Besiktas v Hapoel Be'er",
-       "home": "Besiktas",
-       "away": "Hapoel Be'er",
-       "pick": "Besiktas or draw",
+       "match": "Juventus v Omonia Nicosia",
+       "home": "Juventus",
+       "away": "Omonia Nicosia",
+       "pick": "Juventus or draw",
        "code": "1X",
-       "prob": 0.9047,
+       "prob": 0.9167,
+       "fair": 1.09
+      },
+      {
+       "league": "SAUDI",
+       "date": "2026-11-27",
+       "match": "Al Qadsiah v Al Fayha",
+       "home": "Al Qadsiah",
+       "away": "Al Fayha",
+       "pick": "Al Qadsiah or draw",
+       "code": "1X",
+       "prob": 0.8976,
        "fair": 1.11
+      },
+      {
+       "league": "LALIGA",
+       "date": "2026-11-27",
+       "match": "Levante v Racing Santander",
+       "home": "Levante",
+       "away": "Racing Santander",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.8972,
+       "fair": 1.11
+      },
+      {
+       "league": "BUNDESLIGA",
+       "date": "2026-11-28",
+       "match": "SC Paderborn 07 v Schalke 04",
+       "home": "SC Paderborn 07",
+       "away": "Schalke 04",
+       "pick": "Under 3.5 goals",
+       "code": "U3.5",
+       "prob": 0.9116,
+       "fair": 1.1
+      },
+      {
+       "league": "BUNDESLIGA",
+       "date": "2026-11-28",
+       "match": "Hamburg SV v Bayern Munich",
+       "home": "Hamburg SV",
+       "away": "Bayern Munich",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.9093,
+       "fair": 1.1
+      },
+      {
+       "league": "SOUTHAFRICA",
+       "date": "2026-11-28",
+       "match": "Kruger United v Mamelodi Sundowns",
+       "home": "Kruger United",
+       "away": "Mamelodi Sundowns",
+       "pick": "Mamelodi Sundowns or draw",
+       "code": "X2",
+       "prob": 0.9137,
+       "fair": 1.09
+      },
+      {
+       "league": "EREDIVISIE",
+       "date": "2026-11-28",
+       "match": "PSV Eindhoven v Go Ahead Eagles",
+       "home": "PSV Eindhoven",
+       "away": "Go Ahead Eagles",
+       "pick": "PSV Eindhoven or draw",
+       "code": "1X",
+       "prob": 0.9028,
+       "fair": 1.11
+      },
+      {
+       "league": "EREDIVISIE",
+       "date": "2026-11-28",
+       "match": "SC Cambuur v Sparta Rotterdam",
+       "home": "SC Cambuur",
+       "away": "Sparta Rotterdam",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.9069,
+       "fair": 1.1
+      },
+      {
+       "league": "LALIGA",
+       "date": "2026-11-28",
+       "match": "Real Madrid v Alavés",
+       "home": "Real Madrid",
+       "away": "Alavés",
+       "pick": "Real Madrid or draw",
+       "code": "1X",
+       "prob": 0.906,
+       "fair": 1.1
+      },
+      {
+       "league": "NORWAY",
+       "date": "2026-11-29",
+       "match": "Viking FK v Vålerenga",
+       "home": "Viking FK",
+       "away": "Vålerenga",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.9156,
+       "fair": 1.09
+      }
+     ],
+     "check": {
+      "geo_mean": 0.9082,
+      "max_legs": 17,
+      "within_rule": true,
+      "near_miss": 0.3578
+     }
+    },
+    {
+     "prob": 0.2343,
+     "fair": 4.27,
+     "legs": [
+      {
+       "league": "TURKEY",
+       "date": "2026-11-23",
+       "match": "Istanbul Basaksehir v Çorum FK",
+       "home": "Istanbul Basaksehir",
+       "away": "Çorum FK",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.891,
+       "fair": 1.12
+      },
+      {
+       "league": "ACLE",
+       "date": "2026-11-24",
+       "match": "Newcastle Jets v Kashiwa Reysol",
+       "home": "Newcastle Jets",
+       "away": "Kashiwa Reysol",
+       "pick": "Kashiwa Reysol or draw",
+       "code": "X2",
+       "prob": 0.8993,
+       "fair": 1.11
+      },
+      {
+       "league": "ACLE",
+       "date": "2026-11-24",
+       "match": "Al Nassr v Al Sadd",
+       "home": "Al Nassr",
+       "away": "Al Sadd",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.893,
+       "fair": 1.12
+      },
+      {
+       "league": "UCL",
+       "date": "2026-11-24",
+       "match": "Slovan Bratislava v Real Betis",
+       "home": "Slovan Bratislava",
+       "away": "Real Betis",
+       "pick": "Real Betis or draw",
+       "code": "X2",
+       "prob": 0.9184,
+       "fair": 1.09
+      },
+      {
+       "league": "UCL",
+       "date": "2026-11-24",
+       "match": "Real Madrid v PSV Eindhoven",
+       "home": "Real Madrid",
+       "away": "PSV Eindhoven",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.9172,
+       "fair": 1.09
       },
       {
        "league": "UEL",
        "date": "2026-11-26",
-       "match": "RB Salzburg v Ararat-Armenia",
-       "home": "RB Salzburg",
-       "away": "Ararat-Armenia",
+       "match": "Union St.-Gilloise v Lech Poznan",
+       "home": "Union St.-Gilloise",
+       "away": "Lech Poznan",
+       "pick": "Union St.-Gilloise or draw",
+       "code": "1X",
+       "prob": 0.9183,
+       "fair": 1.09
+      },
+      {
+       "league": "UEL",
+       "date": "2026-11-26",
+       "match": "Juventus v Omonia Nicosia",
+       "home": "Juventus",
+       "away": "Omonia Nicosia",
+       "pick": "Juventus or draw",
+       "code": "1X",
+       "prob": 0.9167,
+       "fair": 1.09
+      },
+      {
+       "league": "SAUDI",
+       "date": "2026-11-27",
+       "match": "Al Qadsiah v Al Fayha",
+       "home": "Al Qadsiah",
+       "away": "Al Fayha",
+       "pick": "Al Qadsiah or draw",
+       "code": "1X",
+       "prob": 0.8976,
+       "fair": 1.11
+      },
+      {
+       "league": "BUNDESLIGA",
+       "date": "2026-11-28",
+       "match": "SC Paderborn 07 v Schalke 04",
+       "home": "SC Paderborn 07",
+       "away": "Schalke 04",
+       "pick": "Under 3.5 goals",
+       "code": "U3.5",
+       "prob": 0.9116,
+       "fair": 1.1
+      },
+      {
+       "league": "BUNDESLIGA",
+       "date": "2026-11-28",
+       "match": "Hamburg SV v Bayern Munich",
+       "home": "Hamburg SV",
+       "away": "Bayern Munich",
        "pick": "Over 1.5 goals",
        "code": "O1.5",
-       "prob": 0.8996,
+       "prob": 0.9093,
+       "fair": 1.1
+      },
+      {
+       "league": "SOUTHAFRICA",
+       "date": "2026-11-28",
+       "match": "Kruger United v Mamelodi Sundowns",
+       "home": "Kruger United",
+       "away": "Mamelodi Sundowns",
+       "pick": "Mamelodi Sundowns or draw",
+       "code": "X2",
+       "prob": 0.9137,
+       "fair": 1.09
+      },
+      {
+       "league": "EREDIVISIE",
+       "date": "2026-11-28",
+       "match": "PSV Eindhoven v Go Ahead Eagles",
+       "home": "PSV Eindhoven",
+       "away": "Go Ahead Eagles",
+       "pick": "PSV Eindhoven or draw",
+       "code": "1X",
+       "prob": 0.9028,
        "fair": 1.11
+      },
+      {
+       "league": "EREDIVISIE",
+       "date": "2026-11-28",
+       "match": "SC Cambuur v Sparta Rotterdam",
+       "home": "SC Cambuur",
+       "away": "Sparta Rotterdam",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.9069,
+       "fair": 1.1
+      },
+      {
+       "league": "LALIGA",
+       "date": "2026-11-28",
+       "match": "Real Madrid v Alavés",
+       "home": "Real Madrid",
+       "away": "Alavés",
+       "pick": "Real Madrid or draw",
+       "code": "1X",
+       "prob": 0.906,
+       "fair": 1.1
+      },
+      {
+       "league": "NORWAY",
+       "date": "2026-11-29",
+       "match": "Viking FK v Vålerenga",
+       "home": "Viking FK",
+       "away": "Vålerenga",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.9156,
+       "fair": 1.09
+      }
+     ],
+     "check": {
+      "geo_mean": 0.9078,
+      "max_legs": 16,
+      "within_rule": true,
+      "near_miss": 0.3572
+     }
+    }
+   ]
+  },
+  {
+   "name": "19-leg wildcard",
+   "note": "the 19 most likely results this week, one per match",
+   "legs_n": 19,
+   "target": 1.0,
+   "wildcard": true,
+   "typical_book_odds": 2.7,
+   "expected_return": -0.604,
+   "options": [
+    {
+     "prob": 0.14733,
+     "fair": 6.79,
+     "legs": [
+      {
+       "league": "TURKEY",
+       "date": "2026-11-23",
+       "match": "Istanbul Basaksehir v Çorum FK",
+       "home": "Istanbul Basaksehir",
+       "away": "Çorum FK",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.891,
+       "fair": 1.12
+      },
+      {
+       "league": "ACLE",
+       "date": "2026-11-24",
+       "match": "Newcastle Jets v Kashiwa Reysol",
+       "home": "Newcastle Jets",
+       "away": "Kashiwa Reysol",
+       "pick": "Kashiwa Reysol or draw",
+       "code": "X2",
+       "prob": 0.8993,
+       "fair": 1.11
+      },
+      {
+       "league": "ACLE",
+       "date": "2026-11-24",
+       "match": "Al Nassr v Al Sadd",
+       "home": "Al Nassr",
+       "away": "Al Sadd",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.893,
+       "fair": 1.12
+      },
+      {
+       "league": "UCL",
+       "date": "2026-11-24",
+       "match": "Slovan Bratislava v Real Betis",
+       "home": "Slovan Bratislava",
+       "away": "Real Betis",
+       "pick": "Real Betis or draw",
+       "code": "X2",
+       "prob": 0.9184,
+       "fair": 1.09
+      },
+      {
+       "league": "UCL",
+       "date": "2026-11-24",
+       "match": "Real Madrid v PSV Eindhoven",
+       "home": "Real Madrid",
+       "away": "PSV Eindhoven",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.9172,
+       "fair": 1.09
+      },
+      {
+       "league": "UEL",
+       "date": "2026-11-26",
+       "match": "Union St.-Gilloise v Lech Poznan",
+       "home": "Union St.-Gilloise",
+       "away": "Lech Poznan",
+       "pick": "Union St.-Gilloise or draw",
+       "code": "1X",
+       "prob": 0.9183,
+       "fair": 1.09
+      },
+      {
+       "league": "UEL",
+       "date": "2026-11-26",
+       "match": "Juventus v Omonia Nicosia",
+       "home": "Juventus",
+       "away": "Omonia Nicosia",
+       "pick": "Juventus or draw",
+       "code": "1X",
+       "prob": 0.9167,
+       "fair": 1.09
+      },
+      {
+       "league": "UECL",
+       "date": "2026-11-26",
+       "match": "Braga v KuPS Kuopio",
+       "home": "Braga",
+       "away": "KuPS Kuopio",
+       "pick": "Braga or draw",
+       "code": "1X",
+       "prob": 0.8968,
+       "fair": 1.12
+      },
+      {
+       "league": "SAUDI",
+       "date": "2026-11-27",
+       "match": "Al Qadsiah v Al Fayha",
+       "home": "Al Qadsiah",
+       "away": "Al Fayha",
+       "pick": "Al Qadsiah or draw",
+       "code": "1X",
+       "prob": 0.8976,
+       "fair": 1.11
+      },
+      {
+       "league": "LALIGA",
+       "date": "2026-11-27",
+       "match": "Levante v Racing Santander",
+       "home": "Levante",
+       "away": "Racing Santander",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.8972,
+       "fair": 1.11
+      },
+      {
+       "league": "SAUDI",
+       "date": "2026-11-28",
+       "match": "Al Hazem v Al Nassr",
+       "home": "Al Hazem",
+       "away": "Al Nassr",
+       "pick": "Al Nassr or draw",
+       "code": "X2",
+       "prob": 0.8889,
+       "fair": 1.12
+      },
+      {
+       "league": "SOUTHAFRICA",
+       "date": "2026-11-28",
+       "match": "Chippa United v Kaizer Chiefs",
+       "home": "Chippa United",
+       "away": "Kaizer Chiefs",
+       "pick": "Under 3.5 goals",
+       "code": "U3.5",
+       "prob": 0.8792,
+       "fair": 1.14
+      },
+      {
+       "league": "BUNDESLIGA",
+       "date": "2026-11-28",
+       "match": "SC Paderborn 07 v Schalke 04",
+       "home": "SC Paderborn 07",
+       "away": "Schalke 04",
+       "pick": "Under 3.5 goals",
+       "code": "U3.5",
+       "prob": 0.9116,
+       "fair": 1.1
+      },
+      {
+       "league": "BUNDESLIGA",
+       "date": "2026-11-28",
+       "match": "Hamburg SV v Bayern Munich",
+       "home": "Hamburg SV",
+       "away": "Bayern Munich",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.9093,
+       "fair": 1.1
+      },
+      {
+       "league": "SOUTHAFRICA",
+       "date": "2026-11-28",
+       "match": "Kruger United v Mamelodi Sundowns",
+       "home": "Kruger United",
+       "away": "Mamelodi Sundowns",
+       "pick": "Mamelodi Sundowns or draw",
+       "code": "X2",
+       "prob": 0.9137,
+       "fair": 1.09
+      },
+      {
+       "league": "EREDIVISIE",
+       "date": "2026-11-28",
+       "match": "PSV Eindhoven v Go Ahead Eagles",
+       "home": "PSV Eindhoven",
+       "away": "Go Ahead Eagles",
+       "pick": "PSV Eindhoven or draw",
+       "code": "1X",
+       "prob": 0.9028,
+       "fair": 1.11
+      },
+      {
+       "league": "EREDIVISIE",
+       "date": "2026-11-28",
+       "match": "SC Cambuur v Sparta Rotterdam",
+       "home": "SC Cambuur",
+       "away": "Sparta Rotterdam",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.9069,
+       "fair": 1.1
+      },
+      {
+       "league": "LALIGA",
+       "date": "2026-11-28",
+       "match": "Real Madrid v Alavés",
+       "home": "Real Madrid",
+       "away": "Alavés",
+       "pick": "Real Madrid or draw",
+       "code": "1X",
+       "prob": 0.906,
+       "fair": 1.1
+      },
+      {
+       "league": "NORWAY",
+       "date": "2026-11-29",
+       "match": "Viking FK v Vålerenga",
+       "home": "Viking FK",
+       "away": "Vålerenga",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.9156,
+       "fair": 1.09
+      }
+     ],
+     "check": {
+      "geo_mean": 0.9041,
+      "max_legs": 16,
+      "within_rule": false,
+      "near_miss": 0.2971
+     }
+    },
+    {
+     "prob": 0.14733,
+     "fair": 6.79,
+     "legs": [
+      {
+       "league": "TURKEY",
+       "date": "2026-11-23",
+       "match": "Istanbul Basaksehir v Çorum FK",
+       "home": "Istanbul Basaksehir",
+       "away": "Çorum FK",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.891,
+       "fair": 1.12
+      },
+      {
+       "league": "ACLE",
+       "date": "2026-11-24",
+       "match": "Newcastle Jets v Kashiwa Reysol",
+       "home": "Newcastle Jets",
+       "away": "Kashiwa Reysol",
+       "pick": "Kashiwa Reysol or draw",
+       "code": "X2",
+       "prob": 0.8993,
+       "fair": 1.11
+      },
+      {
+       "league": "ACLE",
+       "date": "2026-11-24",
+       "match": "Al Nassr v Al Sadd",
+       "home": "Al Nassr",
+       "away": "Al Sadd",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.893,
+       "fair": 1.12
+      },
+      {
+       "league": "UCL",
+       "date": "2026-11-24",
+       "match": "Slovan Bratislava v Real Betis",
+       "home": "Slovan Bratislava",
+       "away": "Real Betis",
+       "pick": "Real Betis or draw",
+       "code": "X2",
+       "prob": 0.9184,
+       "fair": 1.09
+      },
+      {
+       "league": "UCL",
+       "date": "2026-11-24",
+       "match": "Real Madrid v PSV Eindhoven",
+       "home": "Real Madrid",
+       "away": "PSV Eindhoven",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.9172,
+       "fair": 1.09
+      },
+      {
+       "league": "UEL",
+       "date": "2026-11-26",
+       "match": "Union St.-Gilloise v Lech Poznan",
+       "home": "Union St.-Gilloise",
+       "away": "Lech Poznan",
+       "pick": "Union St.-Gilloise or draw",
+       "code": "1X",
+       "prob": 0.9183,
+       "fair": 1.09
+      },
+      {
+       "league": "UECL",
+       "date": "2026-11-26",
+       "match": "Iberia 1999 v Getafe",
+       "home": "Iberia 1999",
+       "away": "Getafe",
+       "pick": "Under 3.5 goals",
+       "code": "U3.5",
+       "prob": 0.8792,
+       "fair": 1.14
+      },
+      {
+       "league": "UEL",
+       "date": "2026-11-26",
+       "match": "Juventus v Omonia Nicosia",
+       "home": "Juventus",
+       "away": "Omonia Nicosia",
+       "pick": "Juventus or draw",
+       "code": "1X",
+       "prob": 0.9167,
+       "fair": 1.09
+      },
+      {
+       "league": "UECL",
+       "date": "2026-11-26",
+       "match": "Braga v KuPS Kuopio",
+       "home": "Braga",
+       "away": "KuPS Kuopio",
+       "pick": "Braga or draw",
+       "code": "1X",
+       "prob": 0.8968,
+       "fair": 1.12
+      },
+      {
+       "league": "SAUDI",
+       "date": "2026-11-27",
+       "match": "Al Qadsiah v Al Fayha",
+       "home": "Al Qadsiah",
+       "away": "Al Fayha",
+       "pick": "Al Qadsiah or draw",
+       "code": "1X",
+       "prob": 0.8976,
+       "fair": 1.11
+      },
+      {
+       "league": "LALIGA",
+       "date": "2026-11-27",
+       "match": "Levante v Racing Santander",
+       "home": "Levante",
+       "away": "Racing Santander",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.8972,
+       "fair": 1.11
+      },
+      {
+       "league": "SAUDI",
+       "date": "2026-11-28",
+       "match": "Al Hazem v Al Nassr",
+       "home": "Al Hazem",
+       "away": "Al Nassr",
+       "pick": "Al Nassr or draw",
+       "code": "X2",
+       "prob": 0.8889,
+       "fair": 1.12
+      },
+      {
+       "league": "BUNDESLIGA",
+       "date": "2026-11-28",
+       "match": "SC Paderborn 07 v Schalke 04",
+       "home": "SC Paderborn 07",
+       "away": "Schalke 04",
+       "pick": "Under 3.5 goals",
+       "code": "U3.5",
+       "prob": 0.9116,
+       "fair": 1.1
+      },
+      {
+       "league": "BUNDESLIGA",
+       "date": "2026-11-28",
+       "match": "Hamburg SV v Bayern Munich",
+       "home": "Hamburg SV",
+       "away": "Bayern Munich",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.9093,
+       "fair": 1.1
+      },
+      {
+       "league": "SOUTHAFRICA",
+       "date": "2026-11-28",
+       "match": "Kruger United v Mamelodi Sundowns",
+       "home": "Kruger United",
+       "away": "Mamelodi Sundowns",
+       "pick": "Mamelodi Sundowns or draw",
+       "code": "X2",
+       "prob": 0.9137,
+       "fair": 1.09
+      },
+      {
+       "league": "EREDIVISIE",
+       "date": "2026-11-28",
+       "match": "PSV Eindhoven v Go Ahead Eagles",
+       "home": "PSV Eindhoven",
+       "away": "Go Ahead Eagles",
+       "pick": "PSV Eindhoven or draw",
+       "code": "1X",
+       "prob": 0.9028,
+       "fair": 1.11
+      },
+      {
+       "league": "EREDIVISIE",
+       "date": "2026-11-28",
+       "match": "SC Cambuur v Sparta Rotterdam",
+       "home": "SC Cambuur",
+       "away": "Sparta Rotterdam",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.9069,
+       "fair": 1.1
+      },
+      {
+       "league": "LALIGA",
+       "date": "2026-11-28",
+       "match": "Real Madrid v Alavés",
+       "home": "Real Madrid",
+       "away": "Alavés",
+       "pick": "Real Madrid or draw",
+       "code": "1X",
+       "prob": 0.906,
+       "fair": 1.1
+      },
+      {
+       "league": "NORWAY",
+       "date": "2026-11-29",
+       "match": "Viking FK v Vålerenga",
+       "home": "Viking FK",
+       "away": "Vålerenga",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.9156,
+       "fair": 1.09
+      }
+     ],
+     "check": {
+      "geo_mean": 0.9041,
+      "max_legs": 16,
+      "within_rule": false,
+      "near_miss": 0.2971
+     }
+    },
+    {
+     "prob": 0.1457,
+     "fair": 6.86,
+     "legs": [
+      {
+       "league": "TURKEY",
+       "date": "2026-11-23",
+       "match": "Istanbul Basaksehir v Çorum FK",
+       "home": "Istanbul Basaksehir",
+       "away": "Çorum FK",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.891,
+       "fair": 1.12
+      },
+      {
+       "league": "ACLE",
+       "date": "2026-11-24",
+       "match": "Newcastle Jets v Kashiwa Reysol",
+       "home": "Newcastle Jets",
+       "away": "Kashiwa Reysol",
+       "pick": "Kashiwa Reysol or draw",
+       "code": "X2",
+       "prob": 0.8993,
+       "fair": 1.11
+      },
+      {
+       "league": "ACLE",
+       "date": "2026-11-24",
+       "match": "Al Nassr v Al Sadd",
+       "home": "Al Nassr",
+       "away": "Al Sadd",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.893,
+       "fair": 1.12
+      },
+      {
+       "league": "UCL",
+       "date": "2026-11-24",
+       "match": "Slovan Bratislava v Real Betis",
+       "home": "Slovan Bratislava",
+       "away": "Real Betis",
+       "pick": "Real Betis or draw",
+       "code": "X2",
+       "prob": 0.9184,
+       "fair": 1.09
+      },
+      {
+       "league": "UCL",
+       "date": "2026-11-24",
+       "match": "Real Madrid v PSV Eindhoven",
+       "home": "Real Madrid",
+       "away": "PSV Eindhoven",
+       "pick": "Over 1.5 goals",
+       "code": "O1.5",
+       "prob": 0.9172,
+       "fair": 1.09
+      },
+      {
+       "league": "UEL",
+       "date": "2026-11-26",
+       "match": "Union St.-Gilloise v Lech Poznan",
+       "home": "Union St.-Gilloise",
+       "away": "Lech Poznan",
+       "pick": "Union St.-Gilloise or draw",
+       "code": "1X",
+       "prob": 0.9183,
+       "fair": 1.09
+      },
+      {
+       "league": "UECL",
+       "date": "2026-11-26",
+       "match": "Iberia 1999 v Getafe",
+       "home": "Iberia 1999",
+       "away": "Getafe",
+       "pick": "Under 3.5 goals",
+       "code": "U3.5",
+       "prob": 0.8792,
+       "fair": 1.14
       },
       {
        "league": "UEL",
@@ -54985,225 +55416,15 @@
        "fair": 1.11
       },
       {
-       "league": "EREDIVISIE",
+       "league": "LIGUE1",
        "date": "2026-11-28",
-       "match": "SC Cambuur v Sparta Rotterdam",
-       "home": "SC Cambuur",
-       "away": "Sparta Rotterdam",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.9069,
-       "fair": 1.1
-      },
-      {
-       "league": "LALIGA",
-       "date": "2026-11-28",
-       "match": "Real Madrid v Alavés",
-       "home": "Real Madrid",
-       "away": "Alavés",
-       "pick": "Real Madrid or draw",
+       "match": "Paris Saint-Germain v Lorient",
+       "home": "Paris Saint-Germain",
+       "away": "Lorient",
+       "pick": "Paris Saint-Germain or draw",
        "code": "1X",
-       "prob": 0.906,
-       "fair": 1.1
-      },
-      {
-       "league": "NORWAY",
-       "date": "2026-11-29",
-       "match": "Viking FK v Vålerenga",
-       "home": "Viking FK",
-       "away": "Vålerenga",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.9156,
-       "fair": 1.09
-      }
-     ],
-     "check": {
-      "geo_mean": 0.9069,
-      "max_legs": 16,
-      "within_rule": false,
-      "near_miss": 0.3049
-     }
-    },
-    {
-     "prob": 0.15596,
-     "fair": 6.41,
-     "legs": [
-      {
-       "league": "TURKEY",
-       "date": "2026-11-23",
-       "match": "Istanbul Basaksehir v Çorum FK",
-       "home": "Istanbul Basaksehir",
-       "away": "Çorum FK",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.891,
-       "fair": 1.12
-      },
-      {
-       "league": "ACLE",
-       "date": "2026-11-24",
-       "match": "Newcastle Jets v Kashiwa Reysol",
-       "home": "Newcastle Jets",
-       "away": "Kashiwa Reysol",
-       "pick": "Kashiwa Reysol or draw",
-       "code": "X2",
-       "prob": 0.8993,
-       "fair": 1.11
-      },
-      {
-       "league": "UCL",
-       "date": "2026-11-24",
-       "match": "Bodo/Glimt v LASK Linz",
-       "home": "Bodo/Glimt",
-       "away": "LASK Linz",
-       "pick": "Bodo/Glimt or draw",
-       "code": "1X",
-       "prob": 0.9078,
-       "fair": 1.1
-      },
-      {
-       "league": "UCL",
-       "date": "2026-11-24",
-       "match": "Slovan Bratislava v Real Betis",
-       "home": "Slovan Bratislava",
-       "away": "Real Betis",
-       "pick": "Real Betis or draw",
-       "code": "X2",
-       "prob": 0.9184,
-       "fair": 1.09
-      },
-      {
-       "league": "UCL",
-       "date": "2026-11-24",
-       "match": "Real Madrid v PSV Eindhoven",
-       "home": "Real Madrid",
-       "away": "PSV Eindhoven",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.9172,
-       "fair": 1.09
-      },
-      {
-       "league": "UEL",
-       "date": "2026-11-26",
-       "match": "Union St.-Gilloise v Lech Poznan",
-       "home": "Union St.-Gilloise",
-       "away": "Lech Poznan",
-       "pick": "Union St.-Gilloise or draw",
-       "code": "1X",
-       "prob": 0.9183,
-       "fair": 1.09
-      },
-      {
-       "league": "UEL",
-       "date": "2026-11-26",
-       "match": "Besiktas v Hapoel Be'er",
-       "home": "Besiktas",
-       "away": "Hapoel Be'er",
-       "pick": "Besiktas or draw",
-       "code": "1X",
-       "prob": 0.9047,
-       "fair": 1.11
-      },
-      {
-       "league": "UEL",
-       "date": "2026-11-26",
-       "match": "RB Salzburg v Ararat-Armenia",
-       "home": "RB Salzburg",
-       "away": "Ararat-Armenia",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.8996,
-       "fair": 1.11
-      },
-      {
-       "league": "UEL",
-       "date": "2026-11-26",
-       "match": "Juventus v Omonia Nicosia",
-       "home": "Juventus",
-       "away": "Omonia Nicosia",
-       "pick": "Juventus or draw",
-       "code": "1X",
-       "prob": 0.9167,
-       "fair": 1.09
-      },
-      {
-       "league": "UECL",
-       "date": "2026-11-26",
-       "match": "Braga v KuPS Kuopio",
-       "home": "Braga",
-       "away": "KuPS Kuopio",
-       "pick": "Braga or draw",
-       "code": "1X",
-       "prob": 0.8968,
-       "fair": 1.12
-      },
-      {
-       "league": "SAUDI",
-       "date": "2026-11-27",
-       "match": "Al Qadsiah v Al Fayha",
-       "home": "Al Qadsiah",
-       "away": "Al Fayha",
-       "pick": "Al Qadsiah or draw",
-       "code": "1X",
-       "prob": 0.8976,
-       "fair": 1.11
-      },
-      {
-       "league": "LALIGA",
-       "date": "2026-11-27",
-       "match": "Levante v Racing Santander",
-       "home": "Levante",
-       "away": "Racing Santander",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.8972,
-       "fair": 1.11
-      },
-      {
-       "league": "BUNDESLIGA",
-       "date": "2026-11-28",
-       "match": "SC Paderborn 07 v Schalke 04",
-       "home": "SC Paderborn 07",
-       "away": "Schalke 04",
-       "pick": "Under 3.5 goals",
-       "code": "U3.5",
-       "prob": 0.9116,
-       "fair": 1.1
-      },
-      {
-       "league": "BUNDESLIGA",
-       "date": "2026-11-28",
-       "match": "Hamburg SV v Bayern Munich",
-       "home": "Hamburg SV",
-       "away": "Bayern Munich",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.9093,
-       "fair": 1.1
-      },
-      {
-       "league": "SOUTHAFRICA",
-       "date": "2026-11-28",
-       "match": "Kruger United v Mamelodi Sundowns",
-       "home": "Kruger United",
-       "away": "Mamelodi Sundowns",
-       "pick": "Mamelodi Sundowns or draw",
-       "code": "X2",
-       "prob": 0.9137,
-       "fair": 1.09
-      },
-      {
-       "league": "EREDIVISIE",
-       "date": "2026-11-28",
-       "match": "PSV Eindhoven v Go Ahead Eagles",
-       "home": "PSV Eindhoven",
-       "away": "Go Ahead Eagles",
-       "pick": "PSV Eindhoven or draw",
-       "code": "1X",
-       "prob": 0.9028,
-       "fair": 1.11
+       "prob": 0.8791,
+       "fair": 1.14
       },
       {
        "league": "EREDIVISIE",
@@ -55240,231 +55461,10 @@
       }
      ],
      "check": {
-      "geo_mean": 0.9068,
+      "geo_mean": 0.9036,
       "max_legs": 16,
       "within_rule": false,
-      "near_miss": 0.3046
-     }
-    },
-    {
-     "prob": 0.15473,
-     "fair": 6.46,
-     "legs": [
-      {
-       "league": "TURKEY",
-       "date": "2026-11-23",
-       "match": "Istanbul Basaksehir v Çorum FK",
-       "home": "Istanbul Basaksehir",
-       "away": "Çorum FK",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.891,
-       "fair": 1.12
-      },
-      {
-       "league": "ACLE",
-       "date": "2026-11-24",
-       "match": "Newcastle Jets v Kashiwa Reysol",
-       "home": "Newcastle Jets",
-       "away": "Kashiwa Reysol",
-       "pick": "Kashiwa Reysol or draw",
-       "code": "X2",
-       "prob": 0.8993,
-       "fair": 1.11
-      },
-      {
-       "league": "UCL",
-       "date": "2026-11-24",
-       "match": "Bodo/Glimt v LASK Linz",
-       "home": "Bodo/Glimt",
-       "away": "LASK Linz",
-       "pick": "Bodo/Glimt or draw",
-       "code": "1X",
-       "prob": 0.9078,
-       "fair": 1.1
-      },
-      {
-       "league": "UCL",
-       "date": "2026-11-24",
-       "match": "Slovan Bratislava v Real Betis",
-       "home": "Slovan Bratislava",
-       "away": "Real Betis",
-       "pick": "Real Betis or draw",
-       "code": "X2",
-       "prob": 0.9184,
-       "fair": 1.09
-      },
-      {
-       "league": "UCL",
-       "date": "2026-11-24",
-       "match": "Real Madrid v PSV Eindhoven",
-       "home": "Real Madrid",
-       "away": "PSV Eindhoven",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.9172,
-       "fair": 1.09
-      },
-      {
-       "league": "UCL",
-       "date": "2026-11-25",
-       "match": "Sabah FK v Barcelona",
-       "home": "Sabah FK",
-       "away": "Barcelona",
-       "pick": "Barcelona over 1.5 goals",
-       "code": "AO1.5",
-       "prob": 0.8897,
-       "fair": 1.12
-      },
-      {
-       "league": "UEL",
-       "date": "2026-11-26",
-       "match": "Union St.-Gilloise v Lech Poznan",
-       "home": "Union St.-Gilloise",
-       "away": "Lech Poznan",
-       "pick": "Union St.-Gilloise or draw",
-       "code": "1X",
-       "prob": 0.9183,
-       "fair": 1.09
-      },
-      {
-       "league": "UEL",
-       "date": "2026-11-26",
-       "match": "Besiktas v Hapoel Be'er",
-       "home": "Besiktas",
-       "away": "Hapoel Be'er",
-       "pick": "Besiktas or draw",
-       "code": "1X",
-       "prob": 0.9047,
-       "fair": 1.11
-      },
-      {
-       "league": "UEL",
-       "date": "2026-11-26",
-       "match": "RB Salzburg v Ararat-Armenia",
-       "home": "RB Salzburg",
-       "away": "Ararat-Armenia",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.8996,
-       "fair": 1.11
-      },
-      {
-       "league": "UEL",
-       "date": "2026-11-26",
-       "match": "Juventus v Omonia Nicosia",
-       "home": "Juventus",
-       "away": "Omonia Nicosia",
-       "pick": "Juventus or draw",
-       "code": "1X",
-       "prob": 0.9167,
-       "fair": 1.09
-      },
-      {
-       "league": "SAUDI",
-       "date": "2026-11-27",
-       "match": "Al Qadsiah v Al Fayha",
-       "home": "Al Qadsiah",
-       "away": "Al Fayha",
-       "pick": "Al Qadsiah or draw",
-       "code": "1X",
-       "prob": 0.8976,
-       "fair": 1.11
-      },
-      {
-       "league": "LALIGA",
-       "date": "2026-11-27",
-       "match": "Levante v Racing Santander",
-       "home": "Levante",
-       "away": "Racing Santander",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.8972,
-       "fair": 1.11
-      },
-      {
-       "league": "BUNDESLIGA",
-       "date": "2026-11-28",
-       "match": "SC Paderborn 07 v Schalke 04",
-       "home": "SC Paderborn 07",
-       "away": "Schalke 04",
-       "pick": "Under 3.5 goals",
-       "code": "U3.5",
-       "prob": 0.9116,
-       "fair": 1.1
-      },
-      {
-       "league": "BUNDESLIGA",
-       "date": "2026-11-28",
-       "match": "Hamburg SV v Bayern Munich",
-       "home": "Hamburg SV",
-       "away": "Bayern Munich",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.9093,
-       "fair": 1.1
-      },
-      {
-       "league": "SOUTHAFRICA",
-       "date": "2026-11-28",
-       "match": "Kruger United v Mamelodi Sundowns",
-       "home": "Kruger United",
-       "away": "Mamelodi Sundowns",
-       "pick": "Mamelodi Sundowns or draw",
-       "code": "X2",
-       "prob": 0.9137,
-       "fair": 1.09
-      },
-      {
-       "league": "EREDIVISIE",
-       "date": "2026-11-28",
-       "match": "PSV Eindhoven v Go Ahead Eagles",
-       "home": "PSV Eindhoven",
-       "away": "Go Ahead Eagles",
-       "pick": "PSV Eindhoven or draw",
-       "code": "1X",
-       "prob": 0.9028,
-       "fair": 1.11
-      },
-      {
-       "league": "EREDIVISIE",
-       "date": "2026-11-28",
-       "match": "SC Cambuur v Sparta Rotterdam",
-       "home": "SC Cambuur",
-       "away": "Sparta Rotterdam",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.9069,
-       "fair": 1.1
-      },
-      {
-       "league": "LALIGA",
-       "date": "2026-11-28",
-       "match": "Real Madrid v Alavés",
-       "home": "Real Madrid",
-       "away": "Alavés",
-       "pick": "Real Madrid or draw",
-       "code": "1X",
-       "prob": 0.906,
-       "fair": 1.1
-      },
-      {
-       "league": "NORWAY",
-       "date": "2026-11-29",
-       "match": "Viking FK v Vålerenga",
-       "home": "Viking FK",
-       "away": "Vålerenga",
-       "pick": "Over 1.5 goals",
-       "code": "O1.5",
-       "prob": 0.9156,
-       "fair": 1.09
-      }
-     ],
-     "check": {
-      "geo_mean": 0.9065,
-      "max_legs": 16,
-      "within_rule": false,
-      "near_miss": 0.3035
+      "near_miss": 0.2956
      }
     }
    ]
@@ -55708,6 +55708,1126 @@
       "max_legs": 6,
       "within_rule": true,
       "near_miss": 0.4253
+     }
+    }
+   ]
+  }
+ ],
+ "mismatches": [
+  {
+   "team": "Barcelona",
+   "opponent": "Sabah FK",
+   "home": false,
+   "league": "UCL",
+   "date": "2026-11-25",
+   "prob": 0.881,
+   "fair": 1.14,
+   "loser_prob": 0.0402,
+   "draw_prob": 0.0787,
+   "form": "LWWWW",
+   "loser_form": "LWLL",
+   "capped": false
+  },
+  {
+   "team": "Brighton & Hove Albion",
+   "opponent": "CSU Craiova",
+   "home": true,
+   "league": "UECL",
+   "date": "2026-11-26",
+   "prob": 0.8128,
+   "fair": 1.23,
+   "loser_prob": 0.0576,
+   "draw_prob": 0.1296,
+   "form": "LWWWL",
+   "loser_form": "LLDWW",
+   "capped": false
+  },
+  {
+   "team": "Fenerbahce",
+   "opponent": "Erzurum BB",
+   "home": true,
+   "league": "TURKEY",
+   "date": "2026-11-29",
+   "prob": 0.805,
+   "fair": 1.24,
+   "loser_prob": 0.0598,
+   "draw_prob": 0.1352,
+   "form": "WLLWD",
+   "loser_form": "WWLLL",
+   "capped": false
+  },
+  {
+   "team": "AS Roma",
+   "opponent": "Monza",
+   "home": true,
+   "league": "SERIEA",
+   "date": "2026-11-29",
+   "prob": 0.7901,
+   "fair": 1.27,
+   "loser_prob": 0.0754,
+   "draw_prob": 0.1344,
+   "form": "DWWWW",
+   "loser_form": "WLLLL",
+   "capped": false
+  },
+  {
+   "team": "Bodo/Glimt",
+   "opponent": "KFUM Oslo",
+   "home": true,
+   "league": "NORWAY",
+   "date": "2026-11-28",
+   "prob": 0.7856,
+   "fair": 1.27,
+   "loser_prob": 0.0788,
+   "draw_prob": 0.1356,
+   "form": "WLWWW",
+   "loser_form": "DDDLL",
+   "capped": false
+  },
+  {
+   "team": "Lyon",
+   "opponent": "Lillestrom",
+   "home": true,
+   "league": "UEL",
+   "date": "2026-11-26",
+   "prob": 0.7847,
+   "fair": 1.27,
+   "loser_prob": 0.0736,
+   "draw_prob": 0.1417,
+   "form": "LWDLW",
+   "loser_form": "WWLWW",
+   "capped": false
+  },
+  {
+   "team": "PSV Eindhoven",
+   "opponent": "Go Ahead Eagles",
+   "home": true,
+   "league": "EREDIVISIE",
+   "date": "2026-11-28",
+   "prob": 0.7731,
+   "fair": 1.29,
+   "loser_prob": 0.0972,
+   "draw_prob": 0.1297,
+   "form": "LDWWW",
+   "loser_form": "LWLWL",
+   "capped": false
+  },
+  {
+   "team": "Bodo/Glimt",
+   "opponent": "LASK Linz",
+   "home": true,
+   "league": "UCL",
+   "date": "2026-11-24",
+   "prob": 0.7713,
+   "fair": 1.3,
+   "loser_prob": 0.0922,
+   "draw_prob": 0.1364,
+   "form": "LWDWW",
+   "loser_form": "LWWWW",
+   "capped": false
+  },
+  {
+   "team": "Kashiwa Reysol",
+   "opponent": "Newcastle Jets",
+   "home": false,
+   "league": "ACLE",
+   "date": "2026-11-24",
+   "prob": 0.7712,
+   "fair": 1.3,
+   "loser_prob": 0.1007,
+   "draw_prob": 0.1281,
+   "form": "DWWWL",
+   "loser_form": "LLLL",
+   "capped": false
+  },
+  {
+   "team": "Real Betis",
+   "opponent": "Slovan Bratislava",
+   "home": false,
+   "league": "UCL",
+   "date": "2026-11-24",
+   "prob": 0.7673,
+   "fair": 1.3,
+   "loser_prob": 0.0816,
+   "draw_prob": 0.1511,
+   "form": "DWLWD",
+   "loser_form": "WLLLL",
+   "capped": false
+  },
+  {
+   "team": "Bayern Munich",
+   "opponent": "Hamburg SV",
+   "home": false,
+   "league": "BUNDESLIGA",
+   "date": "2026-11-28",
+   "prob": 0.7672,
+   "fair": 1.3,
+   "loser_prob": 0.0937,
+   "draw_prob": 0.1391,
+   "form": "WWDWD",
+   "loser_form": "WLLWL",
+   "capped": false
+  },
+  {
+   "team": "Union St.-Gilloise",
+   "opponent": "Lech Poznan",
+   "home": true,
+   "league": "UEL",
+   "date": "2026-11-26",
+   "prob": 0.7574,
+   "fair": 1.32,
+   "loser_prob": 0.0817,
+   "draw_prob": 0.1609,
+   "form": "WWWWW",
+   "loser_form": "WLLDL",
+   "capped": false
+  },
+  {
+   "team": "Viking FK",
+   "opponent": "Vålerenga",
+   "home": true,
+   "league": "NORWAY",
+   "date": "2026-11-29",
+   "prob": 0.7566,
+   "fair": 1.32,
+   "loser_prob": 0.1058,
+   "draw_prob": 0.1376,
+   "form": "WWLWL",
+   "loser_form": "WWWLL",
+   "capped": false
+  },
+  {
+   "team": "Juventus",
+   "opponent": "Omonia Nicosia",
+   "home": true,
+   "league": "UEL",
+   "date": "2026-11-26",
+   "prob": 0.7419,
+   "fair": 1.35,
+   "loser_prob": 0.0833,
+   "draw_prob": 0.1749,
+   "form": "LWWDW",
+   "loser_form": "LWWLL",
+   "capped": false
+  },
+  {
+   "team": "Real Madrid",
+   "opponent": "Alavés",
+   "home": true,
+   "league": "LALIGA",
+   "date": "2026-11-28",
+   "prob": 0.7402,
+   "fair": 1.35,
+   "loser_prob": 0.094,
+   "draw_prob": 0.1659,
+   "form": "WWWWW",
+   "loser_form": "LDLDW",
+   "capped": false
+  }
+ ],
+ "league_best": [
+  {
+   "team": "Barcelona",
+   "opponent": "Sabah FK",
+   "home": false,
+   "league": "UCL",
+   "date": "2026-11-25",
+   "prob": 0.881,
+   "fair": 1.14,
+   "loser_prob": 0.0402,
+   "draw_prob": 0.0787,
+   "form": "LWWWW",
+   "loser_form": "LWLL",
+   "capped": false
+  },
+  {
+   "team": "Brighton & Hove Albion",
+   "opponent": "CSU Craiova",
+   "home": true,
+   "league": "UECL",
+   "date": "2026-11-26",
+   "prob": 0.8128,
+   "fair": 1.23,
+   "loser_prob": 0.0576,
+   "draw_prob": 0.1296,
+   "form": "LWWWL",
+   "loser_form": "LLDWW",
+   "capped": false
+  },
+  {
+   "team": "Fenerbahce",
+   "opponent": "Erzurum BB",
+   "home": true,
+   "league": "TURKEY",
+   "date": "2026-11-29",
+   "prob": 0.805,
+   "fair": 1.24,
+   "loser_prob": 0.0598,
+   "draw_prob": 0.1352,
+   "form": "WLLWD",
+   "loser_form": "WWLLL",
+   "capped": false
+  },
+  {
+   "team": "AS Roma",
+   "opponent": "Monza",
+   "home": true,
+   "league": "SERIEA",
+   "date": "2026-11-29",
+   "prob": 0.7901,
+   "fair": 1.27,
+   "loser_prob": 0.0754,
+   "draw_prob": 0.1344,
+   "form": "DWWWW",
+   "loser_form": "WLLLL",
+   "capped": false
+  },
+  {
+   "team": "Bodo/Glimt",
+   "opponent": "KFUM Oslo",
+   "home": true,
+   "league": "NORWAY",
+   "date": "2026-11-28",
+   "prob": 0.7856,
+   "fair": 1.27,
+   "loser_prob": 0.0788,
+   "draw_prob": 0.1356,
+   "form": "WLWWW",
+   "loser_form": "DDDLL",
+   "capped": false
+  },
+  {
+   "team": "Lyon",
+   "opponent": "Lillestrom",
+   "home": true,
+   "league": "UEL",
+   "date": "2026-11-26",
+   "prob": 0.7847,
+   "fair": 1.27,
+   "loser_prob": 0.0736,
+   "draw_prob": 0.1417,
+   "form": "LWDLW",
+   "loser_form": "WWLWW",
+   "capped": false
+  },
+  {
+   "team": "PSV Eindhoven",
+   "opponent": "Go Ahead Eagles",
+   "home": true,
+   "league": "EREDIVISIE",
+   "date": "2026-11-28",
+   "prob": 0.7731,
+   "fair": 1.29,
+   "loser_prob": 0.0972,
+   "draw_prob": 0.1297,
+   "form": "LDWWW",
+   "loser_form": "LWLWL",
+   "capped": false
+  },
+  {
+   "team": "Kashiwa Reysol",
+   "opponent": "Newcastle Jets",
+   "home": false,
+   "league": "ACLE",
+   "date": "2026-11-24",
+   "prob": 0.7712,
+   "fair": 1.3,
+   "loser_prob": 0.1007,
+   "draw_prob": 0.1281,
+   "form": "DWWWL",
+   "loser_form": "LLLL",
+   "capped": false
+  },
+  {
+   "team": "Bayern Munich",
+   "opponent": "Hamburg SV",
+   "home": false,
+   "league": "BUNDESLIGA",
+   "date": "2026-11-28",
+   "prob": 0.7672,
+   "fair": 1.3,
+   "loser_prob": 0.0937,
+   "draw_prob": 0.1391,
+   "form": "WWDWD",
+   "loser_form": "WLLWL",
+   "capped": false
+  },
+  {
+   "team": "Real Madrid",
+   "opponent": "Alavés",
+   "home": true,
+   "league": "LALIGA",
+   "date": "2026-11-28",
+   "prob": 0.7402,
+   "fair": 1.35,
+   "loser_prob": 0.094,
+   "draw_prob": 0.1659,
+   "form": "WWWWW",
+   "loser_form": "LDLDW",
+   "capped": false
+  },
+  {
+   "team": "Mamelodi Sundowns",
+   "opponent": "Kruger United",
+   "home": false,
+   "league": "SOUTHAFRICA",
+   "date": "2026-11-28",
+   "prob": 0.7306,
+   "fair": 1.37,
+   "loser_prob": 0.0863,
+   "draw_prob": 0.1831,
+   "form": "WWDWW",
+   "loser_form": "LWLWW",
+   "capped": false
+  },
+  {
+   "team": "Colo Colo",
+   "opponent": "La Serena",
+   "home": true,
+   "league": "CHILE",
+   "date": "2026-11-28",
+   "prob": 0.7206,
+   "fair": 1.39,
+   "loser_prob": 0.1395,
+   "draw_prob": 0.1399,
+   "form": "DLDWW",
+   "loser_form": "LLWDW",
+   "capped": false
+  },
+  {
+   "team": "Al Qadsiah",
+   "opponent": "Al Fayha",
+   "home": true,
+   "league": "SAUDI",
+   "date": "2026-11-27",
+   "prob": 0.7138,
+   "fair": 1.4,
+   "loser_prob": 0.1024,
+   "draw_prob": 0.1837,
+   "form": "WWWLW",
+   "loser_form": "DLLDW",
+   "capped": false
+  },
+  {
+   "team": "Rangers",
+   "opponent": "Aberdeen",
+   "home": true,
+   "league": "SCOTLAND",
+   "date": "2026-11-24",
+   "prob": 0.6977,
+   "fair": 1.43,
+   "loser_prob": 0.1244,
+   "draw_prob": 0.1779,
+   "form": "DWDWW",
+   "loser_form": "WLLLW",
+   "capped": false
+  },
+  {
+   "team": "Paris Saint-Germain",
+   "opponent": "Lorient",
+   "home": true,
+   "league": "LIGUE1",
+   "date": "2026-11-28",
+   "prob": 0.6931,
+   "fair": 1.44,
+   "loser_prob": 0.1209,
+   "draw_prob": 0.186,
+   "form": "WWWWW",
+   "loser_form": "WDLWD",
+   "capped": false
+  },
+  {
+   "team": "Palmeiras",
+   "opponent": "Chapecoense",
+   "home": false,
+   "league": "BRAZIL",
+   "date": "2026-11-24",
+   "prob": 0.6787,
+   "fair": 1.47,
+   "loser_prob": 0.1218,
+   "draw_prob": 0.1994,
+   "form": "WDWLD",
+   "loser_form": "LLLLL",
+   "capped": false
+  },
+  {
+   "team": "SK Sturm Graz",
+   "opponent": "WSG Swarovski Tirol",
+   "home": true,
+   "league": "AUSTRIA",
+   "date": "2026-11-29",
+   "prob": 0.6754,
+   "fair": 1.48,
+   "loser_prob": 0.1221,
+   "draw_prob": 0.2025,
+   "form": "WDDLL",
+   "loser_form": "WDLDL",
+   "capped": false
+  },
+  {
+   "team": "1. FC Magdeburg",
+   "opponent": "Energie Cottbus",
+   "home": true,
+   "league": "BUNDESLIGA2",
+   "date": "2026-11-29",
+   "prob": 0.6591,
+   "fair": 1.52,
+   "loser_prob": 0.161,
+   "draw_prob": 0.1798,
+   "form": "LWDWW",
+   "loser_form": "DDLDL",
+   "capped": false
+  },
+  {
+   "team": "Hammarby IF",
+   "opponent": "IFK Göteborg",
+   "home": true,
+   "league": "SWEDEN",
+   "date": "2026-11-23",
+   "prob": 0.6588,
+   "fair": 1.52,
+   "loser_prob": 0.1332,
+   "draw_prob": 0.208,
+   "form": "WWWWW",
+   "loser_form": "DDDLD",
+   "capped": false
+  },
+  {
+   "team": "Royal Charleroi SC",
+   "opponent": "Waasland-Beveren",
+   "home": true,
+   "league": "BELGIUM",
+   "date": "2026-11-28",
+   "prob": 0.6565,
+   "fair": 1.52,
+   "loser_prob": 0.1492,
+   "draw_prob": 0.1943,
+   "form": "WLWWD",
+   "loser_form": "LDLLW",
+   "capped": false
+  },
+  {
+   "team": "Granada",
+   "opponent": "Ceuta",
+   "home": true,
+   "league": "LALIGA2",
+   "date": "2026-11-29",
+   "prob": 0.6293,
+   "fair": 1.59,
+   "loser_prob": 0.1629,
+   "draw_prob": 0.2078,
+   "form": "WWWWD",
+   "loser_form": "LLLLL",
+   "capped": false
+  },
+  {
+   "team": "Birmingham City",
+   "opponent": "Bolton Wanderers",
+   "home": true,
+   "league": "CHAMPIONSHIP",
+   "date": "2026-11-28",
+   "prob": 0.6252,
+   "fair": 1.6,
+   "loser_prob": 0.1631,
+   "draw_prob": 0.2117,
+   "form": "LWWWL",
+   "loser_form": "LLWLD",
+   "capped": false
+  },
+  {
+   "team": "Vancouver Whitecaps",
+   "opponent": "Real Salt Lake",
+   "home": true,
+   "league": "MLS",
+   "date": "2026-11-23",
+   "prob": 0.617,
+   "fair": 1.62,
+   "loser_prob": 0.1697,
+   "draw_prob": 0.2133,
+   "form": "WLWWW",
+   "loser_form": "WWLWD",
+   "capped": false
+  },
+  {
+   "team": "Vissel Kobe",
+   "opponent": "JEF United Ichihara-Chiba",
+   "home": true,
+   "league": "JAPAN",
+   "date": "2026-11-28",
+   "prob": 0.6131,
+   "fair": 1.63,
+   "loser_prob": 0.1652,
+   "draw_prob": 0.2218,
+   "form": "LDWDL",
+   "loser_form": "LDWWW",
+   "capped": false
+  },
+  {
+   "team": "Wycombe Wanderers",
+   "opponent": "Bromley",
+   "home": false,
+   "league": "LEAGUEONE",
+   "date": "2026-11-24",
+   "prob": 0.5987,
+   "fair": 1.67,
+   "loser_prob": 0.1955,
+   "draw_prob": 0.2058,
+   "form": "WDDWL",
+   "loser_form": "LDLLW",
+   "capped": false
+  },
+  {
+   "team": "Barnet",
+   "opponent": "Rochdale",
+   "home": false,
+   "league": "LEAGUETWO",
+   "date": "2026-11-28",
+   "prob": 0.5931,
+   "fair": 1.69,
+   "loser_prob": 0.2029,
+   "draw_prob": 0.204,
+   "form": "LDWDW",
+   "loser_form": "DLLLL",
+   "capped": false
+  },
+  {
+   "team": "Mantova",
+   "opponent": "Arezzo",
+   "home": true,
+   "league": "SERIEB",
+   "date": "2026-11-25",
+   "prob": 0.5882,
+   "fair": 1.7,
+   "loser_prob": 0.1683,
+   "draw_prob": 0.2434,
+   "form": "WLDDL",
+   "loser_form": "LLDLD",
+   "capped": false
+  },
+  {
+   "team": "Palmeiras",
+   "opponent": "Estudiantes de La Plata",
+   "home": true,
+   "league": "LIBERTADORES",
+   "date": "2026-11-28",
+   "prob": 0.5807,
+   "fair": 1.72,
+   "loser_prob": 0.1659,
+   "draw_prob": 0.2534,
+   "form": "WDWLD",
+   "loser_form": "LDLDD",
+   "capped": false
+  },
+  {
+   "team": "Leeds United",
+   "opponent": "Coventry City",
+   "home": true,
+   "league": "EPL",
+   "date": "2026-11-28",
+   "prob": 0.5806,
+   "fair": 1.72,
+   "loser_prob": 0.183,
+   "draw_prob": 0.2364,
+   "form": "DDLWW",
+   "loser_form": "LLWLW",
+   "capped": false
+  },
+  {
+   "team": "Boca Juniors",
+   "opponent": "Independiente Rivadavia",
+   "home": true,
+   "league": "ARGENTINA",
+   "date": "2026-11-26",
+   "prob": 0.5698,
+   "fair": 1.75,
+   "loser_prob": 0.1721,
+   "draw_prob": 0.2581,
+   "form": "DWWWW",
+   "loser_form": "LDLWD",
+   "capped": false
+  },
+  {
+   "team": "Lokomotiv Moscow",
+   "opponent": "Dynamo Makhachkala",
+   "home": true,
+   "league": "RUSSIA",
+   "date": "2026-11-29",
+   "prob": 0.5676,
+   "fair": 1.76,
+   "loser_prob": 0.1767,
+   "draw_prob": 0.2556,
+   "form": "DLLLW",
+   "loser_form": "DLLWD",
+   "capped": false
+  },
+  {
+   "team": "Arouca",
+   "opponent": "Rio Ave",
+   "home": true,
+   "league": "PRIMEIRA",
+   "date": "2026-11-28",
+   "prob": 0.5351,
+   "fair": 1.87,
+   "loser_prob": 0.2417,
+   "draw_prob": 0.2231,
+   "form": "DWWWL",
+   "loser_form": "LWLLL",
+   "capped": false
+  }
+ ],
+ "world_tiers": [
+  {
+   "name": "World treble",
+   "note": "the best win from each of the 3 strongest leagues this week",
+   "legs_n": 3,
+   "target": 1.0,
+   "world": true,
+   "options": [
+    {
+     "prob": 0.5765,
+     "fair": 1.73,
+     "legs": [
+      {
+       "league": "UCL",
+       "date": "2026-11-25",
+       "match": "Sabah FK v Barcelona",
+       "home": "Sabah FK",
+       "away": "Barcelona",
+       "pick": "Barcelona win",
+       "code": "A",
+       "prob": 0.881,
+       "fair": 1.14
+      },
+      {
+       "league": "UECL",
+       "date": "2026-11-26",
+       "match": "Brighton & Hove Albion v CSU Craiova",
+       "home": "Brighton & Hove Albion",
+       "away": "CSU Craiova",
+       "pick": "Brighton & Hove Albion win",
+       "code": "H",
+       "prob": 0.8128,
+       "fair": 1.23
+      },
+      {
+       "league": "TURKEY",
+       "date": "2026-11-29",
+       "match": "Fenerbahce v Erzurum BB",
+       "home": "Fenerbahce",
+       "away": "Erzurum BB",
+       "pick": "Fenerbahce win",
+       "code": "H",
+       "prob": 0.805,
+       "fair": 1.24
+      }
+     ],
+     "check": {
+      "geo_mean": 0.8322,
+      "max_legs": 9,
+      "within_rule": true,
+      "near_miss": 0.3503
+     }
+    }
+   ]
+  },
+  {
+   "name": "World five-fold",
+   "note": "the best win from each of the 5 strongest leagues this week",
+   "legs_n": 5,
+   "target": 1.0,
+   "world": true,
+   "options": [
+    {
+     "prob": 0.3578,
+     "fair": 2.79,
+     "legs": [
+      {
+       "league": "UCL",
+       "date": "2026-11-25",
+       "match": "Sabah FK v Barcelona",
+       "home": "Sabah FK",
+       "away": "Barcelona",
+       "pick": "Barcelona win",
+       "code": "A",
+       "prob": 0.881,
+       "fair": 1.14
+      },
+      {
+       "league": "UECL",
+       "date": "2026-11-26",
+       "match": "Brighton & Hove Albion v CSU Craiova",
+       "home": "Brighton & Hove Albion",
+       "away": "CSU Craiova",
+       "pick": "Brighton & Hove Albion win",
+       "code": "H",
+       "prob": 0.8128,
+       "fair": 1.23
+      },
+      {
+       "league": "TURKEY",
+       "date": "2026-11-29",
+       "match": "Fenerbahce v Erzurum BB",
+       "home": "Fenerbahce",
+       "away": "Erzurum BB",
+       "pick": "Fenerbahce win",
+       "code": "H",
+       "prob": 0.805,
+       "fair": 1.24
+      },
+      {
+       "league": "SERIEA",
+       "date": "2026-11-29",
+       "match": "AS Roma v Monza",
+       "home": "AS Roma",
+       "away": "Monza",
+       "pick": "AS Roma win",
+       "code": "H",
+       "prob": 0.7901,
+       "fair": 1.27
+      },
+      {
+       "league": "NORWAY",
+       "date": "2026-11-28",
+       "match": "Bodo/Glimt v KFUM Oslo",
+       "home": "Bodo/Glimt",
+       "away": "KFUM Oslo",
+       "pick": "Bodo/Glimt win",
+       "code": "H",
+       "prob": 0.7856,
+       "fair": 1.27
+      }
+     ],
+     "check": {
+      "geo_mean": 0.8142,
+      "max_legs": 8,
+      "within_rule": true,
+      "near_miss": 0.4101
+     }
+    }
+   ]
+  },
+  {
+   "name": "World eight-fold",
+   "note": "the best win from each of the 8 strongest leagues this week",
+   "legs_n": 8,
+   "target": 1.0,
+   "world": true,
+   "options": [
+    {
+     "prob": 0.1674,
+     "fair": 5.97,
+     "legs": [
+      {
+       "league": "UCL",
+       "date": "2026-11-25",
+       "match": "Sabah FK v Barcelona",
+       "home": "Sabah FK",
+       "away": "Barcelona",
+       "pick": "Barcelona win",
+       "code": "A",
+       "prob": 0.881,
+       "fair": 1.14
+      },
+      {
+       "league": "UECL",
+       "date": "2026-11-26",
+       "match": "Brighton & Hove Albion v CSU Craiova",
+       "home": "Brighton & Hove Albion",
+       "away": "CSU Craiova",
+       "pick": "Brighton & Hove Albion win",
+       "code": "H",
+       "prob": 0.8128,
+       "fair": 1.23
+      },
+      {
+       "league": "TURKEY",
+       "date": "2026-11-29",
+       "match": "Fenerbahce v Erzurum BB",
+       "home": "Fenerbahce",
+       "away": "Erzurum BB",
+       "pick": "Fenerbahce win",
+       "code": "H",
+       "prob": 0.805,
+       "fair": 1.24
+      },
+      {
+       "league": "SERIEA",
+       "date": "2026-11-29",
+       "match": "AS Roma v Monza",
+       "home": "AS Roma",
+       "away": "Monza",
+       "pick": "AS Roma win",
+       "code": "H",
+       "prob": 0.7901,
+       "fair": 1.27
+      },
+      {
+       "league": "NORWAY",
+       "date": "2026-11-28",
+       "match": "Bodo/Glimt v KFUM Oslo",
+       "home": "Bodo/Glimt",
+       "away": "KFUM Oslo",
+       "pick": "Bodo/Glimt win",
+       "code": "H",
+       "prob": 0.7856,
+       "fair": 1.27
+      },
+      {
+       "league": "UEL",
+       "date": "2026-11-26",
+       "match": "Lyon v Lillestrom",
+       "home": "Lyon",
+       "away": "Lillestrom",
+       "pick": "Lyon win",
+       "code": "H",
+       "prob": 0.7847,
+       "fair": 1.27
+      },
+      {
+       "league": "EREDIVISIE",
+       "date": "2026-11-28",
+       "match": "PSV Eindhoven v Go Ahead Eagles",
+       "home": "PSV Eindhoven",
+       "away": "Go Ahead Eagles",
+       "pick": "PSV Eindhoven win",
+       "code": "H",
+       "prob": 0.7731,
+       "fair": 1.29
+      },
+      {
+       "league": "ACLE",
+       "date": "2026-11-24",
+       "match": "Newcastle Jets v Kashiwa Reysol",
+       "home": "Newcastle Jets",
+       "away": "Kashiwa Reysol",
+       "pick": "Kashiwa Reysol win",
+       "code": "A",
+       "prob": 0.7712,
+       "fair": 1.3
+      }
+     ],
+     "check": {
+      "geo_mean": 0.7998,
+      "max_legs": 7,
+      "within_rule": false,
+      "near_miss": 0.3366
+     }
+    }
+   ]
+  },
+  {
+   "name": "Big five",
+   "note": "best win in England, Spain, Italy, Germany and France",
+   "legs_n": 5,
+   "target": 1.0,
+   "world": true,
+   "options": [
+    {
+     "prob": 0.1805,
+     "fair": 5.54,
+     "legs": [
+      {
+       "league": "EPL",
+       "date": "2026-11-28",
+       "match": "Leeds United v Coventry City",
+       "home": "Leeds United",
+       "away": "Coventry City",
+       "pick": "Leeds United win",
+       "code": "H",
+       "prob": 0.5806,
+       "fair": 1.72
+      },
+      {
+       "league": "LALIGA",
+       "date": "2026-11-28",
+       "match": "Real Madrid v Alavés",
+       "home": "Real Madrid",
+       "away": "Alavés",
+       "pick": "Real Madrid win",
+       "code": "H",
+       "prob": 0.7402,
+       "fair": 1.35
+      },
+      {
+       "league": "SERIEA",
+       "date": "2026-11-29",
+       "match": "AS Roma v Monza",
+       "home": "AS Roma",
+       "away": "Monza",
+       "pick": "AS Roma win",
+       "code": "H",
+       "prob": 0.7901,
+       "fair": 1.27
+      },
+      {
+       "league": "BUNDESLIGA",
+       "date": "2026-11-28",
+       "match": "Hamburg SV v Bayern Munich",
+       "home": "Hamburg SV",
+       "away": "Bayern Munich",
+       "pick": "Bayern Munich win",
+       "code": "A",
+       "prob": 0.7672,
+       "fair": 1.3
+      },
+      {
+       "league": "LIGUE1",
+       "date": "2026-11-28",
+       "match": "Paris Saint-Germain v Lorient",
+       "home": "Paris Saint-Germain",
+       "away": "Lorient",
+       "pick": "Paris Saint-Germain win",
+       "code": "H",
+       "prob": 0.6931,
+       "fair": 1.44
+      }
+     ],
+     "check": {
+      "geo_mean": 0.7101,
+      "max_legs": 5,
+      "within_rule": true,
+      "near_miss": 0.3765
+     }
+    }
+   ]
+  },
+  {
+   "name": "League tour",
+   "note": "best win in Spain, Italy, France, the Champions League, Europa League and Saudi Pro League",
+   "legs_n": 6,
+   "target": 1.0,
+   "world": true,
+   "options": [
+    {
+     "prob": 0.2,
+     "fair": 5.0,
+     "legs": [
+      {
+       "league": "LALIGA",
+       "date": "2026-11-28",
+       "match": "Real Madrid v Alavés",
+       "home": "Real Madrid",
+       "away": "Alavés",
+       "pick": "Real Madrid win",
+       "code": "H",
+       "prob": 0.7402,
+       "fair": 1.35
+      },
+      {
+       "league": "SERIEA",
+       "date": "2026-11-29",
+       "match": "AS Roma v Monza",
+       "home": "AS Roma",
+       "away": "Monza",
+       "pick": "AS Roma win",
+       "code": "H",
+       "prob": 0.7901,
+       "fair": 1.27
+      },
+      {
+       "league": "LIGUE1",
+       "date": "2026-11-28",
+       "match": "Paris Saint-Germain v Lorient",
+       "home": "Paris Saint-Germain",
+       "away": "Lorient",
+       "pick": "Paris Saint-Germain win",
+       "code": "H",
+       "prob": 0.6931,
+       "fair": 1.44
+      },
+      {
+       "league": "UCL",
+       "date": "2026-11-25",
+       "match": "Sabah FK v Barcelona",
+       "home": "Sabah FK",
+       "away": "Barcelona",
+       "pick": "Barcelona win",
+       "code": "A",
+       "prob": 0.881,
+       "fair": 1.14
+      },
+      {
+       "league": "UEL",
+       "date": "2026-11-26",
+       "match": "Lyon v Lillestrom",
+       "home": "Lyon",
+       "away": "Lillestrom",
+       "pick": "Lyon win",
+       "code": "H",
+       "prob": 0.7847,
+       "fair": 1.27
+      },
+      {
+       "league": "SAUDI",
+       "date": "2026-11-27",
+       "match": "Al Qadsiah v Al Fayha",
+       "home": "Al Qadsiah",
+       "away": "Al Fayha",
+       "pick": "Al Qadsiah win",
+       "code": "H",
+       "prob": 0.7138,
+       "fair": 1.4
+      }
+     ],
+     "check": {
+      "geo_mean": 0.7647,
+      "max_legs": 6,
+      "within_rule": true,
+      "near_miss": 0.374
+     }
+    }
+   ]
+  },
+  {
+   "name": "European nights",
+   "note": "best win in each UEFA competition",
+   "legs_n": 3,
+   "target": 1.0,
+   "world": true,
+   "options": [
+    {
+     "prob": 0.5619,
+     "fair": 1.78,
+     "legs": [
+      {
+       "league": "UCL",
+       "date": "2026-11-25",
+       "match": "Sabah FK v Barcelona",
+       "home": "Sabah FK",
+       "away": "Barcelona",
+       "pick": "Barcelona win",
+       "code": "A",
+       "prob": 0.881,
+       "fair": 1.14
+      },
+      {
+       "league": "UEL",
+       "date": "2026-11-26",
+       "match": "Lyon v Lillestrom",
+       "home": "Lyon",
+       "away": "Lillestrom",
+       "pick": "Lyon win",
+       "code": "H",
+       "prob": 0.7847,
+       "fair": 1.27
+      },
+      {
+       "league": "UECL",
+       "date": "2026-11-26",
+       "match": "Brighton & Hove Albion v CSU Craiova",
+       "home": "Brighton & Hove Albion",
+       "away": "CSU Craiova",
+       "pick": "Brighton & Hove Albion win",
+       "code": "H",
+       "prob": 0.8128,
+       "fair": 1.23
+      }
+     ],
+     "check": {
+      "geo_mean": 0.8252,
+      "max_legs": 8,
+      "within_rule": true,
+      "near_miss": 0.3595
      }
     }
    ]
@@ -58526,9 +59646,9 @@
   ]
  },
  "league_marks": {
-  "DENMARK": [
-   "DK",
-   "#c8102e",
+  "AUSTRIA": [
+   "AT",
+   "#ed2939",
    "#ffffff"
   ],
   "RUSSIA": [
@@ -58536,99 +59656,44 @@
    "#0039a6",
    "#ffffff"
   ],
-  "BUNDESLIGA": [
-   "BL",
-   "#d20515",
-   "#ffffff"
+  "LIGUE1": [
+   "L1",
+   "#091c3e",
+   "#dae025"
   ],
-  "AUSTRIA": [
-   "AT",
-   "#ed2939",
-   "#ffffff"
-  ],
-  "LEAGUETWO": [
-   "L2",
-   "#1b1f4b",
-   "#00a3e0"
-  ],
-  "UEL": [
-   "UEL",
-   "#f26a21",
-   "#000000"
-  ],
-  "UECL": [
-   "UECL",
-   "#00be14",
-   "#000000"
-  ],
-  "SWEDEN": [
-   "SE",
-   "#006aa7",
-   "#fecc00"
-  ],
-  "SERIEA": [
-   "SA",
-   "#0b1f4d",
-   "#22c4ff"
-  ],
-  "SCOTLAND": [
-   "SC",
-   "#5b2c83",
-   "#ffffff"
-  ],
-  "JAPAN": [
-   "J1",
-   "#e60012",
-   "#ffffff"
-  ],
-  "ARGENTINA": [
-   "AR",
-   "#74acdf",
-   "#ffffff"
-  ],
-  "CHILE": [
-   "CL",
-   "#d52b1e",
-   "#ffffff"
+  "BRAZIL": [
+   "BR",
+   "#009c3b",
+   "#ffdf00"
   ],
   "LIBERTADORES": [
    "LIB",
    "#0f3b23",
    "#d4af37"
   ],
-  "EREDIVISIE": [
-   "ED",
-   "#e4002b",
+  "SCOTLAND": [
+   "SC",
+   "#5b2c83",
    "#ffffff"
+  ],
+  "UECL": [
+   "UECL",
+   "#00be14",
+   "#000000"
   ],
   "BUNDESLIGA2": [
    "B2",
    "#d20515",
    "#ffffff"
   ],
-  "UCL": [
-   "UCL",
-   "#0b1c5c",
+  "DENMARK": [
+   "DK",
+   "#c8102e",
    "#ffffff"
   ],
-  "NORWAY": [
-   "NO",
-   "#ba0c2f",
-   "#ffffff"
-  ],
-  "LIGUE2": [
-   "L2",
-   "#0b2a5b",
-   "#f5a623"
-  ],
-  "SAUDI": [
-   "SPL",
-   "#006c35",
-   "#ffffff"
-  ],
-  "LIGAMX": [
-   "MX",
-   "#006847",
+  "BUNDESLIGA": [
+   "BL",
+   "#d20515",
    "#ffffff"
   ],
   "SOUTHAFRICA": [
@@ -58636,45 +59701,20 @@
    "#007a4d",
    "#ffb612"
   ],
-  "MLS": [
-   "MLS",
-   "#001f5b",
-   "#ffffff"
-  ],
-  "LIGUE1": [
-   "L1",
-   "#091c3e",
-   "#dae025"
-  ],
-  "TURKEY": [
-   "TR",
-   "#e30a17",
-   "#ffffff"
-  ],
-  "CHAMPIONSHIP": [
-   "EFL",
-   "#1b1f4b",
-   "#ffd100"
-  ],
-  "LALIGA": [
-   "LL",
-   "#ff4b44",
-   "#ffffff"
-  ],
-  "ACLE": [
-   "ACL",
-   "#00205b",
-   "#c8a046"
-  ],
-  "EPL": [
-   "PL",
-   "#3d195b",
-   "#00ff85"
+  "SERIEA": [
+   "SA",
+   "#0b1f4d",
+   "#22c4ff"
   ],
   "BELGIUM": [
    "BE",
    "#000000",
    "#fdda24"
+  ],
+  "UCL": [
+   "UCL",
+   "#0b1c5c",
+   "#ffffff"
   ],
   "GREECE": [
    "GR",
@@ -58686,31 +59726,111 @@
    "#001e50",
    "#d4e600"
   ],
-  "BRAZIL": [
-   "BR",
-   "#009c3b",
-   "#ffdf00"
+  "EPL": [
+   "PL",
+   "#3d195b",
+   "#00ff85"
   ],
   "LEAGUEONE": [
    "L1",
    "#1b1f4b",
    "#e6007e"
   ],
-  "SERIEB": [
-   "SB",
-   "#1a8b3c",
+  "LALIGA": [
+   "LL",
+   "#ff4b44",
    "#ffffff"
   ],
   "LALIGA2": [
    "L2",
    "#ff8b00",
    "#ffffff"
+  ],
+  "JAPAN": [
+   "J1",
+   "#e60012",
+   "#ffffff"
+  ],
+  "TURKEY": [
+   "TR",
+   "#e30a17",
+   "#ffffff"
+  ],
+  "NORWAY": [
+   "NO",
+   "#ba0c2f",
+   "#ffffff"
+  ],
+  "ARGENTINA": [
+   "AR",
+   "#74acdf",
+   "#ffffff"
+  ],
+  "SAUDI": [
+   "SPL",
+   "#006c35",
+   "#ffffff"
+  ],
+  "LEAGUETWO": [
+   "L2",
+   "#1b1f4b",
+   "#00a3e0"
+  ],
+  "LIGAMX": [
+   "MX",
+   "#006847",
+   "#ffffff"
+  ],
+  "ACLE": [
+   "ACL",
+   "#00205b",
+   "#c8a046"
+  ],
+  "CHAMPIONSHIP": [
+   "EFL",
+   "#1b1f4b",
+   "#ffd100"
+  ],
+  "LIGUE2": [
+   "L2",
+   "#0b2a5b",
+   "#f5a623"
+  ],
+  "UEL": [
+   "UEL",
+   "#f26a21",
+   "#000000"
+  ],
+  "MLS": [
+   "MLS",
+   "#001f5b",
+   "#ffffff"
+  ],
+  "SERIEB": [
+   "SB",
+   "#1a8b3c",
+   "#ffffff"
+  ],
+  "EREDIVISIE": [
+   "ED",
+   "#e4002b",
+   "#ffffff"
+  ],
+  "SWEDEN": [
+   "SE",
+   "#006aa7",
+   "#fecc00"
+  ],
+  "CHILE": [
+   "CL",
+   "#d52b1e",
+   "#ffffff"
   ]
  },
  "league_names": {
-  "DENMARK": [
-   "Danish Superliga",
-   "Denmark",
+  "AUSTRIA": [
+   "Austrian Bundesliga",
+   "Austria",
    "Europe"
   ],
   "RUSSIA": [
@@ -58718,59 +59838,14 @@
    "Russia",
    "Europe"
   ],
-  "BUNDESLIGA": [
-   "Bundesliga",
-   "BuLi",
+  "LIGUE1": [
+   "Ligue 1",
+   "Ligue 1",
    "Europe"
   ],
-  "AUSTRIA": [
-   "Austrian Bundesliga",
-   "Austria",
-   "Europe"
-  ],
-  "LEAGUETWO": [
-   "League Two",
-   "L2 Eng",
-   "Europe"
-  ],
-  "UEL": [
-   "Europa League",
-   "UEL",
-   "Cups"
-  ],
-  "UECL": [
-   "Conference League",
-   "UECL",
-   "Cups"
-  ],
-  "SWEDEN": [
-   "Allsvenskan",
-   "Sweden",
-   "Europe"
-  ],
-  "SERIEA": [
-   "Serie A",
-   "Serie A",
-   "Europe"
-  ],
-  "SCOTLAND": [
-   "Scottish Premiership",
-   "Scotland",
-   "Europe"
-  ],
-  "JAPAN": [
-   "J1 League",
-   "Japan",
-   "Asia"
-  ],
-  "ARGENTINA": [
-   "Liga Profesional",
-   "Argentina",
-   "Americas"
-  ],
-  "CHILE": [
-   "Chilean Primera",
-   "Chile",
+  "BRAZIL": [
+   "Brasileirão",
+   "Brazil",
    "Americas"
   ],
   "LIBERTADORES": [
@@ -58778,85 +59853,50 @@
    "Libertadores",
    "Cups"
   ],
-  "EREDIVISIE": [
-   "Eredivisie",
-   "Eredivisie",
+  "SCOTLAND": [
+   "Scottish Premiership",
+   "Scotland",
    "Europe"
+  ],
+  "UECL": [
+   "Conference League",
+   "UECL",
+   "Cups"
   ],
   "BUNDESLIGA2": [
    "2. Bundesliga",
    "BuLi 2",
    "Europe"
   ],
-  "UCL": [
-   "Champions League",
-   "UCL",
-   "Cups"
-  ],
-  "NORWAY": [
-   "Eliteserien",
-   "Norway",
+  "DENMARK": [
+   "Danish Superliga",
+   "Denmark",
    "Europe"
   ],
-  "LIGUE2": [
-   "Ligue 2",
-   "Ligue 2",
+  "BUNDESLIGA": [
+   "Bundesliga",
+   "BuLi",
    "Europe"
-  ],
-  "SAUDI": [
-   "Saudi Pro League",
-   "Saudi",
-   "Asia"
-  ],
-  "LIGAMX": [
-   "Liga MX",
-   "Liga MX",
-   "Americas"
   ],
   "SOUTHAFRICA": [
    "SA Premiership",
    "S. Africa",
    "Africa"
   ],
-  "MLS": [
-   "MLS",
-   "MLS",
-   "Americas"
-  ],
-  "LIGUE1": [
-   "Ligue 1",
-   "Ligue 1",
-   "Europe"
-  ],
-  "TURKEY": [
-   "Süper Lig",
-   "Turkey",
-   "Europe"
-  ],
-  "CHAMPIONSHIP": [
-   "Championship",
-   "Champ",
-   "Europe"
-  ],
-  "LALIGA": [
-   "La Liga",
-   "LaLiga",
-   "Europe"
-  ],
-  "ACLE": [
-   "AFC Champions League Elite",
-   "ACL Elite",
-   "Cups"
-  ],
-  "EPL": [
-   "Premier League",
-   "EPL",
+  "SERIEA": [
+   "Serie A",
+   "Serie A",
    "Europe"
   ],
   "BELGIUM": [
    "Belgian Pro League",
    "Belgium",
    "Europe"
+  ],
+  "UCL": [
+   "Champions League",
+   "UCL",
+   "Cups"
   ],
   "GREECE": [
    "Greek Super League",
@@ -58868,25 +59908,105 @@
    "Portugal",
    "Europe"
   ],
-  "BRAZIL": [
-   "Brasileirão",
-   "Brazil",
-   "Americas"
+  "EPL": [
+   "Premier League",
+   "EPL",
+   "Europe"
   ],
   "LEAGUEONE": [
    "League One",
    "L1 Eng",
    "Europe"
   ],
-  "SERIEB": [
-   "Serie B",
-   "Serie B",
+  "LALIGA": [
+   "La Liga",
+   "LaLiga",
    "Europe"
   ],
   "LALIGA2": [
    "LaLiga 2",
    "LaLiga 2",
    "Europe"
+  ],
+  "JAPAN": [
+   "J1 League",
+   "Japan",
+   "Asia"
+  ],
+  "TURKEY": [
+   "Süper Lig",
+   "Turkey",
+   "Europe"
+  ],
+  "NORWAY": [
+   "Eliteserien",
+   "Norway",
+   "Europe"
+  ],
+  "ARGENTINA": [
+   "Liga Profesional",
+   "Argentina",
+   "Americas"
+  ],
+  "SAUDI": [
+   "Saudi Pro League",
+   "Saudi",
+   "Asia"
+  ],
+  "LEAGUETWO": [
+   "League Two",
+   "L2 Eng",
+   "Europe"
+  ],
+  "LIGAMX": [
+   "Liga MX",
+   "Liga MX",
+   "Americas"
+  ],
+  "ACLE": [
+   "AFC Champions League Elite",
+   "ACL Elite",
+   "Cups"
+  ],
+  "CHAMPIONSHIP": [
+   "Championship",
+   "Champ",
+   "Europe"
+  ],
+  "LIGUE2": [
+   "Ligue 2",
+   "Ligue 2",
+   "Europe"
+  ],
+  "UEL": [
+   "Europa League",
+   "UEL",
+   "Cups"
+  ],
+  "MLS": [
+   "MLS",
+   "MLS",
+   "Americas"
+  ],
+  "SERIEB": [
+   "Serie B",
+   "Serie B",
+   "Europe"
+  ],
+  "EREDIVISIE": [
+   "Eredivisie",
+   "Eredivisie",
+   "Europe"
+  ],
+  "SWEDEN": [
+   "Allsvenskan",
+   "Sweden",
+   "Europe"
+  ],
+  "CHILE": [
+   "Chilean Primera",
+   "Chile",
+   "Americas"
   ]
  },
  "low_confidence": [

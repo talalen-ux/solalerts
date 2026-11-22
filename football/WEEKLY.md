@@ -30,7 +30,7 @@ That host is the data source for fixtures, results and team colours.
 4. **Commit and push** the card folder and any news files:
    `git pull --rebase origin claude/solana-token-alerts-mYL5N && git push`.
 
-5. **Report.** Give the form treble, the core treble, the number of matches and leagues, and
+5. **Report.** Give the World five-fold, the form treble, the core treble, the number of matches and leagues, and
    anything that failed.
 
 ## Coverage
@@ -56,6 +56,13 @@ gains less than 4% over base rates, and its 80%+ legs came in about 3 points sho
 Each card also carries 10-, 15- and 19-leg accumulators: the most likely result (up to 92%, or
 80% in the even competitions) from that many different matches. Each one states a typical
 bookmaker price and the average return at a 5% margin per leg: about 61p, 48p and 40p per £1.
+
+## Winners by league
+
+The first tab ranks straight match-winner picks: the best win in every competition, the biggest
+mismatches overall, and winner-only slips that take one pick per competition (World treble,
+five-fold and eight-fold, Big five, League tour, European nights). Form and model slips also take
+at most one leg per competition, and wildcards at most two.
 
 ## Double-headers
 

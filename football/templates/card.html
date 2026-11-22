@@ -157,7 +157,7 @@ details.news summary::-webkit-details-marker{display:none}
 /* bottom tab bar */
 .tabbar{position:fixed;left:0;right:0;bottom:0;z-index:25;background:var(--bar);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);
   border-top:.5px solid var(--sep);padding:6px var(--gr) calc(6px + env(safe-area-inset-bottom,0px)) var(--gl)}
-.tabbar nav{max-width:720px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.tabbar nav{max-width:720px;margin:0 auto;display:grid;grid-template-columns:repeat(5,1fr)}
 .tabbar a{display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:var(--gray);font:500 10px/1 var(--font);padding:4px 0;min-height:48px;justify-content:center}
 .tabbar a svg{width:26px;height:26px}
 .tabbar a[aria-current="page"]{color:var(--tint)}
@@ -166,13 +166,26 @@ details.news summary::-webkit-details-marker{display:none}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 
-<header class="topbar" id="topbar"><h2 id="smalltitle">Form</h2></header>
+<header class="topbar" id="topbar"><h2 id="smalltitle">Winners</h2></header>
 <main class="wrap">
-  <div class="large"><div><div class="sub" id="dates"></div><h1 id="bigtitle">Form</h1></div>
+  <div class="large"><div><div class="sub" id="dates"></div><h1 id="bigtitle">Winners</h1></div>
     <div class="appicon" role="img" aria-label="Weekly Parlay Card"><svg viewBox="0 0 32 32" fill="none"><path d="M5 9.5A2.5 2.5 0 0 1 7.5 7h17A2.5 2.5 0 0 1 27 9.5v3a3.5 3.5 0 0 0 0 7v3a2.5 2.5 0 0 1-2.5 2.5h-17A2.5 2.5 0 0 1 5 22.5v-3a3.5 3.5 0 0 0 0-7v-3z" fill="#fff"/><circle cx="16" cy="16" r="5.2" fill="#0a84ff"/><path d="M16 12.6l2.2 1.6-.8 2.6h-2.8l-.8-2.6z" fill="#fff"/><path d="M20 9v14" stroke="#30d158" stroke-width="1.4" stroke-dasharray="1.6 1.6"/></svg></div></div>
 
   <!-- FORM -->
-  <div class="screen" id="v-form">
+  <!-- WINNERS -->
+  <div class="screen" id="v-winners">
+    <div class="hero" id="whero"></div>
+    <div class="section-h"><span>Best win in each league</span><span id="lbcount"></span></div>
+    <div class="group" id="lblist"></div>
+    <div class="section-f">The single most likely winner in every competition this week, ranked. Slips below take one pick per league, so no league appears twice.</div>
+    <div class="section-h"><span>One per league</span></div>
+    <div class="rail" id="worldrail"></div>
+    <div class="section-h"><span>Biggest mismatches</span></div>
+    <div class="group" id="mmlist"></div>
+    <div class="section-f">The matches where one side is most likely to win and the other least likely, in any league. "Even league" picks above 80% are listed but kept off the slips, because such calls ran about 3 points short in backtests.</div>
+  </div>
+
+  <div class="screen" id="v-form" hidden>
     <div class="hero" id="hero"></div>
     <div class="section-h"><span>In-form favourites</span><span id="fwcount"></span></div>
     <div class="group" id="fwlist"></div>
@@ -234,6 +247,7 @@ details.news summary::-webkit-details-marker{display:none}
 </main>
 
 <div class="tabbar"><nav aria-label="Screens">
+  <a href="#winners" data-v="winners"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 3h10v2h3v3a4 4 0 0 1-4 4h-.3A5 5 0 0 1 13 14.9V18h3v3H8v-3h3v-3.1A5 5 0 0 1 8.3 12H8a4 4 0 0 1-4-4V5h3V3zm0 4H6v1a2 2 0 0 0 1 1.7V7zm10 0v2.7A2 2 0 0 0 18 8V7h-1z"/></svg>Winners</a>
   <a href="#form" data-v="form"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.6 2.2c.4 3.1 2.2 4.6 3.9 6.3 1.6 1.6 3 3.4 3 6.3A7.5 7.5 0 0 1 12 22.3a7.5 7.5 0 0 1-7.5-7.5c0-2.6 1.2-4.4 2.7-5.9.3 1.9 1.2 3 2.3 3.6-.5-4.3 1.4-7.9 3.1-10.3z"/></svg>Form</a>
   <a href="#slips" data-v="slips"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2.2a2.8 2.8 0 0 0 0 5.6V17a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2.2a2.8 2.8 0 0 0 0-5.6V7zm6 1v8h1.6V8H9zm4.4 0v8H15V8h-1.6z"/></svg>Slips</a>
   <a href="#fixtures" data-v="fixtures"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h2v2h6V2h2v2h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2V2zM5 9v10h14V9H5zm2 2h3v3H7v-3z"/></svg>Fixtures</a>
@@ -278,7 +292,7 @@ $('gaps').textContent='Matches this season still without a result: '+Object.entr
 $('foot').textContent=`Refreshed every Thursday · built ${DATA.generated}`;
 
 // slips data + copy
-const FT=(DATA.form_tiers||[]).filter(t=>t.options.length), MT=DATA.tiers.filter(t=>t.options.length), WT=(DATA.wildcards||[]).filter(t=>t.options.length), DH=(DATA.double_headers||[]).filter(t=>t.options.length), ALL=[...FT,...MT,...WT,...DH];
+const FT=(DATA.form_tiers||[]).filter(t=>t.options.length), MT=DATA.tiers.filter(t=>t.options.length), WT=(DATA.wildcards||[]).filter(t=>t.options.length), DH=(DATA.double_headers||[]).filter(t=>t.options.length), WD=(DATA.world_tiers||[]).filter(t=>t.options.length), ALL=[...FT,...MT,...WT,...DH,...WD];
 async function copySlip(i,btn){
   const t=ALL[i],o=t.options[0];
   const text=`${t.name} · fair ${o.fair.toFixed(2)}\n`+o.legs.map(l=>`• ${l.pick} (${vs(l)}, ${day(l.date)})`).join('\n');
@@ -370,10 +384,34 @@ $('nleagues').textContent=`${leagues.length} leagues`;
 $('coverage').innerHTML=REG.map(r=>{const ks=leagues.filter(k=>(LN[k]||[])[2]===r);if(!ks.length)return '';
   return ks.map(k=>`<div class="row indent">${lmark(k)}<div class="grow"><div class="t1">${esc(LG[k])}</div><div class="t2">${r} · ${DATA.matches.filter(m=>m.league===k).length} matches</div></div>${LOWC.has(k)?'<span class="badge b-mid">Even</span>':''}</div>`).join('')}).join('');
 
+// WINNERS screen
+(function(){
+  const LB=DATA.league_best||[], MM=DATA.mismatches||[], base=FT.length+MT.length+WT.length+DH.length;
+  const hero=WD.find(t=>t.name==='World five-fold')||WD[0];
+  if(hero){const o=hero.options[0];
+    $('whero').innerHTML=`<div class="k">${esc(hero.name)} · one per league</div><div class="v">${o.fair.toFixed(2)}</div><div class="d">Fair odds · wins ${pct(o.prob)} of the time</div>
+    <div class="legs">${o.legs.map(l=>`<div><span class="lt">${legCrest(l).replace(/--s:\d+px/g,'--s:24px')}<span>${esc(pick(l))} <span style="opacity:.75">· ${esc(LGS[l.league])}</span></span></span><span class="num">${pct(l.prob)}</span></div>`).join('')}</div>
+    <button type="button" data-copy="${ALL.indexOf(hero)}">Copy Picks</button>`;
+  } else $('whero').hidden=true;
+  let all=false;
+  function drawLB(){
+    const rows=(all?LB:LB.slice(0,10)).map(r=>`<div class="row indent crestrow">${lmark(r.league)}${crest(r.team,36)}<div class="grow"><div class="t1">${esc(SHORT(r.team))}</div>
+      <div class="t2"><span>${esc(LG[r.league])}</span><span>·</span><span>${r.home?'vs':'at'} ${esc(SHORT(r.opponent))}</span><span>·</span><span>${day(r.date)}</span></div></div>
+      <div class="pill">${pct(r.prob)}<small>@${r.fair.toFixed(2)}</small></div></div>`).join('');
+    const more=LB.length>10?`<div class="row"><button class="morebtn" id="lbmore" type="button">${all?'Show Fewer':`Show All ${LB.length} Leagues`}</button></div>`:'';
+    $('lblist').innerHTML=rows+more; const b=$('lbmore'); if(b) b.onclick=()=>{all=!all;drawLB()};
+  }
+  $('lbcount').textContent=`${LB.length} leagues`; drawLB();
+  $('worldrail').innerHTML=WD.map(t=>card(t,ALL.indexOf(t),'Winners')).join('');
+  $('mmlist').innerHTML=MM.slice(0,10).map((r,i)=>`<div class="row indent crestrow"><div class="rank">${i+1}</div>${crest(r.team,36)}<div class="grow"><div class="t1">${esc(SHORT(r.team))} <span style="color:var(--label2)">over</span> ${esc(SHORT(r.opponent))}</div>
+    <div class="t2">${lmark(r.league)}<span>${esc(LGS[r.league])}</span><span>·</span><span>${day(r.date)}</span><span>·</span><span>${esc(SHORT(r.opponent))} win ${pct(r.loser_prob)}</span>${r.capped?'<span class="lg">even league</span>':''}</div></div>
+    <div class="pill">${pct(r.prob)}<small>@${r.fair.toFixed(2)}</small></div></div>`).join('');
+})();
+
 // navigation: one screen per tab, routed on the hash
-const TITLES={form:'Form',slips:'Slips',fixtures:'Fixtures',about:'About'};
+const TITLES={winners:'Winners',form:'Form',slips:'Slips',fixtures:'Fixtures',about:'About'};
 function route(){
-  const v=(location.hash||'#form').slice(1); const view=TITLES[v]?v:'form';
+  const v=(location.hash||'#winners').slice(1); const view=TITLES[v]?v:'winners';
   for(const k in TITLES) $('v-'+k).hidden=k!==view;
   document.querySelectorAll('.tabbar a').forEach(a=>{if(a.dataset.v===view)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
   $('bigtitle').textContent=$('smalltitle').textContent=TITLES[view];

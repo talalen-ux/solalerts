@@ -147,8 +147,8 @@ def candidate_legs(preds: list[MatchPrediction], codes=None, min_leg_prob=0.55,
 
 def build_parlays(legs: list[Leg], n_legs: int, mode: str = "safe", top: int = 5,
                   min_parlay_prob: float = 0.10, min_fair_odds: float = 1.0,
-                  beam: int = 300) -> list[Parlay]:
-    """Beam search over one-leg-per-match combinations."""
+                  beam: int = 300, max_per_league: int | None = None) -> list[Parlay]:
+    """Beam search over one-leg-per-match combinations (optionally at most N legs per league)."""
     if mode == "value":
         score = lambda l: math.log(l.prob * l.odds)  # noqa: E731  log EV growth
     else:
@@ -166,6 +166,9 @@ def build_parlays(legs: list[Leg], n_legs: int, mode: str = "safe", top: int = 5
             for i in range(last + 1, len(legs)):
                 l = legs[i]
                 if id(l.pred) in used:
+                    continue
+                if max_per_league and sum(c.pred.match.league == l.pred.match.league
+                                          for c in chosen) >= max_per_league:
                     continue
                 p_new = p_so_far * l.prob
                 if mode == "value" and p_new < min_parlay_prob:

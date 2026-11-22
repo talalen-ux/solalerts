@@ -103,7 +103,7 @@ def form_winners(preds, states):
     for name, n, note in (("Form double", 2, "the two in-form teams most likely to win"),
                           ("Form treble", 3, "three in-form favourites, one per match"),
                           ("Form four-fold", 4, "four in-form favourites")):
-        ps = build_parlays(legs, n, mode="safe", top=2)
+        ps = build_parlays(legs, n, mode="safe", top=2, max_per_league=1)
         tiers.append({"name": name, "note": note, "legs_n": n, "target": 1.0, "form": True,
                       "options": [{"prob": round(x.prob, 4), "fair": round(x.fair_odds, 2),
                                    "legs": [leg_json(l) for l in x.legs]} for x in ps]})
@@ -119,6 +119,65 @@ def team_notes(info):
                     for a in absn],
             "inform": [x for x in info.get("in_form", []) if isinstance(x, dict)][:3],
             "mgr": mgr if mgr not in (None, "", "unverified") else None}
+
+
+BIG_FIVE = ["EPL", "LALIGA", "SERIEA", "BUNDESLIGA", "LIGUE1"]
+EUROPE_NIGHTS = ["UCL", "UEL", "UECL"]
+
+
+def winners_by_league(preds, states, min_prob=0.50):
+    """Straight match-winner picks: the biggest mismatches overall, the best one in each
+    competition, and winner-only accumulators that take one pick per competition."""
+    rows = []
+    for p in preds:
+        m = p.match
+        code = "H" if p.probs["H"] >= p.probs["A"] else "A"
+        prob = p.probs[code]
+        if prob < min_prob:
+            continue
+        winner, loser = (m.home, m.away) if code == "H" else (m.away, m.home)
+        st = states[m.league]
+        leg = Leg(p, (code,), prob, prob)
+        rows.append({"leg": leg, "team": winner, "opponent": loser, "home": code == "H",
+                     "league": m.league, "date": m.date.isoformat(), "prob": round(prob, 4),
+                     "fair": round(1 / prob, 2), "loser_prob": round(p.probs["A" if code == "H" else "H"], 4),
+                     "draw_prob": round(p.probs["D"], 4),
+                     "form": "".join(x["r"] for x in form_string(st.matches, winner, m.date)),
+                     "loser_form": "".join(x["r"] for x in form_string(st.matches, loser, m.date)),
+                     # even competitions: 80%+ calls ran ~3 points short, so they stay off the slips
+                     "capped": m.league in LOW_CONFIDENCE and prob > LOW_CONFIDENCE_CAP})
+    rows.sort(key=lambda r: -r["prob"])
+    best = {}
+    for r in rows:
+        if not r["capped"]:
+            best.setdefault(r["league"], r)
+    league_best = sorted(best.values(), key=lambda r: -r["prob"])
+
+    def tier(name, note, picks):
+        legs = [r["leg"] for r in picks]
+        prob = math.prod(l.prob for l in legs)
+        return {"name": name, "note": note, "legs_n": len(legs), "target": 1.0, "world": True,
+                "options": [{"prob": round(prob, 4), "fair": round(1 / prob, 2), "legs": [leg_json(l) for l in legs]}]}
+
+    tiers = []
+    for n, name in ((3, "World treble"), (5, "World five-fold"), (8, "World eight-fold")):
+        if len(league_best) >= n:
+            tiers.append(tier(name, f"the best win from each of the {n} strongest leagues this week", league_best[:n]))
+    big = [best[k] for k in BIG_FIVE if k in best]
+    if len(big) >= 4:
+        tiers.append(tier("Big five", "best win in England, Spain, Italy, Germany and France"
+                          if len(big) == 5 else "best win in each big-five league with a favourite", big))
+    tour = [best[k] for k in ("LALIGA", "SERIEA", "LIGUE1", "UCL", "UEL", "SAUDI") if k in best]
+    if len(tour) >= 4:
+        tiers.append(tier("League tour", "best win in Spain, Italy, France, the Champions League, "
+                          "Europa League and Saudi Pro League" if len(tour) == 6 else
+                          "best win in each of Spain, Italy, France, UCL, UEL and Saudi that has a favourite", tour))
+    eur = [best[k] for k in EUROPE_NIGHTS if k in best]
+    if len(eur) >= 2:
+        tiers.append(tier("European nights", "best win in each UEFA competition", eur))
+    strip = lambda r: {k: v for k, v in r.items() if k != "leg"}
+    return {"mismatches": [strip(r) for r in rows[:15]], "league_best": [strip(r) for r in league_best],
+            "world_tiers": tiers}
 
 
 def double_headers(preds, top=4, min_leg=0.50):
@@ -156,6 +215,7 @@ def double_headers(preds, top=4, min_leg=0.50):
 
 
 WILDCARD_SIZES = (10, 15, 19)
+WILDCARD_MAX_PER_LEAGUE = 2
 WILDCARD_MAX_LEG = 0.92    # calibration held in the 90%+ bucket (92.2% predicted, 92.1% won)
 BOOK_MARGIN = 0.05         # typical bookmaker margin per leg, used only for the warning figures
 
@@ -173,7 +233,12 @@ def wildcard_accas(preds, sizes=WILDCARD_SIZES, alternatives=2):
         k = id(l.pred)
         if k not in best or l.prob > best[k].prob:
             best[k] = l
-    ranked = sorted(best.values(), key=lambda l: -l.prob)
+    ranked, per_league = [], {}
+    for l in sorted(best.values(), key=lambda l: -l.prob):   # at most 2 legs from one competition
+        lg = l.pred.match.league
+        if per_league.get(lg, 0) < WILDCARD_MAX_PER_LEAGUE:
+            per_league[lg] = per_league.get(lg, 0) + 1
+            ranked.append(l)
     out = []
     for n in sizes:
         if len(ranked) < n:
@@ -260,12 +325,13 @@ def main(argv=None):
     tiers = []
     for name, n, odds, sgp, note in TIERS:
         legs = capped(candidate_legs(preds, codes=CARD_CODES, min_leg_prob=0.55, max_leg_prob=0.90, sgp=sgp))
-        ps = build_parlays(legs, n, mode="safe", top=3, min_fair_odds=odds)
+        ps = build_parlays(legs, n, mode="safe", top=3, min_fair_odds=odds, max_per_league=1)
         tiers.append({"name": name, "note": note, "legs_n": n, "target": odds,
                       "options": [{"prob": round(p.prob, 4), "fair": round(p.fair_odds, 2),
                                    "legs": [leg_json(l) for l in p.legs]} for p in ps]})
 
     form_teams, form_tiers = form_winners(preds, states)
+    winners = winners_by_league(preds, states)
     wildcards = wildcard_accas(preds)
     doubles = double_headers(preds)
 
@@ -278,13 +344,13 @@ def main(argv=None):
                                               and season_start <= m.date < a.start)
                                       for lg, st in states.items()},
             "matches": matches, "tiers": tiers, "form_teams": form_teams, "form_tiers": form_tiers,
-            "wildcards": wildcards, "double_headers": doubles,
+            "wildcards": wildcards, "double_headers": doubles, **winners,
             "badges": badges.for_teams({(t, m["league"]) for m in matches for t in (m["home"], m["away"])}),
             "league_marks": badges.league_marks({m["league"] for m in matches}),
             "league_names": {k: league_label(k) for k in {m["league"] for m in matches}},
             "low_confidence": sorted(LOW_CONFIDENCE & {m["league"] for m in matches}),
             "top_singles": [leg_json(l) for l in singles[:15]]}
-    for t in form_tiers + tiers + wildcards + doubles:
+    for t in form_tiers + tiers + wildcards + doubles + winners["world_tiers"]:
         for o in t["options"]:
             o["check"] = research_rules.check([l["prob"] for l in o["legs"]])
     Path(a.out).write_text(json.dumps(card, indent=1, ensure_ascii=False))
@@ -292,7 +358,7 @@ def main(argv=None):
     print("\nIn-form teams most likely to win again:")
     for f in form_teams[:10]:
         print(f"   {f['team']} ({f['wins']}W in last 5) v {f['opponent']}: {f['prob'] * 100:.0f}%")
-    for t in form_tiers + tiers + wildcards + doubles:
+    for t in winners["world_tiers"] + form_tiers + tiers + wildcards + doubles:
         if t["options"]:
             o = t["options"][0]
             print(f"\n{t['name']}: {o['prob'] * 100:.1f}% @ fair {o['fair']}")
