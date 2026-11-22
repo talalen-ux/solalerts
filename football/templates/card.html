@@ -184,6 +184,9 @@ details.news summary::-webkit-details-marker{display:none}
     <div class="rail" id="sliprail"></div>
     <div class="dotsnav" id="slipdots"></div>
     <div class="section-f">Prices are fair odds, the break-even price. Back a slip only when your bookmaker pays more; margin compounds across legs.</div>
+    <div class="section-h"><span>Double-headers · same team twice</span></div>
+    <div class="rail" id="dhrail"></div>
+    <div class="section-f">One team to win both its games this week, such as a European night and then the league. Tested over two seasons: favourites playing 2-4 days after a win won as often as predicted, so the two legs are priced separately.</div>
     <div class="section-h"><span>Wildcards · long shots</span></div>
     <div class="rail" id="wildrail"></div>
     <div class="section-f">Each wildcard takes the most likely result from 10, 15 or 19 different matches. Every leg is around 90%, yet one miss sinks the slip. At a typical 5% bookmaker margin per leg you get back about 61p, 48p and 40p per £1 staked on average. Treat them as a small-stake bit of fun, not a plan.</div>
@@ -265,7 +268,7 @@ $('gaps').textContent='Matches this season still without a result: '+Object.entr
 $('foot').textContent=`Refreshed every Thursday · built ${DATA.generated}`;
 
 // slips data + copy
-const FT=(DATA.form_tiers||[]).filter(t=>t.options.length), MT=DATA.tiers.filter(t=>t.options.length), WT=(DATA.wildcards||[]).filter(t=>t.options.length), ALL=[...FT,...MT,...WT];
+const FT=(DATA.form_tiers||[]).filter(t=>t.options.length), MT=DATA.tiers.filter(t=>t.options.length), WT=(DATA.wildcards||[]).filter(t=>t.options.length), DH=(DATA.double_headers||[]).filter(t=>t.options.length), ALL=[...FT,...MT,...WT,...DH];
 async function copySlip(i,btn){
   const t=ALL[i],o=t.options[0];
   const text=`${t.name} · fair ${o.fair.toFixed(2)}\n`+o.legs.map(l=>`• ${l.pick} (${vs(l)}, ${day(l.date)})`).join('\n');
@@ -313,6 +316,7 @@ function wildCard(t,i){
   ${first.map(legRow).join('')}${rest.length?`<details class="more-legs"><summary>Show ${rest.length} more legs</summary>${rest.map(legRow).join('')}</details>`:''}
   <div class="card-f"><button class="btn" type="button" data-copy="${i}">Copy All ${o.legs.length} Picks</button>${alts?`<details class="alts"><summary>${t.options.length-1} alternative${t.options.length>2?'s':''}</summary>${alts}</details>`:''}</div></article>`;
 }
+$('dhrail').innerHTML=DH.map((t,i)=>card(t,i+FT.length+MT.length+WT.length,'Double-header')).join('')||'<div class="section-f">No team is favourite in two games this week.</div>';
 $('wildrail').innerHTML=WT.map((t,i)=>wildCard(t,i+FT.length+MT.length)).join('')||'<div class="section-f">Not enough matches this week for wildcards.</div>';
 $('slipdots').innerHTML=MT.map((_,i)=>`<i class="${i?'':'on'}"></i>`).join('');
 $('sliprail').addEventListener('scroll',e=>{const r=e.target,c=r.querySelector('.card');if(!c)return;const i=Math.round(r.scrollLeft/(c.offsetWidth+12));[...$('slipdots').children].forEach((d,k)=>d.classList.toggle('on',k===i))},{passive:true});

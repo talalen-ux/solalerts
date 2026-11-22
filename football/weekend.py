@@ -121,6 +121,40 @@ def team_notes(info):
             "mgr": mgr if mgr not in (None, "", "unverified") else None}
 
 
+def double_headers(preds, top=4, min_leg=0.50):
+    """Same team to win both of its games in the window (e.g. Champions League, then the league).
+
+    The two legs are multiplied as independent: over 2024-26 a favourite playing 2-4 days after a
+    win won 62.9% against 61.5% predicted, and short rest moved goals by under 2%
+    (research/short_rest.py).
+    """
+    by_team = {}
+    for p in preds:
+        m = p.match
+        for team, code in ((m.home, "H"), (m.away, "A")):
+            by_team.setdefault(team, []).append(Leg(p, (code,), p.probs[code], p.probs[code]))
+    rows = []
+    for team, legs in by_team.items():
+        legs = sorted(capped([l for l in legs if l.prob >= min_leg]), key=lambda l: l.pred.match.date)
+        if len(legs) < 2 or legs[0].pred.match.date == legs[1].pred.match.date:
+            continue
+        pair = legs[:2]
+        rows.append((pair[0].prob * pair[1].prob, team, pair))
+    rows.sort(key=lambda r: -r[0])
+    out = [{"name": f"{team} ×2", "note": "to win both games this week", "legs_n": 2, "target": 1.0,
+            "double_header": True, "team": team,
+            "options": [{"prob": round(prob, 4), "fair": round(1 / prob, 2), "legs": [leg_json(l) for l in pair]}]}
+           for prob, team, pair in rows[:top]]
+    if len(rows) >= 2:
+        legs4 = rows[0][2] + rows[1][2]
+        prob = rows[0][0] * rows[1][0]
+        out.append({"name": "Double-header four-fold", "note": f"{rows[0][1]} and {rows[1][1]} both win twice",
+                    "legs_n": 4, "target": 1.0, "double_header": True,
+                    "options": [{"prob": round(prob, 4), "fair": round(1 / prob, 2),
+                                 "legs": [leg_json(l) for l in legs4]}]})
+    return out
+
+
 WILDCARD_SIZES = (10, 15, 19)
 WILDCARD_MAX_LEG = 0.92    # calibration held in the 90%+ bucket (92.2% predicted, 92.1% won)
 BOOK_MARGIN = 0.05         # typical bookmaker margin per leg, used only for the warning figures
@@ -233,6 +267,7 @@ def main(argv=None):
 
     form_teams, form_tiers = form_winners(preds, states)
     wildcards = wildcard_accas(preds)
+    doubles = double_headers(preds)
 
     singles = sorted(capped(candidate_legs(preds, codes=CARD_CODES, min_leg_prob=0.60, max_leg_prob=0.92)),
                      key=lambda l: -l.prob)
@@ -243,7 +278,7 @@ def main(argv=None):
                                               and season_start <= m.date < a.start)
                                       for lg, st in states.items()},
             "matches": matches, "tiers": tiers, "form_teams": form_teams, "form_tiers": form_tiers,
-            "wildcards": wildcards,
+            "wildcards": wildcards, "double_headers": doubles,
             "badges": badges.for_teams({(t, m["league"]) for m in matches for t in (m["home"], m["away"])}),
             "league_marks": badges.league_marks({m["league"] for m in matches}),
             "league_names": {k: league_label(k) for k in {m["league"] for m in matches}},
@@ -254,7 +289,7 @@ def main(argv=None):
     print("\nIn-form teams most likely to win again:")
     for f in form_teams[:10]:
         print(f"   {f['team']} ({f['wins']}W in last 5) v {f['opponent']}: {f['prob'] * 100:.0f}%")
-    for t in form_tiers + tiers + wildcards:
+    for t in form_tiers + tiers + wildcards + doubles:
         if t["options"]:
             o = t["options"][0]
             print(f"\n{t['name']}: {o['prob'] * 100:.1f}% @ fair {o['fair']}")

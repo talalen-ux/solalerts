@@ -55290,6 +55290,219 @@
    ]
   }
  ],
+ "double_headers": [
+  {
+   "name": "Barcelona ×2",
+   "note": "to win both games this week",
+   "legs_n": 2,
+   "target": 1.0,
+   "double_header": true,
+   "team": "Barcelona",
+   "options": [
+    {
+     "prob": 0.6064,
+     "fair": 1.65,
+     "legs": [
+      {
+       "league": "UCL",
+       "date": "2026-11-25",
+       "match": "Sabah FK v Barcelona",
+       "home": "Sabah FK",
+       "away": "Barcelona",
+       "pick": "Barcelona win",
+       "code": "A",
+       "prob": 0.881,
+       "fair": 1.14
+      },
+      {
+       "league": "LALIGA",
+       "date": "2026-11-29",
+       "match": "Deportivo v Barcelona",
+       "home": "Deportivo",
+       "away": "Barcelona",
+       "pick": "Barcelona win",
+       "code": "A",
+       "prob": 0.6882,
+       "fair": 1.45
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Bodo/Glimt ×2",
+   "note": "to win both games this week",
+   "legs_n": 2,
+   "target": 1.0,
+   "double_header": true,
+   "team": "Bodo/Glimt",
+   "options": [
+    {
+     "prob": 0.6059,
+     "fair": 1.65,
+     "legs": [
+      {
+       "league": "UCL",
+       "date": "2026-11-24",
+       "match": "Bodo/Glimt v LASK Linz",
+       "home": "Bodo/Glimt",
+       "away": "LASK Linz",
+       "pick": "Bodo/Glimt win",
+       "code": "H",
+       "prob": 0.7713,
+       "fair": 1.3
+      },
+      {
+       "league": "NORWAY",
+       "date": "2026-11-28",
+       "match": "Bodo/Glimt v KFUM Oslo",
+       "home": "Bodo/Glimt",
+       "away": "KFUM Oslo",
+       "pick": "Bodo/Glimt win",
+       "code": "H",
+       "prob": 0.7856,
+       "fair": 1.27
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Al Nassr ×2",
+   "note": "to win both games this week",
+   "legs_n": 2,
+   "target": 1.0,
+   "double_header": true,
+   "team": "Al Nassr",
+   "options": [
+    {
+     "prob": 0.518,
+     "fair": 1.93,
+     "legs": [
+      {
+       "league": "ACLE",
+       "date": "2026-11-24",
+       "match": "Al Nassr v Al Sadd",
+       "home": "Al Nassr",
+       "away": "Al Sadd",
+       "pick": "Al Nassr win",
+       "code": "H",
+       "prob": 0.7257,
+       "fair": 1.38
+      },
+      {
+       "league": "SAUDI",
+       "date": "2026-11-28",
+       "match": "Al Hazem v Al Nassr",
+       "home": "Al Hazem",
+       "away": "Al Nassr",
+       "pick": "Al Nassr win",
+       "code": "A",
+       "prob": 0.7137,
+       "fair": 1.4
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Real Madrid ×2",
+   "note": "to win both games this week",
+   "legs_n": 2,
+   "target": 1.0,
+   "double_header": true,
+   "team": "Real Madrid",
+   "options": [
+    {
+     "prob": 0.5089,
+     "fair": 1.97,
+     "legs": [
+      {
+       "league": "UCL",
+       "date": "2026-11-24",
+       "match": "Real Madrid v PSV Eindhoven",
+       "home": "Real Madrid",
+       "away": "PSV Eindhoven",
+       "pick": "Real Madrid win",
+       "code": "H",
+       "prob": 0.6876,
+       "fair": 1.45
+      },
+      {
+       "league": "LALIGA",
+       "date": "2026-11-28",
+       "match": "Real Madrid v Alavés",
+       "home": "Real Madrid",
+       "away": "Alavés",
+       "pick": "Real Madrid win",
+       "code": "H",
+       "prob": 0.7402,
+       "fair": 1.35
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Double-header four-fold",
+   "note": "Barcelona and Bodo/Glimt both win twice",
+   "legs_n": 4,
+   "target": 1.0,
+   "double_header": true,
+   "options": [
+    {
+     "prob": 0.3674,
+     "fair": 2.72,
+     "legs": [
+      {
+       "league": "UCL",
+       "date": "2026-11-25",
+       "match": "Sabah FK v Barcelona",
+       "home": "Sabah FK",
+       "away": "Barcelona",
+       "pick": "Barcelona win",
+       "code": "A",
+       "prob": 0.881,
+       "fair": 1.14
+      },
+      {
+       "league": "LALIGA",
+       "date": "2026-11-29",
+       "match": "Deportivo v Barcelona",
+       "home": "Deportivo",
+       "away": "Barcelona",
+       "pick": "Barcelona win",
+       "code": "A",
+       "prob": 0.6882,
+       "fair": 1.45
+      },
+      {
+       "league": "UCL",
+       "date": "2026-11-24",
+       "match": "Bodo/Glimt v LASK Linz",
+       "home": "Bodo/Glimt",
+       "away": "LASK Linz",
+       "pick": "Bodo/Glimt win",
+       "code": "H",
+       "prob": 0.7713,
+       "fair": 1.3
+      },
+      {
+       "league": "NORWAY",
+       "date": "2026-11-28",
+       "match": "Bodo/Glimt v KFUM Oslo",
+       "home": "Bodo/Glimt",
+       "away": "KFUM Oslo",
+       "pick": "Bodo/Glimt win",
+       "code": "H",
+       "prob": 0.7856,
+       "fair": 1.27
+      }
+     ]
+    }
+   ]
+  }
+ ],
  "badges": {
   "1. FC Heidenheim 1846": [
    "HDH",
@@ -57563,8 +57776,8 @@
   ],
   "Santos": [
    "SAN",
-   "#000000",
-   "#fafafc"
+   "#15926d",
+   "#00331b"
   ],
   "Sarpsborg FK": [
    "SAR",
@@ -58103,84 +58316,19 @@
   ]
  },
  "league_marks": {
-  "UEL": [
-   "UEL",
-   "#f26a21",
-   "#000000"
+  "LIGUE2": [
+   "L2",
+   "#0b2a5b",
+   "#f5a623"
+  ],
+  "EPL": [
+   "PL",
+   "#3d195b",
+   "#00ff85"
   ],
   "ARGENTINA": [
    "AR",
    "#74acdf",
-   "#ffffff"
-  ],
-  "DENMARK": [
-   "DK",
-   "#c8102e",
-   "#ffffff"
-  ],
-  "LIBERTADORES": [
-   "LIB",
-   "#0f3b23",
-   "#d4af37"
-  ],
-  "RUSSIA": [
-   "RU",
-   "#0039a6",
-   "#ffffff"
-  ],
-  "GREECE": [
-   "GR",
-   "#0d5eaf",
-   "#ffffff"
-  ],
-  "LIGUE1": [
-   "L1",
-   "#091c3e",
-   "#dae025"
-  ],
-  "LEAGUETWO": [
-   "L2",
-   "#1b1f4b",
-   "#00a3e0"
-  ],
-  "ACLE": [
-   "ACL",
-   "#00205b",
-   "#c8a046"
-  ],
-  "SAUDI": [
-   "SPL",
-   "#006c35",
-   "#ffffff"
-  ],
-  "LIGAMX": [
-   "MX",
-   "#006847",
-   "#ffffff"
-  ],
-  "BRAZIL": [
-   "BR",
-   "#009c3b",
-   "#ffdf00"
-  ],
-  "EREDIVISIE": [
-   "ED",
-   "#e4002b",
-   "#ffffff"
-  ],
-  "CHAMPIONSHIP": [
-   "EFL",
-   "#1b1f4b",
-   "#ffd100"
-  ],
-  "TURKEY": [
-   "TR",
-   "#e30a17",
-   "#ffffff"
-  ],
-  "SCOTLAND": [
-   "SC",
-   "#5b2c83",
    "#ffffff"
   ],
   "LALIGA2": [
@@ -58188,14 +58336,34 @@
    "#ff8b00",
    "#ffffff"
   ],
-  "JAPAN": [
-   "J1",
-   "#e60012",
+  "CHAMPIONSHIP": [
+   "EFL",
+   "#1b1f4b",
+   "#ffd100"
+  ],
+  "DENMARK": [
+   "DK",
+   "#c8102e",
    "#ffffff"
   ],
-  "AUSTRIA": [
-   "AT",
-   "#ed2939",
+  "SOUTHAFRICA": [
+   "ZA",
+   "#007a4d",
+   "#ffb612"
+  ],
+  "SCOTLAND": [
+   "SC",
+   "#5b2c83",
+   "#ffffff"
+  ],
+  "SAUDI": [
+   "SPL",
+   "#006c35",
+   "#ffffff"
+  ],
+  "TURKEY": [
+   "TR",
+   "#e30a17",
    "#ffffff"
   ],
   "SWEDEN": [
@@ -58203,69 +58371,19 @@
    "#006aa7",
    "#fecc00"
   ],
-  "UECL": [
-   "UECL",
-   "#00be14",
-   "#000000"
-  ],
   "BELGIUM": [
    "BE",
    "#000000",
    "#fdda24"
-  ],
-  "BUNDESLIGA": [
-   "BL",
-   "#d20515",
-   "#ffffff"
-  ],
-  "MLS": [
-   "MLS",
-   "#001f5b",
-   "#ffffff"
-  ],
-  "LIGUE2": [
-   "L2",
-   "#0b2a5b",
-   "#f5a623"
-  ],
-  "SOUTHAFRICA": [
-   "ZA",
-   "#007a4d",
-   "#ffb612"
-  ],
-  "CHILE": [
-   "CL",
-   "#d52b1e",
-   "#ffffff"
-  ],
-  "NORWAY": [
-   "NO",
-   "#ba0c2f",
-   "#ffffff"
-  ],
-  "EPL": [
-   "PL",
-   "#3d195b",
-   "#00ff85"
   ],
   "PRIMEIRA": [
    "PT",
    "#001e50",
    "#d4e600"
   ],
-  "UCL": [
-   "UCL",
-   "#0b1c5c",
-   "#ffffff"
-  ],
-  "SERIEA": [
-   "SA",
-   "#0b1f4d",
-   "#22c4ff"
-  ],
-  "LALIGA": [
-   "LL",
-   "#ff4b44",
+  "BUNDESLIGA": [
+   "BL",
+   "#d20515",
    "#ffffff"
   ],
   "SERIEB": [
@@ -58273,156 +58391,116 @@
    "#1a8b3c",
    "#ffffff"
   ],
-  "BUNDESLIGA2": [
-   "B2",
-   "#d20515",
+  "LIBERTADORES": [
+   "LIB",
+   "#0f3b23",
+   "#d4af37"
+  ],
+  "LEAGUETWO": [
+   "L2",
+   "#1b1f4b",
+   "#00a3e0"
+  ],
+  "EREDIVISIE": [
+   "ED",
+   "#e4002b",
+   "#ffffff"
+  ],
+  "RUSSIA": [
+   "RU",
+   "#0039a6",
+   "#ffffff"
+  ],
+  "SERIEA": [
+   "SA",
+   "#0b1f4d",
+   "#22c4ff"
+  ],
+  "CHILE": [
+   "CL",
+   "#d52b1e",
+   "#ffffff"
+  ],
+  "UCL": [
+   "UCL",
+   "#0b1c5c",
+   "#ffffff"
+  ],
+  "LALIGA": [
+   "LL",
+   "#ff4b44",
+   "#ffffff"
+  ],
+  "NORWAY": [
+   "NO",
+   "#ba0c2f",
+   "#ffffff"
+  ],
+  "UEL": [
+   "UEL",
+   "#f26a21",
+   "#000000"
+  ],
+  "AUSTRIA": [
+   "AT",
+   "#ed2939",
    "#ffffff"
   ],
   "LEAGUEONE": [
    "L1",
    "#1b1f4b",
    "#e6007e"
-  ]
- },
- "league_names": {
-  "UEL": [
-   "Europa League",
-   "UEL",
-   "Cups"
-  ],
-  "ARGENTINA": [
-   "Liga Profesional",
-   "Argentina",
-   "Americas"
-  ],
-  "DENMARK": [
-   "Danish Superliga",
-   "Denmark",
-   "Europe"
-  ],
-  "LIBERTADORES": [
-   "Copa Libertadores",
-   "Libertadores",
-   "Cups"
-  ],
-  "RUSSIA": [
-   "Russian Premier League",
-   "Russia",
-   "Europe"
   ],
   "GREECE": [
-   "Greek Super League",
-   "Greece",
-   "Europe"
+   "GR",
+   "#0d5eaf",
+   "#ffffff"
+  ],
+  "BUNDESLIGA2": [
+   "B2",
+   "#d20515",
+   "#ffffff"
   ],
   "LIGUE1": [
-   "Ligue 1",
-   "Ligue 1",
-   "Europe"
-  ],
-  "LEAGUETWO": [
-   "League Two",
-   "L2 Eng",
-   "Europe"
-  ],
-  "ACLE": [
-   "AFC Champions League Elite",
-   "ACL Elite",
-   "Cups"
-  ],
-  "SAUDI": [
-   "Saudi Pro League",
-   "Saudi",
-   "Asia"
-  ],
-  "LIGAMX": [
-   "Liga MX",
-   "Liga MX",
-   "Americas"
-  ],
-  "BRAZIL": [
-   "Brasileirão",
-   "Brazil",
-   "Americas"
-  ],
-  "EREDIVISIE": [
-   "Eredivisie",
-   "Eredivisie",
-   "Europe"
-  ],
-  "CHAMPIONSHIP": [
-   "Championship",
-   "Champ",
-   "Europe"
-  ],
-  "TURKEY": [
-   "Süper Lig",
-   "Turkey",
-   "Europe"
-  ],
-  "SCOTLAND": [
-   "Scottish Premiership",
-   "Scotland",
-   "Europe"
-  ],
-  "LALIGA2": [
-   "LaLiga 2",
-   "LaLiga 2",
-   "Europe"
+   "L1",
+   "#091c3e",
+   "#dae025"
   ],
   "JAPAN": [
-   "J1 League",
-   "Japan",
-   "Asia"
-  ],
-  "AUSTRIA": [
-   "Austrian Bundesliga",
-   "Austria",
-   "Europe"
-  ],
-  "SWEDEN": [
-   "Allsvenskan",
-   "Sweden",
-   "Europe"
+   "J1",
+   "#e60012",
+   "#ffffff"
   ],
   "UECL": [
-   "Conference League",
    "UECL",
-   "Cups"
+   "#00be14",
+   "#000000"
   ],
-  "BELGIUM": [
-   "Belgian Pro League",
-   "Belgium",
-   "Europe"
+  "BRAZIL": [
+   "BR",
+   "#009c3b",
+   "#ffdf00"
   ],
-  "BUNDESLIGA": [
-   "Bundesliga",
-   "BuLi",
-   "Europe"
+  "LIGAMX": [
+   "MX",
+   "#006847",
+   "#ffffff"
   ],
   "MLS": [
    "MLS",
-   "MLS",
-   "Americas"
+   "#001f5b",
+   "#ffffff"
   ],
+  "ACLE": [
+   "ACL",
+   "#00205b",
+   "#c8a046"
+  ]
+ },
+ "league_names": {
   "LIGUE2": [
    "Ligue 2",
    "Ligue 2",
-   "Europe"
-  ],
-  "SOUTHAFRICA": [
-   "SA Premiership",
-   "S. Africa",
-   "Africa"
-  ],
-  "CHILE": [
-   "Chilean Primera",
-   "Chile",
-   "Americas"
-  ],
-  "NORWAY": [
-   "Eliteserien",
-   "Norway",
    "Europe"
   ],
   "EPL": [
@@ -58430,24 +58508,64 @@
    "EPL",
    "Europe"
   ],
+  "ARGENTINA": [
+   "Liga Profesional",
+   "Argentina",
+   "Americas"
+  ],
+  "LALIGA2": [
+   "LaLiga 2",
+   "LaLiga 2",
+   "Europe"
+  ],
+  "CHAMPIONSHIP": [
+   "Championship",
+   "Champ",
+   "Europe"
+  ],
+  "DENMARK": [
+   "Danish Superliga",
+   "Denmark",
+   "Europe"
+  ],
+  "SOUTHAFRICA": [
+   "SA Premiership",
+   "S. Africa",
+   "Africa"
+  ],
+  "SCOTLAND": [
+   "Scottish Premiership",
+   "Scotland",
+   "Europe"
+  ],
+  "SAUDI": [
+   "Saudi Pro League",
+   "Saudi",
+   "Asia"
+  ],
+  "TURKEY": [
+   "Süper Lig",
+   "Turkey",
+   "Europe"
+  ],
+  "SWEDEN": [
+   "Allsvenskan",
+   "Sweden",
+   "Europe"
+  ],
+  "BELGIUM": [
+   "Belgian Pro League",
+   "Belgium",
+   "Europe"
+  ],
   "PRIMEIRA": [
    "Primeira Liga",
    "Portugal",
    "Europe"
   ],
-  "UCL": [
-   "Champions League",
-   "UCL",
-   "Cups"
-  ],
-  "SERIEA": [
-   "Serie A",
-   "Serie A",
-   "Europe"
-  ],
-  "LALIGA": [
-   "La Liga",
-   "LaLiga",
+  "BUNDESLIGA": [
+   "Bundesliga",
+   "BuLi",
    "Europe"
   ],
   "SERIEB": [
@@ -58455,15 +58573,110 @@
    "Serie B",
    "Europe"
   ],
-  "BUNDESLIGA2": [
-   "2. Bundesliga",
-   "BuLi 2",
+  "LIBERTADORES": [
+   "Copa Libertadores",
+   "Libertadores",
+   "Cups"
+  ],
+  "LEAGUETWO": [
+   "League Two",
+   "L2 Eng",
+   "Europe"
+  ],
+  "EREDIVISIE": [
+   "Eredivisie",
+   "Eredivisie",
+   "Europe"
+  ],
+  "RUSSIA": [
+   "Russian Premier League",
+   "Russia",
+   "Europe"
+  ],
+  "SERIEA": [
+   "Serie A",
+   "Serie A",
+   "Europe"
+  ],
+  "CHILE": [
+   "Chilean Primera",
+   "Chile",
+   "Americas"
+  ],
+  "UCL": [
+   "Champions League",
+   "UCL",
+   "Cups"
+  ],
+  "LALIGA": [
+   "La Liga",
+   "LaLiga",
+   "Europe"
+  ],
+  "NORWAY": [
+   "Eliteserien",
+   "Norway",
+   "Europe"
+  ],
+  "UEL": [
+   "Europa League",
+   "UEL",
+   "Cups"
+  ],
+  "AUSTRIA": [
+   "Austrian Bundesliga",
+   "Austria",
    "Europe"
   ],
   "LEAGUEONE": [
    "League One",
    "L1 Eng",
    "Europe"
+  ],
+  "GREECE": [
+   "Greek Super League",
+   "Greece",
+   "Europe"
+  ],
+  "BUNDESLIGA2": [
+   "2. Bundesliga",
+   "BuLi 2",
+   "Europe"
+  ],
+  "LIGUE1": [
+   "Ligue 1",
+   "Ligue 1",
+   "Europe"
+  ],
+  "JAPAN": [
+   "J1 League",
+   "Japan",
+   "Asia"
+  ],
+  "UECL": [
+   "Conference League",
+   "UECL",
+   "Cups"
+  ],
+  "BRAZIL": [
+   "Brasileirão",
+   "Brazil",
+   "Americas"
+  ],
+  "LIGAMX": [
+   "Liga MX",
+   "Liga MX",
+   "Americas"
+  ],
+  "MLS": [
+   "MLS",
+   "MLS",
+   "Americas"
+  ],
+  "ACLE": [
+   "AFC Champions League Elite",
+   "ACL Elite",
+   "Cups"
   ]
  },
  "low_confidence": [

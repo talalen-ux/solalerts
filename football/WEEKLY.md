@@ -57,6 +57,13 @@ Each card also carries 10-, 15- and 19-leg accumulators: the most likely result 
 80% in the even competitions) from that many different matches. Each one states a typical
 bookmaker price and the average return at a 5% margin per leg: about 61p, 48p and 40p per £1.
 
+## Double-headers
+
+A team may appear twice on a slip when it plays two matches in the window (for example a
+Champions League night, then the league). The card also lists the top "team ×2" doubles. The legs
+are multiplied as independent: short rest and a previous win made no measurable difference over
+2024-26 (`football/research/short_rest.py`).
+
 ## Fallback
 
 If ESPN becomes unavailable, `python3 -m football.weekly card --source openfootball` still covers

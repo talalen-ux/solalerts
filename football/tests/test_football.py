@@ -224,3 +224,18 @@ def test_wildcards_take_best_leg_per_match():
     assert w[0]["options"][1]["prob"] <= top["prob"] + 1e-9               # alternatives are weaker
     assert w[1]["expected_return"] == pytest.approx(1.05 ** -10 - 1, abs=1e-3)
     assert all(l["prob"] <= weekend.WILDCARD_MAX_LEG for l in top["legs"])
+
+
+def test_double_headers_same_team_two_matches():
+    from football import weekend
+    ms, teams = synthetic_league(seasons=3)
+    model = DixonColes().fit(ms, date(2028, 1, 1))
+    fx = [Match("EPL", date(2028, 1, 2), teams[0], teams[9]), Match("EPL", date(2028, 1, 5), teams[8], teams[0]),
+          Match("EPL", date(2028, 1, 2), teams[1], teams[7]), Match("EPL", date(2028, 1, 6), teams[1], teams[6])]
+    preds = [MatchPrediction(f, model.score_matrix(f.home, f.away), model.expected_goals(f.home, f.away)) for f in fx]
+    dh = weekend.double_headers(preds)
+    first = dh[0]["options"][0]
+    assert dh[0]["team"] in (teams[0], teams[1]) and len(first["legs"]) == 2
+    assert first["legs"][0]["match"] != first["legs"][1]["match"]
+    assert first["prob"] == pytest.approx(first["legs"][0]["prob"] * first["legs"][1]["prob"], rel=1e-3)
+    assert dh[-1]["legs_n"] == 4
