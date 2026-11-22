@@ -51,6 +51,12 @@ Dropped after testing: A-League Men, where the model did worse than base rates.
 Austria, Denmark, Sweden, Chile, MLS, Liga MX, Argentina and the Libertadores. In these the model
 gains less than 4% over base rates, and its 80%+ legs came in about 3 points short.
 
+## Wildcards
+
+Each card also carries 10-, 15- and 19-leg accumulators: the most likely result (up to 92%, or
+80% in the even competitions) from that many different matches. Each one states a typical
+bookmaker price and the average return at a 5% margin per leg: about 61p, 48p and 40p per £1.
+
 ## Fallback
 
 If ESPN becomes unavailable, `python3 -m football.weekly card --source openfootball` still covers
