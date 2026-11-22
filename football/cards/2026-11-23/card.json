@@ -59646,109 +59646,9 @@
   ]
  },
  "league_marks": {
-  "AUSTRIA": [
-   "AT",
-   "#ed2939",
-   "#ffffff"
-  ],
-  "RUSSIA": [
-   "RU",
-   "#0039a6",
-   "#ffffff"
-  ],
-  "LIGUE1": [
-   "L1",
-   "#091c3e",
-   "#dae025"
-  ],
-  "BRAZIL": [
-   "BR",
-   "#009c3b",
-   "#ffdf00"
-  ],
-  "LIBERTADORES": [
-   "LIB",
-   "#0f3b23",
-   "#d4af37"
-  ],
-  "SCOTLAND": [
-   "SC",
-   "#5b2c83",
-   "#ffffff"
-  ],
-  "UECL": [
-   "UECL",
-   "#00be14",
-   "#000000"
-  ],
-  "BUNDESLIGA2": [
-   "B2",
-   "#d20515",
-   "#ffffff"
-  ],
-  "DENMARK": [
-   "DK",
-   "#c8102e",
-   "#ffffff"
-  ],
-  "BUNDESLIGA": [
-   "BL",
-   "#d20515",
-   "#ffffff"
-  ],
-  "SOUTHAFRICA": [
-   "ZA",
-   "#007a4d",
-   "#ffb612"
-  ],
-  "SERIEA": [
-   "SA",
-   "#0b1f4d",
-   "#22c4ff"
-  ],
-  "BELGIUM": [
-   "BE",
-   "#000000",
-   "#fdda24"
-  ],
-  "UCL": [
-   "UCL",
-   "#0b1c5c",
-   "#ffffff"
-  ],
-  "GREECE": [
-   "GR",
-   "#0d5eaf",
-   "#ffffff"
-  ],
-  "PRIMEIRA": [
-   "PT",
-   "#001e50",
-   "#d4e600"
-  ],
-  "EPL": [
-   "PL",
-   "#3d195b",
-   "#00ff85"
-  ],
-  "LEAGUEONE": [
-   "L1",
-   "#1b1f4b",
-   "#e6007e"
-  ],
-  "LALIGA": [
-   "LL",
-   "#ff4b44",
-   "#ffffff"
-  ],
-  "LALIGA2": [
-   "L2",
-   "#ff8b00",
-   "#ffffff"
-  ],
-  "JAPAN": [
-   "J1",
-   "#e60012",
+  "SAUDI": [
+   "SPL",
+   "#006c35",
    "#ffffff"
   ],
   "TURKEY": [
@@ -59756,54 +59656,74 @@
    "#e30a17",
    "#ffffff"
   ],
-  "NORWAY": [
-   "NO",
-   "#ba0c2f",
-   "#ffffff"
+  "UECL": [
+   "UECL",
+   "#00be14",
+   "#000000"
   ],
-  "ARGENTINA": [
-   "AR",
-   "#74acdf",
-   "#ffffff"
+  "LIBERTADORES": [
+   "LIB",
+   "#0f3b23",
+   "#d4af37"
   ],
-  "SAUDI": [
-   "SPL",
-   "#006c35",
-   "#ffffff"
-  ],
-  "LEAGUETWO": [
+  "LALIGA2": [
    "L2",
-   "#1b1f4b",
-   "#00a3e0"
-  ],
-  "LIGAMX": [
-   "MX",
-   "#006847",
+   "#ff8b00",
    "#ffffff"
   ],
-  "ACLE": [
-   "ACL",
-   "#00205b",
-   "#c8a046"
+  "EPL": [
+   "PL",
+   "#3d195b",
+   "#00ff85"
   ],
   "CHAMPIONSHIP": [
    "EFL",
    "#1b1f4b",
    "#ffd100"
   ],
-  "LIGUE2": [
+  "LIGUE1": [
+   "L1",
+   "#091c3e",
+   "#dae025"
+  ],
+  "SWEDEN": [
+   "SE",
+   "#006aa7",
+   "#fecc00"
+  ],
+  "BUNDESLIGA2": [
+   "B2",
+   "#d20515",
+   "#ffffff"
+  ],
+  "RUSSIA": [
+   "RU",
+   "#0039a6",
+   "#ffffff"
+  ],
+  "CHILE": [
+   "CL",
+   "#d52b1e",
+   "#ffffff"
+  ],
+  "LALIGA": [
+   "LL",
+   "#ff4b44",
+   "#ffffff"
+  ],
+  "BELGIUM": [
+   "BE",
+   "#000000",
+   "#fdda24"
+  ],
+  "LEAGUETWO": [
    "L2",
-   "#0b2a5b",
-   "#f5a623"
+   "#1b1f4b",
+   "#00a3e0"
   ],
-  "UEL": [
-   "UEL",
-   "#f26a21",
-   "#000000"
-  ],
-  "MLS": [
-   "MLS",
-   "#001f5b",
+  "BUNDESLIGA": [
+   "BL",
+   "#d20515",
    "#ffffff"
   ],
   "SERIEB": [
@@ -59811,126 +59731,106 @@
    "#1a8b3c",
    "#ffffff"
   ],
+  "SCOTLAND": [
+   "SC",
+   "#5b2c83",
+   "#ffffff"
+  ],
+  "UEL": [
+   "UEL",
+   "#f26a21",
+   "#000000"
+  ],
+  "PRIMEIRA": [
+   "PT",
+   "#001e50",
+   "#d4e600"
+  ],
+  "NORWAY": [
+   "NO",
+   "#ba0c2f",
+   "#ffffff"
+  ],
+  "MLS": [
+   "MLS",
+   "#001f5b",
+   "#ffffff"
+  ],
+  "AUSTRIA": [
+   "AT",
+   "#ed2939",
+   "#ffffff"
+  ],
+  "LEAGUEONE": [
+   "L1",
+   "#1b1f4b",
+   "#e6007e"
+  ],
+  "ACLE": [
+   "ACL",
+   "#00205b",
+   "#c8a046"
+  ],
+  "DENMARK": [
+   "DK",
+   "#c8102e",
+   "#ffffff"
+  ],
+  "LIGUE2": [
+   "L2",
+   "#0b2a5b",
+   "#f5a623"
+  ],
   "EREDIVISIE": [
    "ED",
    "#e4002b",
    "#ffffff"
   ],
-  "SWEDEN": [
-   "SE",
-   "#006aa7",
-   "#fecc00"
+  "SOUTHAFRICA": [
+   "ZA",
+   "#007a4d",
+   "#ffb612"
   ],
-  "CHILE": [
-   "CL",
-   "#d52b1e",
+  "JAPAN": [
+   "J1",
+   "#e60012",
+   "#ffffff"
+  ],
+  "SERIEA": [
+   "SA",
+   "#0b1f4d",
+   "#22c4ff"
+  ],
+  "BRAZIL": [
+   "BR",
+   "#009c3b",
+   "#ffdf00"
+  ],
+  "LIGAMX": [
+   "MX",
+   "#006847",
+   "#ffffff"
+  ],
+  "ARGENTINA": [
+   "AR",
+   "#74acdf",
+   "#ffffff"
+  ],
+  "GREECE": [
+   "GR",
+   "#0d5eaf",
+   "#ffffff"
+  ],
+  "UCL": [
+   "UCL",
+   "#0b1c5c",
    "#ffffff"
   ]
  },
  "league_names": {
-  "AUSTRIA": [
-   "Austrian Bundesliga",
-   "Austria",
-   "Europe"
-  ],
-  "RUSSIA": [
-   "Russian Premier League",
-   "Russia",
-   "Europe"
-  ],
-  "LIGUE1": [
-   "Ligue 1",
-   "Ligue 1",
-   "Europe"
-  ],
-  "BRAZIL": [
-   "Brasileirão",
-   "Brazil",
-   "Americas"
-  ],
-  "LIBERTADORES": [
-   "Copa Libertadores",
-   "Libertadores",
-   "Cups"
-  ],
-  "SCOTLAND": [
-   "Scottish Premiership",
-   "Scotland",
-   "Europe"
-  ],
-  "UECL": [
-   "Conference League",
-   "UECL",
-   "Cups"
-  ],
-  "BUNDESLIGA2": [
-   "2. Bundesliga",
-   "BuLi 2",
-   "Europe"
-  ],
-  "DENMARK": [
-   "Danish Superliga",
-   "Denmark",
-   "Europe"
-  ],
-  "BUNDESLIGA": [
-   "Bundesliga",
-   "BuLi",
-   "Europe"
-  ],
-  "SOUTHAFRICA": [
-   "SA Premiership",
-   "S. Africa",
-   "Africa"
-  ],
-  "SERIEA": [
-   "Serie A",
-   "Serie A",
-   "Europe"
-  ],
-  "BELGIUM": [
-   "Belgian Pro League",
-   "Belgium",
-   "Europe"
-  ],
-  "UCL": [
-   "Champions League",
-   "UCL",
-   "Cups"
-  ],
-  "GREECE": [
-   "Greek Super League",
-   "Greece",
-   "Europe"
-  ],
-  "PRIMEIRA": [
-   "Primeira Liga",
-   "Portugal",
-   "Europe"
-  ],
-  "EPL": [
-   "Premier League",
-   "EPL",
-   "Europe"
-  ],
-  "LEAGUEONE": [
-   "League One",
-   "L1 Eng",
-   "Europe"
-  ],
-  "LALIGA": [
-   "La Liga",
-   "LaLiga",
-   "Europe"
-  ],
-  "LALIGA2": [
-   "LaLiga 2",
-   "LaLiga 2",
-   "Europe"
-  ],
-  "JAPAN": [
-   "J1 League",
-   "Japan",
+  "SAUDI": [
+   "Saudi Pro League",
+   "Saudi",
    "Asia"
   ],
   "TURKEY": [
@@ -59938,64 +59838,34 @@
    "Turkey",
    "Europe"
   ],
-  "NORWAY": [
-   "Eliteserien",
-   "Norway",
-   "Europe"
-  ],
-  "ARGENTINA": [
-   "Liga Profesional",
-   "Argentina",
-   "Americas"
-  ],
-  "SAUDI": [
-   "Saudi Pro League",
-   "Saudi",
-   "Asia"
-  ],
-  "LEAGUETWO": [
-   "League Two",
-   "L2 Eng",
-   "Europe"
-  ],
-  "LIGAMX": [
-   "Liga MX",
-   "Liga MX",
-   "Americas"
-  ],
-  "ACLE": [
-   "AFC Champions League Elite",
-   "ACL Elite",
+  "UECL": [
+   "Conference League",
+   "UECL",
    "Cups"
+  ],
+  "LIBERTADORES": [
+   "Copa Libertadores",
+   "Libertadores",
+   "Cups"
+  ],
+  "LALIGA2": [
+   "LaLiga 2",
+   "LaLiga 2",
+   "Europe"
+  ],
+  "EPL": [
+   "Premier League",
+   "EPL",
+   "Europe"
   ],
   "CHAMPIONSHIP": [
    "Championship",
    "Champ",
    "Europe"
   ],
-  "LIGUE2": [
-   "Ligue 2",
-   "Ligue 2",
-   "Europe"
-  ],
-  "UEL": [
-   "Europa League",
-   "UEL",
-   "Cups"
-  ],
-  "MLS": [
-   "MLS",
-   "MLS",
-   "Americas"
-  ],
-  "SERIEB": [
-   "Serie B",
-   "Serie B",
-   "Europe"
-  ],
-  "EREDIVISIE": [
-   "Eredivisie",
-   "Eredivisie",
+  "LIGUE1": [
+   "Ligue 1",
+   "Ligue 1",
    "Europe"
   ],
   "SWEDEN": [
@@ -60003,10 +59873,140 @@
    "Sweden",
    "Europe"
   ],
+  "BUNDESLIGA2": [
+   "2. Bundesliga",
+   "BuLi 2",
+   "Europe"
+  ],
+  "RUSSIA": [
+   "Russian Premier League",
+   "Russia",
+   "Europe"
+  ],
   "CHILE": [
    "Chilean Primera",
    "Chile",
    "Americas"
+  ],
+  "LALIGA": [
+   "La Liga",
+   "LaLiga",
+   "Europe"
+  ],
+  "BELGIUM": [
+   "Belgian Pro League",
+   "Belgium",
+   "Europe"
+  ],
+  "LEAGUETWO": [
+   "League Two",
+   "L2 Eng",
+   "Europe"
+  ],
+  "BUNDESLIGA": [
+   "Bundesliga",
+   "BuLi",
+   "Europe"
+  ],
+  "SERIEB": [
+   "Serie B",
+   "Serie B",
+   "Europe"
+  ],
+  "SCOTLAND": [
+   "Scottish Premiership",
+   "Scotland",
+   "Europe"
+  ],
+  "UEL": [
+   "Europa League",
+   "UEL",
+   "Cups"
+  ],
+  "PRIMEIRA": [
+   "Primeira Liga",
+   "Portugal",
+   "Europe"
+  ],
+  "NORWAY": [
+   "Eliteserien",
+   "Norway",
+   "Europe"
+  ],
+  "MLS": [
+   "MLS",
+   "MLS",
+   "Americas"
+  ],
+  "AUSTRIA": [
+   "Austrian Bundesliga",
+   "Austria",
+   "Europe"
+  ],
+  "LEAGUEONE": [
+   "League One",
+   "L1 Eng",
+   "Europe"
+  ],
+  "ACLE": [
+   "AFC Champions League Elite",
+   "ACL Elite",
+   "Cups"
+  ],
+  "DENMARK": [
+   "Danish Superliga",
+   "Denmark",
+   "Europe"
+  ],
+  "LIGUE2": [
+   "Ligue 2",
+   "Ligue 2",
+   "Europe"
+  ],
+  "EREDIVISIE": [
+   "Eredivisie",
+   "Eredivisie",
+   "Europe"
+  ],
+  "SOUTHAFRICA": [
+   "SA Premiership",
+   "S. Africa",
+   "Africa"
+  ],
+  "JAPAN": [
+   "J1 League",
+   "Japan",
+   "Asia"
+  ],
+  "SERIEA": [
+   "Serie A",
+   "Serie A",
+   "Europe"
+  ],
+  "BRAZIL": [
+   "Brasileirão",
+   "Brazil",
+   "Americas"
+  ],
+  "LIGAMX": [
+   "Liga MX",
+   "Liga MX",
+   "Americas"
+  ],
+  "ARGENTINA": [
+   "Liga Profesional",
+   "Argentina",
+   "Americas"
+  ],
+  "GREECE": [
+   "Greek Super League",
+   "Greece",
+   "Europe"
+  ],
+  "UCL": [
+   "Champions League",
+   "UCL",
+   "Cups"
   ]
  },
  "low_confidence": [

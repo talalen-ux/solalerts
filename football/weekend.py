@@ -53,6 +53,13 @@ LOW_CONFIDENCE = {"CHAMPIONSHIP", "BUNDESLIGA2", "LALIGA2", "SERIEB", "LIGUE2", 
 LOW_CONFIDENCE_CAP = 0.80
 
 
+def league_spread(legs, n_legs, base=1):
+    """Legs allowed per competition: `base` when enough competitions are on the card, more when
+    there are too few to fill the slip (e.g. a single-league card)."""
+    n_leagues = len({l.pred.match.league for l in legs}) or 1
+    return max(base, math.ceil(n_legs / n_leagues))
+
+
 def capped(legs):
     return [l for l in legs if not (l.pred.match.league in LOW_CONFIDENCE and l.prob > LOW_CONFIDENCE_CAP)]
 
@@ -103,7 +110,7 @@ def form_winners(preds, states):
     for name, n, note in (("Form double", 2, "the two in-form teams most likely to win"),
                           ("Form treble", 3, "three in-form favourites, one per match"),
                           ("Form four-fold", 4, "four in-form favourites")):
-        ps = build_parlays(legs, n, mode="safe", top=2, max_per_league=1)
+        ps = build_parlays(legs, n, mode="safe", top=2, max_per_league=league_spread(legs, n))
         tiers.append({"name": name, "note": note, "legs_n": n, "target": 1.0, "form": True,
                       "options": [{"prob": round(x.prob, 4), "fair": round(x.fair_odds, 2),
                                    "legs": [leg_json(l) for l in x.legs]} for x in ps]})
@@ -234,9 +241,10 @@ def wildcard_accas(preds, sizes=WILDCARD_SIZES, alternatives=2):
         if k not in best or l.prob > best[k].prob:
             best[k] = l
     ranked, per_league = [], {}
-    for l in sorted(best.values(), key=lambda l: -l.prob):   # at most 2 legs from one competition
+    limit = league_spread(list(best.values()), max(sizes), WILDCARD_MAX_PER_LEAGUE)
+    for l in sorted(best.values(), key=lambda l: -l.prob):   # normally at most 2 legs per competition
         lg = l.pred.match.league
-        if per_league.get(lg, 0) < WILDCARD_MAX_PER_LEAGUE:
+        if per_league.get(lg, 0) < limit:
             per_league[lg] = per_league.get(lg, 0) + 1
             ranked.append(l)
     out = []
@@ -325,7 +333,8 @@ def main(argv=None):
     tiers = []
     for name, n, odds, sgp, note in TIERS:
         legs = capped(candidate_legs(preds, codes=CARD_CODES, min_leg_prob=0.55, max_leg_prob=0.90, sgp=sgp))
-        ps = build_parlays(legs, n, mode="safe", top=3, min_fair_odds=odds, max_per_league=1)
+        ps = build_parlays(legs, n, mode="safe", top=3, min_fair_odds=odds,
+                           max_per_league=league_spread(legs, n))
         tiers.append({"name": name, "note": note, "legs_n": n, "target": odds,
                       "options": [{"prob": round(p.prob, 4), "fair": round(p.fair_odds, 2),
                                    "legs": [leg_json(l) for l in p.legs]} for p in ps]})
