@@ -1,0 +1,193 @@
+{
+ "long_hours": 168,
+ "results": [
+  {
+   "id": "c1-58cec9",
+   "arm": "plain_v4:mc_max:down",
+   "hash": "58cec9b88e6e",
+   "params": {
+    "buyers": 25,
+    "mc_max": 30000,
+    "mc_min": 15000,
+    "ratio": 5,
+    "top": 40
+   },
+   "preds": [],
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 30000",
+   "slot": "155",
+   "family": "plain_v4",
+   "long_hours": 168,
+   "recent_hours": 72,
+   "long": {
+    "window_hours": 168,
+    "matched": 365,
+    "scored": 365,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 5
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 23
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 56
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 95
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 252
+     }
+    ],
+    "post_ath": {
+     "tokens": 5
+    }
+   },
+   "recent": {
+    "window_hours": 72,
+    "matched": 91,
+    "scored": 91,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 3
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 18
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 35
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 42
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 60
+     }
+    ],
+    "post_ath": {
+     "tokens": 3
+    }
+   }
+  },
+  {
+   "id": "c5-08f1f1",
+   "arm": "plain_v4:buyers:up",
+   "hash": "08f1f119603b",
+   "params": {
+    "buyers": 35,
+    "mc_max": 45000,
+    "mc_min": 15000,
+    "ratio": 5,
+    "top": 40
+   },
+   "preds": [],
+   "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 35 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000",
+   "slot": "155",
+   "family": "plain_v4",
+   "long_hours": 168,
+   "recent_hours": 72,
+   "long": {
+    "window_hours": 168,
+    "matched": 181,
+    "scored": 181,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 1
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 8
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 33
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 138
+     }
+    ],
+    "post_ath": {
+     "tokens": 1
+    }
+   },
+   "recent": {
+    "window_hours": 72,
+    "matched": 15,
+    "scored": 15,
+    "reached": [
+     {
+      "at_least_x": 100,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 50,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 20,
+      "tokens": 0
+     },
+     {
+      "at_least_x": 10,
+      "tokens": 1
+     },
+     {
+      "at_least_x": 5,
+      "tokens": 5
+     },
+     {
+      "at_least_x": 3,
+      "tokens": 6
+     },
+     {
+      "at_least_x": 2,
+      "tokens": 8
+     }
+    ],
+    "post_ath": {
+     "tokens": 0
+    }
+   }
+  }
+ ]
+}
