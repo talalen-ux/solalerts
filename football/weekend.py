@@ -15,7 +15,7 @@ from . import engine, markets
 from .adjust import load_news
 from .geo import distance_km
 from .leagues import LEAGUES, season_start_year
-from .parlay import build_parlays, candidate_legs
+from .parlay import Leg, build_parlays, candidate_legs
 
 # Main-line markets only: the model beat base rates on results (1X2 / double chance) and
 # these carry the lowest bookmaker margin. "Team scores 1+" and "no draw" legs are left out:
@@ -41,6 +41,42 @@ def form_string(matches, team, before, n=5):
         out.append({"r": "W" if gf > ga else "D" if gf == ga else "L", "score": f"{gf}-{ga}",
                     "opp": m.away if m.home == team else m.home, "home": m.home == team})
     return out
+
+
+FORM_MIN_WINS = 3        # "top performing": won at least 3 of the last 5 league games
+FORM_MIN_PROB = 0.50     # and the model makes them favourite to win this one
+
+
+def form_winners(preds, states):
+    """In-form teams ranked by the model's probability that they win again, plus win-only accas.
+
+    Form is the filter, the model is the ranking: on 2023-26 data a separate last-5 form term
+    added nothing to the time-decayed ratings, so form does not boost the probabilities.
+    """
+    rows, legs = [], []
+    for p in preds:
+        m = p.match
+        st = states[m.league]
+        for side, code, opp in (("home", "H", m.away), ("away", "A", m.home)):
+            team = getattr(m, side)
+            f = form_string(st.matches, team, m.date)
+            wins = sum(x["r"] == "W" for x in f)
+            if len(f) < 5 or wins < FORM_MIN_WINS or p.probs[code] < FORM_MIN_PROB:
+                continue
+            rows.append({"team": team, "opponent": opp, "home": side == "home", "league": m.league,
+                         "date": m.date.isoformat(), "wins": wins, "form": "".join(x["r"] for x in f),
+                         "prob": round(p.probs[code], 4), "fair": round(1 / p.probs[code], 2)})
+            legs.append(Leg(p, (code,), p.probs[code], p.probs[code]))
+    rows.sort(key=lambda r: -r["prob"])
+    tiers = []
+    for name, n, note in (("Form double", 2, "the two in-form teams most likely to win"),
+                          ("Form treble", 3, "three in-form favourites, one per match"),
+                          ("Form four-fold", 4, "four in-form favourites")):
+        ps = build_parlays(legs, n, mode="safe", top=2)
+        tiers.append({"name": name, "note": note, "legs_n": n, "target": 1.0, "form": True,
+                      "options": [{"prob": round(x.prob, 4), "fair": round(x.fair_odds, 2),
+                                   "legs": [leg_json(l) for l in x.legs]} for x in ps]})
+    return rows, tiers
 
 
 def leg_json(l):
@@ -108,6 +144,8 @@ def main(argv=None):
                       "options": [{"prob": round(p.prob, 4), "fair": round(p.fair_odds, 2),
                                    "legs": [leg_json(l) for l in p.legs]} for p in ps]})
 
+    form_teams, form_tiers = form_winners(preds, states)
+
     singles = sorted(candidate_legs(preds, codes=CARD_CODES, min_leg_prob=0.60, max_leg_prob=0.92),
                      key=lambda l: -l.prob)
     card = {"generated": date.today().isoformat(), "window": [a.start.isoformat(), a.days],
@@ -116,11 +154,14 @@ def main(argv=None):
             "missing_before_window": {lg: sum(1 for m in st.matches if not m.played
                                               and season_start <= m.date < a.start)
                                       for lg, st in states.items()},
-            "matches": matches, "tiers": tiers,
+            "matches": matches, "tiers": tiers, "form_teams": form_teams, "form_tiers": form_tiers,
             "top_singles": [leg_json(l) for l in singles[:15]]}
     Path(a.out).write_text(json.dumps(card, indent=1, ensure_ascii=False))
     print(f"{len(matches)} matches, {n_results} results merged, news for {len(news)} teams -> {a.out}")
-    for t in tiers:
+    print("\nIn-form teams most likely to win again:")
+    for f in form_teams[:10]:
+        print(f"   {f['team']} ({f['wins']}W in last 5) v {f['opponent']}: {f['prob'] * 100:.0f}%")
+    for t in form_tiers + tiers:
         if t["options"]:
             o = t["options"][0]
             print(f"\n{t['name']}: {o['prob'] * 100:.1f}% @ fair {o['fair']}")

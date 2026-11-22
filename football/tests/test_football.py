@@ -140,3 +140,44 @@ def test_team_news_adjustments():
     assert adjust.team_factors(many, k)[0] == pytest.approx(0.85)
     lam, mu, _, _ = adjust.adjusted_rates(1.5, 1.0, info, None, k)
     assert lam == pytest.approx(1.5 * att) and mu == pytest.approx(1.0 * conc)
+
+
+def test_form_winners_filters_and_ranks(monkeypatch):
+    from football import weekend
+    preds = _preds()
+    ms, _ = synthetic_league()
+
+    class St:  # minimal league state: weekend.form_winners only reads .matches
+        matches = ms
+    # every fixture's home team gets a WWWWW history by construction below
+    fake_form = lambda matches, team, before, n=5: [{"r": "W", "score": "1-0", "opp": "X", "home": True}] * 5
+    monkeypatch.setattr(weekend, "form_string", fake_form)
+    rows, tiers = weekend.form_winners(preds, {"EPL": St})
+    assert rows and all(r["prob"] >= weekend.FORM_MIN_PROB for r in rows)
+    assert [r["prob"] for r in rows] == sorted((r["prob"] for r in rows), reverse=True)
+    dbl = tiers[0]["options"][0]
+    assert dbl["prob"] == pytest.approx(rows[0]["prob"] * rows[1]["prob"], rel=1e-3)
+    assert all(l["code"] in ("H", "A") for t in tiers for o in t["options"] for l in o["legs"])
+
+
+def test_weekly_ingest_dedupes(tmp_path, monkeypatch):
+    from football import weekly, data as d
+    monkeypatch.setattr(weekly, "LEDGER", tmp_path / "ledger")
+    monkeypatch.setattr(d, "load_league", lambda lg, y, s=3, refresh=False: [
+        Match(lg, date(2026, 9, 1), "A FC", "B FC"), Match(lg, date(2026, 9, 8), "B FC", "A FC")])
+    src = tmp_path / "src"; src.mkdir()
+    (src / "EPL_new_results.csv").write_text(
+        "date,home,away,home_goals,away_goals,league\n2026-11-07,A FC,B FC,1,0,EPL\n"
+        "2026-11-07,A FC,Nope FC,2,0,EPL\n2026-11-08,B FC,A FC,,,EPL\n")
+    assert weekly.ingest(src) == {"EPL": 1}
+    (src / "EPL_new_results.csv").write_text(
+        "date,home,away,home_goals,away_goals,league\n2026-11-07,A FC,B FC,2,0,EPL\n")
+    weekly.ingest(src)
+    rows = (tmp_path / "ledger" / "EPL.csv").read_text().strip().splitlines()
+    assert rows[1:] == ["2026-11-07,A FC,B FC,2,0,EPL"]
+
+
+def test_next_friday():
+    from football.weekly import next_friday
+    assert next_friday(date(2026, 11, 22)) == date(2026, 11, 27)
+    assert next_friday(date(2026, 11, 27)) == date(2026, 11, 27)
