@@ -130,6 +130,7 @@ def _parse(key: str, payload: dict) -> list[Match]:
         out.append(Match(key, when.date(), h["team"]["displayName"], a["team"]["displayName"],
                          int(h["score"]) if done else None, int(a["score"]) if done else None,
                          time=when.strftime("%H:%M") + " UTC", extra={"espn_id": e.get("id"),
+                                                                     "season": (e.get("season") or {}).get("year"),
                                                                      "neutral": comp.get("neutralSite", False)}))
     return out
 

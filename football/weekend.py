@@ -349,6 +349,26 @@ def main(argv=None):
         logs = players.fetch_for(teams, allm, a.start)
         team_players = {t: players.brief(players.profile(l)) for t, l in logs.items()}
 
+    team_stats, h2h_for = {}, (lambda m: None)
+    if a.source == "espn":
+        from . import espn, teamstats
+        idx = teamstats.index_by_team(allm)
+        domestic = {}                                   # team -> its league table row
+        for key, st in states.items():
+            if key in espn.CUPS:
+                continue
+            seasons = [m.extra.get("season") for m in st.matches if m.played and m.date < a.start]
+            if not seasons or seasons[-1] is None:
+                continue
+            season = max(x for x in seasons[-40:] if x is not None)
+            for team, row in teamstats.table(st.matches, season, a.start).items():
+                if team not in domestic or row["played"] > domestic[team]["played"]:
+                    domestic[team] = {**row, "league": key}
+        for t in {t for p in preds for t in (p.match.home, p.match.away)}:
+            l10 = teamstats.last_n(idx.get(t, []), t, a.start)
+            team_stats[t] = {"last10": l10, "table": domestic.get(t), "shape": teamstats.shape(l10)}
+        h2h_for = lambda m: teamstats.head_to_head(idx.get(m.home, []), m.home, m.away, a.start, m.extra.get("season"))
+
     matches = []
     for p in preds:
         m = p.match
@@ -368,6 +388,7 @@ def main(argv=None):
                for k, v in team_notes(news.get(getattr(m, side))).items()},
             "km": round(km) if km is not None else None,
             "home_players": team_players.get(m.home), "away_players": team_players.get(m.away),
+            "home_stats": team_stats.get(m.home), "away_stats": team_stats.get(m.away), "h2h": h2h_for(m),
         })
 
     season_start = date(season_start_year(a.start), 7, 1)
@@ -388,7 +409,15 @@ def main(argv=None):
             r["stars"] = tp.get("stars", [])[:2]
             r["missed_last"] = tp.get("missed_last", [])[:2]
             r["opp_missed_last"] = op.get("missed_last", [])[:2]
+            ts = team_stats.get(r["team"]) or {}
+            r["shape"], r["pos"] = ts.get("shape"), (ts.get("table") or {}).get("pos")
     picks = top_picks(preds, team_players)
+    for rows in picks.values():
+        for r in rows:
+            ts = team_stats.get(r["team"]) or {}
+            r["shape"], r["pos"] = ts.get("shape"), (ts.get("table") or {}).get("pos")
+            l10 = ts.get("last10") or {}
+            r["last10"] = {k: l10.get(k) for k in ("w", "d", "l", "gf", "ga", "cs")} if l10 else None
     wildcards = wildcard_accas(preds)
     doubles = double_headers(preds)
 

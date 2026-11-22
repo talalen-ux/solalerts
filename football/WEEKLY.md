@@ -64,6 +64,17 @@ The card opens on a pick list for building your own slip: every straight win at 
 a pick adds it; the slip shows the combined chance, fair odds, the leg-count check and a copy
 button, and is remembered on the device for that week. One pick per match.
 
+## Team stats and head-to-head
+
+Each fixture shows league position, the last-10 record (goals for and against, goal difference,
+clean sheets), the trend (last 5 v previous 5) and meetings this season and last
+(`football/teamstats.py`). Tested over 2024-26 in 19 leagues (`football/research/context_stats.py`,
+`recent_strength.py`): head-to-head, table position and trend added nothing; a goal-rate
+correction from last-10 numbers did not help out of sample. One split held in both seasons for
+favourites: "solid" recent shape (4+ clean sheets, goal difference not negative) won 3.7 points
+above the model, "shaky" (0-1 clean sheets or negative goal difference) 3.2 below. It is shown as
+a flag on picks; probabilities are unchanged.
+
 ## Players
 
 Each run reads the line-ups of every team's last 8 matches from ESPN match summaries (about 2,500

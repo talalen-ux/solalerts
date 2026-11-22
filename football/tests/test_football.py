@@ -314,3 +314,20 @@ def test_top_picks_are_70_plus_sorted_and_limited():
         assert [r["prob"] for r in rows] == sorted((r["prob"] for r in rows), reverse=True)
         assert len({r["id"] for r in rows}) == len(rows)
     assert t["wins"] and all(r["prob"] <= weekend.WILDCARD_MAX_LEG for r in t["safe"])
+
+
+def test_teamstats_table_last10_h2h_shape():
+    from football import teamstats
+    def mk(d, h, a, hg, ag, season=2026):
+        return Match("EPL", d, h, a, hg, ag, extra={"season": season})
+    ms = [mk(date(2026, 8, 1) + timedelta(days=7 * i), "A", "B" if i % 2 else "C", 2, 0) for i in range(10)]
+    ms += [mk(date(2025, 9, 1), "B", "A", 1, 1, season=2025), mk(date(2026, 8, 3), "B", "C", 0, 0)]
+    t = teamstats.table(ms, 2026, date(2027, 1, 1))
+    assert t["A"]["pos"] == 1 and t["A"]["pts"] == 30 and t["A"]["gd"] == 20 and t["A"]["of"] == 3
+    idx = teamstats.index_by_team(ms)
+    l10 = teamstats.last_n(idx["A"], "A", date(2027, 1, 1))
+    assert (l10["w"], l10["gf"], l10["ga"], l10["cs"], l10["trend"]) == (10, 20, 0, 10, "steady")
+    assert teamstats.shape(l10) == "solid"
+    assert teamstats.shape({"played": 10, "cs": 1, "gd": 5}) == "shaky" and teamstats.shape({"played": 10, "cs": 3, "gd": 2}) is None
+    h = teamstats.head_to_head(idx["A"], "A", "B", date(2027, 1, 1), 2026)
+    assert len(h["this_season"]) == 5 and len(h["last_season"]) == 1 and (h["home_w"], h["draws"], h["away_w"]) == (5, 1, 0)

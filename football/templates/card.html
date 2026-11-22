@@ -159,6 +159,15 @@ details.news summary::-webkit-details-marker{display:none}
 .slipbar button.sec{background:rgba(255,255,255,.2);color:#fff}
 body.has-slip{padding-bottom:calc(150px + env(safe-area-inset-bottom,0px))}
 a.appicon{text-decoration:none}
+.cmp{display:grid;grid-template-columns:1fr auto 1fr;gap:5px 10px;margin-top:8px;font:400 13px/1.3 var(--font);align-items:baseline}
+.cmp .l{text-align:right;font-weight:600;font-variant-numeric:tabular-nums}
+.cmp .r{text-align:left;font-weight:600;font-variant-numeric:tabular-nums}
+.cmp .k{text-align:center;color:var(--label2);font-size:12px}
+.cmp .up{color:var(--green)}.cmp .down{color:var(--red)}
+.h2h{margin-top:10px;display:grid;gap:3px;font:400 13px/1.35 var(--font);color:var(--label2)}
+.h2h b{color:var(--label);font-weight:600}
+.c-solid{color:var(--green);background:color-mix(in srgb,var(--green) 15%,transparent)}
+.c-shaky{color:var(--orange);background:color-mix(in srgb,var(--orange) 15%,transparent)}
 /* about */
 .about .row{align-items:flex-start}
 .ic{flex:none;width:30px;height:30px;border-radius:7px;display:grid;place-items:center;color:#fff}
@@ -262,6 +271,7 @@ a.appicon{text-decoration:none}
       <div class="row indent"><div class="ic" style="background:var(--tint)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></div><div class="grow"><div class="t1">Team strength</div><div class="t2">Attack and defence ratings per league from three seasons of ESPN results, older matches fading. Refit every week with the latest scores.</div></div><span class="badge b-on">On</span></div>
       <div class="row indent"><div class="ic" style="background:var(--orange)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3c2 4 6 5 6 10a6 6 0 0 1-12 0c0-3 2-4 2-7 2 1 3 2 4 4"/></svg></div><div class="grow"><div class="t1">Last 5 games</div><div class="t2">Picks the form list. A separate form term added nothing to predictions, so it never raises a probability.</div></div><span class="badge b-mid">Filter</span></div>
       <div class="row indent"><div class="ic" style="background:var(--gray)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div class="grow"><div class="t1">Travel distance</div><div class="t2">Its effect flipped sign between seasons and never improved held-out predictions.</div></div><span class="badge b-off">Off</span></div>
+      <div class="row indent"><div class="ic" style="background:var(--green)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 16l5-5 4 4 7-8"/></svg></div><div class="grow"><div class="t1">Last 10, table, head-to-head</div><div class="t2">Shown on every fixture. Tested over two seasons: head-to-head, table position and trend added nothing. Recent shape did for favourites: "solid" ones (4+ clean sheets, goal difference not negative) won 3.7 points more than predicted, "shaky" ones 3.2 less. Shown as a flag; percentages are unchanged.</div></div><span class="badge b-mid">Flag</span></div>
       <div class="row indent"><div class="ic" style="background:var(--tint)"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0z"/></svg></div><div class="grow"><div class="t1">Players</div><div class="t2">Every player is graded from the team's last 8 line-ups: star (a top-three contributor with 3+ goals and assists), regular (starts 60%+), rotation, fringe. Shown per match; "missed last game" is a prompt to check the line-up.</div></div><span class="badge b-mid">Shown</span></div>
       <div class="row indent"><div class="ic" style="background:var(--red)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div><div class="grow"><div class="t1">Injuries &amp; bans</div><div class="t2">Key forward out −6% goals; midfielder −3%/+2% conceded; defender +4%; keeper +6%. Doubts count half, capped at 15%.</div></div><span class="badge b-mid">If sourced</span></div>
       <div class="row indent"><div class="ic" style="background:#5e5ce6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div class="grow"><div class="t1">Europe midweek</div><div class="t2">A Thursday-to-Sunday turnaround costs −3% goals and +2% conceded.</div></div><span class="badge b-on">On</span></div>
@@ -345,6 +355,25 @@ function teamPlayers(name,p){
   L.push(`<div class="line">Squad over last ${p.matches}: ${c.star||0} star${(c.star||0)===1?'':'s'}, ${c.regular||0} regulars, ${c.rotation||0} rotation, ${c.fringe||0} fringe${p.star_goal_share?` · stars scored ${Math.round(p.star_goal_share*100)}% of goals`:''}</div>`);
   return `<div><h4>${esc(SHORT(name))}</h4>${L.join('')}</div>`;
 }
+const ord=n=>n+(n%100>10&&n%100<14?'th':['th','st','nd','rd'][n%10]||'th');
+const shapeChip=r=>r.shape==='solid'?'<span class="chip c-solid">Solid form</span>':r.shape==='shaky'?'<span class="chip c-shaky">Shaky form</span>':'';
+function statsBlock(m){
+  const h=m.home_stats||{}, a=m.away_stats||{}, H=h.last10, A=a.last10; if(!H&&!A) return '';
+  const row=(k,l,r,lc='',rc='')=>`<span class="l ${lc}">${l}</span><span class="k">${k}</span><span class="r ${rc}">${r}</span>`;
+  const v=(x,f)=>x?f(x):'–', tc=x=>x&&x.trend==='improving'?'up':x&&x.trend==='declining'?'down':'';
+  const tbl=x=>x.table?`${ord(x.table.pos)} of ${x.table.of}`:'–';
+  const rows=[row('League position',tbl(h),tbl(a)),
+    row('Last 10 (W-D-L)',v(H,x=>`${x.w}-${x.d}-${x.l}`),v(A,x=>`${x.w}-${x.d}-${x.l}`)),
+    row('Goals scored',v(H,x=>x.gf),v(A,x=>x.gf)),row('Goals conceded',v(H,x=>x.ga),v(A,x=>x.ga)),
+    row('Goal difference',v(H,x=>(x.gd>0?'+':'')+x.gd),v(A,x=>(x.gd>0?'+':'')+x.gd)),
+    row('Clean sheets',v(H,x=>x.cs),v(A,x=>x.cs)),
+    row('Last 5 v previous 5',v(H,x=>x.trend?x.trend[0].toUpperCase()+x.trend.slice(1):'–'),v(A,x=>x.trend?x.trend[0].toUpperCase()+x.trend.slice(1):'–'),tc(H),tc(A)),
+    row('Recent shape',h.shape?h.shape[0].toUpperCase()+h.shape.slice(1):'Average',a.shape?a.shape[0].toUpperCase()+a.shape.slice(1):'Average',h.shape==='solid'?'up':h.shape==='shaky'?'down':'',a.shape==='solid'?'up':a.shape==='shaky'?'down':'')];
+  const g=m.h2h||{}, meet=x=>`<span>${day(x.date)}: ${esc(SHORT(x.home))} <b>${x.score}</b> ${esc(SHORT(x.away))}</span>`;
+  const hh=(g.n?`<span><b>Head-to-head, this season and last:</b> ${esc(SHORT(m.home))} ${g.home_w}W · ${g.draws}D · ${esc(SHORT(m.away))} ${g.away_w}W</span>`:'<span><b>Head-to-head:</b> no meetings this season or last</span>')
+    +(g.this_season||[]).map(x=>`<span>This season · ${meet(x).slice(6)}`).join('')+(g.last_season||[]).map(x=>`<span>Last season · ${meet(x).slice(6)}`).join('');
+  return `<details class="news"><summary>Stats &amp; head-to-head</summary><div class="cmp">${rows.join('')}</div><div class="h2h">${hh}</div></details>`;
+}
 // slips data + copy
 const FT=(DATA.form_tiers||[]).filter(t=>t.options.length), MT=DATA.tiers.filter(t=>t.options.length), WT=(DATA.wildcards||[]).filter(t=>t.options.length), DH=(DATA.double_headers||[]).filter(t=>t.options.length), WD=(DATA.world_tiers||[]).filter(t=>t.options.length), ALL=[...FT,...MT,...WT,...DH,...WD];
 async function copySlip(i,btn){
@@ -422,6 +451,7 @@ function fixture(m){
   <div class="bar-l"><span>Home <b>${pct(p.H)}</b></span><span>Draw <b>${pct(p.D)}</b></span><span>Away <b>${pct(p.A)}</b></span></div>
   <div class="stats"><div>xG<b class="num">${m.xg[0].toFixed(1)}–${m.xg[1].toFixed(1)}</b></div><div>Over 2.5<b class="num">${pct(p['O2.5'])}</b></div><div>Likely<b class="num">${m.scores[0][0]}-${m.scores[0][1]}</b></div></div>
   ${notes.length?`<details class="news"><summary>Team News (${notes.length})</summary><div class="notes">${notes.join('')}</div></details>`:''}
+  ${statsBlock(m)}
   ${(()=>{const h=teamPlayers(m.home,m.home_players),a=teamPlayers(m.away,m.away_players);if(!h&&!a)return '';
     const flag=((m.home_players||{}).missed_last||[]).length+((m.away_players||{}).missed_last||[]).length;
     return `<details class="news"><summary>Players${flag?` · ${flag} missed last game`:''}</summary><div class="pl">${h}${a}</div></details>`})()}</div>`;
@@ -441,7 +471,7 @@ $('nleagues').textContent=`${leagues.length} leagues`;
 $('coverage').innerHTML=REG.map(r=>{const ks=leagues.filter(k=>(LN[k]||[])[2]===r);if(!ks.length)return '';
   return ks.map(k=>`<div class="row indent">${lmark(k)}<div class="grow"><div class="t1">${esc(LG[k])}</div><div class="t2">${r} · ${DATA.matches.filter(m=>m.league===k).length} matches</div></div>${LOWC.has(k)?'<span class="badge b-mid">Even</span>':''}</div>`).join('')}).join('');
 
-function wplayers(r){const L=[];
+function wplayers(r){const L=[]; if(r.shape) L.push(shapeChip(r));
   if((r.stars||[]).length) L.push(`<span class="chip c-star">★</span><span>${r.stars.map(pstat).join(' · ')}</span>`);
   if((r.missed_last||[]).length) L.push(`<span class="chip c-miss">Missed last</span><span>${r.missed_last.map(x=>esc(x.name)).join(', ')}</span>`);
   return L.length?`<div class="t2">${L.join('')}</div>`:''}
@@ -488,8 +518,9 @@ function wplayers(r){const L=[];
     $('pickcount').textContent=`${rows.length} picks`;
     $('picklist').innerHTML=rows.map(r=>{const on=sel.includes(r.id);
       const extra=[(r.stars||[]).length?`<span class="chip c-star">★</span><span>${pstat(r.stars[0])}</span>`:'',(r.missed_last||[]).length?`<span class="chip c-miss">Missed last</span><span>${r.missed_last.map(x=>esc(x.name)).join(', ')}</span>`:'',r.even?'<span class="lg">even league</span>':''].filter(Boolean).join('');
+      const l10=r.last10?`<span class="t2">${shapeChip(r)}<span>${r.pos?ord(r.pos)+' · ':''}last 10: ${r.last10.w}-${r.last10.d}-${r.last10.l}, ${r.last10.gf}–${r.last10.ga} goals, ${r.last10.cs} clean sheet${r.last10.cs===1?'':'s'}</span></span>`:'';
       return `<button type="button" class="pick" id="pk-${esc(r.id).replace(/[^A-Za-z0-9]/g,'-')}" data-pick="${esc(r.id)}" aria-pressed="${on}"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>${crest(r.team,36)}<span class="grow"><span class="t1" style="display:block">${esc(SHORT(r.team))}${mode==='safe'?' <span style="color:var(--label2)">or draw</span>':''}</span>
-        <span class="t2">${lmark(r.league)}<span>${r.is_home?'vs':'at'} ${esc(SHORT(r.opponent))}</span><span>·</span><span>${day(r.date)}</span></span>${extra?`<span class="t2">${extra}</span>`:''}</span>
+        <span class="t2">${lmark(r.league)}<span>${r.is_home?'vs':'at'} ${esc(SHORT(r.opponent))}</span><span>·</span><span>${day(r.date)}</span></span>${l10}${extra?`<span class="t2">${extra}</span>`:''}</span>
         <span class="pill">${pct(r.prob)}<small>@${r.fair.toFixed(2)}</small></span></button>`}).join('')||'<div class="row"><div class="t2">No picks at 70% or better this week.</div></div>';
     $('pickfoot').textContent=mode==='wins'?`Every match this week where the model gives one side at least 70% to win, strongest first (up to 30). Percentages are the model's; prices shown are fair odds.`:`The 30 strongest "win or draw" picks, between 70% and 92%. Safer legs, shorter prices.`;
   }
