@@ -11,7 +11,7 @@ import json
 from datetime import date, datetime
 from pathlib import Path
 
-from . import engine, markets
+from . import badges, engine, markets
 from .adjust import load_news
 from .geo import distance_km
 from .leagues import LEAGUES, season_start_year
@@ -93,6 +93,7 @@ def team_notes(info):
 def leg_json(l):
     m = l.pred.match
     return {"league": m.league, "date": m.date.isoformat(), "match": l.pred.title,
+            "home": m.home, "away": m.away,
             "pick": l.describe(), "code": l.code, "prob": round(l.prob, 4), "fair": round(l.fair_odds, 2)}
 
 
@@ -168,6 +169,8 @@ def main(argv=None):
                                               and season_start <= m.date < a.start)
                                       for lg, st in states.items()},
             "matches": matches, "tiers": tiers, "form_teams": form_teams, "form_tiers": form_tiers,
+            "badges": badges.for_teams({t for m in matches for t in (m["home"], m["away"])}),
+            "league_marks": badges.LEAGUE_MARKS,
             "top_singles": [leg_json(l) for l in singles[:15]]}
     Path(a.out).write_text(json.dumps(card, indent=1, ensure_ascii=False))
     print(f"{len(matches)} matches, {n_results} results merged, news for {len(news)} teams -> {a.out}")

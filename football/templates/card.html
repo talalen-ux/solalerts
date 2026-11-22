@@ -47,13 +47,14 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .row{display:flex;align-items:center;gap:12px;padding:11px 16px;min-height:44px;position:relative}
 .row + .row::before{content:"";position:absolute;top:0;left:16px;right:0;border-top:.5px solid var(--sep)}
 .row.indent + .row.indent::before{left:60px}
+.row.crestrow + .row.crestrow::before{left:94px}
 .grow{flex:1;min-width:0}
 .t1{font:400 17px/1.25 var(--font);overflow-wrap:anywhere}
 .t1 b{font-weight:600}
 .t2{font:400 13px/1.3 var(--font);color:var(--label2);margin-top:2px;display:flex;flex-wrap:wrap;gap:2px 6px;align-items:center}
 .pill{flex:none;min-width:62px;text-align:center;font:600 15px/1 var(--font);font-variant-numeric:tabular-nums;color:var(--green);background:color-mix(in srgb,var(--green) 15%,transparent);border-radius:999px;padding:7px 10px}
 .pill small{display:block;font:500 11px/1.2 var(--font);color:var(--label2);margin-top:2px}
-.rank{flex:none;width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font:700 15px/1 var(--round);color:#fff;background:var(--tint)}
+.rank{flex:none;width:18px;font:600 15px/1 var(--round);color:var(--label2);text-align:right}
 .dots{display:inline-flex;gap:3px;vertical-align:middle}
 .dots i{width:7px;height:7px;border-radius:50%;display:inline-block}
 .d-W{background:var(--green)}.d-D{background:var(--gray)}.d-L{background:var(--red)}
@@ -128,6 +129,22 @@ details.news summary::-webkit-details-marker{display:none}
 .b-off{color:var(--red);background:color-mix(in srgb,var(--red) 13%,transparent)}
 .b-mid{color:var(--orange);background:color-mix(in srgb,var(--orange) 15%,transparent)}
 
+/* crests, league marks, app icon */
+.crest{flex:none;display:inline-grid;place-items:center;width:var(--s,36px);height:calc(var(--s,36px)*1.12);
+  border-radius:22% 22% 50% 50% / 18% 18% 42% 42%;font:800 calc(var(--s,36px)*.3)/1 var(--round);letter-spacing:-.02em;
+  box-shadow:inset 0 0 0 calc(var(--s,36px)*.07) var(--ring),0 1px 2px rgba(0,0,0,.12);overflow:hidden}
+.crest.sm{--s:22px;font-size:7px}
+.pair{flex:none;display:inline-flex;flex-direction:column;gap:3px;width:30px;align-items:center}
+.pair .crest{--s:22px;font-size:7px}
+.lmark{flex:none;display:inline-grid;place-items:center;width:20px;height:20px;border-radius:6px;font:800 9px/1 var(--round);letter-spacing:-.02em}
+.seg button{display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.lgline{display:inline-flex;align-items:center;gap:6px}
+.appicon{flex:none;width:46px;height:46px;border-radius:22.5%;display:grid;place-items:center;
+  background:linear-gradient(145deg,#30d158 0%,#0a84ff 100%);box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.appicon svg{width:30px;height:30px}
+.large{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
+.hero .legs div{align-items:center}
+.hero .legs .lt{display:flex;align-items:center;gap:8px;min-width:0}
 /* bottom tab bar */
 .tabbar{position:fixed;left:0;right:0;bottom:0;z-index:25;background:var(--bar);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);
   border-top:.5px solid var(--sep);padding:6px var(--gr) calc(6px + env(safe-area-inset-bottom,0px)) var(--gl)}
@@ -142,7 +159,8 @@ details.news summary::-webkit-details-marker{display:none}
 
 <header class="topbar" id="topbar"><h2 id="smalltitle">Form</h2></header>
 <main class="wrap">
-  <div class="large"><div class="sub" id="dates"></div><h1 id="bigtitle">Form</h1></div>
+  <div class="large"><div><div class="sub" id="dates"></div><h1 id="bigtitle">Form</h1></div>
+    <div class="appicon" role="img" aria-label="Weekly Parlay Card"><svg viewBox="0 0 32 32" fill="none"><path d="M5 9.5A2.5 2.5 0 0 1 7.5 7h17A2.5 2.5 0 0 1 27 9.5v3a3.5 3.5 0 0 0 0 7v3a2.5 2.5 0 0 1-2.5 2.5h-17A2.5 2.5 0 0 1 5 22.5v-3a3.5 3.5 0 0 0 0-7v-3z" fill="#fff"/><circle cx="16" cy="16" r="5.2" fill="#0a84ff"/><path d="M16 12.6l2.2 1.6-.8 2.6h-2.8l-.8-2.6z" fill="#fff"/><path d="M20 9v14" stroke="#30d158" stroke-width="1.4" stroke-dasharray="1.6 1.6"/></svg></div></div>
 
   <!-- FORM -->
   <div class="screen" id="v-form">
@@ -206,6 +224,24 @@ const pct=p=>Math.round(p*100)+'%';
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const day=d=>new Date(d+'T12:00:00').toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
 const $=id=>document.getElementById(id);
+const BADGES=DATA.badges||{}, MARKS=DATA.league_marks||{};
+function lum(h){const n=parseInt(h.slice(1),16),c=[n>>16,n>>8&255,n&255].map(v=>{v/=255;return v<=.03928?v/12.92:((v+.055)/1.055)**2.4});return .2126*c[0]+.7152*c[1]+.0722*c[2]}
+function contrast(a,b){const x=lum(a),y=lum(b);return (Math.max(x,y)+.05)/(Math.min(x,y)+.05)}
+function crest(team,size){
+  const b=BADGES[team]; const code=b?b[0]:SHORT(team).replace(/[^A-Za-zÀ-ÿ]/g,'').slice(0,3).toUpperCase();
+  const bg=b?b[1]:'#8e8e93', alt=b?b[2]:'#ffffff';
+  const fg=contrast(bg,alt)>=2.6?alt:(lum(bg)>.4?'#111111':'#ffffff');
+  const ring=bg.toLowerCase()==='#ffffff'?alt:(alt.toLowerCase()==='#ffffff'&&lum(bg)>.6?'#00000022':alt);
+  const fs=code.length>3?'font-size:calc(var(--s,36px)*.24);':'';
+  return `<span class="crest${size==='sm'?' sm':''}" style="background:${bg};color:${fg};--ring:${ring};${size&&size!=='sm'?`--s:${size}px;`:''}${fs}" aria-hidden="true">${esc(code)}</span>`;
+}
+function legCrest(l){
+  const c=l.code.split('+')[0];
+  if(/^(H|1X|HO|HU|H_WTN)/.test(c)) return crest(l.home,30);
+  if(/^(A|X2|AO|AU|A_WTN)/.test(c)) return crest(l.away,30);
+  return `<span class="pair">${crest(l.home)}${crest(l.away)}</span>`;
+}
+function lmark(k){const m=MARKS[k]||[k,'#8e8e93','#fff'];return `<span class="lmark" style="background:${m[1]};color:${m[2]}" aria-hidden="true">${m[0]}</span>`}
 const dots=s=>`<span class="dots" aria-label="last five ${s}">${[...s].map(r=>`<i class="d-${r}"></i>`).join('')}</span>`;
 const pick=l=>l.pick.replace(/^(.*?) (win|or draw|over|win to nil)/,(m,a,b)=>SHORT(a)+' '+b);
 const vs=l=>l.match.split(' v ').map(SHORT).join(' v ');
@@ -230,13 +266,13 @@ const FW=DATA.form_teams||[];
 const best=FT.find(t=>t.legs_n===3)||FT[0];
 if(best){const o=best.options[0];
   $('hero').innerHTML=`<div class="k">This week's form treble</div><div class="v">${o.fair.toFixed(2)}</div><div class="d">Fair odds · wins ${pct(o.prob)} of the time</div>
-  <div class="legs">${o.legs.map(l=>`<div><span>${esc(pick(l))}</span><span class="num">${pct(l.prob)}</span></div>`).join('')}</div>
+  <div class="legs">${o.legs.map(l=>`<div><span class="lt">${legCrest(l).replace(/--s:\d+px/g,'--s:24px')}<span>${esc(pick(l))}</span></span><span class="num">${pct(l.prob)}</span></div>`).join('')}</div>
   <button type="button" data-copy="${ALL.indexOf(best)}">Copy Picks</button>`;
 } else $('hero').hidden=true;
 let fwAll=false;
 function drawFW(){
-  const rows=(fwAll?FW:FW.slice(0,6)).map((f,i)=>`<div class="row indent"><div class="rank">${i+1}</div><div class="grow"><div class="t1">${esc(SHORT(f.team))}</div>
-    <div class="t2">${dots(f.form)}<span>${f.home?'vs':'at'} ${esc(SHORT(f.opponent))}</span><span>·</span><span>${day(f.date)}</span><span class="lg">${LGS[f.league]}</span></div></div>
+  const rows=(fwAll?FW:FW.slice(0,6)).map((f,i)=>`<div class="row indent crestrow"><div class="rank">${i+1}</div>${crest(f.team,36)}<div class="grow"><div class="t1">${esc(SHORT(f.team))}</div>
+    <div class="t2">${dots(f.form)}<span>${f.home?'vs':'at'} ${esc(SHORT(f.opponent))}</span><span>·</span><span>${day(f.date)}</span></div></div>
     <div class="pill">${pct(f.prob)}<small>@${f.fair.toFixed(2)}</small></div></div>`).join('');
   const more=FW.length>6?`<div class="row"><button class="morebtn" id="fwmore" type="button">${fwAll?'Show Fewer':`Show All ${FW.length}`}</button></div>`:'';
   $('fwlist').innerHTML=(rows||'<div class="row"><div class="t2">No team with 3+ wins in its last 5 is favourite this week.</div></div>')+more;
@@ -248,7 +284,7 @@ drawFW();
 // slip cards
 function card(t,i,eb){
   const o=t.options[0];
-  const legs=o.legs.map(l=>`<div class="row"><div class="grow"><div class="t1">${esc(pick(l))}</div><div class="t2"><span>${esc(vs(l))}</span><span>·</span><span>${day(l.date)}</span></div></div><div class="num" style="font:600 15px/1 var(--font);text-align:right">${pct(l.prob)}<div style="font:400 12px/1.4 var(--font);color:var(--label2)">@${l.fair.toFixed(2)}</div></div></div>`).join('');
+  const legs=o.legs.map(l=>`<div class="row">${legCrest(l)}<div class="grow"><div class="t1">${esc(pick(l))}</div><div class="t2"><span>${esc(vs(l))}</span><span>·</span><span>${day(l.date)}</span></div></div><div class="num" style="font:600 15px/1 var(--font);text-align:right">${pct(l.prob)}<div style="font:400 12px/1.4 var(--font);color:var(--label2)">@${l.fair.toFixed(2)}</div></div></div>`).join('');
   const alts=t.options.slice(1).map(a=>`<div class="alt"><b>${a.fair.toFixed(2)}</b> · ${a.legs.map(l=>esc(pick(l))).join(' · ')}</div>`).join('');
   return `<article class="card"><div class="card-h"><div><div class="eb">${eb} · ${o.legs.length} legs</div><h3>${esc(t.name)}</h3><p>${esc(t.note)}</p></div><div class="odds"><b>${o.fair.toFixed(2)}</b><span>wins ${pct(o.prob)}</span></div></div>
   ${legs}<div class="card-f"><button class="btn" type="button" data-copy="${i}">Copy Picks</button>${alts?`<details class="alts"><summary>${t.options.length-1} more like this</summary>${alts}</details>`:''}</div></article>`;
@@ -270,15 +306,15 @@ function fixture(m){
     if(m[side+'_mgr']) notes.push(`<span>${nm}: ${esc(m[side+'_mgr'])}</span>`);}
   const f=x=>x.map(r=>r.r).join('');
   return `<div class="fx row" style="display:block"><div class="fx-meta"><span>${day(m.date)}${m.time?' · '+m.time:''}</span><span>${m.km!=null?m.km+' km':''}</span></div>
-  <div class="fx-team"><span class="t1">${esc(SHORT(m.home))}</span>${dots(f(m.home_form))}</div>
-  <div class="fx-team" style="margin-top:4px"><span class="t1">${esc(SHORT(m.away))}</span>${dots(f(m.away_form))}</div>
+  <div class="fx-team"><span class="lgline">${crest(m.home,28)}<span class="t1">${esc(SHORT(m.home))}</span></span>${dots(f(m.home_form))}</div>
+  <div class="fx-team" style="margin-top:6px"><span class="lgline">${crest(m.away,28)}<span class="t1">${esc(SHORT(m.away))}</span></span>${dots(f(m.away_form))}</div>
   <div class="bar" role="img" aria-label="home ${pct(p.H)}, draw ${pct(p.D)}, away ${pct(p.A)}"><i class="b-h" style="width:${p.H*100}%"></i><i class="b-d" style="width:${p.D*100}%"></i><i class="b-a" style="width:${p.A*100}%"></i></div>
   <div class="bar-l"><span>Home <b>${pct(p.H)}</b></span><span>Draw <b>${pct(p.D)}</b></span><span>Away <b>${pct(p.A)}</b></span></div>
   <div class="stats"><div>xG<b class="num">${m.xg[0].toFixed(1)}–${m.xg[1].toFixed(1)}</b></div><div>Over 2.5<b class="num">${pct(p['O2.5'])}</b></div><div>Likely<b class="num">${m.scores[0][0]}-${m.scores[0][1]}</b></div></div>
   ${notes.length?`<details class="news"><summary>Team News (${notes.length})</summary><div class="notes">${notes.join('')}</div></details>`:''}</div>`;
 }
 function drawFX(){
-  $('seg').innerHTML=leagues.map(l=>`<button type="button" id="seg-${l}" data-l="${l}" aria-pressed="${l===lg}">${LGS[l]}</button>`).join('');
+  $('seg').innerHTML=leagues.map(l=>`<button type="button" id="seg-${l}" data-l="${l}" aria-pressed="${l===lg}">${lmark(l)}${LGS[l]}</button>`).join('');
   const ms=DATA.matches.filter(m=>m.league===lg);
   $('fxhead').textContent=`${LG[lg]} · ${ms.length} matches`;
   $('fxresults').textContent=`results to ${new Date(DATA.last_result[lg]+'T12:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short'})}`;
