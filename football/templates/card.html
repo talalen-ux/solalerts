@@ -95,6 +95,11 @@ details.alts summary::-webkit-details-marker{display:none}
 .dotsnav i{width:7px;height:7px;border-radius:50%;background:var(--label3);transition:background .2s}
 .dotsnav i.on{background:var(--label)}
 
+.wild .card-h .eb{color:var(--orange)}
+.wild .reality{margin:0 16px 4px;padding:10px 12px;border-radius:10px;background:color-mix(in srgb,var(--orange) 12%,transparent);font:400 13px/1.35 var(--font);color:var(--label)}
+.wild .reality b{font-weight:600}
+.wild details.more-legs summary{list-style:none;cursor:pointer;color:var(--tint);font:400 15px/1.3 var(--font);padding:10px 16px}
+.wild details.more-legs summary::-webkit-details-marker{display:none}
 /* segmented control */
 .seg{display:flex;background:var(--fill);border-radius:9px;padding:2px;gap:2px;overflow-x:auto;scrollbar-width:none;margin-top:12px}
 .seg::-webkit-scrollbar{display:none}
@@ -179,6 +184,9 @@ details.news summary::-webkit-details-marker{display:none}
     <div class="rail" id="sliprail"></div>
     <div class="dotsnav" id="slipdots"></div>
     <div class="section-f">Prices are fair odds, the break-even price. Back a slip only when your bookmaker pays more; margin compounds across legs.</div>
+    <div class="section-h"><span>Wildcards · long shots</span></div>
+    <div class="rail" id="wildrail"></div>
+    <div class="section-f">Each wildcard takes the most likely result from 10, 15 or 19 different matches. Every leg is around 90%, yet one miss sinks the slip. At a typical 5% bookmaker margin per leg you get back about 61p, 48p and 40p per £1 staked on average. Treat them as a small-stake bit of fun, not a plan.</div>
   </div>
 
   <!-- FIXTURES -->
@@ -257,7 +265,7 @@ $('gaps').textContent='Matches this season still without a result: '+Object.entr
 $('foot').textContent=`Refreshed every Thursday · built ${DATA.generated}`;
 
 // slips data + copy
-const FT=(DATA.form_tiers||[]).filter(t=>t.options.length), MT=DATA.tiers.filter(t=>t.options.length), ALL=[...FT,...MT];
+const FT=(DATA.form_tiers||[]).filter(t=>t.options.length), MT=DATA.tiers.filter(t=>t.options.length), WT=(DATA.wildcards||[]).filter(t=>t.options.length), ALL=[...FT,...MT,...WT];
 async function copySlip(i,btn){
   const t=ALL[i],o=t.options[0];
   const text=`${t.name} · fair ${o.fair.toFixed(2)}\n`+o.legs.map(l=>`• ${l.pick} (${vs(l)}, ${day(l.date)})`).join('\n');
@@ -296,6 +304,16 @@ function card(t,i,eb){
 }
 $('formrail').innerHTML=FT.map((t,i)=>card(t,i,'Form')).join('');
 $('sliprail').innerHTML=MT.map((t,i)=>card(t,i+FT.length,'Model')).join('');
+function legRow(l){return `<div class="row">${legCrest(l)}<div class="grow"><div class="t1">${esc(pick(l))}</div><div class="t2"><span>${esc(vs(l))}</span><span>·</span><span>${day(l.date)}</span><span class="lg">${esc(LGS[l.league])}</span></div></div><div class="num" style="font:600 15px/1 var(--font);text-align:right">${pct(l.prob)}</div></div>`}
+function wildCard(t,i){
+  const o=t.options[0], first=o.legs.slice(0,6), rest=o.legs.slice(6);
+  const alts=t.options.slice(1).map((a,k)=>`<div class="alt"><b>${a.fair.toFixed(2)}</b> · swaps the ${k+1} weakest leg${k?'s':''} for the next-best match${k?'es':''} (wins ${(a.prob*100).toFixed(1)}%)</div>`).join('');
+  return `<article class="card wild"><div class="card-h"><div><div class="eb">Wildcard · ${o.legs.length} legs</div><h3>${esc(t.name)}</h3><p>${esc(t.note)}</p></div><div class="odds"><b>${o.fair.toFixed(2)}</b><span>wins ${(o.prob*100).toFixed(1)}%</span></div></div>
+  <div class="reality">A typical book pays about <b>${t.typical_book_odds.toFixed(1)}</b>, not ${o.fair.toFixed(2)}. Average return: <b>${Math.round((1+t.expected_return)*100)}p per £1</b>.</div>
+  ${first.map(legRow).join('')}${rest.length?`<details class="more-legs"><summary>Show ${rest.length} more legs</summary>${rest.map(legRow).join('')}</details>`:''}
+  <div class="card-f"><button class="btn" type="button" data-copy="${i}">Copy All ${o.legs.length} Picks</button>${alts?`<details class="alts"><summary>${t.options.length-1} alternative${t.options.length>2?'s':''}</summary>${alts}</details>`:''}</div></article>`;
+}
+$('wildrail').innerHTML=WT.map((t,i)=>wildCard(t,i+FT.length+MT.length)).join('')||'<div class="section-f">Not enough matches this week for wildcards.</div>';
 $('slipdots').innerHTML=MT.map((_,i)=>`<i class="${i?'':'on'}"></i>`).join('');
 $('sliprail').addEventListener('scroll',e=>{const r=e.target,c=r.querySelector('.card');if(!c)return;const i=Math.round(r.scrollLeft/(c.offsetWidth+12));[...$('slipdots').children].forEach((d,k)=>d.classList.toggle('on',k===i))},{passive:true});
 

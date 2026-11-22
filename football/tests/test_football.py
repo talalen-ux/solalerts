@@ -206,3 +206,21 @@ def test_badge_clashes_within_league_get_initials():
     espn.TEAM_META.update({"Dundee": ("DUN", "#000040", "#ffffff"), "Dundee United": ("DUN", "#ff621a", "#009f00")})
     b = badges.for_teams({("Dundee", "SCOTLAND"), ("Dundee United", "SCOTLAND")})
     assert b["Dundee"][0] != b["Dundee United"][0]
+
+
+def test_wildcards_take_best_leg_per_match():
+    import math as _m
+    from football import weekend
+    ms, teams = synthetic_league(seasons=3)
+    model = DixonColes().fit(ms, date(2028, 1, 1))
+    fx = [Match("EPL", date(2028, 1, 2) + timedelta(days=i % 3), teams[i % 10], teams[(i * 3 + 1) % 10])
+          for i in range(30) if teams[i % 10] != teams[(i * 3 + 1) % 10]]
+    preds = [MatchPrediction(f, model.score_matrix(f.home, f.away), model.expected_goals(f.home, f.away)) for f in fx]
+    w = weekend.wildcard_accas(preds, sizes=(5, 10))
+    assert [x["legs_n"] for x in w] == [5, 10]
+    top = w[0]["options"][0]
+    assert len({l["match"] + l["date"] for l in top["legs"]}) == 5          # one leg per match
+    assert top["prob"] == pytest.approx(_m.prod(l["prob"] for l in top["legs"]), rel=1e-3)
+    assert w[0]["options"][1]["prob"] <= top["prob"] + 1e-9               # alternatives are weaker
+    assert w[1]["expected_return"] == pytest.approx(1.05 ** -10 - 1, abs=1e-3)
+    assert all(l["prob"] <= weekend.WILDCARD_MAX_LEG for l in top["legs"])

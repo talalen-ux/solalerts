@@ -7,6 +7,7 @@ DIR holds <LEAGUE>_results.csv and <LEAGUE>_news.json files.
 from __future__ import annotations
 
 import argparse
+import math
 import json
 from datetime import date, datetime
 from pathlib import Path
@@ -120,6 +121,46 @@ def team_notes(info):
             "mgr": mgr if mgr not in (None, "", "unverified") else None}
 
 
+WILDCARD_SIZES = (10, 15, 19)
+WILDCARD_MAX_LEG = 0.92    # calibration held in the 90%+ bucket (92.2% predicted, 92.1% won)
+BOOK_MARGIN = 0.05         # typical bookmaker margin per leg, used only for the warning figures
+
+
+def wildcard_accas(preds, sizes=WILDCARD_SIZES, alternatives=2):
+    """Long accumulators: the most likely leg from each of the N best matches.
+
+    With one leg per match and independent matches, the highest joint probability for N legs is
+    simply the N strongest per-match legs, so this is greedy. Alternatives swap the weakest legs
+    for the next-best matches.
+    """
+    legs = capped(candidate_legs(preds, codes=CARD_CODES, min_leg_prob=0.60, max_leg_prob=WILDCARD_MAX_LEG))
+    best = {}
+    for l in legs:
+        k = id(l.pred)
+        if k not in best or l.prob > best[k].prob:
+            best[k] = l
+    ranked = sorted(best.values(), key=lambda l: -l.prob)
+    out = []
+    for n in sizes:
+        if len(ranked) < n:
+            continue
+        opts = []
+        for shift in range(alternatives + 1):
+            chosen = ranked[:n - shift] + ranked[n:n + shift] if shift else ranked[:n]
+            if len(chosen) < n:
+                break
+            chosen = sorted(chosen, key=lambda l: (l.pred.match.date, l.pred.match.time))
+            prob = math.prod(l.prob for l in chosen)
+            opts.append({"prob": round(prob, 5), "fair": round(1 / prob, 2),
+                         "legs": [leg_json(l) for l in chosen]})
+        book_factor = (1 + BOOK_MARGIN) ** -n
+        out.append({"name": f"{n}-leg wildcard", "note": f"the {n} most likely results this week, one per match",
+                    "legs_n": n, "target": 1.0, "wildcard": True,
+                    "typical_book_odds": round(opts[0]["fair"] * book_factor, 1),
+                    "expected_return": round(book_factor - 1, 3), "options": opts})
+    return out
+
+
 def leg_json(l):
     m = l.pred.match
     return {"league": m.league, "date": m.date.isoformat(), "match": l.pred.title,
@@ -191,6 +232,7 @@ def main(argv=None):
                                    "legs": [leg_json(l) for l in p.legs]} for p in ps]})
 
     form_teams, form_tiers = form_winners(preds, states)
+    wildcards = wildcard_accas(preds)
 
     singles = sorted(capped(candidate_legs(preds, codes=CARD_CODES, min_leg_prob=0.60, max_leg_prob=0.92)),
                      key=lambda l: -l.prob)
@@ -201,6 +243,7 @@ def main(argv=None):
                                               and season_start <= m.date < a.start)
                                       for lg, st in states.items()},
             "matches": matches, "tiers": tiers, "form_teams": form_teams, "form_tiers": form_tiers,
+            "wildcards": wildcards,
             "badges": badges.for_teams({(t, m["league"]) for m in matches for t in (m["home"], m["away"])}),
             "league_marks": badges.league_marks({m["league"] for m in matches}),
             "league_names": {k: league_label(k) for k in {m["league"] for m in matches}},
@@ -211,7 +254,7 @@ def main(argv=None):
     print("\nIn-form teams most likely to win again:")
     for f in form_teams[:10]:
         print(f"   {f['team']} ({f['wins']}W in last 5) v {f['opponent']}: {f['prob'] * 100:.0f}%")
-    for t in form_tiers + tiers:
+    for t in form_tiers + tiers + wildcards:
         if t["options"]:
             o = t["options"][0]
             print(f"\n{t['name']}: {o['prob'] * 100:.1f}% @ fair {o['fair']}")
