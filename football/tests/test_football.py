@@ -133,11 +133,11 @@ def test_team_news_adjustments():
                          {"player": "Z", "pos": "DF", "status": "out", "importance": "rotation"}],
             "europe_midweek": "2026-11-05 UEL"}
     att, conc, why = adjust.team_factors(info, k)
-    assert att == pytest.approx(1 - 0.06 - 0.03)
-    assert conc == pytest.approx(1 + 0.03 + 0.01 + 0.02)
+    assert att == pytest.approx(1 - 0.04 - 0.03)
+    assert conc == pytest.approx(1 + 0.04 + 0.03 + 0.01 + 0.02)
     assert len(why) == 3
     many = {"absences": [{"pos": "FW", "status": "out", "importance": "key"}] * 10}
-    assert adjust.team_factors(many, k)[0] == pytest.approx(0.85)
+    assert adjust.team_factors(many, k)[0] == pytest.approx(0.85)   # capped
     lam, mu, _, _ = adjust.adjusted_rates(1.5, 1.0, info, None, k)
     assert lam == pytest.approx(1.5 * att) and mu == pytest.approx(1.0 * conc)
 
@@ -276,3 +276,25 @@ def test_winners_by_league_one_pick_per_league_and_spread():
     legs = [Leg(p, ("H",), p.probs["H"], p.probs["H"]) for p in preds]
     for par in build_parlays(legs, 3, max_per_league=1):
         assert len({l.pred.match.league for l in par.legs}) == 3
+
+
+def test_player_grades():
+    from football import players
+    def row(i, name, pos, start, g=0, a=0, sh=0, played=True):
+        return {"id": str(i), "name": name, "pos": pos, "start": start, "played": played, "totalGoals": g,
+                "goalAssists": a, "totalShots": sh, "shotsOnTarget": 0, "yellowCards": 0, "redCards": 0, "ownGoals": 0}
+    logs = []
+    for k in range(8):
+        rows = [row(1, "Striker", "F", True, g=1, sh=3), row(2, "Keeper", "G", True),
+                row(3, "Sub", "M", False, played=k < 1), row(4, "Winger", "LW", True, sh=2)]
+        if k < 7:
+            rows.append(row(5, "Captain", "CD", True))          # absent from the last squad
+        logs.append((None, rows))
+    p = players.profile(logs)
+    tier = {x["name"]: x["tier"] for x in p["players"]}
+    assert tier == {"Striker": "star", "Keeper": "regular", "Winger": "regular", "Captain": "regular", "Sub": "fringe"}
+    assert [x["name"] for x in p["hot"]] == ["Striker"]
+    assert [x["name"] for x in p["cold"]] == ["Winger"]
+    assert [x["name"] for x in p["missed_last"]] == ["Captain"]
+    assert p["star_goal_share"] == 1.0
+    assert players.profile(logs[:2])["players"] == []

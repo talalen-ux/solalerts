@@ -128,6 +128,14 @@ details.news summary::-webkit-details-marker{display:none}
 .notes{display:grid;gap:4px;margin-top:6px;font:400 13px/1.35 var(--font);color:var(--label2)}
 .n-abs{color:var(--red)}.n-form{color:var(--green)}
 
+.pl{display:grid;gap:8px;margin-top:8px}
+.pl h4{margin:0;font:600 13px/1.2 var(--font);color:var(--label)}
+.pl .line{font:400 13px/1.4 var(--font);color:var(--label2);display:flex;gap:6px;flex-wrap:wrap;align-items:baseline}
+.chip{font:600 11px/1 var(--font);border-radius:999px;padding:3px 7px;white-space:nowrap}
+.c-star{color:var(--tint);background:color-mix(in srgb,var(--tint) 14%,transparent)}
+.c-hot{color:var(--green);background:color-mix(in srgb,var(--green) 15%,transparent)}
+.c-cold{color:var(--gray);background:var(--fill)}
+.c-miss{color:var(--orange);background:color-mix(in srgb,var(--orange) 15%,transparent)}
 /* about */
 .about .row{align-items:flex-start}
 .ic{flex:none;width:30px;height:30px;border-radius:7px;display:grid;place-items:center;color:#fff}
@@ -222,6 +230,7 @@ details.news summary::-webkit-details-marker{display:none}
       <div class="row indent"><div class="ic" style="background:var(--tint)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></div><div class="grow"><div class="t1">Team strength</div><div class="t2">Attack and defence ratings per league from three seasons of ESPN results, older matches fading. Refit every week with the latest scores.</div></div><span class="badge b-on">On</span></div>
       <div class="row indent"><div class="ic" style="background:var(--orange)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3c2 4 6 5 6 10a6 6 0 0 1-12 0c0-3 2-4 2-7 2 1 3 2 4 4"/></svg></div><div class="grow"><div class="t1">Last 5 games</div><div class="t2">Picks the form list. A separate form term added nothing to predictions, so it never raises a probability.</div></div><span class="badge b-mid">Filter</span></div>
       <div class="row indent"><div class="ic" style="background:var(--gray)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div class="grow"><div class="t1">Travel distance</div><div class="t2">Its effect flipped sign between seasons and never improved held-out predictions.</div></div><span class="badge b-off">Off</span></div>
+      <div class="row indent"><div class="ic" style="background:var(--tint)"><svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0z"/></svg></div><div class="grow"><div class="t1">Players</div><div class="t2">Every player is graded from the team's last 8 line-ups: star (a top-three contributor with 3+ goals and assists), regular (starts 60%+), rotation, fringe. Shown per match; "missed last game" is a prompt to check the line-up.</div></div><span class="badge b-mid">Shown</span></div>
       <div class="row indent"><div class="ic" style="background:var(--red)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div><div class="grow"><div class="t1">Injuries &amp; bans</div><div class="t2">Key forward out −6% goals; midfielder −3%/+2% conceded; defender +4%; keeper +6%. Doubts count half, capped at 15%.</div></div><span class="badge b-mid">If sourced</span></div>
       <div class="row indent"><div class="ic" style="background:#5e5ce6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div class="grow"><div class="t1">Europe midweek</div><div class="t2">A Thursday-to-Sunday turnaround costs −3% goals and +2% conceded.</div></div><span class="badge b-on">On</span></div>
     </div>
@@ -291,6 +300,18 @@ $('dates').textContent=`${W0.getMonth()===W1.getMonth()?W0.getDate():W0.toLocale
 $('gaps').textContent='Matches this season still without a result: '+Object.entries(DATA.missing_before_window||{}).map(([k,v])=>`${LGS[k]} ${v}`).join(', ')+'.';
 $('foot').textContent=`Refreshed every Thursday · built ${DATA.generated}`;
 
+const pstat=x=>`${esc(x.name)} <span class="num">${x.g}G ${x.a}A</span>`;
+function teamPlayers(name,p){
+  if(!p||!p.matches||p.matches<3) return '';
+  const L=[];
+  if(p.stars.length) L.push(`<div class="line"><span class="chip c-star">Stars</span>${p.stars.map(pstat).join(' · ')}</div>`);
+  if(p.hot.length) L.push(`<div class="line"><span class="chip c-hot">Hot</span>${p.hot.map(x=>esc(x.name)).join(' · ')}</div>`);
+  if(p.cold.length) L.push(`<div class="line"><span class="chip c-cold">Cold</span>${p.cold.map(x=>`${esc(x.name)} <span class="num">${x.shots} shots, 0 goals</span>`).join(' · ')}</div>`);
+  if(p.missed_last.length) L.push(`<div class="line"><span class="chip c-miss">Missed last game</span>${p.missed_last.map(x=>esc(x.name)).join(' · ')}</div>`);
+  const c=p.counts||{};
+  L.push(`<div class="line">Squad over last ${p.matches}: ${c.star||0} star${(c.star||0)===1?'':'s'}, ${c.regular||0} regulars, ${c.rotation||0} rotation, ${c.fringe||0} fringe${p.star_goal_share?` · stars scored ${Math.round(p.star_goal_share*100)}% of goals`:''}</div>`);
+  return `<div><h4>${esc(SHORT(name))}</h4>${L.join('')}</div>`;
+}
 // slips data + copy
 const FT=(DATA.form_tiers||[]).filter(t=>t.options.length), MT=DATA.tiers.filter(t=>t.options.length), WT=(DATA.wildcards||[]).filter(t=>t.options.length), DH=(DATA.double_headers||[]).filter(t=>t.options.length), WD=(DATA.world_tiers||[]).filter(t=>t.options.length), ALL=[...FT,...MT,...WT,...DH,...WD];
 async function copySlip(i,btn){
@@ -367,7 +388,10 @@ function fixture(m){
   <div class="bar" role="img" aria-label="home ${pct(p.H)}, draw ${pct(p.D)}, away ${pct(p.A)}"><i class="b-h" style="width:${p.H*100}%"></i><i class="b-d" style="width:${p.D*100}%"></i><i class="b-a" style="width:${p.A*100}%"></i></div>
   <div class="bar-l"><span>Home <b>${pct(p.H)}</b></span><span>Draw <b>${pct(p.D)}</b></span><span>Away <b>${pct(p.A)}</b></span></div>
   <div class="stats"><div>xG<b class="num">${m.xg[0].toFixed(1)}–${m.xg[1].toFixed(1)}</b></div><div>Over 2.5<b class="num">${pct(p['O2.5'])}</b></div><div>Likely<b class="num">${m.scores[0][0]}-${m.scores[0][1]}</b></div></div>
-  ${notes.length?`<details class="news"><summary>Team News (${notes.length})</summary><div class="notes">${notes.join('')}</div></details>`:''}</div>`;
+  ${notes.length?`<details class="news"><summary>Team News (${notes.length})</summary><div class="notes">${notes.join('')}</div></details>`:''}
+  ${(()=>{const h=teamPlayers(m.home,m.home_players),a=teamPlayers(m.away,m.away_players);if(!h&&!a)return '';
+    const flag=((m.home_players||{}).missed_last||[]).length+((m.away_players||{}).missed_last||[]).length;
+    return `<details class="news"><summary>Players${flag?` · ${flag} missed last game`:''}</summary><div class="pl">${h}${a}</div></details>`})()}</div>`;
 }
 function drawFX(){
   $('seg').innerHTML=leagues.map(l=>`<button type="button" id="seg-${l}" data-l="${l}" aria-pressed="${l===lg}">${lmark(l)}${LGS[l]}</button>`).join('');
@@ -384,6 +408,10 @@ $('nleagues').textContent=`${leagues.length} leagues`;
 $('coverage').innerHTML=REG.map(r=>{const ks=leagues.filter(k=>(LN[k]||[])[2]===r);if(!ks.length)return '';
   return ks.map(k=>`<div class="row indent">${lmark(k)}<div class="grow"><div class="t1">${esc(LG[k])}</div><div class="t2">${r} · ${DATA.matches.filter(m=>m.league===k).length} matches</div></div>${LOWC.has(k)?'<span class="badge b-mid">Even</span>':''}</div>`).join('')}).join('');
 
+function wplayers(r){const L=[];
+  if((r.stars||[]).length) L.push(`<span class="chip c-star">★</span><span>${r.stars.map(pstat).join(' · ')}</span>`);
+  if((r.missed_last||[]).length) L.push(`<span class="chip c-miss">Missed last</span><span>${r.missed_last.map(x=>esc(x.name)).join(', ')}</span>`);
+  return L.length?`<div class="t2">${L.join('')}</div>`:''}
 // WINNERS screen
 (function(){
   const LB=DATA.league_best||[], MM=DATA.mismatches||[], base=FT.length+MT.length+WT.length+DH.length;
@@ -396,7 +424,7 @@ $('coverage').innerHTML=REG.map(r=>{const ks=leagues.filter(k=>(LN[k]||[])[2]===
   let all=false;
   function drawLB(){
     const rows=(all?LB:LB.slice(0,10)).map(r=>`<div class="row indent crestrow">${lmark(r.league)}${crest(r.team,36)}<div class="grow"><div class="t1">${esc(SHORT(r.team))}</div>
-      <div class="t2"><span>${esc(LG[r.league])}</span><span>·</span><span>${r.home?'vs':'at'} ${esc(SHORT(r.opponent))}</span><span>·</span><span>${day(r.date)}</span></div></div>
+      <div class="t2"><span>${esc(LG[r.league])}</span><span>·</span><span>${r.home?'vs':'at'} ${esc(SHORT(r.opponent))}</span><span>·</span><span>${day(r.date)}</span></div>${wplayers(r)}</div>
       <div class="pill">${pct(r.prob)}<small>@${r.fair.toFixed(2)}</small></div></div>`).join('');
     const more=LB.length>10?`<div class="row"><button class="morebtn" id="lbmore" type="button">${all?'Show Fewer':`Show All ${LB.length} Leagues`}</button></div>`:'';
     $('lblist').innerHTML=rows+more; const b=$('lbmore'); if(b) b.onclick=()=>{all=!all;drawLB()};
@@ -404,7 +432,7 @@ $('coverage').innerHTML=REG.map(r=>{const ks=leagues.filter(k=>(LN[k]||[])[2]===
   $('lbcount').textContent=`${LB.length} leagues`; drawLB();
   $('worldrail').innerHTML=WD.map(t=>card(t,ALL.indexOf(t),'Winners')).join('');
   $('mmlist').innerHTML=MM.slice(0,10).map((r,i)=>`<div class="row indent crestrow"><div class="rank">${i+1}</div>${crest(r.team,36)}<div class="grow"><div class="t1">${esc(SHORT(r.team))} <span style="color:var(--label2)">over</span> ${esc(SHORT(r.opponent))}</div>
-    <div class="t2">${lmark(r.league)}<span>${esc(LGS[r.league])}</span><span>·</span><span>${day(r.date)}</span><span>·</span><span>${esc(SHORT(r.opponent))} win ${pct(r.loser_prob)}</span>${r.capped?'<span class="lg">even league</span>':''}</div></div>
+    <div class="t2">${lmark(r.league)}<span>${esc(LGS[r.league])}</span><span>·</span><span>${day(r.date)}</span><span>·</span><span>${esc(SHORT(r.opponent))} win ${pct(r.loser_prob)}</span>${r.capped?'<span class="lg">even league</span>':''}</div>${wplayers(r)}</div>
     <div class="pill">${pct(r.prob)}<small>@${r.fair.toFixed(2)}</small></div></div>`).join('');
 })();
 

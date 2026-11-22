@@ -4,7 +4,7 @@ These cannot be backtested from scorelines alone, so they are deliberately small
 applied to the expected-goal rates before the score matrix is built:
 
   absence (status out; doubtful counts half)      own attack   opponent attack (= we concede)
-    key forward                                      -6%            -
+    key forward                                      -4%           +4%
     key midfielder                                   -3%           +2%
     key defender                                      -            +4%
     key goalkeeper                                    -            +6%
@@ -24,7 +24,9 @@ import json
 from datetime import date, datetime
 from pathlib import Path
 
-KEY_EFFECT = {"FW": (-0.06, 0.0), "MF": (-0.03, 0.02), "DF": (0.0, 0.04), "GK": (0.0, 0.06)}
+# FW measured in research/star_absence.py (12 leagues, 2025-26, 1,602 cases): a team's top star not
+# starting cost 4% of expected goals and added 4% conceded. MF/DF/GK remain priors.
+KEY_EFFECT = {"FW": (-0.04, 0.04), "MF": (-0.03, 0.02), "DF": (0.0, 0.04), "GK": (0.0, 0.06)}
 ROTATION_SHARE = 0.25
 EUROPE = (-0.03, 0.02)
 CAP = 0.15

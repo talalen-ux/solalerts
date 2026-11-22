@@ -57,6 +57,15 @@ Each card also carries 10-, 15- and 19-leg accumulators: the most likely result 
 80% in the even competitions) from that many different matches. Each one states a typical
 bookmaker price and the average return at a 5% margin per leg: about 61p, 48p and 40p per £1.
 
+## Players
+
+Each run reads the line-ups of every team's last 8 matches from ESPN match summaries (about 2,500
+requests, 80 seconds) and grades players: star, regular, rotation, fringe, plus hot, cold and
+"missed last game" (`football/players.py`). Grades are shown per fixture and on the Winners tab.
+They do not move probabilities on their own: over a year in 12 leagues, a top star not starting
+cost 4% of expected goals and added 4% conceded, and "missed the previous squad" predicted little
+(`football/research/star_absence.py`). Confirmed absences still go through `--news`.
+
 ## Winners by league
 
 The first tab ranks straight match-winner picks: the best win in every competition, the biggest

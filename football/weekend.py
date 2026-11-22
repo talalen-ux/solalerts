@@ -309,6 +309,19 @@ def main(argv=None):
     for st in states.values():
         preds += engine.predict(st, engine.upcoming(st, a.start, a.days), news)
 
+    team_players = {}
+    if a.source == "espn":
+        from . import players
+        seen, allm = set(), []
+        for st in states.values():
+            for m in list(st.matches) + list(getattr(st, "fixtures", [])):
+                k = m.extra.get("espn_id")
+                if k and k not in seen:
+                    seen.add(k); allm.append(m)
+        teams = {t for p in preds for t in (p.match.home, p.match.away)}
+        logs = players.fetch_for(teams, allm, a.start)
+        team_players = {t: players.brief(players.profile(l)) for t, l in logs.items()}
+
     matches = []
     for p in preds:
         m = p.match
@@ -327,6 +340,7 @@ def main(argv=None):
             **{f"{side}_{k}": v for side in ("home", "away")
                for k, v in team_notes(news.get(getattr(m, side))).items()},
             "km": round(km) if km is not None else None,
+            "home_players": team_players.get(m.home), "away_players": team_players.get(m.away),
         })
 
     season_start = date(season_start_year(a.start), 7, 1)
@@ -341,6 +355,12 @@ def main(argv=None):
 
     form_teams, form_tiers = form_winners(preds, states)
     winners = winners_by_league(preds, states)
+    for key in ("mismatches", "league_best"):
+        for r in winners[key]:
+            tp, op = team_players.get(r["team"]) or {}, team_players.get(r["opponent"]) or {}
+            r["stars"] = tp.get("stars", [])[:2]
+            r["missed_last"] = tp.get("missed_last", [])[:2]
+            r["opp_missed_last"] = op.get("missed_last", [])[:2]
     wildcards = wildcard_accas(preds)
     doubles = double_headers(preds)
 
