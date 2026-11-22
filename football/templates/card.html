@@ -1,303 +1,301 @@
 <title>Weekly Parlay Card</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap">
 <style>
-/* Layout: mobile-first. Sticky section tabs; form winners as cards; slips as a swipe rail on phones
-   and a grid on wide screens; fixtures as compact rows with notes behind a tap. */
+/* Layout: an iOS-style app. Large collapsing title, frosted top bar, one screen per bottom tab
+   (Form · Slips · Fixtures · About), inset grouped lists, App Store-style swipe cards. */
 :root{
-  --ground:#eef1ec; --paper:#fbfcf9; --ink:#14251c; --muted:#5b6b61; --line:#cfd8d0;
-  --pitch:#1d5a3a; --on-pitch:#fbfcf9; --amber:#a8650a; --win:#2f7d4f; --draw:#8a8f86; --loss:#b5473a; --chip:#e3e9e2;
-  --display:"Barlow Condensed","Arial Narrow",sans-serif; --body:"Archivo",system-ui,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
-  --gutter-l:max(16px,env(safe-area-inset-left,0px)); --gutter-r:max(16px,env(safe-area-inset-right,0px));
+  --bg:#f2f2f7; --cell:#ffffff; --cell2:#f7f7fa; --label:#000000; --label2:#3c3c4399; --label3:#3c3c434d;
+  --sep:#3c3c434a; --fill:#7878801f; --tint:#007aff; --green:#34c759; --orange:#ff9500; --red:#ff3b30; --gray:#8e8e93;
+  --bar:rgba(249,249,249,.78); --shadow:0 1px 2px rgba(0,0,0,.04),0 8px 24px rgba(0,0,0,.06);
+  --font:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Helvetica Neue",system-ui,sans-serif;
+  --round:"SF Pro Rounded",-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  --gl:max(16px,env(safe-area-inset-left,0px)); --gr:max(16px,env(safe-area-inset-right,0px));
 }
 @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
-  --ground:#0f1712; --paper:#16211a; --ink:#e6ede7; --muted:#97a69c; --line:#2b3a31;
-  --pitch:#5fbf8a; --on-pitch:#0f1712; --amber:#e9a640; --win:#4fae7b; --draw:#7d867f; --loss:#d06a5d; --chip:#223028; color-scheme:dark}}
+  --bg:#000000; --cell:#1c1c1e; --cell2:#2c2c2e; --label:#ffffff; --label2:#ebebf599; --label3:#ebebf54d;
+  --sep:#54545899; --fill:#7878805c; --tint:#0a84ff; --green:#30d158; --orange:#ff9f0a; --red:#ff453a; --gray:#8e8e93;
+  --bar:rgba(22,22,24,.78); --shadow:none; color-scheme:dark}}
 :root[data-theme="dark"]{
-  --ground:#0f1712; --paper:#16211a; --ink:#e6ede7; --muted:#97a69c; --line:#2b3a31;
-  --pitch:#5fbf8a; --on-pitch:#0f1712; --amber:#e9a640; --win:#4fae7b; --draw:#7d867f; --loss:#d06a5d; --chip:#223028; color-scheme:dark}
-*{box-sizing:border-box}
-html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 64px);-webkit-text-size-adjust:100%}
-body{background:var(--ground);color:var(--ink);font:15px/1.5 var(--body);margin:0}
-body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--ground)}
-.wrap{max-width:1080px;margin:0 auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
-h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;letter-spacing:.01em;text-transform:uppercase}
-button{font:inherit;color:inherit}
-:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
-.tag{display:inline-block;font:600 .62rem/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:3px 5px;border-radius:3px;background:var(--chip);color:var(--muted);vertical-align:1px}
-.mono{font-family:var(--mono)}
+  --bg:#000000; --cell:#1c1c1e; --cell2:#2c2c2e; --label:#ffffff; --label2:#ebebf599; --label3:#ebebf54d;
+  --sep:#54545899; --fill:#7878805c; --tint:#0a84ff; --green:#30d158; --orange:#ff9f0a; --red:#ff453a; --gray:#8e8e93;
+  --bar:rgba(22,22,24,.78); --shadow:none; color-scheme:dark}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--label);font:17px/1.35 var(--font);letter-spacing:-.01em;margin:0;
+  padding-bottom:calc(84px + env(safe-area-inset-bottom,0px));-webkit-font-smoothing:antialiased}
+button{font:inherit;color:inherit;border:0;background:none;padding:0;cursor:pointer}
+:focus-visible{outline:2px solid var(--tint);outline-offset:2px;border-radius:6px}
+.wrap{max-width:720px;margin:0 auto;padding-left:var(--gl);padding-right:var(--gr)}
+.num{font-variant-numeric:tabular-nums}
 
-/* header */
-header{padding-block:20px 6px}
-.eyebrow{font:600 .72rem/1.3 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--amber)}
-h1{font-size:clamp(2.1rem,9vw,3.6rem);line-height:.95;font-weight:700;margin-top:6px}
-.lede{color:var(--muted);margin:8px 0 0;max-width:62ch;font-size:.92rem}
-.lede b{color:var(--ink)}
-.stats{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
-.stats span{font:500 .74rem var(--mono);color:var(--muted);background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:4px 10px}
-.stats b{color:var(--ink);font-weight:600}
+/* top bar: frosted, small title fades in once the large title scrolls away */
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--bar);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px)}
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;height:44px;display:flex;align-items:center;justify-content:center;
+  background:transparent;transition:background .2s,border-color .2s;border-bottom:.5px solid transparent}
+.topbar.solid{background:var(--bar);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-color:var(--sep)}
+.topbar h2{margin:0;font:600 17px/1 var(--font);opacity:0;transition:opacity .2s}
+.topbar.solid h2{opacity:1}
+.large{padding-top:2px;padding-bottom:6px}
+.large .sub{font:600 13px/1.2 var(--font);color:var(--label2);text-transform:uppercase;letter-spacing:.02em}
+.large h1{margin:2px 0 0;font:700 34px/1.1 var(--font);letter-spacing:.01em}
 
-/* sticky section tabs */
-nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--ground);border-bottom:1px solid var(--line);margin-top:14px}
-nav.tabs .wrap{display:flex;gap:4px;overflow-x:auto;scrollbar-width:none}
-nav.tabs .wrap::-webkit-scrollbar{display:none}
-nav.tabs a{flex:1 0 auto;text-align:center;text-decoration:none;color:var(--muted);font:600 .8rem/1 var(--mono);letter-spacing:.05em;text-transform:uppercase;padding:16px 10px 14px;border-bottom:3px solid transparent;min-height:46px}
-nav.tabs a[aria-current="true"]{color:var(--ink);border-color:var(--pitch)}
+/* screens */
+.screen[hidden]{display:none!important}
+.section-h{margin:22px 4px 7px;font:400 13px/1.3 var(--font);color:var(--label2);text-transform:uppercase;letter-spacing:.02em;display:flex;justify-content:space-between;gap:8px}
+.section-f{margin:7px 4px 0;font:400 13px/1.35 var(--font);color:var(--label2)}
+.group{background:var(--cell);border-radius:12px;overflow:hidden}
+.row{display:flex;align-items:center;gap:12px;padding:11px 16px;min-height:44px;position:relative}
+.row + .row::before{content:"";position:absolute;top:0;left:16px;right:0;border-top:.5px solid var(--sep)}
+.row.indent + .row.indent::before{left:60px}
+.grow{flex:1;min-width:0}
+.t1{font:400 17px/1.25 var(--font);overflow-wrap:anywhere}
+.t1 b{font-weight:600}
+.t2{font:400 13px/1.3 var(--font);color:var(--label2);margin-top:2px;display:flex;flex-wrap:wrap;gap:2px 6px;align-items:center}
+.pill{flex:none;min-width:62px;text-align:center;font:600 15px/1 var(--font);font-variant-numeric:tabular-nums;color:var(--green);background:color-mix(in srgb,var(--green) 15%,transparent);border-radius:999px;padding:7px 10px}
+.pill small{display:block;font:500 11px/1.2 var(--font);color:var(--label2);margin-top:2px}
+.rank{flex:none;width:32px;height:32px;border-radius:8px;display:grid;place-items:center;font:700 15px/1 var(--round);color:#fff;background:var(--tint)}
+.dots{display:inline-flex;gap:3px;vertical-align:middle}
+.dots i{width:7px;height:7px;border-radius:50%;display:inline-block}
+.d-W{background:var(--green)}.d-D{background:var(--gray)}.d-L{background:var(--red)}
+.lg{font:600 11px/1 var(--font);color:var(--label2);background:var(--fill);border-radius:4px;padding:3px 5px;letter-spacing:.02em}
+.morebtn{width:100%;color:var(--tint);font:400 17px/1 var(--font);text-align:left}
 
-section{padding-block:22px 6px}
-.sec-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:10px}
-h2{font-size:1.55rem;font-weight:600}
-.sec-head small{font:.74rem var(--mono);color:var(--muted)}
-.note{color:var(--muted);font-size:.86rem;margin:0 0 12px;max-width:68ch}
+/* hero summary (Form screen) */
+.hero{margin-top:10px;border-radius:16px;padding:18px;color:#fff;background:linear-gradient(135deg,#0a84ff 0%,#5e5ce6 100%);box-shadow:var(--shadow)}
+.hero .k{font:600 13px/1.2 var(--font);opacity:.85;text-transform:uppercase;letter-spacing:.03em}
+.hero .v{font:700 40px/1.05 var(--round);margin-top:6px;font-variant-numeric:tabular-nums}
+.hero .d{font:400 15px/1.35 var(--font);opacity:.92;margin-top:4px}
+.hero .legs{margin-top:12px;display:grid;gap:6px;font:500 15px/1.3 var(--font)}
+.hero .legs div{display:flex;justify-content:space-between;gap:10px;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,.16)}
+.hero button{margin-top:14px;width:100%;height:44px;border-radius:12px;background:#fff;color:#0a64d8;font:600 16px/1 var(--font)}
 
-/* form winners */
-.fw{display:grid;gap:8px}
-.fw-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:10px 12px}
-.fw-team{font-weight:600;font-size:1rem;overflow-wrap:anywhere}
-.fw-sub{display:flex;flex-wrap:wrap;align-items:center;gap:6px 8px;color:var(--muted);font-size:.8rem;grid-column:1}
-.fw-num{grid-column:2;grid-row:1/3;text-align:right}
-.fw-num b{display:block;font:600 1.25rem/1 var(--mono);color:var(--pitch)}
-.fw-num span{font:.72rem var(--mono);color:var(--muted)}
-.form{display:inline-flex;gap:2px}
-.form i{width:16px;height:16px;border-radius:3px;font:600 .58rem/16px var(--mono);text-align:center;font-style:normal;color:#fff}
-.f-W{background:var(--win)}.f-D{background:var(--draw)}.f-L{background:var(--loss)}
-.more{margin-top:8px;width:100%;min-height:44px;border:1px dashed var(--line);background:transparent;border-radius:8px;color:var(--muted);font:600 .8rem var(--mono);cursor:pointer}
+/* slip cards: App Store "Today" style swipe rail */
+.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;align-items:flex-start;
+  margin-inline:calc(-1 * var(--gl)) calc(-1 * var(--gr));padding:4px var(--gr) 14px var(--gl);scroll-padding-inline:var(--gl);scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.card{flex:0 0 min(84%,340px);scroll-snap-align:start;background:var(--cell);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;min-width:0}
+.card-h{padding:16px 16px 12px;display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.card-h .eb{font:600 12px/1.2 var(--font);color:var(--tint);text-transform:uppercase;letter-spacing:.03em}
+.card-h h3{margin:3px 0 0;font:700 22px/1.15 var(--font)}
+.card-h p{margin:3px 0 0;font:400 13px/1.3 var(--font);color:var(--label2)}
+.odds{text-align:right;flex:none}
+.odds b{display:block;font:700 28px/1 var(--round);font-variant-numeric:tabular-nums}
+.odds span{font:500 12px/1.4 var(--font);color:var(--label2)}
+.card .row{padding:10px 16px}
+.card .row + .row::before{left:16px}
+.card-f{padding:10px 16px 16px;display:grid;gap:8px}
+.btn{height:44px;border-radius:12px;background:color-mix(in srgb,var(--tint) 14%,transparent);color:var(--tint);font:600 16px/1 var(--font);width:100%}
+.btn.done{background:var(--green);color:#fff}
+details.alts summary{list-style:none;font:400 15px/1.3 var(--font);color:var(--tint);padding:4px 0;cursor:pointer}
+details.alts summary::-webkit-details-marker{display:none}
+.alt{font:400 13px/1.35 var(--font);color:var(--label2);margin-top:6px}
+.alt b{color:var(--label);font-weight:600}
+.dotsnav{display:flex;justify-content:center;gap:6px;margin-top:-4px}
+.dotsnav i{width:7px;height:7px;border-radius:50%;background:var(--label3);transition:background .2s}
+.dotsnav i.on{background:var(--label)}
 
-/* slips: swipe rail on phones, grid on wide screens */
-.rail{display:flex;align-items:flex-start;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:10px;margin-inline:calc(-1 * var(--gutter-l)) calc(-1 * var(--gutter-r));padding-inline:var(--gutter-l) var(--gutter-r);scroll-padding-inline:var(--gutter-l);scrollbar-width:thin}
-.rail .slip{flex:0 0 min(86%,360px);scroll-snap-align:start}
-.rail-hint{font:.72rem var(--mono);color:var(--muted);margin:2px 0 8px}
-@media (min-width:900px){
-  .rail{display:grid;align-items:stretch;grid-template-columns:repeat(3,minmax(0,1fr));overflow:visible;margin-inline:0;padding-inline:0}
-  .rail .slip{flex:none}
-  .rail-hint{display:none}
-}
-.slip{background:var(--paper);border:1px solid var(--line);border-radius:8px;display:flex;flex-direction:column;min-width:0}
-.slip-head{padding:14px 14px 10px;display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
-.slip-head h3{font-size:1.3rem;font-weight:600;line-height:1.05}
-.slip-head p{margin:3px 0 0;color:var(--muted);font-size:.78rem}
-.price{text-align:right;flex:none}
-.price .odds{font:600 1.55rem/1 var(--mono);color:var(--pitch)}
-.price .hit{font:.72rem var(--mono);color:var(--muted);margin-top:3px}
-.perf{border-top:2px dashed var(--line);margin:0 12px}
-.legs{list-style:none;margin:0;padding:10px 14px 4px;display:grid;gap:10px}
-.leg{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 10px}
-.leg .pick{font-weight:600;font-size:.95rem}
-.leg .fx{color:var(--muted);font-size:.78rem;display:flex;gap:6px;align-items:baseline;flex-wrap:wrap}
-.leg .p{font:600 .85rem var(--mono);text-align:right;grid-row:1/3;grid-column:2;align-self:center}
-.leg .p small{display:block;color:var(--muted);font-weight:400;font-size:.7rem}
-.slip-foot{margin-top:auto;padding:8px 14px 12px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between}
-.copy{min-height:40px;padding:0 14px;border-radius:6px;border:1px solid var(--pitch);background:transparent;color:var(--pitch);font:600 .78rem var(--mono);letter-spacing:.04em;text-transform:uppercase;cursor:pointer}
-.copy.done{background:var(--pitch);color:var(--on-pitch)}
-details.alts{width:100%}
-details.alts summary{cursor:pointer;font:.76rem var(--mono);color:var(--muted);padding:8px 0;list-style-position:inside}
-.alt{margin-top:6px;font-size:.8rem;color:var(--muted)}
-.alt b{font-family:var(--mono);color:var(--pitch)}
+/* segmented control */
+.seg{display:flex;background:var(--fill);border-radius:9px;padding:2px;gap:2px;overflow-x:auto;scrollbar-width:none;margin-top:12px}
+.seg::-webkit-scrollbar{display:none}
+.seg button{flex:1 0 auto;min-height:32px;padding:0 12px;border-radius:7px;font:500 13px/1 var(--font);color:var(--label);white-space:nowrap}
+.seg button[aria-pressed="true"]{background:var(--cell);box-shadow:0 3px 8px rgba(0,0,0,.12),0 3px 1px rgba(0,0,0,.04);font-weight:600}
 
-/* fixtures */
-.chips{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px;margin-bottom:10px}
-.chips::-webkit-scrollbar{display:none}
-.chips button{flex:none;min-height:40px;font:600 .76rem var(--mono);letter-spacing:.04em;border:1px solid var(--line);background:var(--paper);color:var(--ink);padding:0 14px;border-radius:999px;cursor:pointer}
-.chips button[aria-pressed="true"]{background:var(--pitch);border-color:var(--pitch);color:var(--on-pitch)}
-.lg h3{font-size:1.15rem;margin:16px 0 6px;display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
-.lg h3 small{font:.7rem var(--mono);color:var(--muted);text-transform:none}
-.fxlist{background:var(--paper);border:1px solid var(--line);border-radius:8px;overflow:hidden}
-.fx-row{padding:12px;border-bottom:1px solid var(--line);display:grid;gap:8px}
-.fx-row:last-child{border-bottom:0}
-.fx-top{display:flex;justify-content:space-between;gap:8px;font:.72rem var(--mono);color:var(--muted)}
-.team{display:flex;align-items:center;justify-content:space-between;gap:8px}
-.team .nm{font-weight:600;overflow-wrap:anywhere;min-width:0}
-.bar{display:flex;height:24px;border-radius:4px;overflow:hidden;font:600 .7rem/24px var(--mono);color:#fff}
-.bar span{text-align:center;min-width:0;overflow:hidden}
-.b-h{background:var(--win)}.b-d{background:var(--draw)}.b-a{background:var(--amber)}
-.mk{display:flex;flex-wrap:wrap;gap:2px 12px;font:.74rem var(--mono);color:var(--muted)}
-.mk b{color:var(--ink);font-weight:600}
-details.nt summary{cursor:pointer;font:.74rem var(--mono);color:var(--muted);min-height:32px;display:flex;align-items:center}
-.notes{display:grid;gap:3px;font-size:.8rem;color:var(--muted);padding-top:2px}
-.n-abs{color:var(--loss)}.n-form{color:var(--win)}.n-adj{color:var(--ink)}
-@media (min-width:760px){
-  .fx-row{grid-template-columns:minmax(0,1.6fr) minmax(0,1.2fr) minmax(0,1.4fr);align-items:start;gap:14px}
-  .fx-top{grid-column:1/-1}
-  details.nt[data-wide] {display:block}
-}
+/* fixture cells */
+.fx{display:block;padding:12px 16px}
+.fx-meta{display:flex;justify-content:space-between;font:400 13px/1 var(--font);color:var(--label2)}
+.fx-team{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:8px}
+.fx-team .t1{font-weight:500}
+.bar{display:flex;height:6px;border-radius:3px;overflow:hidden;margin-top:12px;gap:2px}
+.bar i{display:block;border-radius:3px}
+.b-h{background:var(--green)}.b-d{background:var(--gray)}.b-a{background:var(--orange)}
+.bar-l{display:flex;justify-content:space-between;font:500 12px/1 var(--font);color:var(--label2);margin-top:6px;font-variant-numeric:tabular-nums}
+.bar-l b{color:var(--label);font-weight:600}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin-top:10px}
+.stats div{background:var(--cell2);border-radius:8px;padding:7px 8px;font:400 11px/1.2 var(--font);color:var(--label2);min-width:0}
+.stats b{display:block;font:600 15px/1.2 var(--font);color:var(--label);font-variant-numeric:tabular-nums;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+details.news{margin-top:8px}
+details.news summary{list-style:none;font:400 15px/1.3 var(--font);color:var(--tint);cursor:pointer}
+details.news summary::-webkit-details-marker{display:none}
+.notes{display:grid;gap:4px;margin-top:6px;font:400 13px/1.35 var(--font);color:var(--label2)}
+.n-abs{color:var(--red)}.n-form{color:var(--green)}
 
-/* method + caveats */
-details.block{background:var(--paper);border:1px solid var(--line);border-radius:8px;margin-bottom:10px}
-details.block > summary{cursor:pointer;padding:14px;font:600 1.05rem var(--display);text-transform:uppercase;letter-spacing:.02em;min-height:48px;display:flex;align-items:center;justify-content:space-between}
-details.block > summary::after{content:"+";font:600 1.1rem var(--mono);color:var(--muted)}
-details.block[open] > summary::after{content:"−"}
-details.block > summary::-webkit-details-marker{display:none}
-.factors{display:grid;gap:10px;padding:0 14px 14px}
-@media (min-width:760px){.factors{grid-template-columns:repeat(2,minmax(0,1fr))}}
-.factor h3{font-size:1rem;display:flex;justify-content:space-between;gap:8px;align-items:baseline;flex-wrap:wrap}
-.factor p{margin:4px 0 0;font-size:.84rem;color:var(--muted)}
-.verdict{font:600 .62rem var(--mono);letter-spacing:.06em;padding:3px 6px;border-radius:3px;text-transform:uppercase;white-space:nowrap}
-.v-on{background:color-mix(in srgb,var(--win) 18%,transparent);color:var(--win)}
-.v-off{background:color-mix(in srgb,var(--loss) 15%,transparent);color:var(--loss)}
-.v-part{background:color-mix(in srgb,var(--amber) 18%,transparent);color:var(--amber)}
-.cav{display:grid;gap:8px;padding:0 14px 14px 32px;margin:0;font-size:.86rem;color:var(--muted)}
-.cav b{color:var(--ink)}
-.rule{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:6px;padding:10px 12px;font-size:.86rem;margin-bottom:12px}
-footer{padding-block:18px calc(28px + env(safe-area-inset-bottom,0px));font:.7rem var(--mono);color:var(--muted)}
-@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
-@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+/* about */
+.about .row{align-items:flex-start}
+.ic{flex:none;width:30px;height:30px;border-radius:7px;display:grid;place-items:center;color:#fff}
+.ic svg{width:18px;height:18px}
+.badge{flex:none;font:600 12px/1 var(--font);border-radius:999px;padding:5px 8px;align-self:center}
+.b-on{color:var(--green);background:color-mix(in srgb,var(--green) 15%,transparent)}
+.b-off{color:var(--red);background:color-mix(in srgb,var(--red) 13%,transparent)}
+.b-mid{color:var(--orange);background:color-mix(in srgb,var(--orange) 15%,transparent)}
+
+/* bottom tab bar */
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:25;background:var(--bar);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);
+  border-top:.5px solid var(--sep);padding:6px var(--gr) calc(6px + env(safe-area-inset-bottom,0px)) var(--gl)}
+.tabbar nav{max-width:720px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr)}
+.tabbar a{display:flex;flex-direction:column;align-items:center;gap:3px;text-decoration:none;color:var(--gray);font:500 10px/1 var(--font);padding:4px 0;min-height:48px;justify-content:center}
+.tabbar a svg{width:26px;height:26px}
+.tabbar a[aria-current="page"]{color:var(--tint)}
+.foot{margin:26px 4px 0;font:400 12px/1.4 var(--font);color:var(--label3);text-align:center}
+@media (min-width:760px){.card{flex-basis:320px}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 
-<header class="wrap">
-  <div class="eyebrow" id="eyebrow"></div>
-  <h1>Weekly Parlay Card</h1>
-  <p class="lede"><span id="nfix"></span> fixtures across the Premier League, La Liga, Serie A, Bundesliga and Ligue 1. Prices are <b>fair odds</b>, the break-even price: bet only when your bookmaker pays more.</p>
-  <div class="stats" id="stats"></div>
-</header>
-
-<nav class="tabs" aria-label="Sections"><div class="wrap">
-  <a href="#form" data-s="form">Form</a><a href="#slips" data-s="slips">Slips</a><a href="#fixtures" data-s="fixtures">Fixtures</a><a href="#method" data-s="method">Method</a>
-</div></nav>
-
+<header class="topbar" id="topbar"><h2 id="smalltitle">Form</h2></header>
 <main class="wrap">
-<section id="form">
-  <div class="sec-head"><h2>Form winners</h2><small id="fwcount"></small></div>
-  <p class="note">Won 3+ of their last 5 and favourites again, ranked by the model's chance they win. In 2023-26 backtests, in-form favourites won as often as predicted or slightly more.</p>
-  <div class="fw" id="fwlist"></div>
-  <button class="more" id="fwmore" type="button" hidden></button>
-  <div style="margin-top:16px">
-    <div class="rail-hint">Swipe for more slips →</div>
-    <div class="rail" id="formslips"></div>
+  <div class="large"><div class="sub" id="dates"></div><h1 id="bigtitle">Form</h1></div>
+
+  <!-- FORM -->
+  <div class="screen" id="v-form">
+    <div class="hero" id="hero"></div>
+    <div class="section-h"><span>In-form favourites</span><span id="fwcount"></span></div>
+    <div class="group" id="fwlist"></div>
+    <div class="section-f">Won 3+ of their last 5 and favourites again, ranked by the model's win chance. In 2023-26 backtests, in-form favourites won as often as predicted or slightly more.</div>
+    <div class="section-h"><span>Form accumulators</span></div>
+    <div class="rail" id="formrail"></div>
   </div>
-</section>
 
-<section id="slips">
-  <div class="sec-head"><h2>Model slips</h2><small>any market</small></div>
-  <div class="rail-hint">Swipe for more slips →</div>
-  <div class="rail" id="slipsrail"></div>
-</section>
+  <!-- SLIPS -->
+  <div class="screen" id="v-slips" hidden>
+    <div class="section-h"><span>Model slips · any market</span></div>
+    <div class="rail" id="sliprail"></div>
+    <div class="dotsnav" id="slipdots"></div>
+    <div class="section-f">Prices are fair odds, the break-even price. Back a slip only when your bookmaker pays more; margin compounds across legs.</div>
+  </div>
 
-<section id="fixtures">
-  <div class="sec-head"><h2>Fixtures</h2><small id="fxcount"></small></div>
-  <div class="chips" id="chips" role="group" aria-label="Filter by league"></div>
-  <div id="ledger"></div>
-</section>
+  <!-- FIXTURES -->
+  <div class="screen" id="v-fixtures" hidden>
+    <div class="seg" id="seg" role="group" aria-label="League"></div>
+    <div class="section-h"><span id="fxhead"></span><span id="fxresults"></span></div>
+    <div class="group" id="fxlist"></div>
+  </div>
 
-<section id="method">
-  <div class="rule"><b>Fair odds are not value.</b> The model is calibrated, so a slip at its fair price only breaks even. Bookmaker margin of 5-10% per leg compounds across a parlay.</div>
-  <details class="block">
-    <summary>How the numbers are made</summary>
-    <div class="factors">
-      <div class="factor"><h3>Team strength <span class="verdict v-on">Applied</span></h3><p>Attack and defence ratings from three seasons per league, older matches fading. Results after the public feed stopped (20 Sept 2026) come from a researched ledger that grows each week.</p></div>
-      <div class="factor"><h3>Last 5 games <span class="verdict v-part">Filter only</span></h3><p>Picks the form-winners list. A separate form term added nothing to predictions on 2023-26 data, so it never raises a probability.</p></div>
-      <div class="factor"><h3>Travel distance <span class="verdict v-off">Tested · no gain</span></h3><p>Shown on each fixture. Its effect flipped sign between seasons and never improved held-out predictions.</p></div>
-      <div class="factor"><h3>Injuries &amp; bans <span class="verdict v-part">Where verified</span></h3><p>Key forward out −6% goals; midfielder −3% / +2% conceded; defender +4%; keeper +6%. Doubts count half, capped at 15%.</p></div>
-      <div class="factor"><h3>Europe midweek <span class="verdict v-on">Applied</span></h3><p>A Thursday-to-Sunday turnaround costs −3% goals and +2% conceded, when the midweek game is known.</p></div>
-      <div class="factor"><h3>Markets <span class="verdict v-on">Applied</span></h3><p>Results, double chance, totals, both-to-score, team 2+ goals, win-to-nil. "Team scores 1+" legs are left out: books load margin onto them.</p></div>
+  <!-- ABOUT -->
+  <div class="screen about" id="v-about" hidden>
+    <div class="section-h"><span>How the numbers are made</span></div>
+    <div class="group">
+      <div class="row indent"><div class="ic" style="background:var(--tint)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 19V9M10 19V5M16 19v-7M22 19H2"/></svg></div><div class="grow"><div class="t1">Team strength</div><div class="t2">Attack and defence ratings from three seasons, older matches fading. Results since the public feed stopped come from a researched ledger.</div></div><span class="badge b-on">On</span></div>
+      <div class="row indent"><div class="ic" style="background:var(--orange)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 3c2 4 6 5 6 10a6 6 0 0 1-12 0c0-3 2-4 2-7 2 1 3 2 4 4"/></svg></div><div class="grow"><div class="t1">Last 5 games</div><div class="t2">Picks the form list. A separate form term added nothing to predictions, so it never raises a probability.</div></div><span class="badge b-mid">Filter</span></div>
+      <div class="row indent"><div class="ic" style="background:var(--gray)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><div class="grow"><div class="t1">Travel distance</div><div class="t2">Its effect flipped sign between seasons and never improved held-out predictions.</div></div><span class="badge b-off">Off</span></div>
+      <div class="row indent"><div class="ic" style="background:var(--red)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></div><div class="grow"><div class="t1">Injuries &amp; bans</div><div class="t2">Key forward out −6% goals; midfielder −3%/+2% conceded; defender +4%; keeper +6%. Doubts count half, capped at 15%.</div></div><span class="badge b-mid">If sourced</span></div>
+      <div class="row indent"><div class="ic" style="background:#5e5ce6"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div class="grow"><div class="t1">Europe midweek</div><div class="t2">A Thursday-to-Sunday turnaround costs −3% goals and +2% conceded.</div></div><span class="badge b-on">On</span></div>
     </div>
-  </details>
-  <details class="block">
-    <summary>Read before you bet</summary>
-    <ul class="cav">
-      <li><b>Team news</b> is applied only where it could be sourced. Check line-ups before kick-off.</li>
-      <li><b>Recent results</b> come from research, some from a single source. Gaps this season: <span id="gaps"></span>.</li>
-      <li><b>Legs on different matches</b> are treated as independent; same-game legs are priced jointly.</li>
-      <li><b>Stake small.</b> A 5-fold at fair 7.0 loses six times in seven on average.</li>
-    </ul>
-  </details>
-</section>
+    <div class="section-h"><span>Before you bet</span></div>
+    <div class="group">
+      <div class="row"><div class="grow"><div class="t1"><b>Fair odds are not value</b></div><div class="t2">The model is calibrated, so a slip at its fair price only breaks even.</div></div></div>
+      <div class="row"><div class="grow"><div class="t1"><b>Check line-ups</b></div><div class="t2">Team news is applied only where it could be sourced.</div></div></div>
+      <div class="row"><div class="grow"><div class="t1"><b>Research gaps</b></div><div class="t2" id="gaps"></div></div></div>
+      <div class="row"><div class="grow"><div class="t1"><b>Stake small</b></div><div class="t2">A 5-fold at fair 7.0 loses six times in seven on average.</div></div></div>
+    </div>
+    <div class="foot" id="foot"></div>
+  </div>
 </main>
-<footer class="wrap" id="foot"></footer>
+
+<div class="tabbar"><nav aria-label="Screens">
+  <a href="#form" data-v="form"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.6 2.2c.4 3.1 2.2 4.6 3.9 6.3 1.6 1.6 3 3.4 3 6.3A7.5 7.5 0 0 1 12 22.3a7.5 7.5 0 0 1-7.5-7.5c0-2.6 1.2-4.4 2.7-5.9.3 1.9 1.2 3 2.3 3.6-.5-4.3 1.4-7.9 3.1-10.3z"/></svg>Form</a>
+  <a href="#slips" data-v="slips"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2.2a2.8 2.8 0 0 0 0 5.6V17a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2.2a2.8 2.8 0 0 0 0-5.6V7zm6 1v8h1.6V8H9zm4.4 0v8H15V8h-1.6z"/></svg>Slips</a>
+  <a href="#fixtures" data-v="fixtures"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h2v2h6V2h2v2h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2V2zM5 9v10h14V9H5zm2 2h3v3H7v-3z"/></svg>Fixtures</a>
+  <a href="#about" data-v="about"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm-1 8v7h2v-7h-2zm1-4a1.3 1.3 0 1 0 0 2.6A1.3 1.3 0 0 0 12 6z"/></svg>About</a>
+</nav></div>
 
 <script>
 const DATA = __DATA__;
 const LG={EPL:"Premier League",LALIGA:"La Liga",SERIEA:"Serie A",BUNDESLIGA:"Bundesliga",LIGUE1:"Ligue 1"};
-const AB={EPL:'EPL',LALIGA:'LIGA',SERIEA:'SA',BUNDESLIGA:'BL',LIGUE1:'L1'};
+const LGS={EPL:"EPL",LALIGA:"LaLiga",SERIEA:"Serie A",BUNDESLIGA:"BuLi",LIGUE1:"Ligue 1"};
 const SHORT=s=>String(s).replace(/ (FC|AFC|CF|Calcio|SCO|AC|OSC|29)$/,'').replace(/^(FC|AC|AS|SS|SSC|US|RC|RCD|CA|SC|TSG 1899|1\. FSV|1\. FC|SV|AJ|ES|OGC|ACF|UD|Club) /,'').replace(/ (de Fútbol|Balompié|de Madrid|de Barcelona|Albion)$/,'').replace(/ (1913|1909|1907|1901|05|07)$/,'');
-const pct=p=>(p*100).toFixed(p>=.995?0:1)+'%';
+const pct=p=>Math.round(p*100)+'%';
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 const day=d=>new Date(d+'T12:00:00').toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'});
 const $=id=>document.getElementById(id);
+const dots=s=>`<span class="dots" aria-label="last five ${s}">${[...s].map(r=>`<i class="d-${r}"></i>`).join('')}</span>`;
+const pick=l=>l.pick.replace(/^(.*?) (win|or draw|over|win to nil)/,(m,a,b)=>SHORT(a)+' '+b);
+const vs=l=>l.match.split(' v ').map(SHORT).join(' v ');
 
-// header
 const W0=new Date(DATA.window[0]+'T12:00:00'), W1=new Date(W0.getTime()+(DATA.window[1]-1)*864e5);
-$('eyebrow').textContent=`${W0.toLocaleDateString('en-GB',{day:'numeric',month:'short'})} – ${W1.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})} · 5 leagues`;
-$('nfix').textContent=DATA.matches.length;
-$('stats').innerHTML=`<span><b>${(DATA.form_teams||[]).length}</b> in-form favourites</span><span><b>${DATA.results_added}</b> researched results</span><span>built <b>${DATA.generated}</b></span>`;
-$('gaps').textContent=Object.entries(DATA.missing_before_window||{}).map(([k,v])=>`${LG[k]} ${v}`).join(', ');
+$('dates').textContent=`${W0.toLocaleDateString('en-GB',{day:'numeric',month:'short'})} – ${W1.toLocaleDateString('en-GB',{day:'numeric',month:'short'})} · ${DATA.matches.length} matches`;
+$('gaps').textContent='Matches this season still without a result: '+Object.entries(DATA.missing_before_window||{}).map(([k,v])=>`${LGS[k]} ${v}`).join(', ')+'.';
+$('foot').textContent=`Refreshed every Thursday · built ${DATA.generated}`;
 
-// form winners list (first 6, rest behind a button)
+// slips data + copy
+const FT=(DATA.form_tiers||[]).filter(t=>t.options.length), MT=DATA.tiers.filter(t=>t.options.length), ALL=[...FT,...MT];
+async function copySlip(i,btn){
+  const t=ALL[i],o=t.options[0];
+  const text=`${t.name} · fair ${o.fair.toFixed(2)}\n`+o.legs.map(l=>`• ${l.pick} (${vs(l)}, ${day(l.date)})`).join('\n');
+  try{await navigator.clipboard.writeText(text);btn.textContent='Copied';btn.classList.add('done');setTimeout(()=>{btn.textContent='Copy Picks';btn.classList.remove('done')},1500)}
+  catch(e){btn.textContent='Copy not allowed here'}
+}
+document.addEventListener('click',e=>{const b=e.target.closest('[data-copy]');if(b)copySlip(+b.dataset.copy,b)});
+
+// FORM screen
 const FW=DATA.form_teams||[];
-const fwRow=f=>`<div class="fw-row"><div class="fw-team">${esc(SHORT(f.team))}</div><div class="fw-num"><b>${pct(f.prob)}</b><span>fair ${f.fair.toFixed(2)}</span></div><div class="fw-sub"><span class="form" aria-label="last five ${f.form}">${[...f.form].map(r=>`<i class="f-${r}">${r}</i>`).join('')}</span><span>${f.home?'v':'at'} ${esc(SHORT(f.opponent))}</span><span class="tag">${AB[f.league]}</span><span>${day(f.date)}</span></div></div>`;
+const best=FT.find(t=>t.legs_n===3)||FT[0];
+if(best){const o=best.options[0];
+  $('hero').innerHTML=`<div class="k">This week's form treble</div><div class="v">${o.fair.toFixed(2)}</div><div class="d">Fair odds · wins ${pct(o.prob)} of the time</div>
+  <div class="legs">${o.legs.map(l=>`<div><span>${esc(pick(l))}</span><span class="num">${pct(l.prob)}</span></div>`).join('')}</div>
+  <button type="button" data-copy="${ALL.indexOf(best)}">Copy Picks</button>`;
+} else $('hero').hidden=true;
 let fwAll=false;
 function drawFW(){
-  const rows=fwAll?FW:FW.slice(0,6);
-  $('fwlist').innerHTML=rows.map(fwRow).join('')||'<p class="note">No team with 3+ wins in its last 5 is favourite this week.</p>';
-  const b=$('fwmore'); b.hidden=FW.length<=6; b.textContent=fwAll?'Show fewer':`Show all ${FW.length} teams`;
+  const rows=(fwAll?FW:FW.slice(0,6)).map((f,i)=>`<div class="row indent"><div class="rank">${i+1}</div><div class="grow"><div class="t1">${esc(SHORT(f.team))}</div>
+    <div class="t2">${dots(f.form)}<span>${f.home?'vs':'at'} ${esc(SHORT(f.opponent))}</span><span>·</span><span>${day(f.date)}</span><span class="lg">${LGS[f.league]}</span></div></div>
+    <div class="pill">${pct(f.prob)}<small>@${f.fair.toFixed(2)}</small></div></div>`).join('');
+  const more=FW.length>6?`<div class="row"><button class="morebtn" id="fwmore" type="button">${fwAll?'Show Fewer':`Show All ${FW.length}`}</button></div>`:'';
+  $('fwlist').innerHTML=(rows||'<div class="row"><div class="t2">No team with 3+ wins in its last 5 is favourite this week.</div></div>')+more;
+  const b=$('fwmore'); if(b) b.onclick=()=>{fwAll=!fwAll;drawFW()};
 }
-$('fwmore').addEventListener('click',()=>{fwAll=!fwAll;drawFW();});
 $('fwcount').textContent=FW.length?`${FW.length} teams`:'';
 drawFW();
 
-// slips
-const legText=l=>`${l.pick} (${SHORT(l.match.split(' v ')[0])} v ${SHORT(l.match.split(' v ')[1])}, ${day(l.date)})`;
-function slipHTML(t,ti){
+// slip cards
+function card(t,i,eb){
   const o=t.options[0];
-  const legs=o.legs.map(l=>`<li class="leg"><span class="pick">${esc(l.pick.replace(/^(.*?) (win|or draw|over|win to nil)/,(m,a,b)=>SHORT(a)+' '+b))}</span><span class="fx"><span class="tag">${AB[l.league]}</span><span>${esc(l.match.split(' v ').map(SHORT).join(' v '))} · ${day(l.date)}</span></span><span class="p">${pct(l.prob)}<small>@${l.fair.toFixed(2)}</small></span></li>`).join('');
-  const alts=t.options.slice(1).map(a=>`<div class="alt"><b>${a.fair.toFixed(2)}</b> · ${a.legs.map(l=>esc(SHORT(l.match.split(' v ')[0]))+'–'+esc(SHORT(l.match.split(' v ')[1]))+': '+esc(l.pick)).join(' / ')}</div>`).join('');
-  return `<article class="slip"><div class="slip-head"><div><h3>${esc(t.name)}</h3><p>${esc(t.note)}</p></div><div class="price"><div class="odds">${o.fair.toFixed(2)}</div><div class="hit">hits ${pct(o.prob)}</div></div></div><div class="perf"></div><ul class="legs">${legs}</ul>
-  <div class="slip-foot"><button class="copy" type="button" data-slip="${ti}">Copy picks</button>${alts?`<details class="alts"><summary>${t.options.length-1} alternative${t.options.length>2?'s':''}</summary>${alts}</details>`:''}</div></article>`;
+  const legs=o.legs.map(l=>`<div class="row"><div class="grow"><div class="t1">${esc(pick(l))}</div><div class="t2"><span>${esc(vs(l))}</span><span>·</span><span>${day(l.date)}</span></div></div><div class="num" style="font:600 15px/1 var(--font);text-align:right">${pct(l.prob)}<div style="font:400 12px/1.4 var(--font);color:var(--label2)">@${l.fair.toFixed(2)}</div></div></div>`).join('');
+  const alts=t.options.slice(1).map(a=>`<div class="alt"><b>${a.fair.toFixed(2)}</b> · ${a.legs.map(l=>esc(pick(l))).join(' · ')}</div>`).join('');
+  return `<article class="card"><div class="card-h"><div><div class="eb">${eb} · ${o.legs.length} legs</div><h3>${esc(t.name)}</h3><p>${esc(t.note)}</p></div><div class="odds"><b>${o.fair.toFixed(2)}</b><span>wins ${pct(o.prob)}</span></div></div>
+  ${legs}<div class="card-f"><button class="btn" type="button" data-copy="${i}">Copy Picks</button>${alts?`<details class="alts"><summary>${t.options.length-1} more like this</summary>${alts}</details>`:''}</div></article>`;
 }
-const ALL=[...(DATA.form_tiers||[]),...DATA.tiers].filter(t=>t.options.length);
-const nForm=(DATA.form_tiers||[]).filter(t=>t.options.length).length;
-$('formslips').innerHTML=ALL.slice(0,nForm).map((t,i)=>slipHTML(t,i)).join('');
-$('slipsrail').innerHTML=ALL.slice(nForm).map((t,i)=>slipHTML(t,i+nForm)).join('');
-document.addEventListener('click',async e=>{
-  const b=e.target.closest('.copy'); if(!b) return;
-  const t=ALL[+b.dataset.slip], o=t.options[0];
-  const text=`${t.name} — fair ${o.fair.toFixed(2)}\n`+o.legs.map(l=>'• '+legText(l)).join('\n');
-  try{await navigator.clipboard.writeText(text);b.textContent='Copied';b.classList.add('done');setTimeout(()=>{b.textContent='Copy picks';b.classList.remove('done')},1600);}
-  catch(err){const r=document.createRange();r.selectNodeContents(b.closest('.slip').querySelector('.legs'));const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected';}
-});
+$('formrail').innerHTML=FT.map((t,i)=>card(t,i,'Form')).join('');
+$('sliprail').innerHTML=MT.map((t,i)=>card(t,i+FT.length,'Model')).join('');
+$('slipdots').innerHTML=MT.map((_,i)=>`<i class="${i?'':'on'}"></i>`).join('');
+$('sliprail').addEventListener('scroll',e=>{const r=e.target,c=r.querySelector('.card');if(!c)return;const i=Math.round(r.scrollLeft/(c.offsetWidth+12));[...$('slipdots').children].forEach((d,k)=>d.classList.toggle('on',k===i))},{passive:true});
 
-// fixtures
-const form=f=>`<span class="form" aria-label="last five ${f.map(x=>x.r).join('')}">${f.map(x=>`<i class="f-${x.r}" title="${x.r} ${x.score} ${x.home?'v':'@'} ${esc(x.opp)}">${x.r}</i>`).join('')}</span>`;
-function fixture(m){
-  const p=m.probs,h=p.H,d=p.D,a=p.A, notes=[];
-  if(m.base_xg&&(Math.abs(m.xg[0]-m.base_xg[0])>=.01||Math.abs(m.xg[1]-m.base_xg[1])>=.01)) notes.push(`<span class="n-adj">News moved xG ${m.base_xg[0].toFixed(2)}–${m.base_xg[1].toFixed(2)} → ${m.xg[0].toFixed(2)}–${m.xg[1].toFixed(2)}</span>`);
-  for(const side of ['home','away']){
-    const nm=esc(SHORT(m[side]));
-    if((m[side+'_abs']||[]).length) notes.push(`<span class="n-abs">${nm} missing: ${esc(m[side+'_abs'].join(', '))}</span>`);
-    const eu=(m[side+'_news']||[]).find(x=>x.startsWith('Europe')); if(eu) notes.push(`<span>${nm}: played ${esc(eu.replace('Europe ',''))}</span>`);
-    for(const f of (m[side+'_inform']||[])) notes.push(`<span class="n-form">${esc(f.player)} (${nm}) ${esc(f.note||'')}</span>`);
-    if(m[side+'_mgr']) notes.push(`<span>${nm}: ${esc(m[side+'_mgr'])}</span>`);
-  }
-  const top=m.scores.map(s=>`${s[0]}-${s[1]}`).join(', ');
-  return `<div class="fx-row"><div class="fx-top"><span>${day(m.date)}${m.time?' · '+m.time:''}</span><span>${m.km!=null?m.km+' km':''}</span></div>
-  <div><div class="team"><span class="nm">${esc(m.home)}</span>${form(m.home_form)}</div><div class="team" style="margin-top:4px"><span class="nm">${esc(m.away)}</span>${form(m.away_form)}</div></div>
-  <div><div class="bar" role="img" aria-label="home ${pct(h)}, draw ${pct(d)}, away ${pct(a)}"><span class="b-h" style="width:${h*100}%">${Math.round(h*100)}</span><span class="b-d" style="width:${d*100}%">${Math.round(d*100)}</span><span class="b-a" style="width:${a*100}%">${Math.round(a*100)}</span></div>
-  <div class="mk" style="margin-top:6px"><span>xG <b>${m.xg[0].toFixed(2)}–${m.xg[1].toFixed(2)}</b></span><span>O2.5 <b>${pct(p['O2.5'])}</b></span><span>BTTS <b>${pct(p.BTTS_Y)}</b></span><span>likely <b>${top}</b></span></div></div>
-  ${notes.length?`<details class="nt"><summary>Team news · ${notes.length}</summary><div class="notes">${notes.join('')}</div></details>`:''}</div>`;
-}
+// FIXTURES screen
 const leagues=[...new Set(DATA.matches.map(m=>m.league))];
-let active=matchMedia('(max-width: 640px)').matches?(leagues[0]||'ALL'):'ALL'; try{active=localStorage.getItem('lg')||active}catch(e){}
-if(active!=='ALL'&&!leagues.includes(active)) active='ALL';
-function drawFX(){
-  $('chips').innerHTML=['ALL',...leagues].map(l=>`<button type="button" id="chip-${l}" data-l="${l}" aria-pressed="${active===l}">${l==='ALL'?'All':LG[l]}</button>`).join('');
-  const shown=leagues.filter(l=>active==='ALL'||active===l);
-  $('ledger').innerHTML=shown.map(l=>{const ms=DATA.matches.filter(m=>m.league===l);
-    return `<div class="lg"><h3>${LG[l]} <small>${ms.length} fixtures · results to ${DATA.last_result[l]}</small></h3><div class="fxlist">${ms.map(fixture).join('')}</div></div>`}).join('');
-  $('fxcount').textContent=`${DATA.matches.filter(m=>active==='ALL'||m.league===active).length} matches`;
+let lg=leagues[0]; try{const s=localStorage.getItem('lg2');if(leagues.includes(s))lg=s}catch(e){}
+function fixture(m){
+  const p=m.probs, notes=[];
+  for(const side of ['home','away']){const nm=esc(SHORT(m[side]));
+    if((m[side+'_abs']||[]).length) notes.push(`<span class="n-abs">${nm} missing ${esc(m[side+'_abs'].join(', '))}</span>`);
+    const eu=(m[side+'_news']||[]).find(x=>x.startsWith('Europe')); if(eu) notes.push(`<span>${nm} played ${esc(eu.replace('Europe ',''))}</span>`);
+    for(const f of (m[side+'_inform']||[])) notes.push(`<span class="n-form">${esc(f.player)} (${nm}) ${esc(f.note||'')}</span>`);
+    if(m[side+'_mgr']) notes.push(`<span>${nm}: ${esc(m[side+'_mgr'])}</span>`);}
+  const f=x=>x.map(r=>r.r).join('');
+  return `<div class="fx row" style="display:block"><div class="fx-meta"><span>${day(m.date)}${m.time?' · '+m.time:''}</span><span>${m.km!=null?m.km+' km':''}</span></div>
+  <div class="fx-team"><span class="t1">${esc(SHORT(m.home))}</span>${dots(f(m.home_form))}</div>
+  <div class="fx-team" style="margin-top:4px"><span class="t1">${esc(SHORT(m.away))}</span>${dots(f(m.away_form))}</div>
+  <div class="bar" role="img" aria-label="home ${pct(p.H)}, draw ${pct(p.D)}, away ${pct(p.A)}"><i class="b-h" style="width:${p.H*100}%"></i><i class="b-d" style="width:${p.D*100}%"></i><i class="b-a" style="width:${p.A*100}%"></i></div>
+  <div class="bar-l"><span>Home <b>${pct(p.H)}</b></span><span>Draw <b>${pct(p.D)}</b></span><span>Away <b>${pct(p.A)}</b></span></div>
+  <div class="stats"><div>xG<b class="num">${m.xg[0].toFixed(1)}–${m.xg[1].toFixed(1)}</b></div><div>Over 2.5<b class="num">${pct(p['O2.5'])}</b></div><div>Likely<b class="num">${m.scores[0][0]}-${m.scores[0][1]}</b></div></div>
+  ${notes.length?`<details class="news"><summary>Team News (${notes.length})</summary><div class="notes">${notes.join('')}</div></details>`:''}</div>`;
 }
-$('chips').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;active=b.dataset.l;try{localStorage.setItem('lg',active)}catch(err){}drawFX();});
+function drawFX(){
+  $('seg').innerHTML=leagues.map(l=>`<button type="button" id="seg-${l}" data-l="${l}" aria-pressed="${l===lg}">${LGS[l]}</button>`).join('');
+  const ms=DATA.matches.filter(m=>m.league===lg);
+  $('fxhead').textContent=`${LG[lg]} · ${ms.length} matches`;
+  $('fxresults').textContent=`results to ${new Date(DATA.last_result[lg]+'T12:00:00').toLocaleDateString('en-GB',{day:'numeric',month:'short'})}`;
+  $('fxlist').innerHTML=ms.map(fixture).join('');
+}
+$('seg').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;lg=b.dataset.l;try{localStorage.setItem('lg2',lg)}catch(err){}drawFX()});
 drawFX();
 
-// active tab follows scroll
-const tabs=[...document.querySelectorAll('nav.tabs a')];
-const secs=tabs.map(t=>$(t.dataset.s));
-function syncTab(){
-  const y=window.scrollY+90; let cur=secs[0].id;
-  for(const s of secs) if(s.offsetTop<=y) cur=s.id;
-  if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-4) cur=secs[secs.length-1].id;
-  tabs.forEach(t=>t.setAttribute('aria-current',String(t.dataset.s===cur)));
+// navigation: one screen per tab, routed on the hash
+const TITLES={form:'Form',slips:'Slips',fixtures:'Fixtures',about:'About'};
+function route(){
+  const v=(location.hash||'#form').slice(1); const view=TITLES[v]?v:'form';
+  for(const k in TITLES) $('v-'+k).hidden=k!==view;
+  document.querySelectorAll('.tabbar a').forEach(a=>{if(a.dataset.v===view)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+  $('bigtitle').textContent=$('smalltitle').textContent=TITLES[view];
+  window.scrollTo(0,0); bar();
 }
-addEventListener('scroll',syncTab,{passive:true}); syncTab();
-
-$('foot').textContent=`Dixon-Coles model per league · refreshed every Thursday · generated ${DATA.generated}`;
+function bar(){$('topbar').classList.toggle('solid',window.scrollY>36)}
+addEventListener('hashchange',route); addEventListener('scroll',bar,{passive:true}); route();
 </script>
