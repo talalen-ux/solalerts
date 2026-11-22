@@ -57,6 +57,13 @@ Each card also carries 10-, 15- and 19-leg accumulators: the most likely result 
 80% in the even competitions) from that many different matches. Each one states a typical
 bookmaker price and the average return at a 5% margin per leg: about 61p, 48p and 40p per £1.
 
+## Build tab
+
+The card opens on a pick list for building your own slip: every straight win at 70% or better
+(up to 30, strongest first) and the 30 strongest "win or draw" picks between 70% and 92%. Tapping
+a pick adds it; the slip shows the combined chance, fair odds, the leg-count check and a copy
+button, and is remembered on the device for that week. One pick per match.
+
 ## Players
 
 Each run reads the line-ups of every team's last 8 matches from ESPN match summaries (about 2,500

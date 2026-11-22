@@ -136,6 +136,29 @@ details.news summary::-webkit-details-marker{display:none}
 .c-hot{color:var(--green);background:color-mix(in srgb,var(--green) 15%,transparent)}
 .c-cold{color:var(--gray);background:var(--fill)}
 .c-miss{color:var(--orange);background:color-mix(in srgb,var(--orange) 15%,transparent)}
+.pick{width:100%;text-align:left;display:flex;align-items:center;gap:12px;padding:11px 16px;min-height:60px;position:relative}
+.pick + .pick::before{content:"";position:absolute;top:0;left:52px;right:0;border-top:.5px solid var(--sep)}
+.tick{flex:none;width:24px;height:24px;border-radius:50%;border:1.5px solid var(--label3);display:grid;place-items:center;transition:background .15s,border-color .15s}
+.tick svg{width:14px;height:14px;opacity:0}
+.pick[aria-pressed="true"] .tick{background:var(--tint);border-color:var(--tint)}
+.pick[aria-pressed="true"] .tick svg{opacity:1}
+.pick[aria-pressed="true"]{background:color-mix(in srgb,var(--tint) 7%,transparent)}
+.myslip{margin-top:10px;border-radius:16px;background:var(--cell);box-shadow:var(--shadow);overflow:hidden}
+.myslip .top{padding:16px;display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.myslip .top h3{margin:0;font:700 22px/1.15 var(--font)}
+.myslip .top p{margin:3px 0 0;font:400 13px/1.35 var(--font);color:var(--label2)}
+.myslip .x{flex:none;width:28px;height:28px;border-radius:50%;background:var(--fill);color:var(--label2);font:600 15px/28px var(--font);text-align:center}
+.myslip .acts{display:grid;grid-template-columns:1fr auto;gap:8px;padding:10px 16px 16px}
+.btn.ghost{background:var(--fill);color:var(--label);width:auto;padding:0 18px}
+.slipbar{position:fixed;left:0;right:0;bottom:calc(61px + env(safe-area-inset-bottom,0px));z-index:24;padding:0 var(--gr) 8px var(--gl);pointer-events:none}
+.slipbar > div{pointer-events:auto;max-width:720px;margin:0 auto;display:flex;align-items:center;gap:10px;padding:10px 12px 10px 16px;border-radius:16px;color:#fff;
+  background:linear-gradient(135deg,#0a84ff,#5e5ce6);box-shadow:0 8px 24px rgba(0,0,0,.28)}
+.slipbar b{font:700 17px/1.1 var(--round);font-variant-numeric:tabular-nums}
+.slipbar small{display:block;font:500 12px/1.3 var(--font);opacity:.9}
+.slipbar button{flex:none;height:36px;padding:0 14px;border-radius:10px;background:#fff;color:#0a64d8;font:600 14px/1 var(--font)}
+.slipbar button.sec{background:rgba(255,255,255,.2);color:#fff}
+body.has-slip{padding-bottom:calc(150px + env(safe-area-inset-bottom,0px))}
+a.appicon{text-decoration:none}
 /* about */
 .about .row{align-items:flex-start}
 .ic{flex:none;width:30px;height:30px;border-radius:7px;display:grid;place-items:center;color:#fff}
@@ -174,14 +197,23 @@ details.news summary::-webkit-details-marker{display:none}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
 
-<header class="topbar" id="topbar"><h2 id="smalltitle">Winners</h2></header>
+<header class="topbar" id="topbar"><h2 id="smalltitle">Build</h2></header>
 <main class="wrap">
-  <div class="large"><div><div class="sub" id="dates"></div><h1 id="bigtitle">Winners</h1></div>
-    <div class="appicon" role="img" aria-label="Weekly Parlay Card"><svg viewBox="0 0 32 32" fill="none"><path d="M5 9.5A2.5 2.5 0 0 1 7.5 7h17A2.5 2.5 0 0 1 27 9.5v3a3.5 3.5 0 0 0 0 7v3a2.5 2.5 0 0 1-2.5 2.5h-17A2.5 2.5 0 0 1 5 22.5v-3a3.5 3.5 0 0 0 0-7v-3z" fill="#fff"/><circle cx="16" cy="16" r="5.2" fill="#0a84ff"/><path d="M16 12.6l2.2 1.6-.8 2.6h-2.8l-.8-2.6z" fill="#fff"/><path d="M20 9v14" stroke="#30d158" stroke-width="1.4" stroke-dasharray="1.6 1.6"/></svg></div></div>
+  <div class="large"><div><div class="sub" id="dates"></div><h1 id="bigtitle">Build</h1></div>
+    <a class="appicon" href="#about" aria-label="About this card"><svg viewBox="0 0 32 32" fill="none"><path d="M5 9.5A2.5 2.5 0 0 1 7.5 7h17A2.5 2.5 0 0 1 27 9.5v3a3.5 3.5 0 0 0 0 7v3a2.5 2.5 0 0 1-2.5 2.5h-17A2.5 2.5 0 0 1 5 22.5v-3a3.5 3.5 0 0 0 0-7v-3z" fill="#fff"/><circle cx="16" cy="16" r="5.2" fill="#0a84ff"/><path d="M16 12.6l2.2 1.6-.8 2.6h-2.8l-.8-2.6z" fill="#fff"/><path d="M20 9v14" stroke="#30d158" stroke-width="1.4" stroke-dasharray="1.6 1.6"/></svg></a></div>
 
   <!-- FORM -->
+  <!-- BUILD -->
+  <div class="screen" id="v-build">
+    <div class="myslip" id="myslip"></div>
+    <div class="seg" id="pickseg" role="group" aria-label="Pick type"></div>
+    <div class="section-h"><span id="pickhead"></span><span id="pickcount"></span></div>
+    <div class="group" id="picklist"></div>
+    <div class="section-f" id="pickfoot"></div>
+  </div>
+
   <!-- WINNERS -->
-  <div class="screen" id="v-winners">
+  <div class="screen" id="v-winners" hidden>
     <div class="hero" id="whero"></div>
     <div class="section-h"><span>Best win in each league</span><span id="lbcount"></span></div>
     <div class="group" id="lblist"></div>
@@ -255,12 +287,13 @@ details.news summary::-webkit-details-marker{display:none}
   </div>
 </main>
 
+<div class="slipbar" id="slipbar" hidden><div><span class="grow"><b id="sb-main"></b><small id="sb-sub"></small></span><button type="button" class="sec" id="sb-view">View</button><button type="button" id="sb-copy">Copy</button></div></div>
 <div class="tabbar"><nav aria-label="Screens">
+  <a href="#build" data-v="build"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm-1 5v4H7v2h4v4h2v-4h4v-2h-4V7h-2z"/></svg>Build</a>
   <a href="#winners" data-v="winners"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 3h10v2h3v3a4 4 0 0 1-4 4h-.3A5 5 0 0 1 13 14.9V18h3v3H8v-3h3v-3.1A5 5 0 0 1 8.3 12H8a4 4 0 0 1-4-4V5h3V3zm0 4H6v1a2 2 0 0 0 1 1.7V7zm10 0v2.7A2 2 0 0 0 18 8V7h-1z"/></svg>Winners</a>
   <a href="#form" data-v="form"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.6 2.2c.4 3.1 2.2 4.6 3.9 6.3 1.6 1.6 3 3.4 3 6.3A7.5 7.5 0 0 1 12 22.3a7.5 7.5 0 0 1-7.5-7.5c0-2.6 1.2-4.4 2.7-5.9.3 1.9 1.2 3 2.3 3.6-.5-4.3 1.4-7.9 3.1-10.3z"/></svg>Form</a>
   <a href="#slips" data-v="slips"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2.2a2.8 2.8 0 0 0 0 5.6V17a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2.2a2.8 2.8 0 0 0 0-5.6V7zm6 1v8h1.6V8H9zm4.4 0v8H15V8h-1.6z"/></svg>Slips</a>
   <a href="#fixtures" data-v="fixtures"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h2v2h6V2h2v2h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2V2zM5 9v10h14V9H5zm2 2h3v3H7v-3z"/></svg>Fixtures</a>
-  <a href="#about" data-v="about"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20zm-1 8v7h2v-7h-2zm1-4a1.3 1.3 0 1 0 0 2.6A1.3 1.3 0 0 0 12 6z"/></svg>About</a>
 </nav></div>
 
 <script>
@@ -412,6 +445,64 @@ function wplayers(r){const L=[];
   if((r.stars||[]).length) L.push(`<span class="chip c-star">★</span><span>${r.stars.map(pstat).join(' · ')}</span>`);
   if((r.missed_last||[]).length) L.push(`<span class="chip c-miss">Missed last</span><span>${r.missed_last.map(x=>esc(x.name)).join(', ')}</span>`);
   return L.length?`<div class="t2">${L.join('')}</div>`:''}
+// BUILD screen: tap picks to make your own slip
+(function(){
+  const TP=DATA.top_picks||{wins:[],safe:[]}, TH=DATA.leg_thresholds||[];
+  const byId={}; for(const k of ['wins','safe']) for(const r of TP[k]||[]) byId[r.id]=r;
+  const KEY='myslip:'+DATA.window[0];
+  let mode=(TP.wins||[]).length?'wins':'safe', sel=[];
+  try{sel=(JSON.parse(localStorage.getItem(KEY)||'[]')).filter(id=>byId[id])}catch(e){}
+  const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(sel))}catch(e){}};
+  const maxLegs=g=>{let n=1;while(n+1<TH.length&&g>=TH[n+1])n++;return n};
+  function stats(){const L=sel.map(id=>byId[id]); if(!L.length) return null;
+    const p=L.reduce((a,l)=>a*l.prob,1), g=Math.pow(p,1/L.length);
+    return {L,p,fair:1/p,geo:g,max:maxLegs(g),miss:L.reduce((a,l)=>a+p/l.prob*(1-l.prob),0)}}
+  function text(){const st=stats(); if(!st) return '';
+    return `My parlay · ${st.L.length} legs · fair ${st.fair.toFixed(2)}\n`+st.L.map(l=>`• ${l.pick} (${vs(l)}, ${day(l.date)})`).join('\n')}
+  async function copy(btn,label){try{await navigator.clipboard.writeText(text());btn.textContent='Copied';setTimeout(()=>btn.textContent=label,1500)}catch(e){btn.textContent='Copy not allowed here'}}
+  function toggle(id){
+    const r=byId[id]; if(!r) return;
+    if(sel.includes(id)) sel=sel.filter(x=>x!==id);
+    else sel=[...sel.filter(x=>byId[x].match_id!==r.match_id),id];   // one pick per match
+    save(); draw();
+  }
+  function drawSlip(){
+    const st=stats(), box=$('myslip'), bar=$('slipbar');
+    document.body.classList.toggle('has-slip',!!st);
+    bar.hidden=!st;
+    if(!st){box.innerHTML=`<div class="top"><div><h3>Your parlay</h3><p>Tap any pick below to add it. One pick per match; the same team can appear twice if it plays twice.</p></div></div>`;bar.hidden=true;return}
+    const n=st.L.length, ok=n<=st.max;
+    $('sb-main').textContent=`${n} pick${n>1?'s':''} · fair ${st.fair.toFixed(2)}`;
+    $('sb-sub').textContent=`wins ${(st.p*100).toFixed(st.p<.1?1:0)}% of the time`;
+    box.innerHTML=`<div class="top"><div><div class="eb" style="font:600 12px/1.2 var(--font);color:var(--tint);text-transform:uppercase;letter-spacing:.03em">Your parlay · ${n} leg${n>1?'s':''}</div><h3>Fair odds ${st.fair.toFixed(2)}</h3><p>Wins ${(st.p*100).toFixed(st.p<.1?1:0)}% of the time${n>=3?` · one leg short ${(st.miss*100).toFixed(0)}%`:''}</p></div></div>
+      ${st.L.map(l=>`<div class="row">${legCrest(l)}<div class="grow"><div class="t1">${esc(pick(l))}</div><div class="t2"><span>${esc(vs(l))}</span><span>·</span><span>${day(l.date)}</span></div></div><span class="num" style="font:600 15px/1 var(--font)">${pct(l.prob)}</span><button type="button" class="x" data-rm="${esc(l.id)}" aria-label="Remove ${esc(l.pick)}">×</button></div>`).join('')}
+      <div class="rcheck${ok?'':' over'}" style="padding-bottom:8px"><b>${ok?'Leg count OK.':'Longer than research supports.'}</b> Legs average ${Math.round(st.geo*100)}%, which supports ${ok?'up to ':''}${st.max} leg${st.max>1?'s':''}${ok?'':' at most'} if you have an edge. Only bet it if your bookmaker pays more than ${st.fair.toFixed(2)}.</div>
+      <div class="acts"><button type="button" class="btn" id="ms-copy">Copy Picks</button><button type="button" class="btn ghost" id="ms-clear">Clear</button></div>`;
+    $('ms-copy').onclick=e=>copy(e.target,'Copy Picks');
+    $('ms-clear').onclick=()=>{sel=[];save();draw()};
+  }
+  function drawList(){
+    const rows=TP[mode]||[];
+    $('pickseg').innerHTML=[['wins',`Wins · ${(TP.wins||[]).length}`],['safe',`Win or draw · ${(TP.safe||[]).length}`]].map(([k,t])=>`<button type="button" id="pm-${k}" data-m="${k}" aria-pressed="${k===mode}">${t}</button>`).join('');
+    $('pickhead').textContent=mode==='wins'?'Top matches to bet · 70%+ to win':'Safer picks · 70%+ win or draw';
+    $('pickcount').textContent=`${rows.length} picks`;
+    $('picklist').innerHTML=rows.map(r=>{const on=sel.includes(r.id);
+      const extra=[(r.stars||[]).length?`<span class="chip c-star">★</span><span>${pstat(r.stars[0])}</span>`:'',(r.missed_last||[]).length?`<span class="chip c-miss">Missed last</span><span>${r.missed_last.map(x=>esc(x.name)).join(', ')}</span>`:'',r.even?'<span class="lg">even league</span>':''].filter(Boolean).join('');
+      return `<button type="button" class="pick" id="pk-${esc(r.id).replace(/[^A-Za-z0-9]/g,'-')}" data-pick="${esc(r.id)}" aria-pressed="${on}"><span class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>${crest(r.team,36)}<span class="grow"><span class="t1" style="display:block">${esc(SHORT(r.team))}${mode==='safe'?' <span style="color:var(--label2)">or draw</span>':''}</span>
+        <span class="t2">${lmark(r.league)}<span>${r.is_home?'vs':'at'} ${esc(SHORT(r.opponent))}</span><span>·</span><span>${day(r.date)}</span></span>${extra?`<span class="t2">${extra}</span>`:''}</span>
+        <span class="pill">${pct(r.prob)}<small>@${r.fair.toFixed(2)}</small></span></button>`}).join('')||'<div class="row"><div class="t2">No picks at 70% or better this week.</div></div>';
+    $('pickfoot').textContent=mode==='wins'?`Every match this week where the model gives one side at least 70% to win, strongest first (up to 30). Percentages are the model's; prices shown are fair odds.`:`The 30 strongest "win or draw" picks, between 70% and 92%. Safer legs, shorter prices.`;
+  }
+  function draw(){drawList();drawSlip()}
+  $('pickseg').addEventListener('click',e=>{const b=e.target.closest('button');if(b){mode=b.dataset.m;drawList()}});
+  $('picklist').addEventListener('click',e=>{const b=e.target.closest('[data-pick]');if(b)toggle(b.dataset.pick)});
+  $('myslip').addEventListener('click',e=>{const b=e.target.closest('[data-rm]');if(b)toggle(b.dataset.rm)});
+  $('sb-copy').onclick=e=>copy(e.target,'Copy');
+  $('sb-view').onclick=()=>{location.hash='build';window.scrollTo({top:0,behavior:'smooth'})};
+  addEventListener('hashchange',()=>setTimeout(drawSlip,0));
+  draw();
+})();
+
 // WINNERS screen
 (function(){
   const LB=DATA.league_best||[], MM=DATA.mismatches||[], base=FT.length+MT.length+WT.length+DH.length;
@@ -437,9 +528,9 @@ function wplayers(r){const L=[];
 })();
 
 // navigation: one screen per tab, routed on the hash
-const TITLES={winners:'Winners',form:'Form',slips:'Slips',fixtures:'Fixtures',about:'About'};
+const TITLES={build:'Build',winners:'Winners',form:'Form',slips:'Slips',fixtures:'Fixtures',about:'About'};
 function route(){
-  const v=(location.hash||'#winners').slice(1); const view=TITLES[v]?v:'winners';
+  const v=(location.hash||'#build').slice(1); const view=TITLES[v]?v:'build';
   for(const k in TITLES) $('v-'+k).hidden=k!==view;
   document.querySelectorAll('.tabbar a').forEach(a=>{if(a.dataset.v===view)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
   $('bigtitle').textContent=$('smalltitle').textContent=TITLES[view];

@@ -298,3 +298,19 @@ def test_player_grades():
     assert [x["name"] for x in p["missed_last"]] == ["Captain"]
     assert p["star_goal_share"] == 1.0
     assert players.profile(logs[:2])["players"] == []
+
+
+def test_top_picks_are_70_plus_sorted_and_limited():
+    from football import weekend
+    ms, teams = synthetic_league(seasons=3)
+    model = DixonColes(ridge=1.0).fit(ms, date(2028, 1, 1))
+    fx = [Match("EPL", date(2028, 1, 2) + timedelta(days=i), teams[i % 3], teams[9 - (i % 4)]) for i in range(40)]
+    preds = [MatchPrediction(f, model.score_matrix(f.home, f.away), model.expected_goals(f.home, f.away)) for f in fx]
+    t = weekend.top_picks(preds, {})
+    for key, codes in (("wins", "HA"), ("safe", ("1X", "X2"))):
+        rows = t[key]
+        assert len(rows) <= weekend.PICK_LIMIT
+        assert all(r["prob"] >= weekend.PICK_MIN_PROB and r["code"] in codes for r in rows)
+        assert [r["prob"] for r in rows] == sorted((r["prob"] for r in rows), reverse=True)
+        assert len({r["id"] for r in rows}) == len(rows)
+    assert t["wins"] and all(r["prob"] <= weekend.WILDCARD_MAX_LEG for r in t["safe"])

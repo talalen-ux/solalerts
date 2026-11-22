@@ -128,6 +128,33 @@ def team_notes(info):
             "mgr": mgr if mgr not in (None, "", "unverified") else None}
 
 
+PICK_MIN_PROB = 0.70
+PICK_LIMIT = 30
+
+
+def top_picks(preds, team_players, min_prob=PICK_MIN_PROB, limit=PICK_LIMIT):
+    """Pick lists for the build-your-own slip: straight wins at 70%+ and, as a safer set,
+    "win or draw" at 70%+ (up to the 92% ceiling where calibration was checked)."""
+    def rows(codes, ceiling):
+        out = []
+        for p in preds:
+            m = p.match
+            code = max(codes, key=lambda c: p.probs[c])
+            prob = p.probs[code]
+            if not (min_prob <= prob <= ceiling):
+                continue
+            team, opp = (m.home, m.away) if code in ("H", "1X") else (m.away, m.home)
+            tp = team_players.get(team) or {}
+            leg = leg_json(Leg(p, (code,), prob, prob))
+            out.append({**leg, "id": f"{m.league}|{m.date}|{m.home}|{m.away}|{code}",
+                        "match_id": f"{m.league}|{m.date}|{m.home}|{m.away}", "team": team, "opponent": opp,
+                        "is_home": code in ("H", "1X"), "time": m.time,
+                        "even": m.league in LOW_CONFIDENCE and prob > LOW_CONFIDENCE_CAP,
+                        "stars": tp.get("stars", [])[:1], "missed_last": tp.get("missed_last", [])[:2]})
+        return sorted(out, key=lambda r: -r["prob"])[:limit]
+    return {"wins": rows(("H", "A"), 1.0), "safe": rows(("1X", "X2"), WILDCARD_MAX_LEG)}
+
+
 BIG_FIVE = ["EPL", "LALIGA", "SERIEA", "BUNDESLIGA", "LIGUE1"]
 EUROPE_NIGHTS = ["UCL", "UEL", "UECL"]
 
@@ -361,6 +388,7 @@ def main(argv=None):
             r["stars"] = tp.get("stars", [])[:2]
             r["missed_last"] = tp.get("missed_last", [])[:2]
             r["opp_missed_last"] = op.get("missed_last", [])[:2]
+    picks = top_picks(preds, team_players)
     wildcards = wildcard_accas(preds)
     doubles = double_headers(preds)
 
@@ -373,7 +401,8 @@ def main(argv=None):
                                               and season_start <= m.date < a.start)
                                       for lg, st in states.items()},
             "matches": matches, "tiers": tiers, "form_teams": form_teams, "form_tiers": form_tiers,
-            "wildcards": wildcards, "double_headers": doubles, **winners,
+            "wildcards": wildcards, "double_headers": doubles, **winners, "top_picks": picks,
+            "leg_thresholds": [0, 0] + [round(research_rules.leg_threshold(n), 4) for n in range(2, 31)],
             "badges": badges.for_teams({(t, m["league"]) for m in matches for t in (m["home"], m["away"])}),
             "league_marks": badges.league_marks({m["league"] for m in matches}),
             "league_names": {k: league_label(k) for k in {m["league"] for m in matches}},
