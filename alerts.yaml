@@ -5925,3 +5925,54 @@ alert2:
 #     +0.122, delta -0.000 (no-op) | 155 + symbol_reuse <= 3: n=99, ev_lcb +0.098, delta
 #     -0.025 (worse; copies were 155's better slice again). Both below the needed +0.173.
 #   RH backtests: 10.
+
+# DAILY-OPS 2026-11-22 (fired 07:06, run 18:45 UTC after the worker outage) + WEEKLY LAW REVIEW
+# 1) Fill scorecard: SKIPPED - defirobot refused its stored sign-in (user must sign in again).
+# 2) RH top-10 (24h, buyers >= 100): RIZDEER 93.1x, FillLayer 64.9x, RobinFactor 53.5x,
+#   Christmax 50.2x, BLADES 49.6x, MINTGOAT 47.3x, CASE 45.9x, ELHIGH 45.2x, PUMPMAS 44.8x,
+#   Elf 44.0x.
+#   CAUGHT 2 of 10: Christmax (155 $15.6k 5.5x), BLADES (152/155 $15.5k 5.5x).
+#   MISSED: RIZDEER, FillLayer, RobinFactor - hooked, round_trip_back < 0.6 (honeypot; the
+#   invented-name template again) - correctly blocked. MINTGOAT - hooked with NULL rtb (154
+#   excludes NULL by design). CASE (0x3a5a) - launched at $16.8k and never sat in the band
+#   with >= 15 buyers (too fast for the band); now 1.15x. Seven CASE copies did match (1.0-2.7x).
+#   ELHIGH, PUMPMAS, Elf - no in-band snapshot (see the flash-batch template below).
+#   152 24h: n=66, 2x+ 57.6%, 10x+ 17, ev_lcb +0.231. 155 24h: n=52, 2x+ 61.5%, 10x+ 8,
+#   ev_lcb -0.031 (small-n noise; its 72h is +0.182).
+#   NEW TEMPLATE - ETH-quoted, 5-socials plain flash batch: ~10 plain launches at $1.7-3.6k,
+#   ETH-quoted, socials_count 5, one launch per deployer, 135-500 buyers, ~185 buys / 46 sells,
+#   active ~2-3h then no trades for 14-21h with the price frozen near the high (Christmax,
+#   BLADES, Elf, ELHIGH, PUMPMAS, OTC, VVVCAT, Community; RCTY and CENTRIA on 11-20).
+#   152/155 over 168h: n=7, all >= 3x, 4 >= 5x (VLAD 11.1x, RCTY 8.4x, BLADES 5.5x, Christmax
+#   5.5x), always entered right at the $15k floor. Good slice but n=7: no gate. Frozen prices
+#   mean thin markets: exit inside the active window.
+# 3) Watchlist: LUX x5+ (pons original + 4 plain copies, 8-12x), CASE x8, INTP x4, CHOP x2
+#   (28.3x / 17.7x), ORBIO x2 (24.6x / 14.4x), AI x2, KALIBR x2, MI and CATMARIO again.
+# 4) EXPERIMENT - re-measured the held 152 cap (mc < 45000), same windows as c101:
+#     168h: live n=666 ev_lcb +0.072 | cap n=621 ev_lcb +0.109 (+0.037; halves +0.385 / +0.093)
+#     removed $45-100k slice: n=45, 2x 11, 5x 4, 10x 0, ev -0.363 (4th negative measurement)
+#   Still under the ledger margin (needs +0.122), so no DEPLOY ADVICE. It is now an optional
+#   improvement, not a rescue (152 passes on its own). Stays held for the user.
+#   RH backtests today: 17 (10 strategy + 7 daily).
+# 5) WEEKLY LAW REVIEW (11-16..11-22):
+#   HELD: round-trip law (MI 50x -> 0.99x, CASE 45.9x -> 1.15x, LUX 22x -> 0.98x, CATMARIO
+#     35x -> 1.0x). Regime law (152 fell to REPLACE-ME with 4 failed baselines 11-17..11-20,
+#     then passed again at c101, ev_lcb -0.033 -> +0.072, with no condition change; 72h
+#     -0.030 -> +0.207). Hooked sell-test law (every big hooked miss this week -
+#     RobinInfinity, SDQST, BiscuitBandit, RIZDEER, FillLayer, RobinFactor, PushCoin,
+#     IntentRail - reads round_trip_back < 0.6). Repeat-name law describes the tail, not a gate
+#     (unique-ticker 155 tested worse again: ev_lcb +0.098 vs +0.123).
+#   NEW: 152 $45-100k band law - negative in all 4 measurements (11-15, 11-20 x2, 11-22), 0 of
+#     ~170 band entries reached 10x. ETH-quoted 5-socials flash-batch template (above).
+#     "Too fast for the band" misses (CASE, CATCOIN): no entry-time clause can catch them
+#     without leaky columns.
+#   BROKE: nothing new. (Last week's held 155 floor change stays disproven.)
+#   PROCESS: the worker restarted repeatedly; 15 scheduled runs (11-20 19:00 -> 11-22 18:32)
+#     queued without running. An approval-gated workflow call blocked the 11-20 daily ops for
+#     ~3.5h; unattended runs must not wait on approval prompts. Parallel drbtrh backtests worked
+#     today (the one-at-a-time error did not recur); sequential stays the default.
+#   UNTESTED: all Solana laws (connector refused since 11-17; reviews skipped 104 times).
+#   OPEN FOR USER: Solana re-auth; 152 cap at mc < 45000 (optional, +0.037 modelled);
+#     drop the held 155 floor change and use a 2x exit on 155; token_history pre-approval;
+#     mcp-rh.defirobot.org downloads; 154 NULL-rtb (not recommended).
+#   Next weekly review: 2026-11-29.
