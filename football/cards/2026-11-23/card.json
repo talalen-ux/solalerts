@@ -51867,7 +51867,13 @@
        "prob": 0.7793,
        "fair": 1.28
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.7906,
+      "max_legs": 7,
+      "within_rule": true,
+      "near_miss": 0.3313
+     }
     },
     {
      "prob": 0.625,
@@ -51895,7 +51901,13 @@
        "prob": 0.759,
        "fair": 1.32
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.7906,
+      "max_legs": 7,
+      "within_rule": true,
+      "near_miss": 0.3324
+     }
     },
     {
      "prob": 0.625,
@@ -51923,7 +51935,13 @@
        "prob": 0.7772,
        "fair": 1.29
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.7906,
+      "max_legs": 7,
+      "within_rule": true,
+      "near_miss": 0.3314
+     }
     }
    ]
   },
@@ -51970,7 +51988,13 @@
        "prob": 0.7931,
        "fair": 1.26
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.7936,
+      "max_legs": 7,
+      "within_rule": true,
+      "near_miss": 0.39
+     }
     },
     {
      "prob": 0.4996,
@@ -52009,7 +52033,13 @@
        "prob": 0.7931,
        "fair": 1.26
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.7935,
+      "max_legs": 7,
+      "within_rule": true,
+      "near_miss": 0.3901
+     }
     },
     {
      "prob": 0.4995,
@@ -52048,7 +52078,13 @@
        "prob": 0.7931,
        "fair": 1.26
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.7934,
+      "max_legs": 7,
+      "within_rule": true,
+      "near_miss": 0.3901
+     }
     }
    ]
   },
@@ -52106,7 +52142,13 @@
        "prob": 0.7595,
        "fair": 1.32
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.7597,
+      "max_legs": 6,
+      "within_rule": true,
+      "near_miss": 0.4214
+     }
     },
     {
      "prob": 0.3329,
@@ -52156,7 +52198,13 @@
        "prob": 0.759,
        "fair": 1.32
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.7596,
+      "max_legs": 6,
+      "within_rule": true,
+      "near_miss": 0.4215
+     }
     },
     {
      "prob": 0.3329,
@@ -52206,7 +52254,13 @@
        "prob": 0.759,
        "fair": 1.32
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.7596,
+      "max_legs": 6,
+      "within_rule": true,
+      "near_miss": 0.4215
+     }
     }
    ]
   },
@@ -52253,7 +52307,13 @@
        "prob": 0.6299,
        "fair": 1.59
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.6299,
+      "max_legs": 3,
+      "within_rule": true,
+      "near_miss": 0.4405
+     }
     },
     {
      "prob": 0.2499,
@@ -52292,7 +52352,13 @@
        "prob": 0.6298,
        "fair": 1.59
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.6299,
+      "max_legs": 3,
+      "within_rule": true,
+      "near_miss": 0.4405
+     }
     },
     {
      "prob": 0.2498,
@@ -52331,198 +52397,222 @@
        "prob": 0.6295,
        "fair": 1.59
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.6298,
+      "max_legs": 3,
+      "within_rule": true,
+      "near_miss": 0.4405
+     }
     }
    ]
   },
   {
    "name": "Long shot",
-   "note": "about 6/1, for small stakes",
+   "note": "about 9/2, for small stakes",
    "legs_n": 5,
-   "target": 7.0,
+   "target": 5.5,
    "options": [
     {
-     "prob": 0.1426,
-     "fair": 7.01,
+     "prob": 0.1817,
+     "fair": 5.5,
      "legs": [
-      {
-       "league": "LIGUE1",
-       "date": "2026-11-27",
-       "match": "Brest v Paris FC",
-       "home": "Brest",
-       "away": "Paris FC",
-       "pick": "Under 3.5 goals",
-       "code": "U3.5",
-       "prob": 0.6779,
-       "fair": 1.48
-      },
-      {
-       "league": "LEAGUETWO",
-       "date": "2026-11-28",
-       "match": "Shrewsbury Town v Cheltenham Town",
-       "home": "Shrewsbury Town",
-       "away": "Cheltenham Town",
-       "pick": "Under 3.5 goals",
-       "code": "U3.5",
-       "prob": 0.6774,
-       "fair": 1.48
-      },
-      {
-       "league": "UECL",
-       "date": "2026-11-26",
-       "match": "Ajax Amsterdam v FC Thun",
-       "home": "Ajax Amsterdam",
-       "away": "FC Thun",
-       "pick": "Ajax Amsterdam or draw & Over 1.5 goals",
-       "code": "1X+O1.5",
-       "prob": 0.6773,
-       "fair": 1.48
-      },
       {
        "league": "CHILE",
        "date": "2026-11-29",
-       "match": "Ñublense v Cobresal",
-       "home": "Ñublense",
-       "away": "Cobresal",
+       "match": "Everton CD v O'Higgins",
+       "home": "Everton CD",
+       "away": "O'Higgins",
        "pick": "Under 3.5 goals",
        "code": "U3.5",
-       "prob": 0.6772,
-       "fair": 1.48
+       "prob": 0.7113,
+       "fair": 1.41
       },
       {
-       "league": "AUSTRIA",
-       "date": "2026-11-27",
-       "match": "Grazer AK v SC Rheindorf Altach",
-       "home": "Grazer AK",
-       "away": "SC Rheindorf Altach",
-       "pick": "Grazer AK or draw",
-       "code": "1X",
-       "prob": 0.6771,
-       "fair": 1.48
+       "league": "DENMARK",
+       "date": "2026-11-29",
+       "match": "Lyngby Boldklub v Viborg FF",
+       "home": "Lyngby Boldklub",
+       "away": "Viborg FF",
+       "pick": "Under 3.5 goals",
+       "code": "U3.5",
+       "prob": 0.711,
+       "fair": 1.41
+      },
+      {
+       "league": "MLS",
+       "date": "2026-11-28",
+       "match": "Real Salt Lake v Vancouver Whitecaps",
+       "home": "Real Salt Lake",
+       "away": "Vancouver Whitecaps",
+       "pick": "Vancouver Whitecaps or draw",
+       "code": "X2",
+       "prob": 0.711,
+       "fair": 1.41
+      },
+      {
+       "league": "BRAZIL",
+       "date": "2026-11-29",
+       "match": "Coritiba v Flamengo",
+       "home": "Coritiba",
+       "away": "Flamengo",
+       "pick": "Under 3.5 goals",
+       "code": "U3.5",
+       "prob": 0.711,
+       "fair": 1.41
+      },
+      {
+       "league": "SOUTHAFRICA",
+       "date": "2026-11-28",
+       "match": "Chippa United v Kaizer Chiefs",
+       "home": "Chippa United",
+       "away": "Kaizer Chiefs",
+       "pick": "Under 2.5 goals",
+       "code": "U2.5",
+       "prob": 0.7108,
+       "fair": 1.41
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.711,
+      "max_legs": 5,
+      "within_rule": true,
+      "near_miss": 0.3693
+     }
     },
     {
-     "prob": 0.1426,
-     "fair": 7.01,
+     "prob": 0.1817,
+     "fair": 5.5,
      "legs": [
       {
-       "league": "LIGUE1",
-       "date": "2026-11-27",
-       "match": "Brest v Paris FC",
-       "home": "Brest",
-       "away": "Paris FC",
-       "pick": "Under 3.5 goals",
-       "code": "U3.5",
-       "prob": 0.6779,
-       "fair": 1.48
-      },
-      {
-       "league": "LEAGUETWO",
-       "date": "2026-11-28",
-       "match": "Shrewsbury Town v Cheltenham Town",
-       "home": "Shrewsbury Town",
-       "away": "Cheltenham Town",
-       "pick": "Under 3.5 goals",
-       "code": "U3.5",
-       "prob": 0.6774,
-       "fair": 1.48
-      },
-      {
-       "league": "UECL",
-       "date": "2026-11-26",
-       "match": "Ajax Amsterdam v FC Thun",
-       "home": "Ajax Amsterdam",
-       "away": "FC Thun",
-       "pick": "Ajax Amsterdam or draw & Over 1.5 goals",
-       "code": "1X+O1.5",
-       "prob": 0.6773,
-       "fair": 1.48
-      },
-      {
-       "league": "UCL",
+       "league": "JAPAN",
        "date": "2026-11-25",
-       "match": "Paris Saint-Germain v AS Roma",
-       "home": "Paris Saint-Germain",
-       "away": "AS Roma",
-       "pick": "Paris Saint-Germain or draw & Over 1.5 goals",
-       "code": "1X+O1.5",
-       "prob": 0.6771,
-       "fair": 1.48
+       "match": "Avispa Fukuoka v Yokohama F. Marinos",
+       "home": "Avispa Fukuoka",
+       "away": "Yokohama F. Marinos",
+       "pick": "Yokohama F. Marinos or draw",
+       "code": "X2",
+       "prob": 0.7111,
+       "fair": 1.41
       },
       {
-       "league": "BUNDESLIGA2",
-       "date": "2026-11-28",
-       "match": "Dynamo Dresden v St. Pauli",
-       "home": "Dynamo Dresden",
-       "away": "St. Pauli",
+       "league": "DENMARK",
+       "date": "2026-11-29",
+       "match": "Lyngby Boldklub v Viborg FF",
+       "home": "Lyngby Boldklub",
+       "away": "Viborg FF",
        "pick": "Under 3.5 goals",
        "code": "U3.5",
-       "prob": 0.677,
-       "fair": 1.48
-      }
-     ]
-    },
-    {
-     "prob": 0.1426,
-     "fair": 7.01,
-     "legs": [
+       "prob": 0.711,
+       "fair": 1.41
+      },
       {
-       "league": "CHAMPIONSHIP",
-       "date": "2026-11-24",
-       "match": "Cardiff City v Preston North End",
-       "home": "Cardiff City",
-       "away": "Preston North End",
+       "league": "MLS",
+       "date": "2026-11-28",
+       "match": "Real Salt Lake v Vancouver Whitecaps",
+       "home": "Real Salt Lake",
+       "away": "Vancouver Whitecaps",
+       "pick": "Vancouver Whitecaps or draw",
+       "code": "X2",
+       "prob": 0.711,
+       "fair": 1.41
+      },
+      {
+       "league": "BRAZIL",
+       "date": "2026-11-29",
+       "match": "Coritiba v Flamengo",
+       "home": "Coritiba",
+       "away": "Flamengo",
        "pick": "Under 3.5 goals",
        "code": "U3.5",
-       "prob": 0.678,
-       "fair": 1.47
+       "prob": 0.711,
+       "fair": 1.41
       },
       {
        "league": "UECL",
        "date": "2026-11-26",
-       "match": "Ajax Amsterdam v FC Thun",
-       "home": "Ajax Amsterdam",
-       "away": "FC Thun",
-       "pick": "Ajax Amsterdam or draw & Over 1.5 goals",
-       "code": "1X+O1.5",
-       "prob": 0.6773,
-       "fair": 1.48
-      },
+       "match": "Iberia 1999 v Getafe",
+       "home": "Iberia 1999",
+       "away": "Getafe",
+       "pick": "Under 2.5 goals",
+       "code": "U2.5",
+       "prob": 0.7108,
+       "fair": 1.41
+      }
+     ],
+     "check": {
+      "geo_mean": 0.711,
+      "max_legs": 5,
+      "within_rule": true,
+      "near_miss": 0.3693
+     }
+    },
+    {
+     "prob": 0.1817,
+     "fair": 5.5,
+     "legs": [
       {
        "league": "CHILE",
        "date": "2026-11-29",
-       "match": "Ñublense v Cobresal",
-       "home": "Ñublense",
-       "away": "Cobresal",
+       "match": "Everton CD v O'Higgins",
+       "home": "Everton CD",
+       "away": "O'Higgins",
        "pick": "Under 3.5 goals",
        "code": "U3.5",
-       "prob": 0.6772,
-       "fair": 1.48
+       "prob": 0.7113,
+       "fair": 1.41
       },
       {
-       "league": "AUSTRIA",
-       "date": "2026-11-27",
-       "match": "Grazer AK v SC Rheindorf Altach",
-       "home": "Grazer AK",
-       "away": "SC Rheindorf Altach",
-       "pick": "Grazer AK or draw",
-       "code": "1X",
-       "prob": 0.6771,
-       "fair": 1.48
+       "league": "DENMARK",
+       "date": "2026-11-29",
+       "match": "Lyngby Boldklub v Viborg FF",
+       "home": "Lyngby Boldklub",
+       "away": "Viborg FF",
+       "pick": "Under 3.5 goals",
+       "code": "U3.5",
+       "prob": 0.711,
+       "fair": 1.41
       },
       {
-       "league": "UCL",
-       "date": "2026-11-25",
-       "match": "Paris Saint-Germain v AS Roma",
-       "home": "Paris Saint-Germain",
-       "away": "AS Roma",
-       "pick": "Paris Saint-Germain or draw & Over 1.5 goals",
-       "code": "1X+O1.5",
-       "prob": 0.6771,
-       "fair": 1.48
+       "league": "MLS",
+       "date": "2026-11-28",
+       "match": "Real Salt Lake v Vancouver Whitecaps",
+       "home": "Real Salt Lake",
+       "away": "Vancouver Whitecaps",
+       "pick": "Vancouver Whitecaps or draw",
+       "code": "X2",
+       "prob": 0.711,
+       "fair": 1.41
+      },
+      {
+       "league": "UECL",
+       "date": "2026-11-26",
+       "match": "Iberia 1999 v Getafe",
+       "home": "Iberia 1999",
+       "away": "Getafe",
+       "pick": "Under 2.5 goals",
+       "code": "U2.5",
+       "prob": 0.7108,
+       "fair": 1.41
+      },
+      {
+       "league": "UEL",
+       "date": "2026-11-26",
+       "match": "Celta Vigo v AFC Bournemouth",
+       "home": "Celta Vigo",
+       "away": "AFC Bournemouth",
+       "pick": "Under 3.5 goals",
+       "code": "U3.5",
+       "prob": 0.7108,
+       "fair": 1.41
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.711,
+      "max_legs": 5,
+      "within_rule": true,
+      "near_miss": 0.3693
+     }
     }
    ]
   }
@@ -53520,7 +53610,13 @@
        "prob": 0.8128,
        "fair": 1.23
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.8462,
+      "max_legs": 10,
+      "within_rule": true,
+      "near_miss": 0.2616
+     }
     },
     {
      "prob": 0.6207,
@@ -53548,7 +53644,13 @@
        "prob": 0.7856,
        "fair": 1.27
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.7878,
+      "max_legs": 7,
+      "within_rule": true,
+      "near_miss": 0.3343
+     }
     }
    ]
   },
@@ -53596,7 +53698,13 @@
        "prob": 0.7901,
        "fair": 1.27
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.8271,
+      "max_legs": 8,
+      "within_rule": true,
+      "near_miss": 0.357
+     }
     },
     {
      "prob": 0.5351,
@@ -53635,7 +53743,13 @@
        "prob": 0.7731,
        "fair": 1.29
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.8118,
+      "max_legs": 8,
+      "within_rule": true,
+      "near_miss": 0.3753
+     }
     }
    ]
   },
@@ -53694,7 +53808,13 @@
        "prob": 0.7856,
        "fair": 1.27
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.8165,
+      "max_legs": 8,
+      "within_rule": true,
+      "near_miss": 0.4018
+     }
     },
     {
      "prob": 0.427,
@@ -53744,7 +53864,13 @@
        "prob": 0.7713,
        "fair": 1.3
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.8084,
+      "max_legs": 8,
+      "within_rule": true,
+      "near_miss": 0.4079
+     }
     }
    ]
   }
@@ -53873,7 +53999,13 @@
        "prob": 0.9156,
        "fair": 1.09
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.9135,
+      "max_legs": 18,
+      "within_rule": true,
+      "near_miss": 0.3832
+     }
     },
     {
      "prob": 0.40447,
@@ -53989,7 +54121,13 @@
        "prob": 0.9156,
        "fair": 1.09
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.9134,
+      "max_legs": 18,
+      "within_rule": true,
+      "near_miss": 0.3833
+     }
     },
     {
      "prob": 0.4031,
@@ -54105,7 +54243,13 @@
        "prob": 0.9156,
        "fair": 1.09
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.9131,
+      "max_legs": 18,
+      "within_rule": true,
+      "near_miss": 0.3835
+     }
     }
    ]
   },
@@ -54287,7 +54431,13 @@
        "prob": 0.9156,
        "fair": 1.09
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.9098,
+      "max_legs": 17,
+      "within_rule": true,
+      "near_miss": 0.3604
+     }
     },
     {
      "prob": 0.24191,
@@ -54458,7 +54608,13 @@
        "prob": 0.9156,
        "fair": 1.09
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.9097,
+      "max_legs": 17,
+      "within_rule": true,
+      "near_miss": 0.3602
+     }
     },
     {
      "prob": 0.24126,
@@ -54629,7 +54785,13 @@
        "prob": 0.9156,
        "fair": 1.09
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.9096,
+      "max_legs": 17,
+      "within_rule": true,
+      "near_miss": 0.3599
+     }
     }
    ]
   },
@@ -54855,7 +55017,13 @@
        "prob": 0.9156,
        "fair": 1.09
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.9069,
+      "max_legs": 16,
+      "within_rule": false,
+      "near_miss": 0.3049
+     }
     },
     {
      "prob": 0.15596,
@@ -55070,7 +55238,13 @@
        "prob": 0.9156,
        "fair": 1.09
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.9068,
+      "max_legs": 16,
+      "within_rule": false,
+      "near_miss": 0.3046
+     }
     },
     {
      "prob": 0.15473,
@@ -55285,7 +55459,13 @@
        "prob": 0.9156,
        "fair": 1.09
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.9065,
+      "max_legs": 16,
+      "within_rule": false,
+      "near_miss": 0.3035
+     }
     }
    ]
   }
@@ -55325,7 +55505,13 @@
        "prob": 0.6882,
        "fair": 1.45
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.7787,
+      "max_legs": 6,
+      "within_rule": true,
+      "near_miss": 0.3566
+     }
     }
    ]
   },
@@ -55363,7 +55549,13 @@
        "prob": 0.7856,
        "fair": 1.27
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.7784,
+      "max_legs": 6,
+      "within_rule": true,
+      "near_miss": 0.345
+     }
     }
    ]
   },
@@ -55401,7 +55593,13 @@
        "prob": 0.7137,
        "fair": 1.4
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.7197,
+      "max_legs": 5,
+      "within_rule": true,
+      "near_miss": 0.4035
+     }
     }
    ]
   },
@@ -55439,7 +55637,13 @@
        "prob": 0.7402,
        "fair": 1.35
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.7134,
+      "max_legs": 5,
+      "within_rule": true,
+      "near_miss": 0.4099
+     }
     }
    ]
   },
@@ -55498,7 +55702,13 @@
        "prob": 0.7856,
        "fair": 1.27
       }
-     ]
+     ],
+     "check": {
+      "geo_mean": 0.7785,
+      "max_legs": 6,
+      "within_rule": true,
+      "near_miss": 0.4253
+     }
     }
    ]
   }
@@ -57776,8 +57986,8 @@
   ],
   "Santos": [
    "SAN",
-   "#15926d",
-   "#00331b"
+   "#000000",
+   "#fafafc"
   ],
   "Sarpsborg FK": [
    "SAR",
@@ -58316,94 +58526,9 @@
   ]
  },
  "league_marks": {
-  "LIGUE2": [
-   "L2",
-   "#0b2a5b",
-   "#f5a623"
-  ],
-  "EPL": [
-   "PL",
-   "#3d195b",
-   "#00ff85"
-  ],
-  "ARGENTINA": [
-   "AR",
-   "#74acdf",
-   "#ffffff"
-  ],
-  "LALIGA2": [
-   "L2",
-   "#ff8b00",
-   "#ffffff"
-  ],
-  "CHAMPIONSHIP": [
-   "EFL",
-   "#1b1f4b",
-   "#ffd100"
-  ],
   "DENMARK": [
    "DK",
    "#c8102e",
-   "#ffffff"
-  ],
-  "SOUTHAFRICA": [
-   "ZA",
-   "#007a4d",
-   "#ffb612"
-  ],
-  "SCOTLAND": [
-   "SC",
-   "#5b2c83",
-   "#ffffff"
-  ],
-  "SAUDI": [
-   "SPL",
-   "#006c35",
-   "#ffffff"
-  ],
-  "TURKEY": [
-   "TR",
-   "#e30a17",
-   "#ffffff"
-  ],
-  "SWEDEN": [
-   "SE",
-   "#006aa7",
-   "#fecc00"
-  ],
-  "BELGIUM": [
-   "BE",
-   "#000000",
-   "#fdda24"
-  ],
-  "PRIMEIRA": [
-   "PT",
-   "#001e50",
-   "#d4e600"
-  ],
-  "BUNDESLIGA": [
-   "BL",
-   "#d20515",
-   "#ffffff"
-  ],
-  "SERIEB": [
-   "SB",
-   "#1a8b3c",
-   "#ffffff"
-  ],
-  "LIBERTADORES": [
-   "LIB",
-   "#0f3b23",
-   "#d4af37"
-  ],
-  "LEAGUETWO": [
-   "L2",
-   "#1b1f4b",
-   "#00a3e0"
-  ],
-  "EREDIVISIE": [
-   "ED",
-   "#e4002b",
    "#ffffff"
   ],
   "RUSSIA": [
@@ -58411,49 +58536,69 @@
    "#0039a6",
    "#ffffff"
   ],
-  "SERIEA": [
-   "SA",
-   "#0b1f4d",
-   "#22c4ff"
-  ],
-  "CHILE": [
-   "CL",
-   "#d52b1e",
+  "BUNDESLIGA": [
+   "BL",
+   "#d20515",
    "#ffffff"
-  ],
-  "UCL": [
-   "UCL",
-   "#0b1c5c",
-   "#ffffff"
-  ],
-  "LALIGA": [
-   "LL",
-   "#ff4b44",
-   "#ffffff"
-  ],
-  "NORWAY": [
-   "NO",
-   "#ba0c2f",
-   "#ffffff"
-  ],
-  "UEL": [
-   "UEL",
-   "#f26a21",
-   "#000000"
   ],
   "AUSTRIA": [
    "AT",
    "#ed2939",
    "#ffffff"
   ],
-  "LEAGUEONE": [
-   "L1",
+  "LEAGUETWO": [
+   "L2",
    "#1b1f4b",
-   "#e6007e"
+   "#00a3e0"
   ],
-  "GREECE": [
-   "GR",
-   "#0d5eaf",
+  "UEL": [
+   "UEL",
+   "#f26a21",
+   "#000000"
+  ],
+  "UECL": [
+   "UECL",
+   "#00be14",
+   "#000000"
+  ],
+  "SWEDEN": [
+   "SE",
+   "#006aa7",
+   "#fecc00"
+  ],
+  "SERIEA": [
+   "SA",
+   "#0b1f4d",
+   "#22c4ff"
+  ],
+  "SCOTLAND": [
+   "SC",
+   "#5b2c83",
+   "#ffffff"
+  ],
+  "JAPAN": [
+   "J1",
+   "#e60012",
+   "#ffffff"
+  ],
+  "ARGENTINA": [
+   "AR",
+   "#74acdf",
+   "#ffffff"
+  ],
+  "CHILE": [
+   "CL",
+   "#d52b1e",
+   "#ffffff"
+  ],
+  "LIBERTADORES": [
+   "LIB",
+   "#0f3b23",
+   "#d4af37"
+  ],
+  "EREDIVISIE": [
+   "ED",
+   "#e4002b",
    "#ffffff"
   ],
   "BUNDESLIGA2": [
@@ -58461,131 +58606,111 @@
    "#d20515",
    "#ffffff"
   ],
-  "LIGUE1": [
-   "L1",
-   "#091c3e",
-   "#dae025"
-  ],
-  "JAPAN": [
-   "J1",
-   "#e60012",
+  "UCL": [
+   "UCL",
+   "#0b1c5c",
    "#ffffff"
   ],
-  "UECL": [
-   "UECL",
-   "#00be14",
-   "#000000"
+  "NORWAY": [
+   "NO",
+   "#ba0c2f",
+   "#ffffff"
   ],
-  "BRAZIL": [
-   "BR",
-   "#009c3b",
-   "#ffdf00"
+  "LIGUE2": [
+   "L2",
+   "#0b2a5b",
+   "#f5a623"
+  ],
+  "SAUDI": [
+   "SPL",
+   "#006c35",
+   "#ffffff"
   ],
   "LIGAMX": [
    "MX",
    "#006847",
    "#ffffff"
   ],
+  "SOUTHAFRICA": [
+   "ZA",
+   "#007a4d",
+   "#ffb612"
+  ],
   "MLS": [
    "MLS",
    "#001f5b",
+   "#ffffff"
+  ],
+  "LIGUE1": [
+   "L1",
+   "#091c3e",
+   "#dae025"
+  ],
+  "TURKEY": [
+   "TR",
+   "#e30a17",
+   "#ffffff"
+  ],
+  "CHAMPIONSHIP": [
+   "EFL",
+   "#1b1f4b",
+   "#ffd100"
+  ],
+  "LALIGA": [
+   "LL",
+   "#ff4b44",
    "#ffffff"
   ],
   "ACLE": [
    "ACL",
    "#00205b",
    "#c8a046"
+  ],
+  "EPL": [
+   "PL",
+   "#3d195b",
+   "#00ff85"
+  ],
+  "BELGIUM": [
+   "BE",
+   "#000000",
+   "#fdda24"
+  ],
+  "GREECE": [
+   "GR",
+   "#0d5eaf",
+   "#ffffff"
+  ],
+  "PRIMEIRA": [
+   "PT",
+   "#001e50",
+   "#d4e600"
+  ],
+  "BRAZIL": [
+   "BR",
+   "#009c3b",
+   "#ffdf00"
+  ],
+  "LEAGUEONE": [
+   "L1",
+   "#1b1f4b",
+   "#e6007e"
+  ],
+  "SERIEB": [
+   "SB",
+   "#1a8b3c",
+   "#ffffff"
+  ],
+  "LALIGA2": [
+   "L2",
+   "#ff8b00",
+   "#ffffff"
   ]
  },
  "league_names": {
-  "LIGUE2": [
-   "Ligue 2",
-   "Ligue 2",
-   "Europe"
-  ],
-  "EPL": [
-   "Premier League",
-   "EPL",
-   "Europe"
-  ],
-  "ARGENTINA": [
-   "Liga Profesional",
-   "Argentina",
-   "Americas"
-  ],
-  "LALIGA2": [
-   "LaLiga 2",
-   "LaLiga 2",
-   "Europe"
-  ],
-  "CHAMPIONSHIP": [
-   "Championship",
-   "Champ",
-   "Europe"
-  ],
   "DENMARK": [
    "Danish Superliga",
    "Denmark",
-   "Europe"
-  ],
-  "SOUTHAFRICA": [
-   "SA Premiership",
-   "S. Africa",
-   "Africa"
-  ],
-  "SCOTLAND": [
-   "Scottish Premiership",
-   "Scotland",
-   "Europe"
-  ],
-  "SAUDI": [
-   "Saudi Pro League",
-   "Saudi",
-   "Asia"
-  ],
-  "TURKEY": [
-   "Süper Lig",
-   "Turkey",
-   "Europe"
-  ],
-  "SWEDEN": [
-   "Allsvenskan",
-   "Sweden",
-   "Europe"
-  ],
-  "BELGIUM": [
-   "Belgian Pro League",
-   "Belgium",
-   "Europe"
-  ],
-  "PRIMEIRA": [
-   "Primeira Liga",
-   "Portugal",
-   "Europe"
-  ],
-  "BUNDESLIGA": [
-   "Bundesliga",
-   "BuLi",
-   "Europe"
-  ],
-  "SERIEB": [
-   "Serie B",
-   "Serie B",
-   "Europe"
-  ],
-  "LIBERTADORES": [
-   "Copa Libertadores",
-   "Libertadores",
-   "Cups"
-  ],
-  "LEAGUETWO": [
-   "League Two",
-   "L2 Eng",
-   "Europe"
-  ],
-  "EREDIVISIE": [
-   "Eredivisie",
-   "Eredivisie",
    "Europe"
   ],
   "RUSSIA": [
@@ -58593,29 +58718,19 @@
    "Russia",
    "Europe"
   ],
-  "SERIEA": [
-   "Serie A",
-   "Serie A",
+  "BUNDESLIGA": [
+   "Bundesliga",
+   "BuLi",
    "Europe"
   ],
-  "CHILE": [
-   "Chilean Primera",
-   "Chile",
-   "Americas"
-  ],
-  "UCL": [
-   "Champions League",
-   "UCL",
-   "Cups"
-  ],
-  "LALIGA": [
-   "La Liga",
-   "LaLiga",
+  "AUSTRIA": [
+   "Austrian Bundesliga",
+   "Austria",
    "Europe"
   ],
-  "NORWAY": [
-   "Eliteserien",
-   "Norway",
+  "LEAGUETWO": [
+   "League Two",
+   "L2 Eng",
    "Europe"
   ],
   "UEL": [
@@ -58623,29 +58738,24 @@
    "UEL",
    "Cups"
   ],
-  "AUSTRIA": [
-   "Austrian Bundesliga",
-   "Austria",
+  "UECL": [
+   "Conference League",
+   "UECL",
+   "Cups"
+  ],
+  "SWEDEN": [
+   "Allsvenskan",
+   "Sweden",
    "Europe"
   ],
-  "LEAGUEONE": [
-   "League One",
-   "L1 Eng",
+  "SERIEA": [
+   "Serie A",
+   "Serie A",
    "Europe"
   ],
-  "GREECE": [
-   "Greek Super League",
-   "Greece",
-   "Europe"
-  ],
-  "BUNDESLIGA2": [
-   "2. Bundesliga",
-   "BuLi 2",
-   "Europe"
-  ],
-  "LIGUE1": [
-   "Ligue 1",
-   "Ligue 1",
+  "SCOTLAND": [
+   "Scottish Premiership",
+   "Scotland",
    "Europe"
   ],
   "JAPAN": [
@@ -58653,30 +58763,130 @@
    "Japan",
    "Asia"
   ],
-  "UECL": [
-   "Conference League",
-   "UECL",
+  "ARGENTINA": [
+   "Liga Profesional",
+   "Argentina",
+   "Americas"
+  ],
+  "CHILE": [
+   "Chilean Primera",
+   "Chile",
+   "Americas"
+  ],
+  "LIBERTADORES": [
+   "Copa Libertadores",
+   "Libertadores",
    "Cups"
   ],
-  "BRAZIL": [
-   "Brasileirão",
-   "Brazil",
-   "Americas"
+  "EREDIVISIE": [
+   "Eredivisie",
+   "Eredivisie",
+   "Europe"
+  ],
+  "BUNDESLIGA2": [
+   "2. Bundesliga",
+   "BuLi 2",
+   "Europe"
+  ],
+  "UCL": [
+   "Champions League",
+   "UCL",
+   "Cups"
+  ],
+  "NORWAY": [
+   "Eliteserien",
+   "Norway",
+   "Europe"
+  ],
+  "LIGUE2": [
+   "Ligue 2",
+   "Ligue 2",
+   "Europe"
+  ],
+  "SAUDI": [
+   "Saudi Pro League",
+   "Saudi",
+   "Asia"
   ],
   "LIGAMX": [
    "Liga MX",
    "Liga MX",
    "Americas"
   ],
+  "SOUTHAFRICA": [
+   "SA Premiership",
+   "S. Africa",
+   "Africa"
+  ],
   "MLS": [
    "MLS",
    "MLS",
    "Americas"
   ],
+  "LIGUE1": [
+   "Ligue 1",
+   "Ligue 1",
+   "Europe"
+  ],
+  "TURKEY": [
+   "Süper Lig",
+   "Turkey",
+   "Europe"
+  ],
+  "CHAMPIONSHIP": [
+   "Championship",
+   "Champ",
+   "Europe"
+  ],
+  "LALIGA": [
+   "La Liga",
+   "LaLiga",
+   "Europe"
+  ],
   "ACLE": [
    "AFC Champions League Elite",
    "ACL Elite",
    "Cups"
+  ],
+  "EPL": [
+   "Premier League",
+   "EPL",
+   "Europe"
+  ],
+  "BELGIUM": [
+   "Belgian Pro League",
+   "Belgium",
+   "Europe"
+  ],
+  "GREECE": [
+   "Greek Super League",
+   "Greece",
+   "Europe"
+  ],
+  "PRIMEIRA": [
+   "Primeira Liga",
+   "Portugal",
+   "Europe"
+  ],
+  "BRAZIL": [
+   "Brasileirão",
+   "Brazil",
+   "Americas"
+  ],
+  "LEAGUEONE": [
+   "League One",
+   "L1 Eng",
+   "Europe"
+  ],
+  "SERIEB": [
+   "Serie B",
+   "Serie B",
+   "Europe"
+  ],
+  "LALIGA2": [
+   "LaLiga 2",
+   "LaLiga 2",
+   "Europe"
   ]
  },
  "low_confidence": [

@@ -100,6 +100,9 @@ details.alts summary::-webkit-details-marker{display:none}
 .wild .reality b{font-weight:600}
 .wild details.more-legs summary{list-style:none;cursor:pointer;color:var(--tint);font:400 15px/1.3 var(--font);padding:10px 16px}
 .wild details.more-legs summary::-webkit-details-marker{display:none}
+.rcheck{margin:0 16px;padding:8px 0 2px;font:400 12px/1.35 var(--font);color:var(--label2);border-top:.5px solid var(--sep)}
+.rcheck b{font-weight:600;color:var(--green)}
+.rcheck.over b{color:var(--orange)}
 /* segmented control */
 .seg{display:flex;background:var(--fill);border-radius:9px;padding:2px;gap:2px;overflow-x:auto;scrollbar-width:none;margin-top:12px}
 .seg::-webkit-scrollbar{display:none}
@@ -212,6 +215,13 @@ details.news summary::-webkit-details-marker{display:none}
     <div class="section-h"><span>Leagues this week</span><span id="nleagues"></span></div>
     <div class="group" id="coverage"></div>
     <div class="section-f">Results and fixtures come from ESPN's live scoreboard. Leagues marked "even" are where the model beat base rates by under 4% in backtests; their legs are capped at 80%.</div>
+    <div class="section-h"><span>What the research says</span></div>
+    <div class="group">
+      <div class="row"><div class="grow"><div class="t1"><b>Every leg multiplies the margin</b></div><div class="t2">Expected return on N legs is (1 − margin)<sup>N</sup>. New Jersey sportsbooks kept 19.2% of parlay stakes in 2025 against 4.9% on other bets (Whelan 2026).</div></div></div>
+      <div class="row"><div class="grow"><div class="t1"><b>How many legs</b></div><div class="t2">Even with an edge: singles below 33% per leg, two legs up to 53%, five legs only from 70%, ten from 85%. Each slip here is checked against that rule.</div></div></div>
+      <div class="row"><div class="grow"><div class="t1"><b>Only legs worth betting alone</b></div><div class="t2">In the optimal set of bets, a parlay belongs only if each leg has an edge on its own, and dropping parlays for singles costs almost nothing (Long 2026; Grant, Johnstone &amp; Kwon 2008).</div></div></div>
+      <div class="row"><div class="grow"><div class="t1"><b>Near misses are normal</b></div><div class="t2">On a long slip, missing by one leg is several times more likely than winning. It says nothing about next time.</div></div></div>
+    </div>
     <div class="section-h"><span>Before you bet</span></div>
     <div class="group">
       <div class="row"><div class="grow"><div class="t1"><b>Fair odds are not value</b></div><div class="t2">The model is calibrated, so a slip at its fair price only breaks even.</div></div></div>
@@ -297,13 +307,17 @@ function drawFW(){
 $('fwcount').textContent=FW.length?`${FW.length} teams`:'';
 drawFW();
 
+function rcheck(o){const c=o.check;if(!c)return '';const n=o.legs.length;
+  const miss=n>=4?` One leg short happens ${(c.near_miss*100).toFixed(0)}% of the time.`:'';
+  return c.within_rule?`<div class="rcheck"><b>Leg count OK.</b> Legs average ${Math.round(c.geo_mean*100)}%, which supports up to ${c.max_legs} legs if you have an edge.${miss}</div>`
+   :`<div class="rcheck over"><b>Longer than research supports.</b> Legs average ${Math.round(c.geo_mean*100)}%, which supports ${c.max_legs} legs at most, even with an edge.${miss}</div>`}
 // slip cards
 function card(t,i,eb){
   const o=t.options[0];
   const legs=o.legs.map(l=>`<div class="row">${legCrest(l)}<div class="grow"><div class="t1">${esc(pick(l))}</div><div class="t2"><span>${esc(vs(l))}</span><span>·</span><span>${day(l.date)}</span></div></div><div class="num" style="font:600 15px/1 var(--font);text-align:right">${pct(l.prob)}<div style="font:400 12px/1.4 var(--font);color:var(--label2)">@${l.fair.toFixed(2)}</div></div></div>`).join('');
   const alts=t.options.slice(1).map(a=>`<div class="alt"><b>${a.fair.toFixed(2)}</b> · ${a.legs.map(l=>esc(pick(l))).join(' · ')}</div>`).join('');
   return `<article class="card"><div class="card-h"><div><div class="eb">${eb} · ${o.legs.length} legs</div><h3>${esc(t.name)}</h3><p>${esc(t.note)}</p></div><div class="odds"><b>${o.fair.toFixed(2)}</b><span>wins ${pct(o.prob)}</span></div></div>
-  ${legs}<div class="card-f"><button class="btn" type="button" data-copy="${i}">Copy Picks</button>${alts?`<details class="alts"><summary>${t.options.length-1} more like this</summary>${alts}</details>`:''}</div></article>`;
+  ${legs}${rcheck(o)}<div class="card-f"><button class="btn" type="button" data-copy="${i}">Copy Picks</button>${alts?`<details class="alts"><summary>${t.options.length-1} more like this</summary>${alts}</details>`:''}</div></article>`;
 }
 $('formrail').innerHTML=FT.map((t,i)=>card(t,i,'Form')).join('');
 $('sliprail').innerHTML=MT.map((t,i)=>card(t,i+FT.length,'Model')).join('');
@@ -314,7 +328,7 @@ function wildCard(t,i){
   return `<article class="card wild"><div class="card-h"><div><div class="eb">Wildcard · ${o.legs.length} legs</div><h3>${esc(t.name)}</h3><p>${esc(t.note)}</p></div><div class="odds"><b>${o.fair.toFixed(2)}</b><span>wins ${(o.prob*100).toFixed(1)}%</span></div></div>
   <div class="reality">A typical book pays about <b>${t.typical_book_odds.toFixed(1)}</b>, not ${o.fair.toFixed(2)}. Average return: <b>${Math.round((1+t.expected_return)*100)}p per £1</b>.</div>
   ${first.map(legRow).join('')}${rest.length?`<details class="more-legs"><summary>Show ${rest.length} more legs</summary>${rest.map(legRow).join('')}</details>`:''}
-  <div class="card-f"><button class="btn" type="button" data-copy="${i}">Copy All ${o.legs.length} Picks</button>${alts?`<details class="alts"><summary>${t.options.length-1} alternative${t.options.length>2?'s':''}</summary>${alts}</details>`:''}</div></article>`;
+  ${rcheck(o)}<div class="card-f"><button class="btn" type="button" data-copy="${i}">Copy All ${o.legs.length} Picks</button>${alts?`<details class="alts"><summary>${t.options.length-1} alternative${t.options.length>2?'s':''}</summary>${alts}</details>`:''}</div></article>`;
 }
 $('dhrail').innerHTML=DH.map((t,i)=>card(t,i+FT.length+MT.length+WT.length,'Double-header')).join('')||'<div class="section-f">No team is favourite in two games this week.</div>';
 $('wildrail').innerHTML=WT.map((t,i)=>wildCard(t,i+FT.length+MT.length)).join('')||'<div class="section-f">Not enough matches this week for wildcards.</div>';

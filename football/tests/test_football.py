@@ -239,3 +239,13 @@ def test_double_headers_same_team_two_matches():
     assert first["legs"][0]["match"] != first["legs"][1]["match"]
     assert first["prob"] == pytest.approx(first["legs"][0]["prob"] * first["legs"][1]["prob"], rel=1e-3)
     assert dh[-1]["legs_n"] == 4
+
+
+def test_whelan_leg_thresholds_match_published_table():
+    from football import research_rules as rr
+    table = {2: .335, 3: .526, 4: .634, 5: .703, 6: .750, 7: .784, 8: .811, 9: .831, 10: .848}  # sigma=1, e=0.01
+    for n, p in table.items():
+        assert rr.leg_threshold(n) == pytest.approx(p, abs=0.004)
+    assert rr.max_legs(0.30) == 1 and rr.max_legs(0.45) == 2 and rr.max_legs(0.72) == 5
+    c = rr.check([0.5] * 4)
+    assert c["near_miss"] == pytest.approx(4 / 16) and not c["within_rule"]

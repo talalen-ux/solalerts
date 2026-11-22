@@ -12,7 +12,7 @@ import json
 from datetime import date, datetime
 from pathlib import Path
 
-from . import badges, engine, markets
+from . import badges, engine, markets, research_rules
 from .adjust import load_news
 from .geo import distance_km
 from .leagues import LEAGUES, season_start_year
@@ -29,7 +29,7 @@ TIERS = [  # name, legs, min fair odds, sgp, note
     ("Core treble", 3, 2.0, False, "about even money, one leg per match"),
     ("Four-fold", 4, 3.0, False, "about 3/1"),
     ("Same-game builder treble", 3, 4.0, True, "legs may pair two selections on one match, priced jointly"),
-    ("Long shot", 5, 7.0, True, "about 6/1, for small stakes"),
+    ("Long shot", 5, 5.5, True, "about 9/2, for small stakes"),  # 7.0 needed 68% legs: too long by Whelan's rule
 ]
 
 
@@ -284,6 +284,9 @@ def main(argv=None):
             "league_names": {k: league_label(k) for k in {m["league"] for m in matches}},
             "low_confidence": sorted(LOW_CONFIDENCE & {m["league"] for m in matches}),
             "top_singles": [leg_json(l) for l in singles[:15]]}
+    for t in form_tiers + tiers + wildcards + doubles:
+        for o in t["options"]:
+            o["check"] = research_rules.check([l["prob"] for l in o["legs"]])
     Path(a.out).write_text(json.dumps(card, indent=1, ensure_ascii=False))
     print(f"{len(matches)} matches, {n_results} results merged, news for {len(news)} teams -> {a.out}")
     print("\nIn-form teams most likely to win again:")
