@@ -53,6 +53,25 @@ LEAGUES = {
     "ARGENTINA": ("arg.1", "Liga Profesional", "Argentina", "Americas"),
     "MLS": ("usa.1", "MLS", "MLS", "Americas"),
     "LIGAMX": ("mex.1", "Liga MX", "Liga MX", "Americas"),
+    # added: more leagues with fixtures most weeks. (A-League Men was tested and dropped: the model
+    # did worse than base rates there, -2.4% log loss, in the 2025-26 walk-forward.)
+    "LEAGUEONE": ("eng.3", "League One", "L1 Eng", "Europe"),
+    "LEAGUETWO": ("eng.4", "League Two", "L2 Eng", "Europe"),
+    "NORWAY": ("nor.1", "Eliteserien", "Norway", "Europe"),
+    "SWEDEN": ("swe.1", "Allsvenskan", "Sweden", "Europe"),
+    "SOUTHAFRICA": ("rsa.1", "SA Premiership", "S. Africa", "Africa"),
+    "CHILE": ("chi.1", "Chilean Primera", "Chile", "Americas"),
+}
+
+# Cross-league competitions, priced by the global model (globalmodel.py).
+# key: (ESPN code, display name, short label, confederation)
+CUPS = {
+    "UCL": ("uefa.champions", "Champions League", "UCL", "EU"),
+    "UEL": ("uefa.europa", "Europa League", "UEL", "EU"),
+    "UECL": ("uefa.europa.conf", "Conference League", "UECL", "EU"),
+    "ACLE": ("afc.champions", "AFC Champions League Elite", "ACL Elite", "AS"),
+    "LIBERTADORES": ("conmebol.libertadores", "Copa Libertadores", "Libertadores", "SA"),
+    "SUDAMERICANA": ("conmebol.sudamericana", "Copa Sudamericana", "Sudamericana", "SA"),
 }
 
 TEAM_META: dict[str, tuple[str, str, str]] = {}   # name -> (abbreviation, colour, alternate colour)
@@ -117,11 +136,13 @@ def _parse(key: str, payload: dict) -> list[Match]:
 
 def load_league(key: str, until: date, months_back: int = 36, today: date | None = None) -> list[Match]:
     today = today or date.today()
-    code = LEAGUES[key][0]
+    code = (LEAGUES.get(key) or CUPS[key])[0]
     start = date(until.year - months_back // 12, until.month, 1)
     seen, out = set(), []
     for ym in _months(start, until):
         for m in _parse(key, _fetch(code, ym, today)):
+            if key in CUPS:
+                m.extra["confed"] = CUPS[key][3]
             k = m.extra.get("espn_id") or (m.date, m.home, m.away)
             if k not in seen:
                 seen.add(k)

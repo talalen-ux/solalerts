@@ -1,7 +1,8 @@
 # Weekly parlay card runbook
 
-Runs every Thursday morning (UK). It produces the card for the coming Friday-to-Monday across 25
-leagues and republishes it to the same page: https://claude.ai/artifact/4j98Go6HigD8VvHx9qbFWP
+Runs every Thursday morning (UK). It produces the card for the next 7 days (Thursday to Wednesday:
+league rounds plus the midweek cup nights) across 31 leagues and 6 continental cups, and
+republishes it to the same page: https://claude.ai/artifact/4j98Go6HigD8VvHx9qbFWP
 
 Work on branch `claude/solana-token-alerts-mYL5N` of `talalen-ux/solalerts`. Another job also
 pushes to this branch, so always `git pull --rebase` before pushing.
@@ -13,9 +14,9 @@ That host is the data source for fixtures, results and team colours.
 
 1. **Build the card.** This fetches ESPN results and fixtures, fits each league and builds the slips.
    ```
-   python3 -m football.weekly card            # next Friday + 4 days -> football/cards/<date>/
+   python3 -m football.weekly card            # today + 7 days -> football/cards/<date>/
    ```
-   Check that it reports at least 150 matches and that the form-winners list is not empty. If
+   Check that it reports at least 200 matches and that the form-winners list is not empty. If
    ESPN is unreachable, the fetch fails with an HTTP error: report that and stop.
 
 2. **Team news (optional).** For the biggest matches, write `<LEAGUE>_news.json` using the team
@@ -32,16 +33,23 @@ That host is the data source for fixtures, results and team colours.
 5. **Report.** Give the form treble, the core treble, the number of matches and leagues, and
    anything that failed.
 
-## Leagues
+## Coverage
 
-Europe: Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Eredivisie, Primeira Liga,
-Belgium, Turkey, Russia, Scotland, Greece, Austria, Denmark, Championship, 2. Bundesliga,
-LaLiga 2, Serie B, Ligue 2. Asia: Saudi Pro League, J1 League. Americas: Brasileirão,
-Argentina, MLS, Liga MX. The list is in `football/espn.py`; add a league there with its ESPN code.
+Leagues (per-league models): Premier League, La Liga, Serie A, Bundesliga, Ligue 1, Eredivisie,
+Primeira Liga, Belgium, Turkey, Russia, Scotland, Greece, Austria, Denmark, Norway, Sweden,
+Championship, League One, League Two, 2. Bundesliga, LaLiga 2, Serie B, Ligue 2, Saudi Pro League,
+J1 League, South Africa, Brasileirão, Argentina, Chile, MLS, Liga MX.
 
-**Even leagues.** In 10 leagues the model beat base rates by under 4%: the second divisions,
-Austria, Denmark, MLS, Liga MX and Argentina. Their legs are capped at 80% on the slips, because
-legs above that won 80.5% against 84.1% predicted (`football/research/espn_backtest.py`).
+Cups (one cross-league model, `football/globalmodel.py`): Champions League, Europa League,
+Conference League, AFC Champions League Elite, Copa Libertadores, Copa Sudamericana. Team ratings
+sit on top of league levels that the cup results link together. In the 2025-26 walk-forward it
+beat base rates by 7.7% on 973 cup matches (`football/research/cup_backtest.py`).
+
+Dropped after testing: A-League Men, where the model did worse than base rates.
+
+**Even competitions.** Legs are capped at 80% in the second divisions, League One and Two,
+Austria, Denmark, Sweden, Chile, MLS, Liga MX, Argentina and the Libertadores. In these the model
+gains less than 4% over base rates, and its 80%+ legs came in about 3 points short.
 
 ## Fallback
 

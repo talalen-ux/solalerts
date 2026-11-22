@@ -79,6 +79,12 @@ LEAGUE_MARKS.update({
     "SAUDI": ("SPL", "#006c35", "#ffffff"), "JAPAN": ("J1", "#e60012", "#ffffff"),
     "BRAZIL": ("BR", "#009c3b", "#ffdf00"), "ARGENTINA": ("AR", "#74acdf", "#ffffff"),
     "MLS": ("MLS", "#001f5b", "#ffffff"), "LIGAMX": ("MX", "#006847", "#ffffff"),
+    "LEAGUEONE": ("L1", "#1b1f4b", "#e6007e"), "LEAGUETWO": ("L2", "#1b1f4b", "#00a3e0"),
+    "NORWAY": ("NO", "#ba0c2f", "#ffffff"), "SWEDEN": ("SE", "#006aa7", "#fecc00"),
+    "SOUTHAFRICA": ("ZA", "#007a4d", "#ffb612"), "CHILE": ("CL", "#d52b1e", "#ffffff"),
+    "UCL": ("UCL", "#0b1c5c", "#ffffff"), "UEL": ("UEL", "#f26a21", "#000000"),
+    "UECL": ("UECL", "#00be14", "#000000"), "ACLE": ("ACL", "#00205b", "#c8a046"),
+    "LIBERTADORES": ("LIB", "#0f3b23", "#d4af37"), "SUDAMERICANA": ("SUD", "#00539b", "#ffffff"),
 })
 
 

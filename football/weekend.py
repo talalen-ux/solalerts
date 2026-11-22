@@ -47,7 +47,8 @@ def form_string(matches, team, before, n=5):
 # (football/research/espn_backtest.py). Their 80%+ legs won 80.5% vs 84.1% predicted, so legs
 # from them are capped at 80%, where calibration held (74.8% predicted, 74.2% won).
 LOW_CONFIDENCE = {"CHAMPIONSHIP", "BUNDESLIGA2", "LALIGA2", "SERIEB", "LIGUE2", "AUSTRIA", "DENMARK",
-                  "MLS", "LIGAMX", "ARGENTINA"}
+                  "MLS", "LIGAMX", "ARGENTINA", "LEAGUEONE", "LEAGUETWO", "SWEDEN", "CHILE",
+                  "LIBERTADORES"}  # last one from research/cup_backtest.py (+1.8%)
 LOW_CONFIDENCE_CAP = 0.80
 
 
@@ -60,6 +61,9 @@ def league_label(key):
     if key in espn.LEAGUES:
         _, name, short, region = espn.LEAGUES[key]
         return [name, short, region]
+    if key in espn.CUPS:
+        _, name, short, _ = espn.CUPS[key]
+        return [name, short, "Cups"]
     return [LEAGUES[key]["name"], key, "Europe"]
 
 

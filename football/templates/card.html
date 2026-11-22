@@ -300,7 +300,7 @@ $('slipdots').innerHTML=MT.map((_,i)=>`<i class="${i?'':'on'}"></i>`).join('');
 $('sliprail').addEventListener('scroll',e=>{const r=e.target,c=r.querySelector('.card');if(!c)return;const i=Math.round(r.scrollLeft/(c.offsetWidth+12));[...$('slipdots').children].forEach((d,k)=>d.classList.toggle('on',k===i))},{passive:true});
 
 // FIXTURES screen
-const REG=['Europe','Asia','Americas'];
+const REG=['Cups','Europe','Asia','Africa','Americas'];
 const leagues=[...new Set(DATA.matches.map(m=>m.league))].sort((a,b)=>REG.indexOf((LN[a]||[])[2])-REG.indexOf((LN[b]||[])[2]));
 let lg=leagues[0]; try{const s=localStorage.getItem('lg2');if(leagues.includes(s))lg=s}catch(e){}
 function fixture(m){

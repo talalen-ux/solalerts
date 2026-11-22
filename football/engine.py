@@ -36,17 +36,42 @@ def load_and_fit(leagues: list[str], as_of: date, seasons: int = 3, refresh: boo
     if results_csv:
         for lg in leagues:
             data.merge_results_csv(all_matches[lg], results_csv)
+    cups = []
+    if source == "espn":
+        from . import espn
+        cups = [k for k in leagues if k in espn.CUPS]
+        leagues = [k for k in leagues if k not in espn.CUPS]
     for lg in leagues:
         ms = all_matches[lg]
         model = DixonColes(xi=xi, ridge=ridge).fit(ms, as_of, lg)
         states[lg] = LeagueState(lg, ms, model, data.latest_result_date(
             [m for m in ms if m.date < as_of]))
+    if cups:
+        states.update(_fit_cups(cups, all_matches, as_of, leagues))
     return states
+
+
+def _fit_cups(cups, all_matches, as_of, leagues):
+    """One cross-league model for the continental cups (see globalmodel.py)."""
+    from .globalmodel import GlobalModel
+    domestic = {k: all_matches[k] for k in leagues}
+    cup_ms = [m for k in cups for m in all_matches[k]]
+    everything = [m for ms in all_matches.values() for m in ms]
+    g = GlobalModel().fit(everything, GlobalModel.assign_leagues(domestic, cup_ms, as_of), as_of)
+    out = {}
+    for k in cups:
+        ms = all_matches[k]
+        last = data.latest_result_date([m for m in ms if m.date < as_of])
+        # matches = everything, so a cup team's "last 5" spans league and cup games
+        out[k] = LeagueState(k, everything, g, last)
+        out[k].fixtures = ms
+    return out
 
 
 def upcoming(state: LeagueState, start: date, days: int) -> list[data.Match]:
     end = start + timedelta(days=days)
-    return sorted((m for m in state.matches if not m.played and start <= m.date < end),
+    pool = getattr(state, "fixtures", None) or state.matches
+    return sorted((m for m in pool if not m.played and start <= m.date < end and m.league == state.league),
                   key=lambda m: (m.date, m.time))
 
 
@@ -55,7 +80,7 @@ def predict(state: LeagueState, fixtures: list[data.Match], news: dict | None = 
     from . import adjust
     out = []
     for m in fixtures:
-        lam, mu = state.model.expected_goals(m.home, m.away)
+        lam, mu = state.model.expected_goals(m.home, m.away, m.extra.get("neutral", False))
         notes = {}
         if news:
             base = (lam, mu)

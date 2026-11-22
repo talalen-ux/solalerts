@@ -7,7 +7,7 @@ live in a ledger (football/ledger/<LEAGUE>.csv) that grows each week from resear
     python3 -m football.weekly ingest DIR                      # add DIR/<LEAGUE>_new_results.csv to ledger
     python3 -m football.weekly card   --outdir football/cards  # build card.json + parlay-card.html
 
-`card` defaults to the next Friday-to-Monday window. Team news (<LEAGUE>_news.json, see
+`card` defaults to the 7 days starting today (league weekends plus midweek cup nights). Team news (<LEAGUE>_news.json, see
 adjust.py) is applied when --news DIR is given.
 """
 
@@ -110,7 +110,8 @@ def card(start: date, days: int, outdir: Path, news: Path | None, source: str = 
     js = outdir / "card.json"
     if leagues is None:
         from .espn import LEAGUES as ESPN_LEAGUES
-        leagues = list(ESPN_LEAGUES) if source == "espn" else LEAGUES
+        from .espn import CUPS
+        leagues = (list(ESPN_LEAGUES) + list(CUPS)) if source == "espn" else LEAGUES
     weekend.main(["--research", str(tmp), "--start", start.isoformat(), "--days", str(days), "--out", str(js),
                   "--source", source, "--leagues", ",".join(leagues)])
     html = outdir / "parlay-card.html"
@@ -129,7 +130,7 @@ def main(argv=None):
     i.add_argument("src", type=Path)
     c = sub.add_parser("card")
     c.add_argument("--start", type=_d)
-    c.add_argument("--days", type=int, default=4)
+    c.add_argument("--days", type=int, default=7)
     c.add_argument("--outdir", type=Path, default=ROOT / "cards")
     c.add_argument("--news", type=Path)
     c.add_argument("--source", choices=["espn", "openfootball"], default="espn")
@@ -140,7 +141,7 @@ def main(argv=None):
     elif a.cmd == "ingest":
         print(json.dumps(ingest(a.src)))
     else:
-        start = a.start or next_friday(date.today())
+        start = a.start or date.today()   # rolling 7 days: weekend rounds plus midweek cups
         out = card(start, a.days, a.outdir / start.isoformat(), a.news, a.source,
                    a.leagues.split(",") if a.leagues else None)
         print(f"card -> {out}")
