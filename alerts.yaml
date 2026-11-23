@@ -6051,3 +6051,17 @@ alert2:
 
 # 6H REVIEW 2026-11-23 18:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
 #   again (108th review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 105 (2026-11-23 18:48 UTC): health + baseline refresh + 7th-cycle
+#   self-improvement. No deployment (no candidates). Live conditions match memory.
+#   152 72h n=240, 2x+ 57.9%, 10x+ 42, ev +0.300 / ev_lcb +0.143 (ok)
+#   155 72h n=141, 2x+ 58.9%, 10x+ 23, ev +0.296 / ev_lcb +0.099 (ok)
+#   Baselines: 152 168h n=670 ev_lcb +0.081 PASS (2nd pass in a row) | 155 168h n=497
+#     ev_lcb +0.120 PASS (scalp_2 exit; ladders negative on 168h) | 154 336h n=7 FAIL on n
+#     only (13th; 1 alert in 168h).
+#   SELF-IMPROVEMENT: no arm has >= 8 tests (max 4), nothing to retire. Calibration still
+#     blocked (token_history needs the user's pre-approval, and unattended runs must not wait
+#     on a prompt). Unit tests 12/12 green. PLAYBOOK: added the unattended-run rule (no
+#     approval-gated tools; one catch-up cycle after an outage). No score.py change.
+#   candidates.py: [] (recent retests consumed; 154 loosenings parked at c104).
+#   RH backtests: 6 (17 today).

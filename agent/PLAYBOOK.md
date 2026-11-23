@@ -33,6 +33,10 @@ SCOPE AND HARD LIMITS
   and `filter_history` are not backtests; still keep them small.
 - drbtrh allows one backtest at a time. Run them sequentially.
 - If drbtrh is unavailable, log "skipped" and stop. Never invent numbers.
+- Runs are unattended: never call a tool that waits on an approval prompt (a workflow
+  approval blocked the 11-20 daily ops ~3.5h). After a worker outage, run ONE catch-up
+  cycle on current windows instead of replaying the missed runs, and log the gap.
+  (Added at c105.)
 
 THE RUN (do in order)
 0. Work in /home/user/solalerts/agent (the repo is already checked out).
