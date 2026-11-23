@@ -461,7 +461,8 @@
   "[2026-11-20] [2026-11-20] 152's $45-100k band is a consistent loser: 11-15 n=29/wk slightly negative; 11-20 07:25 168h n=49, 2x 22% vs 59% kept (Fisher p=6e-7), 10x 0/49, ev -0.388; 11-20 10:50 168h n=50, ev -0.393. Capping 152 at mc < 45000 (hash 64a4f9ae1b4b) passes every absolute gate (n=601, ev_lcb +0.029, halves +0.172/+0.024, ~86/day) and is the only passing 152 challenger, but beats live by +0.034, under the +0.05 margin, so the ledger gives no DEPLOY ADVICE. Held for the user as the REPLACE-ME fix; the agent may not deploy it on its own.",
   "[2026-11-22] [2026-11-22] ETH-quoted 5-socials plain flash batch: plain v4 launches at $1.7-3.6k, quote ETH, socials_count 5, one launch per deployer, 135-500 buyers, ~185 buys/46 sells, active 2-3h then frozen near the high for 14-21h (Christmax, BLADES, Elf, ELHIGH, PUMPMAS, OTC, RCTY, CENTRIA). 152/155 catch them right at the $15k floor: 168h n=7, all >= 3x, 4 >= 5x. Positive but tiny; no gate. Frozen = thin market, exit during the active window.",
   "[2026-11-22] [2026-11-22] Process: unattended scheduled runs must not call approval-gated tools (a workflow approval prompt blocked the 11-20 daily ops ~3.5h). After a worker outage, run one catch-up cycle instead of replaying stale runs, and log the gap.",
-  "[2026-11-22] [2026-11-22] 155 with buyers >= 35 (c102): 168h n=181, ev_lcb +0.209 (beats the +0.173 bar) but the recent 72h half is n=15 with ev -0.005, so the gates reject it. Mostly removes 25-34-buyer entries; 10x+ falls to 1 of 181 while 2x+ rises to 76%: a scalp-style stream. Recheck when the sampler re-proposes it (14 days) or sooner via the queue if 155's recent half weakens."
+  "[2026-11-22] [2026-11-22] 155 with buyers >= 35 (c102): 168h n=181, ev_lcb +0.209 (beats the +0.173 bar) but the recent 72h half is n=15 with ev -0.005, so the gates reject it. Mostly removes 25-34-buyer entries; 10x+ falls to 1 of 181 while 2x+ rises to 76%: a scalp-style stream. Recheck when the sampler re-proposes it (14 days) or sooner via the queue if 155's recent half weakens.",
+  "[2026-11-23] [2026-11-23] Exit style flips with the regime: 155's best exit was scalp_2 on 168h (+0.122, ladders negative) but ladder_3_10 on the latest 72h (+0.17..+0.18); 152 favours ladder_3_10 on both. Do not present one exit as settled; quote the window. Unique-ticker 152 slice reversed (11-23: unique ev_lcb -0.017 n=50 vs copies +0.093 n=618), closing that backlog item."
  ],
  "held": [
   "f442cb1e1265",
@@ -864,6 +865,6 @@
    "slot": "155"
   }
  },
- "updated": "2026-11-23T02:49:01Z",
+ "updated": "2026-11-23T07:09:25Z",
  "version": 1
 }

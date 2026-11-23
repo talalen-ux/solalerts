@@ -6004,3 +6004,33 @@ alert2:
 
 # 6H REVIEW 2026-11-23 06:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
 #   again (106th review in a row). No changes.
+
+# DAILY-OPS 2026-11-23 07:08 UTC
+# 1) Fill scorecard: SKIPPED - defirobot refused its stored sign-in (user must sign in again).
+# 2) RH top-10 (24h, buyers >= 100): FillLayer 73.1x, MI (0x8dad) 68.8x, VOID 48.4x, MINTGOAT
+#   48.4x, Minelius 47.5x, CASE 45.9x, MIKEDYSON 45.4x, PushCoin 38.1x, PuddleCapy 36.7x,
+#   Moon Cat 32.4x.
+#   CAUGHT 1 of 10: MI 0x8dad (152 $33.2k 37.1x; 155 $37.0k 33.3x; now 0.97x - round-trip law).
+#   MISSED: 8 hooked with round_trip_back < 0.6 or NULL (FillLayer, VOID, MINTGOAT, Minelius,
+#   MIKEDYSON, PushCoin, PuddleCapy, Moon Cat) - correctly blocked; MIKEDYSON is now worth ~0
+#   (drained). CASE - too fast for the band (repeat from 11-22).
+#   Plain movers the slots did catch: CHOP (152 28.3x / 155 27.6x), LUX (15.7x), ORBIO (14.4x /
+#   13.4x), INTP (12.9x), HEPH 0xa4e1 (12.9x / 11.5x), TENDER (12.0x / 9.2x), MI 0xd0e3 (11.2x),
+#   KALIBR x2 (11.1x / 10.6x). Most are copies launched straight onto v4 at ~$17k.
+#   Band-law counter-example: CATMARIO 0xaf6f entered 152 at $51.4k (inside $45-100k) and
+#   reached 7.8x.
+#   152 24h: n=60, 2x+ 55.0%, 10x+ 10, ev +0.269 / ev_lcb -0.017. 155 24h: n=39, 2x+ 53.8%,
+#   10x+ 4, ev_lcb -0.151 (small n, young tokens; 72h at c103 was +0.192 / +0.169).
+# 3) Watchlist: MI x3 more (0x8dad 68.8x, 0xd0e3, 0x2d9c), HEPH x3, TENDER x3 (pons 32x +
+#   2 plain), KALIBR x4, INTP, CATMARIO, LUX, OCTIO x2, TRUMPMAS (Christmas names continue).
+# 4) EXPERIMENT - backlog (c) from 11-18: re-test the 152 unique-ticker slice (168h):
+#     152 + symbol_reuse <= 2: n=50, ev +0.127, ev_lcb -0.017 (scalp_2)
+#     copies (the rest):       n=618, ev +0.185, ev_lcb +0.093 (ladder_3_10)
+#   FINDING: reversed since 11-18 (unique +0.096 vs copies +0.033 then). Copies are now the
+#   better 152 slice, as on 155. Repeat-name law confirmed: ticker reuse is not a stable gate.
+#   Backlog item closed.
+#   Free side-analysis - best exit by window (modelled ev_lcb):
+#     152: ladder_3_10 wins on 168h (+0.072) and 72h (+0.192..+0.207).
+#     155: scalp_2 wins on 168h (+0.122; ladders negative) but ladder_3_10 wins on 72h
+#     (+0.169..+0.182). The 11-19 "2x exit on 155" advice is window-dependent, not settled.
+#   RH backtests: 4 (9 today).
