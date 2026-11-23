@@ -6034,3 +6034,14 @@ alert2:
 #     155: scalp_2 wins on 168h (+0.122; ladders negative) but ladder_3_10 wins on 72h
 #     (+0.169..+0.182). The 11-19 "2x exit on 155" advice is window-dependent, not settled.
 #   RH backtests: 4 (9 today).
+
+# STRATEGY AGENT CYCLE 104 (2026-11-23 10:48 UTC): health only, no deployment.
+#   Live conditions match memory.
+#   152 72h n=249, 2x+ 59.4%, 10x+ 39, ev +0.268 / ev_lcb +0.119 (ok)
+#   155 72h n=151, 2x+ 61.6%, 10x+ 21, ev +0.222 / ev_lcb +0.041 (ok; softer than c103's
+#     +0.169 - the weak last 24h noted at daily ops is now in the 72h window)
+#   candidates.py: only two 154 loosenings (rtb 0.85, top < 70). Not run: 154's whole 336h
+#     stream is n=8 and buyers >= 5 was identical at c103, so neither can reach n >= 30.
+#     Parked in memory as NOT RUN (no numbers recorded) so the sampler stops re-proposing them.
+#   Next: c105 = baseline refresh + 7th-cycle self-improvement.
+#   RH backtests: 2 (11 today).

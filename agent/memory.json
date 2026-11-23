@@ -614,10 +614,10 @@
   },
   "4b5d7fa7f02f": {
    "arm": "hooked_verified:top:up",
-   "cond": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 70 AND mc > 30000 AND mc < 200000",
-   "date": "2026-11-08T10:49:06Z",
-   "ev_lcb": -0.2045,
-   "n": 17,
+   "cond": "NOT RUN (c104): 154's whole 336h stream is n=8 and buyers>=5 was identical; this small loosening cannot reach n>=30",
+   "date": "2026-11-23T10:48:07Z",
+   "ev_lcb": null,
+   "n": null,
    "pass": false,
    "slot": "154"
   },
@@ -659,10 +659,10 @@
   },
   "7575a953d1a3": {
    "arm": "hooked_verified:rtb:down",
-   "cond": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.85 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 30000 AND mc < 200000",
-   "date": "2026-11-06T18:49:21Z",
-   "ev_lcb": -0.2723,
-   "n": 14,
+   "cond": "NOT RUN (c104): 154's whole 336h stream is n=8 and buyers>=5 was identical; this small loosening cannot reach n>=30",
+   "date": "2026-11-23T10:48:07Z",
+   "ev_lcb": null,
+   "n": null,
    "pass": false,
    "slot": "154"
   },
@@ -865,6 +865,6 @@
    "slot": "155"
   }
  },
- "updated": "2026-11-23T07:09:25Z",
+ "updated": "2026-11-23T10:48:07Z",
  "version": 1
 }
