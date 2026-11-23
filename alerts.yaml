@@ -6001,3 +6001,6 @@ alert2:
 #     live; stopped (n < 30 cannot pass). The remaining 154 loosenings cannot reach n >= 30
 #     either; 154 is starved by the market, not by its clauses.
 #   RH backtests: 5.
+
+# 6H REVIEW 2026-11-23 06:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
+#   again (106th review in a row). No changes.
