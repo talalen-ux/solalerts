@@ -101,8 +101,8 @@
    "wins": 0
   },
   "plain_v4:pred:no_sweep": {
-   "sum_delta": -0.0063,
-   "tests": 1,
+   "sum_delta": 0.0023,
+   "tests": 2,
    "wins": 0
   },
   "plain_v4:pred:no_untracked": {
@@ -398,6 +398,12 @@
    "passed": 0,
    "run": "runs/2026-11-22-19.json",
    "tested": 2
+  },
+  {
+   "at": "2026-11-23T02:49:01Z",
+   "passed": 0,
+   "run": "runs/2026-11-23-02.json",
+   "tested": 1
   }
  ],
  "facts": [
@@ -580,10 +586,10 @@
   },
   "403c89527132": {
    "arm": "hooked_verified:buyers:down",
-   "cond": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 5 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 30000 AND mc < 200000",
-   "date": "2026-11-08T10:49:06Z",
-   "ev_lcb": -0.2045,
-   "n": 17,
+   "cond": "154 with buyers >= 5 (long 336h n=8, identical to live; stopped: n < 30)",
+   "date": "2026-11-23T02:49:01Z",
+   "ev_lcb": null,
+   "n": 8,
    "pass": false,
    "slot": "154"
   },
@@ -851,13 +857,13 @@
   "f97d7c38fc16": {
    "arm": "plain_v4:pred:no_sweep",
    "cond": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000 AND (swept_pct IS NULL OR swept_pct < 15)",
-   "date": "2026-11-08T10:49:06Z",
-   "ev_lcb": 0.1632,
-   "n": 602,
+   "date": "2026-11-23T02:49:01Z",
+   "ev_lcb": 0.1311,
+   "n": 507,
    "pass": false,
    "slot": "155"
   }
  },
- "updated": "2026-11-22T18:49:23Z",
+ "updated": "2026-11-23T02:49:01Z",
  "version": 1
 }
