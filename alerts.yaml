@@ -5987,3 +5987,6 @@ alert2:
 #     stream. Noted for recheck. 154 rtb 0.85 skipped: 154's whole stream is n=8, so a
 #     loosening to 0.85 (identical to 0.9 on 11-14) cannot reach n >= 30.
 #   Ledger: NO DEPLOYMENT. RH backtests: 4 (21 today).
+
+# 6H REVIEW 2026-11-23 00:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
+#   again (105th review in a row). No changes.
