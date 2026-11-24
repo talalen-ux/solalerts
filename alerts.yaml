@@ -6125,3 +6125,16 @@ alert2:
 
 # 6H REVIEW 2026-11-24 18:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
 #   again (112th review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 108 (2026-11-24 18:48 UTC): health + baseline refresh, no deployment.
+#   Live conditions match memory.
+#   152 72h n=210, 2x+ 55.2%, 10x+ 33, ev +0.247 / ev_lcb +0.086 (ok)
+#   155 72h n=133, 2x+ 56.4%, 10x+ 17, ev +0.165 / ev_lcb -0.021 (ok - first negative lower
+#     bound since 11-19, but the mean is positive, so no watch alarm; ev and ev_lcb must
+#     both be < 0)
+#   Baselines: 152 168h n=600 ev_lcb +0.141 PASS (best 152 baseline since early November;
+#     ladder_3_10) | 155 168h n=425 ev_lcb +0.108 PASS (scalp_2) | 154 336h n=6 FAIL on n
+#     only (14th; 1 alert in 168h).
+#   The split persists: 152 is best on a 3x/10x ladder, 155 on a 2x exit over 168h, while
+#     on 72h both lean ladder. 155's volume is falling (425/week vs 609 on 11-19).
+#   candidates.py: []. RH backtests: 6 (16 today).
