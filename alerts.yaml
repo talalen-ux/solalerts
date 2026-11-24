@@ -6068,3 +6068,13 @@ alert2:
 
 # 6H REVIEW 2026-11-24 00:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
 #   again (109th review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 106 (2026-11-24 02:48 UTC): health only, no deployment.
+#   Live conditions match memory.
+#   152 72h n=223, 2x+ 56.5%, 10x+ 38, ev +0.273 / ev_lcb +0.113 (ok, ladder_3_10)
+#   155 72h n=126, 2x+ 56.3%, 10x+ 21, ev +0.302 / ev_lcb +0.094 (ok, ladder_3_10). New:
+#     ANTC 19.6x at $27.0k.
+#   Note: 2x+ rates are down to ~56% on both (60-65% two days ago) and alert volume is
+#     falling; scalp_2 is now negative on 72h for both slots (-0.034 / -0.059) while the
+#     3x/10x ladder stays positive - the exit-style flip noted 11-23 continues.
+#   candidates.py: []. RH backtests: 2.
