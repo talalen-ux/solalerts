@@ -6078,3 +6078,6 @@ alert2:
 #     falling; scalp_2 is now negative on 72h for both slots (-0.034 / -0.059) while the
 #     3x/10x ladder stays positive - the exit-style flip noted 11-23 continues.
 #   candidates.py: []. RH backtests: 2.
+
+# 6H REVIEW 2026-11-24 06:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
+#   again (110th review in a row). No changes.
