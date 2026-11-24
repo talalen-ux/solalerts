@@ -6081,3 +6081,31 @@ alert2:
 
 # 6H REVIEW 2026-11-24 06:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
 #   again (110th review in a row). No changes.
+
+# DAILY-OPS 2026-11-24 07:07 UTC
+# 1) Fill scorecard: SKIPPED - defirobot refused its stored sign-in (user must sign in again).
+# 2) RH top-10 (24h, buyers >= 100): WLTHL 76.1x, SANTACAT 56.8x, MINELIUS 51.2x, JENSEN 46.7x,
+#   MOTH 46.6x, ANTC (0xfde5) 45.1x, FIONA 38.0x, SIGIL 33.8x, ANTC (pons) 30.8x, ANTC (0x49d9)
+#   29.8x.
+#   CAUGHT 4 of 10: MOTH (155 $15.1k 23.1x; now 0.8x), ANTC 0xfde5 (152 $24.1k 15.7x; 155
+#   11.3x), ANTC 0x49d9 (152 $23.9k 22.2x; 155 19.6x; now 0.98x), SIGIL 0xcfe8 (152 $52.6k
+#   9.9x - inside the $45-100k band; now 0.99x).
+#   MISSED: WLTHL, SANTACAT, MINELIUS, JENSEN, FIONA - hooked with round_trip_back < 0.6 or
+#   NULL, $16-19k launches, 1,000-2,100 buyers (honeypot template) - correctly blocked. ANTC
+#   original - graduated pons.
+#   Also caught: BOBCAT (152 18.3x / 155 14.8x), MORPH 13.3x, SIGIL 0xc4c8 13.1x, CHOP 12.6x,
+#   VEXT 12.5x, LOZEAL 12.2x. Plain rugs seen in the movers list: PEPE (28.7x -> 0.10x), NADE
+#   (16x -> 0.06x), cumback (13.6x -> 0.03x) - drain-to-floor on plain v4; none appears in
+#   152/155's best calls.
+#   152 24h: n=75, 2x+ 54.7%, 10x+ 8, ev +0.011 / ev_lcb -0.106. 155 24h: n=38, 2x+ 57.9%,
+#   10x+ 6, ev +0.315 / ev_lcb -0.029. (Small, young samples; the 72h readings at c106 were
+#   +0.113 / +0.094.)
+# 3) Watchlist: ANTC x5 (pons 30.8x + 4 plain), SIGIL x4, MOTH x4, MINELIUS x3, JENSEN x3
+#   (incl. JENSENBACK), CHOP again, INTP again.
+# 4) EXPERIMENT - 5th measurement of the held 152 cap (mc < 45000), 168h same window:
+#     live n=655, ev_lcb +0.070 | cap n=607, ev_lcb +0.103 (+0.033)
+#     removed $45-100k slice: n=48, 2x 16, 5x 5, 10x 0, ev -0.253 (negative 5 times of 5)
+#   Counter-examples are real but bounded: SIGIL 9.9x and ANTC 8.5x entered in the band today,
+#   yet no band entry has reached 10x in any measurement, and the slice's 2x rate (33%) is
+#   still far below the kept stream's (60%). Still under the ledger margin; stays held.
+#   RH backtests: 6 (8 today).
