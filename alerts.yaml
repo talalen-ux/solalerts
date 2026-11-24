@@ -6119,3 +6119,6 @@ alert2:
 #     watch alarm needs ev and ev_lcb both < 0, not reached. Market-wide (regime law): 152
 #     softened in step.
 #   candidates.py: []. RH backtests: 2 (10 today). Next: c108 baseline refresh.
+
+# 6H REVIEW 2026-11-24 12:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
+#   again (111th review in a row). No changes.
