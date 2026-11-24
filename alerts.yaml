@@ -6109,3 +6109,13 @@ alert2:
 #   yet no band entry has reached 10x in any measurement, and the slice's 2x rate (33%) is
 #   still far below the kept stream's (60%). Still under the ledger margin; stays held.
 #   RH backtests: 6 (8 today).
+
+# STRATEGY AGENT CYCLE 107 (2026-11-24 10:48 UTC): health only, no deployment.
+#   Live conditions match memory.
+#   152 72h n=223, 2x+ 54.7%, 10x+ 33, ev +0.221 / ev_lcb +0.067 (ok)
+#   155 72h n=126, 2x+ 56.3%, 10x+ 18, ev +0.222 / ev_lcb +0.024 (ok; lowest since 11-19)
+#   Both still positive only on the 3x/10x ladder; 2x and 2/5/20 exits are negative on 72h.
+#   Third softening reading in a row on 155 (c104 +0.041, c106 +0.094, c107 +0.024): the
+#     watch alarm needs ev and ev_lcb both < 0, not reached. Market-wide (regime law): 152
+#     softened in step.
+#   candidates.py: []. RH backtests: 2 (10 today). Next: c108 baseline refresh.
