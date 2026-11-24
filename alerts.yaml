@@ -6065,3 +6065,6 @@ alert2:
 #     approval-gated tools; one catch-up cycle after an outage). No score.py change.
 #   candidates.py: [] (recent retests consumed; 154 loosenings parked at c104).
 #   RH backtests: 6 (17 today).
+
+# 6H REVIEW 2026-11-24 00:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
+#   again (109th review in a row). No changes.
