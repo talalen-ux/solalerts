@@ -473,10 +473,10 @@
   "152": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": 0.1405,
+    "ev_lcb": 0.1743,
     "hours": 168.0,
-    "n": 600,
-    "source": "2026-11-24T18:48:27Z"
+    "n": 586,
+    "source": "2026-11-25T18:48:50Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)",
    "deployed_at": "2026-10-28T10:54:00Z",
@@ -489,14 +489,14 @@
   "154": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": 1.2176,
+    "ev_lcb": 1.7901,
     "hours": 336.0,
-    "n": 6,
-    "source": "2026-11-24T18:48:27Z"
+    "n": 5,
+    "source": "2026-11-25T18:48:50Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 30000 AND mc < 200000",
    "deployed_at": "2026-10-20T12:33:53Z",
-   "failures": 14,
+   "failures": 15,
    "family": "hooked_verified",
    "params": {
     "buyers": 8,
@@ -512,10 +512,10 @@
   "155": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": 0.1081,
+    "ev_lcb": 0.0915,
     "hours": 168.0,
-    "n": 425,
-    "source": "2026-11-24T18:48:27Z"
+    "n": 359,
+    "source": "2026-11-25T18:48:50Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000",
    "failures": 0,
@@ -865,6 +865,6 @@
    "slot": "155"
   }
  },
- "updated": "2026-11-25T10:48:17Z",
+ "updated": "2026-11-25T18:48:50Z",
  "version": 1
 }

@@ -6189,3 +6189,15 @@ alert2:
 
 # 6H REVIEW 2026-11-25 18:33 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
 #   again (116th review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 111 (2026-11-25 18:48 UTC): health + baseline refresh, no deployment.
+#   Live conditions match memory.
+#   152 72h n=242, 2x+ 50.8%, 10x+ 30, ev +0.104 / ev_lcb -0.035 (ok - mean positive, no alarm)
+#   155 72h n=142, 2x+ 50.0%, 10x+ 18, ev +0.105 / ev_lcb -0.073 (ok - mean positive, no alarm)
+#   Both 72h lower bounds dipped together while alert volume jumped (24h sends: 152 99,
+#     155 62, vs ~70/40 on prior days); 47-48% of 72h entries are still below 2x, many of them
+#     less than a day old. Market-wide (regime law); watch the next two cycles.
+#   Baselines: 152 168h n=586 ev_lcb +0.174 PASS (best 152 baseline on record; ladder_3_10) |
+#     155 168h n=359 ev_lcb +0.092 PASS (ladder_3_10 now, scalp_2 +0.029) | 154 336h n=5 FAIL
+#     on n only (15th; ZERO alerts in the last 168h).
+#   candidates.py: []. RH backtests: 6 (15 today).
