@@ -6152,3 +6152,26 @@ alert2:
 
 # 6H REVIEW 2026-11-25 06:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
 #   again (114th review in a row). No changes.
+
+# DAILY-OPS 2026-11-25 07:07 UTC
+# 1) Fill scorecard: SKIPPED - defirobot refused its stored sign-in (user must sign in again).
+# 2) RH top-10 (24h, buyers >= 100): GME (hooked) 88.3x, SEALFund 60.5x, ANIME 55.3x, CHWIZ
+#   52.7x, Memeployed 51.9x, TESSYN 48.5x, HOGE 44.1x, Memeployed (0xcca6) 41.7x, Unemployed
+#   40.2x, FIONA 38.5x.
+#   CAUGHT 1 of 10: SEALFund (152 $18.6k 54.7x; 155 $20.7k 49.1x).
+#   MISSED: the other 9 are all hooked with round_trip_back < 0.6 or NULL (honeypot
+#   template; 1,150-2,260 buyers at $17-21k for most) - correctly blocked.
+#   Plain movers caught: COMMUNITY 0x25f7 (152 22.3x / 155 21.8x; now 0.99x), GME plain
+#   0xd14b (21.7x / 20.9x), TEXEL x2 (11.9x, 11.7x), Slingoor 11.4x, MCAT 11.2x, HEPH 11.1x,
+#   COMMUNITY 0x71a6 11.0x, MEME 10.7x. Plain rug: JIMMY 0x6f07 18.6x -> 0.06x.
+#   152 24h: n=84, 2x+ 58.3%, 10x+ 10, 50x+ 1, ev +0.057 / ev_lcb -0.054. 155 24h: n=48,
+#   2x+ 54.2%, 10x+ 6, ev_lcb -0.119. (Small, young samples.)
+# 3) Watchlist: GME x3 (hooked 88x + 2 plain ~21x), Memeployed x2 + Unemployed (one theme),
+#   COMMUNITY x2, TEXEL x2 more, FIONA again, HEPH again, MCAT again.
+# 4) EXPERIMENT - re-measured the 11-22 near-miss "155 with buyers >= 35" (same windows):
+#     168h: live 155 n=388 ev_lcb +0.082 | buyers>=35 n=85 ev_lcb +0.116 (+0.034)
+#     72h:  buyers>=35 n=13, recent-half EV -0.189 -> fails the both-halves gate
+#   FINDING: the edge has faded (11-22: +0.087 with n=181; now +0.034 with n=85) and the
+#   slice has nearly dried up (13 alerts in 72h). Not a candidate; arm stays as tested.
+#   155's own 168h volume keeps falling (388/week vs 609 on 11-19).
+#   RH backtests: 5 (7 today).
