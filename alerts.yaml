@@ -6141,3 +6141,11 @@ alert2:
 
 # 6H REVIEW 2026-11-25 00:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
 #   again (113th review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 109 (2026-11-25 02:48 UTC): health only, no deployment.
+#   Live conditions match memory.
+#   152 72h n=218, 2x+ 55.5%, 10x+ 33, 50x+ 1, ev +0.208 / ev_lcb +0.052 (ok). New:
+#     SEALFund 54.7x at $18.6k (152) - also 49.1x at $20.7k on 155 twelve blocks later.
+#   155 72h n=131, 2x+ 53.4%, 10x+ 19, ev +0.180 / ev_lcb -0.013 (ok - mean positive, so no
+#     alarm; second negative lower bound in a row, scalp_2 now -0.093 on 72h).
+#   candidates.py: []. RH backtests: 2.
