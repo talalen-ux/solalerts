@@ -6138,3 +6138,6 @@ alert2:
 #   The split persists: 152 is best on a 3x/10x ladder, 155 on a 2x exit over 168h, while
 #     on 72h both lean ladder. 155's volume is falling (425/week vs 609 on 11-19).
 #   candidates.py: []. RH backtests: 6 (16 today).
+
+# 6H REVIEW 2026-11-25 00:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
+#   again (113th review in a row). No changes.
