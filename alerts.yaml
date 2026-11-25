@@ -6183,3 +6183,6 @@ alert2:
 #     after two negative lower bounds)
 #   Only the 3x/10x ladder is positive on 72h for both slots. candidates.py: [].
 #   RH backtests: 2 (9 today). Next: c111 baseline refresh.
+
+# 6H REVIEW 2026-11-25 12:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
+#   again (115th review in a row). No changes.
