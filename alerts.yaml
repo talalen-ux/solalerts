@@ -6175,3 +6175,11 @@ alert2:
 #   slice has nearly dried up (13 alerts in 72h). Not a candidate; arm stays as tested.
 #   155's own 168h volume keeps falling (388/week vs 609 on 11-19).
 #   RH backtests: 5 (7 today).
+
+# STRATEGY AGENT CYCLE 110 (2026-11-25 10:48 UTC): health only, no deployment.
+#   Live conditions match memory.
+#   152 72h n=214, 2x+ 57.0%, 10x+ 31, 50x+ 1, ev +0.206 / ev_lcb +0.050 (ok)
+#   155 72h n=118, 2x+ 55.1%, 10x+ 18, 20x+ 6, ev +0.230 / ev_lcb +0.023 (ok; back above zero
+#     after two negative lower bounds)
+#   Only the 3x/10x ladder is positive on 72h for both slots. candidates.py: [].
+#   RH backtests: 2 (9 today). Next: c111 baseline refresh.
