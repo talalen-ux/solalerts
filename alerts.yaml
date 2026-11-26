@@ -6261,3 +6261,17 @@ alert2:
 #   runners, and a template-only filter would duplicate 152. Risk to watch: if the template
 #   stops, 152's volume drops sharply. That would be a template change, not a filter fault.
 #   RH backtests: 5 (7 today).
+
+# STRATEGY AGENT CYCLE 113 (2026-11-26 10:48 UTC): health only, no deployment.
+#   Live conditions match memory (edits 6/8/3).
+#   152 72h n=250, 2x+ 52.0%, 10x+ 30, 50x+ 1, ev +0.123 / ev_lcb -0.013 (ok - mean positive)
+#   155 72h n=144, 2x+ 52.8%, 10x+ 18, 20x+ 4, ev +0.128 / ev_lcb -0.049 (ok - mean positive)
+#   154 168h n=0 (no alerts for a full week; ok - nothing to judge).
+#   Lower bounds are flat vs c112 (-0.014 / -0.011); the market-wide dip is not deepening.
+#   Only the 3x/10x ladder has a positive mean on 72h. Sends in the last 24h: 152 101, 155 64.
+#   LEARN (mooners 6h, free): 7 of the 8 top plain movers are the $16.8-17.0k launch template
+#     from today's daily ops (FEM 30.7x, SPARE 27.0x then back to 1.01x, VEILOR 22.8x,
+#     Zero x2, LENGO, Elonmas), so it is still running. No new testable idea: the 5x buy/sell
+#     wall is already tested in the ratio:down arm, and the template split is not
+#     actionable. Queue stays empty; candidates.py: [].
+#   RH backtests: 3 (10 today). Next: c114 baseline refresh.
