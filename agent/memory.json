@@ -462,7 +462,8 @@
   "[2026-11-22] [2026-11-22] ETH-quoted 5-socials plain flash batch: plain v4 launches at $1.7-3.6k, quote ETH, socials_count 5, one launch per deployer, 135-500 buyers, ~185 buys/46 sells, active 2-3h then frozen near the high for 14-21h (Christmax, BLADES, Elf, ELHIGH, PUMPMAS, OTC, RCTY, CENTRIA). 152/155 catch them right at the $15k floor: 168h n=7, all >= 3x, 4 >= 5x. Positive but tiny; no gate. Frozen = thin market, exit during the active window.",
   "[2026-11-22] [2026-11-22] Process: unattended scheduled runs must not call approval-gated tools (a workflow approval prompt blocked the 11-20 daily ops ~3.5h). After a worker outage, run one catch-up cycle instead of replaying stale runs, and log the gap.",
   "[2026-11-22] [2026-11-22] 155 with buyers >= 35 (c102): 168h n=181, ev_lcb +0.209 (beats the +0.173 bar) but the recent 72h half is n=15 with ev -0.005, so the gates reject it. Mostly removes 25-34-buyer entries; 10x+ falls to 1 of 181 while 2x+ rises to 76%: a scalp-style stream. Recheck when the sampler re-proposes it (14 days) or sooner via the queue if 155's recent half weakens.",
-  "[2026-11-23] [2026-11-23] Exit style flips with the regime: 155's best exit was scalp_2 on 168h (+0.122, ladders negative) but ladder_3_10 on the latest 72h (+0.17..+0.18); 152 favours ladder_3_10 on both. Do not present one exit as settled; quote the window. Unique-ticker 152 slice reversed (11-23: unique ev_lcb -0.017 n=50 vs copies +0.093 n=618), closing that backlog item."
+  "[2026-11-23] [2026-11-23] Exit style flips with the regime: 155's best exit was scalp_2 on 168h (+0.122, ladders negative) but ladder_3_10 on the latest 72h (+0.17..+0.18); 152 favours ladder_3_10 on both. Do not present one exit as settled; quote the window. Unique-ticker 152 slice reversed (11-23: unique ev_lcb -0.017 n=50 vs copies +0.093 n=618), closing that backlog item.",
+  "[2026-11-26] 11-26: the 72h alert-volume jump is ONE launch template (launch_mc ~16.4-16.9k, ETH-quoted, 0 socials, deployer_launches 1) = 82% of 152's 72h alerts (n=202, ev_lcb -0.048) vs other launches n=45 ev_lcb -0.049; it holds the best runners. If it stops, 152 volume falls - read that as a template change, not a filter fault. Misses OCULON 0x8a49 / FEM were the 5x buy/sell wall (caught at 2x); ratio:down already tested, not re-queued."
  ],
  "held": [
   "f442cb1e1265",
@@ -865,6 +866,6 @@
    "slot": "155"
   }
  },
- "updated": "2026-11-26T02:48:08Z",
+ "updated": "2026-11-26T07:10:57Z",
  "version": 1
 }

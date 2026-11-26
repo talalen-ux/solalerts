@@ -6220,3 +6220,44 @@ alert2:
 
 # 6H REVIEW 2026-11-26 06:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
 #   again (118th review in a row). No changes.
+
+# DAILY OPS 2026-11-26 (07:07 UTC):
+# 1) Solana fill scorecard: SKIPPED - defirobot refused the stored sign-in again. No
+#   Solana changes.
+# 2) Top-10 mooners (24h, buyers >= 100): 6 of 10 are hooked with rtb < 0.6 or NULL -
+#   GREM 0xcd2d 48.7x, SPCXC 0x02f3 48.3x, PNCEO 46.1x, BASKET 0x1d86 41.0x, MEDIC 40.6x,
+#   BSKBT 38.4x. PNCEO/MEDIC/BSKBT fit the invented-name honeypot template ($15-21k launch,
+#   1,300-1,600 buyers); high now_x (SPCXC 46x, BSKBT 34x) fits blocked sells. Correctly
+#   blocked by 154's rtb >= 0.9. GREM 0x9f56 37.9x is pons_v2 (no pons slot).
+#   Plain v4 in the top 10: TEXEL 0xebf3 112.9x from a $2.3k launch, now 0.72x (round trip;
+#   never entered the band in a form 152 matches); OCULON 0x8a49 52.6x (MISSED); TEXEL
+#   0xc0c1 45.4x (152 caught it at $33.3k for 23.0x; now 1.01x).
+#   Wall attribution (1 backtest, 152 with the buy/sell ratio relaxed to 2x, restricted to
+#   OCULON/FEM/TEXEL): OCULON 0x8a49 would have alerted at $25.9k (33.2x) and FEM 0x7912 at
+#   $27.6k (18.7x). The 5x buy/sell wall blocked both. OCULON 0x8021 34.6x and TEXEL 0xebf3
+#   are not caught even at 2x. All four checked are ETH-quoted, 0 socials, first launch.
+#   Not a candidate: ratio 4 -> 5 was an adopted tightening and plain_v4:ratio:down is
+#   already tested; 2x adds 8 sub-2x names out of 18 in this set alone.
+#   Plain catches: 152 GREM 23.9x, TEXEL 23.0x, ORBANCY 19.5x, TFEX 18.5x, HEPH 18.1x, GREM
+#   16.4x, SPCXC 16.3x, GREM 14.2x, ORLA 10.8x, TEXEL 10.5x; 155 TFEX 17.9x, HEPH 16.7x, SPCXC
+#   15.1x, GREM 12.3x, ORBANCY 11.5x, GREM 11.0x. Round trips: TEXEL 0xc0c1 and HEPH and SPCXC
+#   0xaf26 are back near 1x.
+#   152 24h: n=88, 2x+ 45.5%, 10x+ 11, 20x+ 2, ev +0.111 / ev_lcb -0.107 (ladder_3_10).
+#   155 24h: n=55, 2x+ 49.1%, 10x+ 6, ev +0.078 / ev_lcb -0.176. (Young samples.)
+# 3) Watchlist: TEXEL x7 contracts in 24h, GREM x5 (plain, hooked and pons), OCULON x4,
+#   SPCXC x2 (plain + hooked), BASKET x2 (hooked), HEPH again, ORBANCY, TFEX.
+# 4) EXPERIMENT - what is behind the alert-volume jump of c111? Split 152's 72h alerts by
+#   launch_mc (fixed at launch, so the split is exact; same window, 2 backtests):
+#     launch_mc $16.0-17.5k: n=202 (82% of 247), 2x+ 50.5%, 10x+ 26, 50x+ 1,
+#       ladder_3_10 ev +0.104 / ev_lcb -0.048
+#     all other launches:    n=45, 2x+ 62.2%, 10x+ 5,
+#       ladder_3_10 ev +0.240 / ev_lcb -0.049
+#   FINDING: one launch template now makes up most of 152's flow. Its tokens launch at
+#   about $16.4-16.9k, ETH-quoted, with 0 socials, from first-time deployers. 10 of the 12
+#   biggest plain-v4 movers today came from it, including the best runners (SEALFund 54.7x,
+#   GREM 23.9x, TEXEL 23.0x, COMMUNITY 22.3x, GME 21.7x). The other stream's best entries are
+#   all 44-61h old, so it has nearly dried up. Its mean is higher but its lower bound is
+#   the same. Not actionable: excluding the template cuts 82% of alerts and the best
+#   runners, and a template-only filter would duplicate 152. Risk to watch: if the template
+#   stops, 152's volume drops sharply. That would be a template change, not a filter fault.
+#   RH backtests: 5 (7 today).
