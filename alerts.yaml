@@ -6275,3 +6275,6 @@ alert2:
 #     wall is already tested in the ratio:down arm, and the template split is not
 #     actionable. Queue stays empty; candidates.py: [].
 #   RH backtests: 3 (10 today). Next: c114 baseline refresh.
+
+# 6H REVIEW 2026-11-26 12:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
+#   again (119th review in a row). No changes.
