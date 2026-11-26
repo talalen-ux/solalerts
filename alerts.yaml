@@ -6201,3 +6201,6 @@ alert2:
 #     155 168h n=359 ev_lcb +0.092 PASS (ladder_3_10 now, scalp_2 +0.029) | 154 336h n=5 FAIL
 #     on n only (15th; ZERO alerts in the last 168h).
 #   candidates.py: []. RH backtests: 6 (15 today).
+
+# 6H REVIEW 2026-11-26 00:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
+#   again (117th review in a row). No changes.
