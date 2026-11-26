@@ -6281,3 +6281,24 @@ alert2:
 
 # 6H REVIEW 2026-11-26 18:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
 #   again (120th review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 114 (2026-11-26 18:48 UTC): health + baseline refresh, no deployment.
+#   Live conditions match memory (edits 6/8/3).
+#   152 72h n=259, 2x+ 51.0%, 10x+ 29, ev +0.091 / ev_lcb -0.041 (ok - mean positive; lower
+#     bound eased from -0.013 at c113)
+#   155 72h n=149, 2x+ 51.7%, 10x+ 15, ev +0.074 / ev_lcb -0.090 (ok - mean positive; from -0.049)
+#   154 168h n=0 (all 5 of its 336h alerts are older than a week; no recent backtest needed).
+#   Baselines (168h, ladder_3_10): 152 n=584 ev_lcb +0.126 PASS (from +0.174 at c111) |
+#     155 n=342 ev_lcb +0.102 PASS (from +0.092) | 154 336h n=5 FAIL on n only (16th in a row).
+#     The ledger prints "DISABLE or REPLACE" for 154 again. No hooked challenger can reach
+#     n >= 30 and the agent may not disable filters, so keeping or pausing 154 stays the
+#     user's call. It costs nothing while silent: 0 alerts in 7 days.
+#   72h lower bounds slipped back a little while the 168h baselines still pass. Same
+#     market-wide pattern as c111-c113, no alarm (an alarm needs both ev and ev_lcb < 0).
+#   LEARN (mooners 8h, free): the $16.8-17.1k plain template is still dominant (WINX 26.3x,
+#     NYRA 23.6x, CHRONARK 12.4x). Several template runners are back at exactly 1.00x
+#     (HYENA 20.0x, SPARE 16.9x, Zero 13.1x, HAGI 10.4x). That is a drained pool back at its
+#     launch price, consistent with the round-trip and drain-to-floor laws: take ladder
+#     profits early. Three pons_v2 graduates from $2.9k launches
+#     (HAGI 19.7x, WINX 12.3x, GMEC 12.1x); there is no pons slot (cap 3).
+#   candidates.py: []. RH backtests: 5 (15 today).
