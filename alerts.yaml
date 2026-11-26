@@ -6217,3 +6217,6 @@ alert2:
 #     sampler is empty because every neighbour was tested in the last 14 days and the two
 #     user-held conditions stay held. candidates.py: [].
 #   RH backtests: 2.
+
+# 6H REVIEW 2026-11-26 06:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
+#   again (118th review in a row). No changes.
