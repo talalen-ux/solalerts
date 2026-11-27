@@ -464,7 +464,8 @@
   "[2026-11-22] [2026-11-22] 155 with buyers >= 35 (c102): 168h n=181, ev_lcb +0.209 (beats the +0.173 bar) but the recent 72h half is n=15 with ev -0.005, so the gates reject it. Mostly removes 25-34-buyer entries; 10x+ falls to 1 of 181 while 2x+ rises to 76%: a scalp-style stream. Recheck when the sampler re-proposes it (14 days) or sooner via the queue if 155's recent half weakens.",
   "[2026-11-23] [2026-11-23] Exit style flips with the regime: 155's best exit was scalp_2 on 168h (+0.122, ladders negative) but ladder_3_10 on the latest 72h (+0.17..+0.18); 152 favours ladder_3_10 on both. Do not present one exit as settled; quote the window. Unique-ticker 152 slice reversed (11-23: unique ev_lcb -0.017 n=50 vs copies +0.093 n=618), closing that backlog item.",
   "[2026-11-26] 11-26: the 72h alert-volume jump is ONE launch template (launch_mc ~16.4-16.9k, ETH-quoted, 0 socials, deployer_launches 1) = 82% of 152's 72h alerts (n=202, ev_lcb -0.048) vs other launches n=45 ev_lcb -0.049; it holds the best runners. If it stops, 152 volume falls - read that as a template change, not a filter fault. Misses OCULON 0x8a49 / FEM were the 5x buy/sell wall (caught at 2x); ratio:down already tested, not re-queued.",
-  "[2026-11-27] 11-27: the plain launch template is ETH-quoted, so its USD launch_mc drifts with the ETH price (16.4-16.9k on 11-25/26, 17.25-17.56k on 11-27). Never hard-code a USD launch_mc band for it; re-derive it from current mooners before any split."
+  "[2026-11-27] 11-27: the plain launch template is ETH-quoted, so its USD launch_mc drifts with the ETH price (16.4-16.9k on 11-25/26, 17.25-17.56k on 11-27). Never hard-code a USD launch_mc band for it; re-derive it from current mooners before any split.",
+  "[2026-11-27] 11-27 c117: new scam class 'high-launch wash spike then drain' - plain v4, launch_mc 60-290k, ~250-276 buyers, ATH 0.8-2.6M within hours, drained to ~1.7k (now_x 0.01-0.03), names copied from current runners. 152 did not alert on them while pumping (1 unidentified post-ATH match). If 152 post_ath keeps rising (7->11 over c113-c117), test 'AND launch_mc < 45000' or an age floor on the post-ATH set."
  ],
  "held": [
   "f442cb1e1265",
@@ -475,10 +476,10 @@
   "152": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": 0.1261,
+    "ev_lcb": 0.1167,
     "hours": 168.0,
-    "n": 584,
-    "source": "2026-11-26T18:48:34Z"
+    "n": 549,
+    "source": "2026-11-27T18:48:44Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 15 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 50 AND mc > 15000 AND mc < 100000 AND NOT (buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc < 45000)",
    "deployed_at": "2026-10-28T10:54:00Z",
@@ -491,14 +492,14 @@
   "154": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": 1.7901,
+    "ev_lcb": 1.3243,
     "hours": 336.0,
-    "n": 5,
-    "source": "2026-11-26T18:48:34Z"
+    "n": 3,
+    "source": "2026-11-27T18:48:44Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND hooked AND round_trip_back >= 0.9 AND buyers >= 8 AND buy_volume_usd > 2 * sell_volume_usd AND top_maker_pct < 60 AND mc > 30000 AND mc < 200000",
    "deployed_at": "2026-10-20T12:33:53Z",
-   "failures": 16,
+   "failures": 17,
    "family": "hooked_verified",
    "params": {
     "buyers": 8,
@@ -514,10 +515,10 @@
   "155": {
    "alarms": 0,
    "baseline": {
-    "ev_lcb": 0.1024,
+    "ev_lcb": 0.0877,
     "hours": 168.0,
-    "n": 342,
-    "source": "2026-11-26T18:48:34Z"
+    "n": 312,
+    "source": "2026-11-27T18:48:44Z"
    },
    "condition": "launchpad = 'uniswap_v4' AND NOT hooked AND buyers >= 25 AND buy_volume_usd > 5 * sell_volume_usd AND top_maker_pct < 40 AND mc > 15000 AND mc < 45000",
    "failures": 0,
@@ -867,6 +868,6 @@
    "slot": "155"
   }
  },
- "updated": "2026-11-27T10:48:37Z",
+ "updated": "2026-11-27T18:49:19Z",
  "version": 1
 }

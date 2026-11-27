@@ -6381,3 +6381,27 @@ alert2:
 
 # 6H REVIEW 2026-11-27 18:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
 #   again (124th review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 117 (2026-11-27 18:48 UTC): health + baseline refresh, no deployment.
+#   Live conditions match memory (edits 6/8/3).
+#   152 72h n=242, 2x+ 54.1%, 10x+ 34, 20x+ 8, ev +0.197 / ev_lcb +0.051 (ok - best 72h
+#     lower bound since c110)
+#   155 72h n=134, 2x+ 55.2%, 10x+ 18, ev +0.196 / ev_lcb +0.007 (ok - back above zero)
+#   The market-wide dip that began at c111 is over: both 72h lower bounds are positive.
+#   Baselines (168h, ladder_3_10): 152 n=549 ev_lcb +0.117 PASS | 155 n=312 ev_lcb +0.088
+#     PASS | 154 336h n=3 FAIL on n only (17th; two old alerts aged out of the window; still
+#     no alert in 7+ days). "DISABLE or REPLACE" printed again - still the user's call.
+#   Volume is falling: 24h sends 152 50 (78-101 on previous days), 155 22 (39-64). Watch
+#     whether the plain launch template is slowing (see 11-26/27 daily ops).
+#   NEW SCAM PATTERN (added to the backlog) - "high-launch wash spike, then drain":
+#     plain v4 tokens launching at $62k-$291k with about 250-276 buyers spike to $0.8-2.6M
+#     within hours, then drain to about $1.7k (now_x 0.01-0.03). The common final value
+#     suggests the pool's ETH side was emptied. Examples: TEXEL 0x24f1 ($62.8k -> $2.1M),
+#     67 0x5ab7 ($87.2k -> $2.64M), NBA 0x7bf6 ($86.6k -> $2.18M), rhinodinos 0xc448,
+#     mihao 0xcddd, WINSTON 0x21c4. They reuse the names of current runners.
+#     Attribution (1 backtest, 152 condition with symbol IN those 6 names, 24h): 152
+#     matched 8 tokens with those names, but none of the 7 named entries are the drainers.
+#     Those were lower-launch copies with 1.1-5.4x peaks. 1 post-ATH entry is unidentified
+#     (needs the per-token download, whose host is blocked). So 152 is not alerting on the
+#     drainers while they pump. Watch post_ath on 152 (rose 7 -> 11 over c113-c117).
+#   candidates.py: []. RH backtests: 6 (14 today).
