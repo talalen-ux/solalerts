@@ -6314,9 +6314,11 @@ alert2:
 #   154: 0 sends in 24h (list_filters); still silent for over a week.
 #   New catches: 152 RIG 0xf0f1 22.5x at $19.9k (now back at 1.00x - drained round trip);
 #     155 RAETO 18.3x at $18.0k (now 13.3x).
-#   LEARN (mooners 8h, free): the $16.8-17.1k template continues (GROKIRA 26.2x, Fluxora 25.0x,
-#     RAETO 19.3x, RIG 26.2x then back to 1.00x). Also pons_v2 RIG 0xc4b5 62.6x from $2.9k
-#     (no pons slot), and $19-23k launches with about 940-1,500 buyers (JIMMY 0xc9ba, CBUCKS,
-#     SKINPUSS, COWL) that fit the hooked honeypot template. Nothing new to test; the queue
-#     stays empty. candidates.py: [].
+#   LEARN (mooners 8h, free; partition checked): the plain $16.8-17.1k template continues
+#     (RAETO 19.3x, RIG 26.2x then back to 1.00x; COWL 16.6x from $20.0k is also plain).
+#     Hooked with rtb < 0.6 or NULL, correctly blocked: JIMMY 0xc9ba 37.2x, HORMOS 30.8x,
+#     CBUCKS 20.9x, SKINPUSS 17.3x, and GROKIRA 26.2x / Fluxora 25.0x. The last two launched
+#     at the same $16.8-17.1k level as the plain template, so the launch level alone does
+#     not mark a sellable token; NOT hooked still does. Also pons_v2 RIG 0xc4b5 62.6x from
+#     $2.9k (no pons slot). Nothing new to test; the queue stays empty. candidates.py: [].
 #   RH backtests: 2 (2 today, new UTC day).
