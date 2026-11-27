@@ -6361,3 +6361,17 @@ alert2:
 #   template; if it stops, expect both slots' volume to drop together. Not actionable;
 #   recorded for the weekly law review on 11-29.
 #   RH backtests: 4 (6 today).
+
+# STRATEGY AGENT CYCLE 116 (2026-11-27 10:48 UTC): health only, no deployment.
+#   Live conditions match memory (edits 6/8/3).
+#   152 72h n=253, 2x+ 53.8%, 10x+ 32, 50x+ 1, ev +0.154 / ev_lcb +0.015 (ok; positive for
+#     a second cycle)
+#   155 72h n=146, 2x+ 53.4%, 10x+ 16, ev +0.115 / ev_lcb -0.055 (ok - mean positive)
+#   154: 0 sends in 24h.
+#   LEARN (mooners 6h, free): the plain template's launch level has moved up to about
+#     $17.25-17.56k (ATH, TESSEL, SLAPCAT, Hoppy, RIG, STAGEKIN, Trumpe, MSCLK, all 6-10x so
+#     far), from $16.4-16.9k on 11-25/26. The tokens are ETH-quoted, so the dollar launch
+#     price moves with ETH. Any template split by a fixed dollar band (like the $16.0-17.5k
+#     split in the 11-26/27 daily ops) will drift and must be widened or re-checked before
+#     reuse. No filter uses launch_mc, so nothing live is affected. candidates.py: [].
+#   RH backtests: 2 (8 today).
