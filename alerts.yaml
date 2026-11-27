@@ -6325,3 +6325,39 @@ alert2:
 
 # 6H REVIEW 2026-11-27 06:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
 #   again (122nd review in a row). No changes.
+
+# DAILY OPS 2026-11-27 (07:07 UTC):
+# 1) Solana fill scorecard: SKIPPED - defirobot refused the stored sign-in again. No
+#   Solana changes.
+# 2) Top-10 mooners (24h, buyers >= 100):
+#   - Hooked with rtb < 0.6 or NULL, correctly blocked: JIMMY 37.2x, SHIT 0x5b0a 31.1x,
+#     HORMOS 30.8x, UHI 29.8x ($20.2k launch, 1,503 buyers - honeypot template),
+#     FalconMargin 29.2x ($18.0k, 1,206 buyers).
+#   - pons_v2 (no slot): RIG 0xc4b5 62.6x from $2.9k, now 4.2x.
+#   - Plain catches by 152: CHRONARK 0x3cab 19.5x at $23.2k (now 1.00x), SPARE 0xb527
+#     15.2x at $30.1k (now 1.01x), WINX 0xb8ee 21.0x at $21.2k (now 12x).
+#   - Plain MISS: ASCODE 0xb6c9 43.0x from a $4.9k launch with only 113 buyers (158 buys /
+#     25 sells), now 0.87x and idle for about 10h. ETH-quoted, 0 socials, first launch.
+#     Thin pump then full drain. The wall was not identified without token_history (not
+#     pre-approved). Missing it cost nothing.
+#   - Other 152 catches (24h, 11 at 10x+): RIG 0xf0f1 22.5x, VEILOR 19.4x, NYRA 19.3x,
+#     RAETO 19.0x, COWL 16.2x, GMEC 14.2x, HYENA 13.6x, RIG 0x1e8b 11.7x. 155 caught RAETO
+#     18.3x, RIG 16.2x, COWL 13.8x.
+#   - Drained round trips: 7 of the 12 biggest plain movers are back at 0.87-1.01x
+#     (CHRONARK, SPARE x2, RIG x2, HYENA, COWL). The round-trip law is at its strongest:
+#     ladder exits, not holding.
+#   152 24h: n=83, 2x+ 50.6%, 10x+ 11, 20x+ 2, ev +0.172 / ev_lcb -0.058 (ladder_3_10).
+#   155 24h: n=43, 2x+ 53.5%, 10x+ 3, ev +0.050 / ev_lcb -0.199. (Young samples.)
+# 3) Watchlist: RIG x4 (pons + 2 plain + another), SPARE x2, CHRONARK x2, Zero x2, HYENA x2,
+#   WINX and GMEC (each plain + pons), CBUCKS x2 and SHIT x2 (hooked).
+# 4) EXPERIMENT - same launch_mc split as yesterday, now on 155 (72h, 2 backtests):
+#     launch_mc $16.0-17.5k: n=128 (88% of 146), 2x+ 50.0%, 10x+ 15, 20x+ 3,
+#       ladder_3_10 ev +0.100 / ev_lcb -0.082
+#     all other launches:    n=18, 2x+ 66.7%, 10x+ 1,
+#       ladder_3_10 ev +0.016 / ev_lcb -0.304 (scalp_2 ev +0.160)
+#   FINDING: the template makes up 88% of 155's flow (82% of 152's yesterday). Unlike on
+#   152, the rest of 155's flow is no better: it hits 2x more often but rarely 10x, so the
+#   ladder mean is lower (n=18, too small to judge). Both slots now depend on one launch
+#   template; if it stops, expect both slots' volume to drop together. Not actionable;
+#   recorded for the weekly law review on 11-29.
+#   RH backtests: 4 (6 today).
