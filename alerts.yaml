@@ -6305,3 +6305,18 @@ alert2:
 
 # 6H REVIEW 2026-11-27 00:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
 #   again (121st review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 115 (2026-11-27 02:48 UTC): health only, no deployment.
+#   Live conditions match memory (edits 6/8/3).
+#   152 72h n=259, 2x+ 51.7%, 10x+ 34, 20x+ 8, ev +0.159 / ev_lcb +0.021 (ok - lower bound
+#     back above zero, from -0.041 at c114)
+#   155 72h n=149, 2x+ 54.4%, 10x+ 17, ev +0.141 / ev_lcb -0.030 (ok - recovering from -0.090)
+#   154: 0 sends in 24h (list_filters); still silent for over a week.
+#   New catches: 152 RIG 0xf0f1 22.5x at $19.9k (now back at 1.00x - drained round trip);
+#     155 RAETO 18.3x at $18.0k (now 13.3x).
+#   LEARN (mooners 8h, free): the $16.8-17.1k template continues (GROKIRA 26.2x, Fluxora 25.0x,
+#     RAETO 19.3x, RIG 26.2x then back to 1.00x). Also pons_v2 RIG 0xc4b5 62.6x from $2.9k
+#     (no pons slot), and $19-23k launches with about 940-1,500 buyers (JIMMY 0xc9ba, CBUCKS,
+#     SKINPUSS, COWL) that fit the hooked honeypot template. Nothing new to test; the queue
+#     stays empty. candidates.py: [].
+#   RH backtests: 2 (2 today, new UTC day).
