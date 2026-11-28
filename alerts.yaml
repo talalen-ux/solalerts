@@ -6405,3 +6405,6 @@ alert2:
 #     (needs the per-token download, whose host is blocked). So 152 is not alerting on the
 #     drainers while they pump. Watch post_ath on 152 (rose 7 -> 11 over c113-c117).
 #   candidates.py: []. RH backtests: 6 (14 today).
+
+# 6H REVIEW 2026-11-28 00:33 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
+#   again (125th review in a row). No changes.
