@@ -6480,3 +6480,6 @@ alert2:
 #     to strategies: the launch_mc split was measured (11-26/27/28) and is not useful as a
 #     predicate. Unit tests 12/12 green. No code change. candidates.py: [].
 #   RH backtests: 2 (10 today).
+
+# 6H REVIEW 2026-11-28 12:32 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
+#   again (127th review in a row). No changes.
