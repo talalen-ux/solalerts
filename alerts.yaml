@@ -6429,3 +6429,37 @@ alert2:
 
 # 6H REVIEW 2026-11-28 06:33 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
 #   again (126th review in a row). No changes.
+
+# DAILY OPS 2026-11-28 (07:07 UTC):
+# 1) Solana fill scorecard: SKIPPED - defirobot refused the stored sign-in again. No
+#   Solana changes.
+# 2) Top-10 mooners (24h, buyers >= 100): none of the top 10 are plain-template tokens.
+#   - pons_v2, no slot: "2" 0x2c82 50.5x from $4.3k, OPTRA 0xc46f 42.3x from $3.0k.
+#   - Hooked with rtb < 0.6 or NULL, correctly blocked: RWLD 49.1x, Rizzmas 47.3x ($16.4k,
+#     1,515 buyers - honeypot template), "2" 0x09a1 44.5x, MANDY 0x00c3 42.2x.
+#   - High-launch drainers (c117 pattern), not alerted: MoonBoy 0x8527 34.7x and 0xe767
+#     34.5x, TEXEL 0x24f1 33.6x, 67 0x5ab7 30.3x - all now 0.02-0.03x.
+#   - Plain catches by 152 (9 at 10x+): OPTRA 0xdca9 22.5x, PYRA 19.5x, TESSEL 0x4ce5 19.0x,
+#     STAGEKIN 0xe118 15.4x, QUIV 15.2x, OPTRA 0xcecd 14.0x, CIRRAVA 13.7x, "2" 0x7440
+#     12.2x, STAGEKIN 0x02ed 10.8x. 155 caught 6 at 10x+ (OPTRA 19.2x, TESSEL 16.5x, PYRA
+#     13.3x, STAGEKIN 13.2x, OPTRA 11.8x, QUIV 11.5x).
+#   - Possible plain miss: YASARA 20.3x from $17.3k is not in 152's top 12 (it was either
+#     caught above about $51k or missed). The wall is unidentified without token_history.
+#   - Drained round trips: PYRA, TESSEL 0x4ce5, STAGEKIN 0xe118 and OPTRA 0xcecd are all
+#     back at 0.98-1.00x.
+#   152 24h: n=60 (down from 83/88), 2x+ 60.0%, 10x+ 9, 20x+ 1, ev +0.246 / ev_lcb -0.031.
+#   155 24h: n=31, 2x+ 58.1%, 10x+ 6, ev +0.302 / ev_lcb -0.086. (Young samples; best 24h
+#     means of the week.)
+# 3) Watchlist: OPTRA x4 (2 plain catches, pons 42.3x, plus 0x62a5), "2" x5 (plain, hooked,
+#   pons and drainer copies), STAGEKIN x2, TESSEL x2, MoonBoy x3 (drainers), MANDY (hooked
+#   + drainer).
+# 4) EXPERIMENT - should 152 cap launch_mc to keep out the high-launch drainers? 152 split
+#   by launch_mc (fixed at launch, so the split is exact; 168h, 2 backtests):
+#     launch_mc >= $30k: n=2 (both JACKET, about 5 days old: 4.3x and 1.3x)
+#     launch_mc <  $30k: n=534, 2x+ 53.9%, 10x+ 78, ladder_3_10 ev +0.203 / ev_lcb +0.101
+#   FINDING: 152 almost never alerts on a token that launched at $30k or more (2 of 536 in
+#   a week), so the drainers ($45-291k launches) do not reach it. The existing clauses
+#   (5x buy/sell, top_maker < 50, the $100k cap) already keep them out. A launch_mc cap would change
+#   nothing. Closed; the c117 note's suggested test is done.
+#   RH backtests: 4 (8 today).
+# 5) WEEKLY LAW REVIEW due tomorrow (11-29).
