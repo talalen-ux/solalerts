@@ -6463,3 +6463,20 @@ alert2:
 #   nothing. Closed; the c117 note's suggested test is done.
 #   RH backtests: 4 (8 today).
 # 5) WEEKLY LAW REVIEW due tomorrow (11-29).
+
+# STRATEGY AGENT CYCLE 119 (2026-11-28 10:48 UTC): health + 7th-cycle self-improvement, no
+#   deployment. Live conditions match memory (edits 6/8/3).
+#   152 72h n=229, 2x+ 52.0%, 10x+ 32, 20x+ 5, ev +0.186 / ev_lcb +0.037 (ok)
+#   155 72h n=128, 2x+ 53.1%, 10x+ 14, ev +0.108 / ev_lcb -0.071 (ok - mean positive; no
+#     20x+ in the window now that SEALFund has aged out)
+#   154: 1 send in 24h (WATT, logged at c118).
+#   Volume keeps falling: 24h sends 152 50, 155 25 (99/62 at the 11-25 peak). Only ONE
+#     plain v4 mover with 100+ buyers in the last 6h (TEXEL 0x0f11, 20.6x from $16.5k) vs
+#     7-8 per 6h on 11-26/27, so the plain launch template has slowed sharply. As noted on
+#     11-26, a drop in volume after the template slows is a market change, not a filter fault.
+#   SELF-IMPROVEMENT: 38 arms, max 4 tests (queue:plain_broad_ratio5, 4/4 wins). None has
+#     >= 8 tests, so nothing to retire. Calibration still blocked (token_history needs
+#     pre-approval; unattended runs may not wait on a prompt). No new column needs adding
+#     to strategies: the launch_mc split was measured (11-26/27/28) and is not useful as a
+#     predicate. Unit tests 12/12 green. No code change. candidates.py: [].
+#   RH backtests: 2 (10 today).
