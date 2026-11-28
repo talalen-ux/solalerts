@@ -6408,3 +6408,21 @@ alert2:
 
 # 6H REVIEW 2026-11-28 00:33 UTC (Solana): SKIPPED - defirobot refused the stored sign-in
 #   again (125th review in a row). No changes.
+
+# STRATEGY AGENT CYCLE 118 (2026-11-28 02:48 UTC): health only, no deployment.
+#   Live conditions match memory (edits 6/8/3).
+#   152 72h n=232, 2x+ 54.3%, 10x+ 34, 20x+ 5, ev +0.229 / ev_lcb +0.078 (ok - highest 72h
+#     lower bound this week)
+#   155 72h n=129, 2x+ 56.6%, 10x+ 16, ev +0.180 / ev_lcb -0.008 (ok - at zero)
+#   154: FIRST ALERT IN OVER A WEEK - WATT 0xe7f2 at $32.5k, peak so far 1.26x (n=1; 24h
+#     backtest, 1 run). Too early to judge.
+#   Sends in 24h: 152 54, 155 29 - still about half the 11-25/26 rate.
+#   HIGH-LAUNCH DRAIN PATTERN (c117) is speeding up: MoonBoy x3 ($63.9-86.4k launches, one
+#     0.14h old at 11.2x and still pumping), BROCCOLI $64.3k, MANDY $141k, and "2" 0x4198 at
+#     $44,988 - just under 155's $45k cap. All are back at 0.01-0.04x within hours.
+#   Attribution (1 backtest; 152's base condition, which contains 155's, with symbol IN the
+#     9 drainer names, 24h): 8 matches, NONE of them drainers - all lower-launch copies with
+#     the same names (best "2" 0x7440 12.2x at $17.5k). 0 post-ATH matches. Both slots
+#     are confirmed clear of this pattern; the c117 unidentified post-ATH entry is no longer
+#     in the window.
+#   candidates.py: []. RH backtests: 4 (4 today). Next: c119 = 7th-cycle self-improvement.
